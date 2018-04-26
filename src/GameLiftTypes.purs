@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -61,13 +60,13 @@ instance encodeAcceptanceType :: Encode AcceptanceType where encode = genericEnc
 
 -- | <p>Properties describing a fleet alias.</p> <p>Alias-related operations include:</p> <ul> <li> <p> <a>CreateAlias</a> </p> </li> <li> <p> <a>ListAliases</a> </p> </li> <li> <p> <a>DescribeAlias</a> </p> </li> <li> <p> <a>UpdateAlias</a> </p> </li> <li> <p> <a>DeleteAlias</a> </p> </li> <li> <p> <a>ResolveAlias</a> </p> </li> </ul>
 newtype Alias = Alias 
-  { "AliasId" :: NullOrUndefined (AliasId)
-  , "Name" :: NullOrUndefined (NonBlankAndLengthConstraintString)
-  , "AliasArn" :: NullOrUndefined (ArnStringModel)
-  , "Description" :: NullOrUndefined (FreeText)
-  , "RoutingStrategy" :: NullOrUndefined (RoutingStrategy)
-  , "CreationTime" :: NullOrUndefined (Types.Timestamp)
-  , "LastUpdatedTime" :: NullOrUndefined (Types.Timestamp)
+  { "AliasId" :: Maybe (AliasId)
+  , "Name" :: Maybe (NonBlankAndLengthConstraintString)
+  , "AliasArn" :: Maybe (ArnStringModel)
+  , "Description" :: Maybe (FreeText)
+  , "RoutingStrategy" :: Maybe (RoutingStrategy)
+  , "CreationTime" :: Maybe (Types.Timestamp)
+  , "LastUpdatedTime" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeAlias :: Newtype Alias _
 derive instance repGenericAlias :: Generic Alias _
@@ -77,12 +76,12 @@ instance encodeAlias :: Encode Alias where encode = genericEncode options
 
 -- | Constructs Alias from required parameters
 newAlias :: Alias
-newAlias  = Alias { "AliasArn": (NullOrUndefined Nothing), "AliasId": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "LastUpdatedTime": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "RoutingStrategy": (NullOrUndefined Nothing) }
+newAlias  = Alias { "AliasArn": Nothing, "AliasId": Nothing, "CreationTime": Nothing, "Description": Nothing, "LastUpdatedTime": Nothing, "Name": Nothing, "RoutingStrategy": Nothing }
 
 -- | Constructs Alias's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAlias' :: ( { "AliasId" :: NullOrUndefined (AliasId) , "Name" :: NullOrUndefined (NonBlankAndLengthConstraintString) , "AliasArn" :: NullOrUndefined (ArnStringModel) , "Description" :: NullOrUndefined (FreeText) , "RoutingStrategy" :: NullOrUndefined (RoutingStrategy) , "CreationTime" :: NullOrUndefined (Types.Timestamp) , "LastUpdatedTime" :: NullOrUndefined (Types.Timestamp) } -> {"AliasId" :: NullOrUndefined (AliasId) , "Name" :: NullOrUndefined (NonBlankAndLengthConstraintString) , "AliasArn" :: NullOrUndefined (ArnStringModel) , "Description" :: NullOrUndefined (FreeText) , "RoutingStrategy" :: NullOrUndefined (RoutingStrategy) , "CreationTime" :: NullOrUndefined (Types.Timestamp) , "LastUpdatedTime" :: NullOrUndefined (Types.Timestamp) } ) -> Alias
-newAlias'  customize = (Alias <<< customize) { "AliasArn": (NullOrUndefined Nothing), "AliasId": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "LastUpdatedTime": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "RoutingStrategy": (NullOrUndefined Nothing) }
+newAlias' :: ( { "AliasId" :: Maybe (AliasId) , "Name" :: Maybe (NonBlankAndLengthConstraintString) , "AliasArn" :: Maybe (ArnStringModel) , "Description" :: Maybe (FreeText) , "RoutingStrategy" :: Maybe (RoutingStrategy) , "CreationTime" :: Maybe (Types.Timestamp) , "LastUpdatedTime" :: Maybe (Types.Timestamp) } -> {"AliasId" :: Maybe (AliasId) , "Name" :: Maybe (NonBlankAndLengthConstraintString) , "AliasArn" :: Maybe (ArnStringModel) , "Description" :: Maybe (FreeText) , "RoutingStrategy" :: Maybe (RoutingStrategy) , "CreationTime" :: Maybe (Types.Timestamp) , "LastUpdatedTime" :: Maybe (Types.Timestamp) } ) -> Alias
+newAlias'  customize = (Alias <<< customize) { "AliasArn": Nothing, "AliasId": Nothing, "CreationTime": Nothing, "Description": Nothing, "LastUpdatedTime": Nothing, "Name": Nothing, "RoutingStrategy": Nothing }
 
 
 
@@ -115,10 +114,10 @@ instance encodeArnStringModel :: Encode ArnStringModel where encode = genericEnc
 
 -- | <p>Values for use in <a>Player</a> attribute key:value pairs. This object lets you specify an attribute value using any of the valid data types: string, number, string array or data map. Each <code>AttributeValue</code> object can use only one of the available properties.</p>
 newtype AttributeValue = AttributeValue 
-  { "S" :: NullOrUndefined (NonZeroAndMaxString)
-  , "N" :: NullOrUndefined (DoubleObject)
-  , "SL" :: NullOrUndefined (StringList)
-  , "SDM" :: NullOrUndefined (StringDoubleMap)
+  { "S" :: Maybe (NonZeroAndMaxString)
+  , "N" :: Maybe (DoubleObject)
+  , "SL" :: Maybe (StringList)
+  , "SDM" :: Maybe (StringDoubleMap)
   }
 derive instance newtypeAttributeValue :: Newtype AttributeValue _
 derive instance repGenericAttributeValue :: Generic AttributeValue _
@@ -128,20 +127,20 @@ instance encodeAttributeValue :: Encode AttributeValue where encode = genericEnc
 
 -- | Constructs AttributeValue from required parameters
 newAttributeValue :: AttributeValue
-newAttributeValue  = AttributeValue { "N": (NullOrUndefined Nothing), "S": (NullOrUndefined Nothing), "SDM": (NullOrUndefined Nothing), "SL": (NullOrUndefined Nothing) }
+newAttributeValue  = AttributeValue { "N": Nothing, "S": Nothing, "SDM": Nothing, "SL": Nothing }
 
 -- | Constructs AttributeValue's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAttributeValue' :: ( { "S" :: NullOrUndefined (NonZeroAndMaxString) , "N" :: NullOrUndefined (DoubleObject) , "SL" :: NullOrUndefined (StringList) , "SDM" :: NullOrUndefined (StringDoubleMap) } -> {"S" :: NullOrUndefined (NonZeroAndMaxString) , "N" :: NullOrUndefined (DoubleObject) , "SL" :: NullOrUndefined (StringList) , "SDM" :: NullOrUndefined (StringDoubleMap) } ) -> AttributeValue
-newAttributeValue'  customize = (AttributeValue <<< customize) { "N": (NullOrUndefined Nothing), "S": (NullOrUndefined Nothing), "SDM": (NullOrUndefined Nothing), "SL": (NullOrUndefined Nothing) }
+newAttributeValue' :: ( { "S" :: Maybe (NonZeroAndMaxString) , "N" :: Maybe (DoubleObject) , "SL" :: Maybe (StringList) , "SDM" :: Maybe (StringDoubleMap) } -> {"S" :: Maybe (NonZeroAndMaxString) , "N" :: Maybe (DoubleObject) , "SL" :: Maybe (StringList) , "SDM" :: Maybe (StringDoubleMap) } ) -> AttributeValue
+newAttributeValue'  customize = (AttributeValue <<< customize) { "N": Nothing, "S": Nothing, "SDM": Nothing, "SL": Nothing }
 
 
 
 -- | <p>Temporary access credentials used for uploading game build files to Amazon GameLift. They are valid for a limited time. If they expire before you upload your game build, get a new set by calling <a>RequestUploadCredentials</a>.</p>
 newtype AwsCredentials = AwsCredentials 
-  { "AccessKeyId" :: NullOrUndefined (NonEmptyString)
-  , "SecretAccessKey" :: NullOrUndefined (NonEmptyString)
-  , "SessionToken" :: NullOrUndefined (NonEmptyString)
+  { "AccessKeyId" :: Maybe (NonEmptyString)
+  , "SecretAccessKey" :: Maybe (NonEmptyString)
+  , "SessionToken" :: Maybe (NonEmptyString)
   }
 derive instance newtypeAwsCredentials :: Newtype AwsCredentials _
 derive instance repGenericAwsCredentials :: Generic AwsCredentials _
@@ -151,12 +150,12 @@ instance encodeAwsCredentials :: Encode AwsCredentials where encode = genericEnc
 
 -- | Constructs AwsCredentials from required parameters
 newAwsCredentials :: AwsCredentials
-newAwsCredentials  = AwsCredentials { "AccessKeyId": (NullOrUndefined Nothing), "SecretAccessKey": (NullOrUndefined Nothing), "SessionToken": (NullOrUndefined Nothing) }
+newAwsCredentials  = AwsCredentials { "AccessKeyId": Nothing, "SecretAccessKey": Nothing, "SessionToken": Nothing }
 
 -- | Constructs AwsCredentials's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAwsCredentials' :: ( { "AccessKeyId" :: NullOrUndefined (NonEmptyString) , "SecretAccessKey" :: NullOrUndefined (NonEmptyString) , "SessionToken" :: NullOrUndefined (NonEmptyString) } -> {"AccessKeyId" :: NullOrUndefined (NonEmptyString) , "SecretAccessKey" :: NullOrUndefined (NonEmptyString) , "SessionToken" :: NullOrUndefined (NonEmptyString) } ) -> AwsCredentials
-newAwsCredentials'  customize = (AwsCredentials <<< customize) { "AccessKeyId": (NullOrUndefined Nothing), "SecretAccessKey": (NullOrUndefined Nothing), "SessionToken": (NullOrUndefined Nothing) }
+newAwsCredentials' :: ( { "AccessKeyId" :: Maybe (NonEmptyString) , "SecretAccessKey" :: Maybe (NonEmptyString) , "SessionToken" :: Maybe (NonEmptyString) } -> {"AccessKeyId" :: Maybe (NonEmptyString) , "SecretAccessKey" :: Maybe (NonEmptyString) , "SessionToken" :: Maybe (NonEmptyString) } ) -> AwsCredentials
+newAwsCredentials'  customize = (AwsCredentials <<< customize) { "AccessKeyId": Nothing, "SecretAccessKey": Nothing, "SessionToken": Nothing }
 
 
 
@@ -171,13 +170,13 @@ instance encodeBooleanModel :: Encode BooleanModel where encode = genericEncode 
 
 -- | <p>Properties describing a game build.</p> <p>Build-related operations include:</p> <ul> <li> <p> <a>CreateBuild</a> </p> </li> <li> <p> <a>ListBuilds</a> </p> </li> <li> <p> <a>DescribeBuild</a> </p> </li> <li> <p> <a>UpdateBuild</a> </p> </li> <li> <p> <a>DeleteBuild</a> </p> </li> </ul>
 newtype Build = Build 
-  { "BuildId" :: NullOrUndefined (BuildId)
-  , "Name" :: NullOrUndefined (FreeText)
-  , "Version" :: NullOrUndefined (FreeText)
-  , "Status" :: NullOrUndefined (BuildStatus)
-  , "SizeOnDisk" :: NullOrUndefined (PositiveLong)
-  , "OperatingSystem" :: NullOrUndefined (OperatingSystem)
-  , "CreationTime" :: NullOrUndefined (Types.Timestamp)
+  { "BuildId" :: Maybe (BuildId)
+  , "Name" :: Maybe (FreeText)
+  , "Version" :: Maybe (FreeText)
+  , "Status" :: Maybe (BuildStatus)
+  , "SizeOnDisk" :: Maybe (PositiveLong)
+  , "OperatingSystem" :: Maybe (OperatingSystem)
+  , "CreationTime" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeBuild :: Newtype Build _
 derive instance repGenericBuild :: Generic Build _
@@ -187,12 +186,12 @@ instance encodeBuild :: Encode Build where encode = genericEncode options
 
 -- | Constructs Build from required parameters
 newBuild :: Build
-newBuild  = Build { "BuildId": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "OperatingSystem": (NullOrUndefined Nothing), "SizeOnDisk": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "Version": (NullOrUndefined Nothing) }
+newBuild  = Build { "BuildId": Nothing, "CreationTime": Nothing, "Name": Nothing, "OperatingSystem": Nothing, "SizeOnDisk": Nothing, "Status": Nothing, "Version": Nothing }
 
 -- | Constructs Build's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBuild' :: ( { "BuildId" :: NullOrUndefined (BuildId) , "Name" :: NullOrUndefined (FreeText) , "Version" :: NullOrUndefined (FreeText) , "Status" :: NullOrUndefined (BuildStatus) , "SizeOnDisk" :: NullOrUndefined (PositiveLong) , "OperatingSystem" :: NullOrUndefined (OperatingSystem) , "CreationTime" :: NullOrUndefined (Types.Timestamp) } -> {"BuildId" :: NullOrUndefined (BuildId) , "Name" :: NullOrUndefined (FreeText) , "Version" :: NullOrUndefined (FreeText) , "Status" :: NullOrUndefined (BuildStatus) , "SizeOnDisk" :: NullOrUndefined (PositiveLong) , "OperatingSystem" :: NullOrUndefined (OperatingSystem) , "CreationTime" :: NullOrUndefined (Types.Timestamp) } ) -> Build
-newBuild'  customize = (Build <<< customize) { "BuildId": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "OperatingSystem": (NullOrUndefined Nothing), "SizeOnDisk": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "Version": (NullOrUndefined Nothing) }
+newBuild' :: ( { "BuildId" :: Maybe (BuildId) , "Name" :: Maybe (FreeText) , "Version" :: Maybe (FreeText) , "Status" :: Maybe (BuildStatus) , "SizeOnDisk" :: Maybe (PositiveLong) , "OperatingSystem" :: Maybe (OperatingSystem) , "CreationTime" :: Maybe (Types.Timestamp) } -> {"BuildId" :: Maybe (BuildId) , "Name" :: Maybe (FreeText) , "Version" :: Maybe (FreeText) , "Status" :: Maybe (BuildStatus) , "SizeOnDisk" :: Maybe (PositiveLong) , "OperatingSystem" :: Maybe (OperatingSystem) , "CreationTime" :: Maybe (Types.Timestamp) } ) -> Build
+newBuild'  customize = (Build <<< customize) { "BuildId": Nothing, "CreationTime": Nothing, "Name": Nothing, "OperatingSystem": Nothing, "SizeOnDisk": Nothing, "Status": Nothing, "Version": Nothing }
 
 
 
@@ -234,7 +233,7 @@ instance encodeComparisonOperatorType :: Encode ComparisonOperatorType where enc
 
 -- | <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
 newtype ConflictException = ConflictException 
-  { "Message" :: NullOrUndefined (NonEmptyString)
+  { "Message" :: Maybe (NonEmptyString)
   }
 derive instance newtypeConflictException :: Newtype ConflictException _
 derive instance repGenericConflictException :: Generic ConflictException _
@@ -244,19 +243,19 @@ instance encodeConflictException :: Encode ConflictException where encode = gene
 
 -- | Constructs ConflictException from required parameters
 newConflictException :: ConflictException
-newConflictException  = ConflictException { "Message": (NullOrUndefined Nothing) }
+newConflictException  = ConflictException { "Message": Nothing }
 
 -- | Constructs ConflictException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConflictException' :: ( { "Message" :: NullOrUndefined (NonEmptyString) } -> {"Message" :: NullOrUndefined (NonEmptyString) } ) -> ConflictException
-newConflictException'  customize = (ConflictException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newConflictException' :: ( { "Message" :: Maybe (NonEmptyString) } -> {"Message" :: Maybe (NonEmptyString) } ) -> ConflictException
+newConflictException'  customize = (ConflictException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype CreateAliasInput = CreateAliasInput 
   { "Name" :: (NonBlankAndLengthConstraintString)
-  , "Description" :: NullOrUndefined (NonZeroAndMaxString)
+  , "Description" :: Maybe (NonZeroAndMaxString)
   , "RoutingStrategy" :: (RoutingStrategy)
   }
 derive instance newtypeCreateAliasInput :: Newtype CreateAliasInput _
@@ -267,18 +266,18 @@ instance encodeCreateAliasInput :: Encode CreateAliasInput where encode = generi
 
 -- | Constructs CreateAliasInput from required parameters
 newCreateAliasInput :: NonBlankAndLengthConstraintString -> RoutingStrategy -> CreateAliasInput
-newCreateAliasInput _Name _RoutingStrategy = CreateAliasInput { "Name": _Name, "RoutingStrategy": _RoutingStrategy, "Description": (NullOrUndefined Nothing) }
+newCreateAliasInput _Name _RoutingStrategy = CreateAliasInput { "Name": _Name, "RoutingStrategy": _RoutingStrategy, "Description": Nothing }
 
 -- | Constructs CreateAliasInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateAliasInput' :: NonBlankAndLengthConstraintString -> RoutingStrategy -> ( { "Name" :: (NonBlankAndLengthConstraintString) , "Description" :: NullOrUndefined (NonZeroAndMaxString) , "RoutingStrategy" :: (RoutingStrategy) } -> {"Name" :: (NonBlankAndLengthConstraintString) , "Description" :: NullOrUndefined (NonZeroAndMaxString) , "RoutingStrategy" :: (RoutingStrategy) } ) -> CreateAliasInput
-newCreateAliasInput' _Name _RoutingStrategy customize = (CreateAliasInput <<< customize) { "Name": _Name, "RoutingStrategy": _RoutingStrategy, "Description": (NullOrUndefined Nothing) }
+newCreateAliasInput' :: NonBlankAndLengthConstraintString -> RoutingStrategy -> ( { "Name" :: (NonBlankAndLengthConstraintString) , "Description" :: Maybe (NonZeroAndMaxString) , "RoutingStrategy" :: (RoutingStrategy) } -> {"Name" :: (NonBlankAndLengthConstraintString) , "Description" :: Maybe (NonZeroAndMaxString) , "RoutingStrategy" :: (RoutingStrategy) } ) -> CreateAliasInput
+newCreateAliasInput' _Name _RoutingStrategy customize = (CreateAliasInput <<< customize) { "Name": _Name, "RoutingStrategy": _RoutingStrategy, "Description": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype CreateAliasOutput = CreateAliasOutput 
-  { "Alias" :: NullOrUndefined (Alias)
+  { "Alias" :: Maybe (Alias)
   }
 derive instance newtypeCreateAliasOutput :: Newtype CreateAliasOutput _
 derive instance repGenericCreateAliasOutput :: Generic CreateAliasOutput _
@@ -288,21 +287,21 @@ instance encodeCreateAliasOutput :: Encode CreateAliasOutput where encode = gene
 
 -- | Constructs CreateAliasOutput from required parameters
 newCreateAliasOutput :: CreateAliasOutput
-newCreateAliasOutput  = CreateAliasOutput { "Alias": (NullOrUndefined Nothing) }
+newCreateAliasOutput  = CreateAliasOutput { "Alias": Nothing }
 
 -- | Constructs CreateAliasOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateAliasOutput' :: ( { "Alias" :: NullOrUndefined (Alias) } -> {"Alias" :: NullOrUndefined (Alias) } ) -> CreateAliasOutput
-newCreateAliasOutput'  customize = (CreateAliasOutput <<< customize) { "Alias": (NullOrUndefined Nothing) }
+newCreateAliasOutput' :: ( { "Alias" :: Maybe (Alias) } -> {"Alias" :: Maybe (Alias) } ) -> CreateAliasOutput
+newCreateAliasOutput'  customize = (CreateAliasOutput <<< customize) { "Alias": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype CreateBuildInput = CreateBuildInput 
-  { "Name" :: NullOrUndefined (NonZeroAndMaxString)
-  , "Version" :: NullOrUndefined (NonZeroAndMaxString)
-  , "StorageLocation" :: NullOrUndefined (S3Location)
-  , "OperatingSystem" :: NullOrUndefined (OperatingSystem)
+  { "Name" :: Maybe (NonZeroAndMaxString)
+  , "Version" :: Maybe (NonZeroAndMaxString)
+  , "StorageLocation" :: Maybe (S3Location)
+  , "OperatingSystem" :: Maybe (OperatingSystem)
   }
 derive instance newtypeCreateBuildInput :: Newtype CreateBuildInput _
 derive instance repGenericCreateBuildInput :: Generic CreateBuildInput _
@@ -312,20 +311,20 @@ instance encodeCreateBuildInput :: Encode CreateBuildInput where encode = generi
 
 -- | Constructs CreateBuildInput from required parameters
 newCreateBuildInput :: CreateBuildInput
-newCreateBuildInput  = CreateBuildInput { "Name": (NullOrUndefined Nothing), "OperatingSystem": (NullOrUndefined Nothing), "StorageLocation": (NullOrUndefined Nothing), "Version": (NullOrUndefined Nothing) }
+newCreateBuildInput  = CreateBuildInput { "Name": Nothing, "OperatingSystem": Nothing, "StorageLocation": Nothing, "Version": Nothing }
 
 -- | Constructs CreateBuildInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateBuildInput' :: ( { "Name" :: NullOrUndefined (NonZeroAndMaxString) , "Version" :: NullOrUndefined (NonZeroAndMaxString) , "StorageLocation" :: NullOrUndefined (S3Location) , "OperatingSystem" :: NullOrUndefined (OperatingSystem) } -> {"Name" :: NullOrUndefined (NonZeroAndMaxString) , "Version" :: NullOrUndefined (NonZeroAndMaxString) , "StorageLocation" :: NullOrUndefined (S3Location) , "OperatingSystem" :: NullOrUndefined (OperatingSystem) } ) -> CreateBuildInput
-newCreateBuildInput'  customize = (CreateBuildInput <<< customize) { "Name": (NullOrUndefined Nothing), "OperatingSystem": (NullOrUndefined Nothing), "StorageLocation": (NullOrUndefined Nothing), "Version": (NullOrUndefined Nothing) }
+newCreateBuildInput' :: ( { "Name" :: Maybe (NonZeroAndMaxString) , "Version" :: Maybe (NonZeroAndMaxString) , "StorageLocation" :: Maybe (S3Location) , "OperatingSystem" :: Maybe (OperatingSystem) } -> {"Name" :: Maybe (NonZeroAndMaxString) , "Version" :: Maybe (NonZeroAndMaxString) , "StorageLocation" :: Maybe (S3Location) , "OperatingSystem" :: Maybe (OperatingSystem) } ) -> CreateBuildInput
+newCreateBuildInput'  customize = (CreateBuildInput <<< customize) { "Name": Nothing, "OperatingSystem": Nothing, "StorageLocation": Nothing, "Version": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype CreateBuildOutput = CreateBuildOutput 
-  { "Build" :: NullOrUndefined (Build)
-  , "UploadCredentials" :: NullOrUndefined (AwsCredentials)
-  , "StorageLocation" :: NullOrUndefined (S3Location)
+  { "Build" :: Maybe (Build)
+  , "UploadCredentials" :: Maybe (AwsCredentials)
+  , "StorageLocation" :: Maybe (S3Location)
   }
 derive instance newtypeCreateBuildOutput :: Newtype CreateBuildOutput _
 derive instance repGenericCreateBuildOutput :: Generic CreateBuildOutput _
@@ -335,32 +334,32 @@ instance encodeCreateBuildOutput :: Encode CreateBuildOutput where encode = gene
 
 -- | Constructs CreateBuildOutput from required parameters
 newCreateBuildOutput :: CreateBuildOutput
-newCreateBuildOutput  = CreateBuildOutput { "Build": (NullOrUndefined Nothing), "StorageLocation": (NullOrUndefined Nothing), "UploadCredentials": (NullOrUndefined Nothing) }
+newCreateBuildOutput  = CreateBuildOutput { "Build": Nothing, "StorageLocation": Nothing, "UploadCredentials": Nothing }
 
 -- | Constructs CreateBuildOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateBuildOutput' :: ( { "Build" :: NullOrUndefined (Build) , "UploadCredentials" :: NullOrUndefined (AwsCredentials) , "StorageLocation" :: NullOrUndefined (S3Location) } -> {"Build" :: NullOrUndefined (Build) , "UploadCredentials" :: NullOrUndefined (AwsCredentials) , "StorageLocation" :: NullOrUndefined (S3Location) } ) -> CreateBuildOutput
-newCreateBuildOutput'  customize = (CreateBuildOutput <<< customize) { "Build": (NullOrUndefined Nothing), "StorageLocation": (NullOrUndefined Nothing), "UploadCredentials": (NullOrUndefined Nothing) }
+newCreateBuildOutput' :: ( { "Build" :: Maybe (Build) , "UploadCredentials" :: Maybe (AwsCredentials) , "StorageLocation" :: Maybe (S3Location) } -> {"Build" :: Maybe (Build) , "UploadCredentials" :: Maybe (AwsCredentials) , "StorageLocation" :: Maybe (S3Location) } ) -> CreateBuildOutput
+newCreateBuildOutput'  customize = (CreateBuildOutput <<< customize) { "Build": Nothing, "StorageLocation": Nothing, "UploadCredentials": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype CreateFleetInput = CreateFleetInput 
   { "Name" :: (NonZeroAndMaxString)
-  , "Description" :: NullOrUndefined (NonZeroAndMaxString)
+  , "Description" :: Maybe (NonZeroAndMaxString)
   , "BuildId" :: (BuildId)
-  , "ServerLaunchPath" :: NullOrUndefined (NonZeroAndMaxString)
-  , "ServerLaunchParameters" :: NullOrUndefined (NonZeroAndMaxString)
-  , "LogPaths" :: NullOrUndefined (StringList)
+  , "ServerLaunchPath" :: Maybe (NonZeroAndMaxString)
+  , "ServerLaunchParameters" :: Maybe (NonZeroAndMaxString)
+  , "LogPaths" :: Maybe (StringList)
   , "EC2InstanceType" :: (EC2InstanceType)
-  , "EC2InboundPermissions" :: NullOrUndefined (IpPermissionsList)
-  , "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy)
-  , "RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration)
-  , "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy)
-  , "MetricGroups" :: NullOrUndefined (MetricGroupList)
-  , "PeerVpcAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "FleetType" :: NullOrUndefined (FleetType)
+  , "EC2InboundPermissions" :: Maybe (IpPermissionsList)
+  , "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy)
+  , "RuntimeConfiguration" :: Maybe (RuntimeConfiguration)
+  , "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy)
+  , "MetricGroups" :: Maybe (MetricGroupList)
+  , "PeerVpcAwsAccountId" :: Maybe (NonZeroAndMaxString)
+  , "PeerVpcId" :: Maybe (NonZeroAndMaxString)
+  , "FleetType" :: Maybe (FleetType)
   }
 derive instance newtypeCreateFleetInput :: Newtype CreateFleetInput _
 derive instance repGenericCreateFleetInput :: Generic CreateFleetInput _
@@ -370,18 +369,18 @@ instance encodeCreateFleetInput :: Encode CreateFleetInput where encode = generi
 
 -- | Constructs CreateFleetInput from required parameters
 newCreateFleetInput :: BuildId -> EC2InstanceType -> NonZeroAndMaxString -> CreateFleetInput
-newCreateFleetInput _BuildId _EC2InstanceType _Name = CreateFleetInput { "BuildId": _BuildId, "EC2InstanceType": _EC2InstanceType, "Name": _Name, "Description": (NullOrUndefined Nothing), "EC2InboundPermissions": (NullOrUndefined Nothing), "FleetType": (NullOrUndefined Nothing), "LogPaths": (NullOrUndefined Nothing), "MetricGroups": (NullOrUndefined Nothing), "NewGameSessionProtectionPolicy": (NullOrUndefined Nothing), "PeerVpcAwsAccountId": (NullOrUndefined Nothing), "PeerVpcId": (NullOrUndefined Nothing), "ResourceCreationLimitPolicy": (NullOrUndefined Nothing), "RuntimeConfiguration": (NullOrUndefined Nothing), "ServerLaunchParameters": (NullOrUndefined Nothing), "ServerLaunchPath": (NullOrUndefined Nothing) }
+newCreateFleetInput _BuildId _EC2InstanceType _Name = CreateFleetInput { "BuildId": _BuildId, "EC2InstanceType": _EC2InstanceType, "Name": _Name, "Description": Nothing, "EC2InboundPermissions": Nothing, "FleetType": Nothing, "LogPaths": Nothing, "MetricGroups": Nothing, "NewGameSessionProtectionPolicy": Nothing, "PeerVpcAwsAccountId": Nothing, "PeerVpcId": Nothing, "ResourceCreationLimitPolicy": Nothing, "RuntimeConfiguration": Nothing, "ServerLaunchParameters": Nothing, "ServerLaunchPath": Nothing }
 
 -- | Constructs CreateFleetInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateFleetInput' :: BuildId -> EC2InstanceType -> NonZeroAndMaxString -> ( { "Name" :: (NonZeroAndMaxString) , "Description" :: NullOrUndefined (NonZeroAndMaxString) , "BuildId" :: (BuildId) , "ServerLaunchPath" :: NullOrUndefined (NonZeroAndMaxString) , "ServerLaunchParameters" :: NullOrUndefined (NonZeroAndMaxString) , "LogPaths" :: NullOrUndefined (StringList) , "EC2InstanceType" :: (EC2InstanceType) , "EC2InboundPermissions" :: NullOrUndefined (IpPermissionsList) , "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy) , "RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration) , "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy) , "MetricGroups" :: NullOrUndefined (MetricGroupList) , "PeerVpcAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString) , "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString) , "FleetType" :: NullOrUndefined (FleetType) } -> {"Name" :: (NonZeroAndMaxString) , "Description" :: NullOrUndefined (NonZeroAndMaxString) , "BuildId" :: (BuildId) , "ServerLaunchPath" :: NullOrUndefined (NonZeroAndMaxString) , "ServerLaunchParameters" :: NullOrUndefined (NonZeroAndMaxString) , "LogPaths" :: NullOrUndefined (StringList) , "EC2InstanceType" :: (EC2InstanceType) , "EC2InboundPermissions" :: NullOrUndefined (IpPermissionsList) , "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy) , "RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration) , "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy) , "MetricGroups" :: NullOrUndefined (MetricGroupList) , "PeerVpcAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString) , "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString) , "FleetType" :: NullOrUndefined (FleetType) } ) -> CreateFleetInput
-newCreateFleetInput' _BuildId _EC2InstanceType _Name customize = (CreateFleetInput <<< customize) { "BuildId": _BuildId, "EC2InstanceType": _EC2InstanceType, "Name": _Name, "Description": (NullOrUndefined Nothing), "EC2InboundPermissions": (NullOrUndefined Nothing), "FleetType": (NullOrUndefined Nothing), "LogPaths": (NullOrUndefined Nothing), "MetricGroups": (NullOrUndefined Nothing), "NewGameSessionProtectionPolicy": (NullOrUndefined Nothing), "PeerVpcAwsAccountId": (NullOrUndefined Nothing), "PeerVpcId": (NullOrUndefined Nothing), "ResourceCreationLimitPolicy": (NullOrUndefined Nothing), "RuntimeConfiguration": (NullOrUndefined Nothing), "ServerLaunchParameters": (NullOrUndefined Nothing), "ServerLaunchPath": (NullOrUndefined Nothing) }
+newCreateFleetInput' :: BuildId -> EC2InstanceType -> NonZeroAndMaxString -> ( { "Name" :: (NonZeroAndMaxString) , "Description" :: Maybe (NonZeroAndMaxString) , "BuildId" :: (BuildId) , "ServerLaunchPath" :: Maybe (NonZeroAndMaxString) , "ServerLaunchParameters" :: Maybe (NonZeroAndMaxString) , "LogPaths" :: Maybe (StringList) , "EC2InstanceType" :: (EC2InstanceType) , "EC2InboundPermissions" :: Maybe (IpPermissionsList) , "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy) , "RuntimeConfiguration" :: Maybe (RuntimeConfiguration) , "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy) , "MetricGroups" :: Maybe (MetricGroupList) , "PeerVpcAwsAccountId" :: Maybe (NonZeroAndMaxString) , "PeerVpcId" :: Maybe (NonZeroAndMaxString) , "FleetType" :: Maybe (FleetType) } -> {"Name" :: (NonZeroAndMaxString) , "Description" :: Maybe (NonZeroAndMaxString) , "BuildId" :: (BuildId) , "ServerLaunchPath" :: Maybe (NonZeroAndMaxString) , "ServerLaunchParameters" :: Maybe (NonZeroAndMaxString) , "LogPaths" :: Maybe (StringList) , "EC2InstanceType" :: (EC2InstanceType) , "EC2InboundPermissions" :: Maybe (IpPermissionsList) , "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy) , "RuntimeConfiguration" :: Maybe (RuntimeConfiguration) , "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy) , "MetricGroups" :: Maybe (MetricGroupList) , "PeerVpcAwsAccountId" :: Maybe (NonZeroAndMaxString) , "PeerVpcId" :: Maybe (NonZeroAndMaxString) , "FleetType" :: Maybe (FleetType) } ) -> CreateFleetInput
+newCreateFleetInput' _BuildId _EC2InstanceType _Name customize = (CreateFleetInput <<< customize) { "BuildId": _BuildId, "EC2InstanceType": _EC2InstanceType, "Name": _Name, "Description": Nothing, "EC2InboundPermissions": Nothing, "FleetType": Nothing, "LogPaths": Nothing, "MetricGroups": Nothing, "NewGameSessionProtectionPolicy": Nothing, "PeerVpcAwsAccountId": Nothing, "PeerVpcId": Nothing, "ResourceCreationLimitPolicy": Nothing, "RuntimeConfiguration": Nothing, "ServerLaunchParameters": Nothing, "ServerLaunchPath": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype CreateFleetOutput = CreateFleetOutput 
-  { "FleetAttributes" :: NullOrUndefined (FleetAttributes)
+  { "FleetAttributes" :: Maybe (FleetAttributes)
   }
 derive instance newtypeCreateFleetOutput :: Newtype CreateFleetOutput _
 derive instance repGenericCreateFleetOutput :: Generic CreateFleetOutput _
@@ -391,26 +390,26 @@ instance encodeCreateFleetOutput :: Encode CreateFleetOutput where encode = gene
 
 -- | Constructs CreateFleetOutput from required parameters
 newCreateFleetOutput :: CreateFleetOutput
-newCreateFleetOutput  = CreateFleetOutput { "FleetAttributes": (NullOrUndefined Nothing) }
+newCreateFleetOutput  = CreateFleetOutput { "FleetAttributes": Nothing }
 
 -- | Constructs CreateFleetOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateFleetOutput' :: ( { "FleetAttributes" :: NullOrUndefined (FleetAttributes) } -> {"FleetAttributes" :: NullOrUndefined (FleetAttributes) } ) -> CreateFleetOutput
-newCreateFleetOutput'  customize = (CreateFleetOutput <<< customize) { "FleetAttributes": (NullOrUndefined Nothing) }
+newCreateFleetOutput' :: ( { "FleetAttributes" :: Maybe (FleetAttributes) } -> {"FleetAttributes" :: Maybe (FleetAttributes) } ) -> CreateFleetOutput
+newCreateFleetOutput'  customize = (CreateFleetOutput <<< customize) { "FleetAttributes": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype CreateGameSessionInput = CreateGameSessionInput 
-  { "FleetId" :: NullOrUndefined (FleetId)
-  , "AliasId" :: NullOrUndefined (AliasId)
+  { "FleetId" :: Maybe (FleetId)
+  , "AliasId" :: Maybe (AliasId)
   , "MaximumPlayerSessionCount" :: (WholeNumber)
-  , "Name" :: NullOrUndefined (NonZeroAndMaxString)
-  , "GameProperties" :: NullOrUndefined (GamePropertyList)
-  , "CreatorId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "GameSessionId" :: NullOrUndefined (IdStringModel)
-  , "IdempotencyToken" :: NullOrUndefined (IdStringModel)
-  , "GameSessionData" :: NullOrUndefined (GameSessionData)
+  , "Name" :: Maybe (NonZeroAndMaxString)
+  , "GameProperties" :: Maybe (GamePropertyList)
+  , "CreatorId" :: Maybe (NonZeroAndMaxString)
+  , "GameSessionId" :: Maybe (IdStringModel)
+  , "IdempotencyToken" :: Maybe (IdStringModel)
+  , "GameSessionData" :: Maybe (GameSessionData)
   }
 derive instance newtypeCreateGameSessionInput :: Newtype CreateGameSessionInput _
 derive instance repGenericCreateGameSessionInput :: Generic CreateGameSessionInput _
@@ -420,18 +419,18 @@ instance encodeCreateGameSessionInput :: Encode CreateGameSessionInput where enc
 
 -- | Constructs CreateGameSessionInput from required parameters
 newCreateGameSessionInput :: WholeNumber -> CreateGameSessionInput
-newCreateGameSessionInput _MaximumPlayerSessionCount = CreateGameSessionInput { "MaximumPlayerSessionCount": _MaximumPlayerSessionCount, "AliasId": (NullOrUndefined Nothing), "CreatorId": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "GameProperties": (NullOrUndefined Nothing), "GameSessionData": (NullOrUndefined Nothing), "GameSessionId": (NullOrUndefined Nothing), "IdempotencyToken": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing) }
+newCreateGameSessionInput _MaximumPlayerSessionCount = CreateGameSessionInput { "MaximumPlayerSessionCount": _MaximumPlayerSessionCount, "AliasId": Nothing, "CreatorId": Nothing, "FleetId": Nothing, "GameProperties": Nothing, "GameSessionData": Nothing, "GameSessionId": Nothing, "IdempotencyToken": Nothing, "Name": Nothing }
 
 -- | Constructs CreateGameSessionInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateGameSessionInput' :: WholeNumber -> ( { "FleetId" :: NullOrUndefined (FleetId) , "AliasId" :: NullOrUndefined (AliasId) , "MaximumPlayerSessionCount" :: (WholeNumber) , "Name" :: NullOrUndefined (NonZeroAndMaxString) , "GameProperties" :: NullOrUndefined (GamePropertyList) , "CreatorId" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionId" :: NullOrUndefined (IdStringModel) , "IdempotencyToken" :: NullOrUndefined (IdStringModel) , "GameSessionData" :: NullOrUndefined (GameSessionData) } -> {"FleetId" :: NullOrUndefined (FleetId) , "AliasId" :: NullOrUndefined (AliasId) , "MaximumPlayerSessionCount" :: (WholeNumber) , "Name" :: NullOrUndefined (NonZeroAndMaxString) , "GameProperties" :: NullOrUndefined (GamePropertyList) , "CreatorId" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionId" :: NullOrUndefined (IdStringModel) , "IdempotencyToken" :: NullOrUndefined (IdStringModel) , "GameSessionData" :: NullOrUndefined (GameSessionData) } ) -> CreateGameSessionInput
-newCreateGameSessionInput' _MaximumPlayerSessionCount customize = (CreateGameSessionInput <<< customize) { "MaximumPlayerSessionCount": _MaximumPlayerSessionCount, "AliasId": (NullOrUndefined Nothing), "CreatorId": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "GameProperties": (NullOrUndefined Nothing), "GameSessionData": (NullOrUndefined Nothing), "GameSessionId": (NullOrUndefined Nothing), "IdempotencyToken": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing) }
+newCreateGameSessionInput' :: WholeNumber -> ( { "FleetId" :: Maybe (FleetId) , "AliasId" :: Maybe (AliasId) , "MaximumPlayerSessionCount" :: (WholeNumber) , "Name" :: Maybe (NonZeroAndMaxString) , "GameProperties" :: Maybe (GamePropertyList) , "CreatorId" :: Maybe (NonZeroAndMaxString) , "GameSessionId" :: Maybe (IdStringModel) , "IdempotencyToken" :: Maybe (IdStringModel) , "GameSessionData" :: Maybe (GameSessionData) } -> {"FleetId" :: Maybe (FleetId) , "AliasId" :: Maybe (AliasId) , "MaximumPlayerSessionCount" :: (WholeNumber) , "Name" :: Maybe (NonZeroAndMaxString) , "GameProperties" :: Maybe (GamePropertyList) , "CreatorId" :: Maybe (NonZeroAndMaxString) , "GameSessionId" :: Maybe (IdStringModel) , "IdempotencyToken" :: Maybe (IdStringModel) , "GameSessionData" :: Maybe (GameSessionData) } ) -> CreateGameSessionInput
+newCreateGameSessionInput' _MaximumPlayerSessionCount customize = (CreateGameSessionInput <<< customize) { "MaximumPlayerSessionCount": _MaximumPlayerSessionCount, "AliasId": Nothing, "CreatorId": Nothing, "FleetId": Nothing, "GameProperties": Nothing, "GameSessionData": Nothing, "GameSessionId": Nothing, "IdempotencyToken": Nothing, "Name": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype CreateGameSessionOutput = CreateGameSessionOutput 
-  { "GameSession" :: NullOrUndefined (GameSession)
+  { "GameSession" :: Maybe (GameSession)
   }
 derive instance newtypeCreateGameSessionOutput :: Newtype CreateGameSessionOutput _
 derive instance repGenericCreateGameSessionOutput :: Generic CreateGameSessionOutput _
@@ -441,21 +440,21 @@ instance encodeCreateGameSessionOutput :: Encode CreateGameSessionOutput where e
 
 -- | Constructs CreateGameSessionOutput from required parameters
 newCreateGameSessionOutput :: CreateGameSessionOutput
-newCreateGameSessionOutput  = CreateGameSessionOutput { "GameSession": (NullOrUndefined Nothing) }
+newCreateGameSessionOutput  = CreateGameSessionOutput { "GameSession": Nothing }
 
 -- | Constructs CreateGameSessionOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateGameSessionOutput' :: ( { "GameSession" :: NullOrUndefined (GameSession) } -> {"GameSession" :: NullOrUndefined (GameSession) } ) -> CreateGameSessionOutput
-newCreateGameSessionOutput'  customize = (CreateGameSessionOutput <<< customize) { "GameSession": (NullOrUndefined Nothing) }
+newCreateGameSessionOutput' :: ( { "GameSession" :: Maybe (GameSession) } -> {"GameSession" :: Maybe (GameSession) } ) -> CreateGameSessionOutput
+newCreateGameSessionOutput'  customize = (CreateGameSessionOutput <<< customize) { "GameSession": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype CreateGameSessionQueueInput = CreateGameSessionQueueInput 
   { "Name" :: (GameSessionQueueName)
-  , "TimeoutInSeconds" :: NullOrUndefined (WholeNumber)
-  , "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList)
-  , "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList)
+  , "TimeoutInSeconds" :: Maybe (WholeNumber)
+  , "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList)
+  , "Destinations" :: Maybe (GameSessionQueueDestinationList)
   }
 derive instance newtypeCreateGameSessionQueueInput :: Newtype CreateGameSessionQueueInput _
 derive instance repGenericCreateGameSessionQueueInput :: Generic CreateGameSessionQueueInput _
@@ -465,18 +464,18 @@ instance encodeCreateGameSessionQueueInput :: Encode CreateGameSessionQueueInput
 
 -- | Constructs CreateGameSessionQueueInput from required parameters
 newCreateGameSessionQueueInput :: GameSessionQueueName -> CreateGameSessionQueueInput
-newCreateGameSessionQueueInput _Name = CreateGameSessionQueueInput { "Name": _Name, "Destinations": (NullOrUndefined Nothing), "PlayerLatencyPolicies": (NullOrUndefined Nothing), "TimeoutInSeconds": (NullOrUndefined Nothing) }
+newCreateGameSessionQueueInput _Name = CreateGameSessionQueueInput { "Name": _Name, "Destinations": Nothing, "PlayerLatencyPolicies": Nothing, "TimeoutInSeconds": Nothing }
 
 -- | Constructs CreateGameSessionQueueInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateGameSessionQueueInput' :: GameSessionQueueName -> ( { "Name" :: (GameSessionQueueName) , "TimeoutInSeconds" :: NullOrUndefined (WholeNumber) , "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList) , "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList) } -> {"Name" :: (GameSessionQueueName) , "TimeoutInSeconds" :: NullOrUndefined (WholeNumber) , "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList) , "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList) } ) -> CreateGameSessionQueueInput
-newCreateGameSessionQueueInput' _Name customize = (CreateGameSessionQueueInput <<< customize) { "Name": _Name, "Destinations": (NullOrUndefined Nothing), "PlayerLatencyPolicies": (NullOrUndefined Nothing), "TimeoutInSeconds": (NullOrUndefined Nothing) }
+newCreateGameSessionQueueInput' :: GameSessionQueueName -> ( { "Name" :: (GameSessionQueueName) , "TimeoutInSeconds" :: Maybe (WholeNumber) , "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList) , "Destinations" :: Maybe (GameSessionQueueDestinationList) } -> {"Name" :: (GameSessionQueueName) , "TimeoutInSeconds" :: Maybe (WholeNumber) , "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList) , "Destinations" :: Maybe (GameSessionQueueDestinationList) } ) -> CreateGameSessionQueueInput
+newCreateGameSessionQueueInput' _Name customize = (CreateGameSessionQueueInput <<< customize) { "Name": _Name, "Destinations": Nothing, "PlayerLatencyPolicies": Nothing, "TimeoutInSeconds": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype CreateGameSessionQueueOutput = CreateGameSessionQueueOutput 
-  { "GameSessionQueue" :: NullOrUndefined (GameSessionQueue)
+  { "GameSessionQueue" :: Maybe (GameSessionQueue)
   }
 derive instance newtypeCreateGameSessionQueueOutput :: Newtype CreateGameSessionQueueOutput _
 derive instance repGenericCreateGameSessionQueueOutput :: Generic CreateGameSessionQueueOutput _
@@ -486,29 +485,29 @@ instance encodeCreateGameSessionQueueOutput :: Encode CreateGameSessionQueueOutp
 
 -- | Constructs CreateGameSessionQueueOutput from required parameters
 newCreateGameSessionQueueOutput :: CreateGameSessionQueueOutput
-newCreateGameSessionQueueOutput  = CreateGameSessionQueueOutput { "GameSessionQueue": (NullOrUndefined Nothing) }
+newCreateGameSessionQueueOutput  = CreateGameSessionQueueOutput { "GameSessionQueue": Nothing }
 
 -- | Constructs CreateGameSessionQueueOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateGameSessionQueueOutput' :: ( { "GameSessionQueue" :: NullOrUndefined (GameSessionQueue) } -> {"GameSessionQueue" :: NullOrUndefined (GameSessionQueue) } ) -> CreateGameSessionQueueOutput
-newCreateGameSessionQueueOutput'  customize = (CreateGameSessionQueueOutput <<< customize) { "GameSessionQueue": (NullOrUndefined Nothing) }
+newCreateGameSessionQueueOutput' :: ( { "GameSessionQueue" :: Maybe (GameSessionQueue) } -> {"GameSessionQueue" :: Maybe (GameSessionQueue) } ) -> CreateGameSessionQueueOutput
+newCreateGameSessionQueueOutput'  customize = (CreateGameSessionQueueOutput <<< customize) { "GameSessionQueue": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype CreateMatchmakingConfigurationInput = CreateMatchmakingConfigurationInput 
   { "Name" :: (MatchmakingIdStringModel)
-  , "Description" :: NullOrUndefined (NonZeroAndMaxString)
+  , "Description" :: Maybe (NonZeroAndMaxString)
   , "GameSessionQueueArns" :: (QueueArnsList)
   , "RequestTimeoutSeconds" :: (MatchmakingRequestTimeoutInteger)
-  , "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger)
+  , "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger)
   , "AcceptanceRequired" :: (BooleanModel)
   , "RuleSetName" :: (MatchmakingIdStringModel)
-  , "NotificationTarget" :: NullOrUndefined (SnsArnStringModel)
-  , "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber)
-  , "CustomEventData" :: NullOrUndefined (CustomEventData)
-  , "GameProperties" :: NullOrUndefined (GamePropertyList)
-  , "GameSessionData" :: NullOrUndefined (GameSessionData)
+  , "NotificationTarget" :: Maybe (SnsArnStringModel)
+  , "AdditionalPlayerCount" :: Maybe (WholeNumber)
+  , "CustomEventData" :: Maybe (CustomEventData)
+  , "GameProperties" :: Maybe (GamePropertyList)
+  , "GameSessionData" :: Maybe (GameSessionData)
   }
 derive instance newtypeCreateMatchmakingConfigurationInput :: Newtype CreateMatchmakingConfigurationInput _
 derive instance repGenericCreateMatchmakingConfigurationInput :: Generic CreateMatchmakingConfigurationInput _
@@ -518,18 +517,18 @@ instance encodeCreateMatchmakingConfigurationInput :: Encode CreateMatchmakingCo
 
 -- | Constructs CreateMatchmakingConfigurationInput from required parameters
 newCreateMatchmakingConfigurationInput :: BooleanModel -> QueueArnsList -> MatchmakingIdStringModel -> MatchmakingRequestTimeoutInteger -> MatchmakingIdStringModel -> CreateMatchmakingConfigurationInput
-newCreateMatchmakingConfigurationInput _AcceptanceRequired _GameSessionQueueArns _Name _RequestTimeoutSeconds _RuleSetName = CreateMatchmakingConfigurationInput { "AcceptanceRequired": _AcceptanceRequired, "GameSessionQueueArns": _GameSessionQueueArns, "Name": _Name, "RequestTimeoutSeconds": _RequestTimeoutSeconds, "RuleSetName": _RuleSetName, "AcceptanceTimeoutSeconds": (NullOrUndefined Nothing), "AdditionalPlayerCount": (NullOrUndefined Nothing), "CustomEventData": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "GameProperties": (NullOrUndefined Nothing), "GameSessionData": (NullOrUndefined Nothing), "NotificationTarget": (NullOrUndefined Nothing) }
+newCreateMatchmakingConfigurationInput _AcceptanceRequired _GameSessionQueueArns _Name _RequestTimeoutSeconds _RuleSetName = CreateMatchmakingConfigurationInput { "AcceptanceRequired": _AcceptanceRequired, "GameSessionQueueArns": _GameSessionQueueArns, "Name": _Name, "RequestTimeoutSeconds": _RequestTimeoutSeconds, "RuleSetName": _RuleSetName, "AcceptanceTimeoutSeconds": Nothing, "AdditionalPlayerCount": Nothing, "CustomEventData": Nothing, "Description": Nothing, "GameProperties": Nothing, "GameSessionData": Nothing, "NotificationTarget": Nothing }
 
 -- | Constructs CreateMatchmakingConfigurationInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateMatchmakingConfigurationInput' :: BooleanModel -> QueueArnsList -> MatchmakingIdStringModel -> MatchmakingRequestTimeoutInteger -> MatchmakingIdStringModel -> ( { "Name" :: (MatchmakingIdStringModel) , "Description" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionQueueArns" :: (QueueArnsList) , "RequestTimeoutSeconds" :: (MatchmakingRequestTimeoutInteger) , "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger) , "AcceptanceRequired" :: (BooleanModel) , "RuleSetName" :: (MatchmakingIdStringModel) , "NotificationTarget" :: NullOrUndefined (SnsArnStringModel) , "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber) , "CustomEventData" :: NullOrUndefined (CustomEventData) , "GameProperties" :: NullOrUndefined (GamePropertyList) , "GameSessionData" :: NullOrUndefined (GameSessionData) } -> {"Name" :: (MatchmakingIdStringModel) , "Description" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionQueueArns" :: (QueueArnsList) , "RequestTimeoutSeconds" :: (MatchmakingRequestTimeoutInteger) , "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger) , "AcceptanceRequired" :: (BooleanModel) , "RuleSetName" :: (MatchmakingIdStringModel) , "NotificationTarget" :: NullOrUndefined (SnsArnStringModel) , "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber) , "CustomEventData" :: NullOrUndefined (CustomEventData) , "GameProperties" :: NullOrUndefined (GamePropertyList) , "GameSessionData" :: NullOrUndefined (GameSessionData) } ) -> CreateMatchmakingConfigurationInput
-newCreateMatchmakingConfigurationInput' _AcceptanceRequired _GameSessionQueueArns _Name _RequestTimeoutSeconds _RuleSetName customize = (CreateMatchmakingConfigurationInput <<< customize) { "AcceptanceRequired": _AcceptanceRequired, "GameSessionQueueArns": _GameSessionQueueArns, "Name": _Name, "RequestTimeoutSeconds": _RequestTimeoutSeconds, "RuleSetName": _RuleSetName, "AcceptanceTimeoutSeconds": (NullOrUndefined Nothing), "AdditionalPlayerCount": (NullOrUndefined Nothing), "CustomEventData": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "GameProperties": (NullOrUndefined Nothing), "GameSessionData": (NullOrUndefined Nothing), "NotificationTarget": (NullOrUndefined Nothing) }
+newCreateMatchmakingConfigurationInput' :: BooleanModel -> QueueArnsList -> MatchmakingIdStringModel -> MatchmakingRequestTimeoutInteger -> MatchmakingIdStringModel -> ( { "Name" :: (MatchmakingIdStringModel) , "Description" :: Maybe (NonZeroAndMaxString) , "GameSessionQueueArns" :: (QueueArnsList) , "RequestTimeoutSeconds" :: (MatchmakingRequestTimeoutInteger) , "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger) , "AcceptanceRequired" :: (BooleanModel) , "RuleSetName" :: (MatchmakingIdStringModel) , "NotificationTarget" :: Maybe (SnsArnStringModel) , "AdditionalPlayerCount" :: Maybe (WholeNumber) , "CustomEventData" :: Maybe (CustomEventData) , "GameProperties" :: Maybe (GamePropertyList) , "GameSessionData" :: Maybe (GameSessionData) } -> {"Name" :: (MatchmakingIdStringModel) , "Description" :: Maybe (NonZeroAndMaxString) , "GameSessionQueueArns" :: (QueueArnsList) , "RequestTimeoutSeconds" :: (MatchmakingRequestTimeoutInteger) , "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger) , "AcceptanceRequired" :: (BooleanModel) , "RuleSetName" :: (MatchmakingIdStringModel) , "NotificationTarget" :: Maybe (SnsArnStringModel) , "AdditionalPlayerCount" :: Maybe (WholeNumber) , "CustomEventData" :: Maybe (CustomEventData) , "GameProperties" :: Maybe (GamePropertyList) , "GameSessionData" :: Maybe (GameSessionData) } ) -> CreateMatchmakingConfigurationInput
+newCreateMatchmakingConfigurationInput' _AcceptanceRequired _GameSessionQueueArns _Name _RequestTimeoutSeconds _RuleSetName customize = (CreateMatchmakingConfigurationInput <<< customize) { "AcceptanceRequired": _AcceptanceRequired, "GameSessionQueueArns": _GameSessionQueueArns, "Name": _Name, "RequestTimeoutSeconds": _RequestTimeoutSeconds, "RuleSetName": _RuleSetName, "AcceptanceTimeoutSeconds": Nothing, "AdditionalPlayerCount": Nothing, "CustomEventData": Nothing, "Description": Nothing, "GameProperties": Nothing, "GameSessionData": Nothing, "NotificationTarget": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype CreateMatchmakingConfigurationOutput = CreateMatchmakingConfigurationOutput 
-  { "Configuration" :: NullOrUndefined (MatchmakingConfiguration)
+  { "Configuration" :: Maybe (MatchmakingConfiguration)
   }
 derive instance newtypeCreateMatchmakingConfigurationOutput :: Newtype CreateMatchmakingConfigurationOutput _
 derive instance repGenericCreateMatchmakingConfigurationOutput :: Generic CreateMatchmakingConfigurationOutput _
@@ -539,12 +538,12 @@ instance encodeCreateMatchmakingConfigurationOutput :: Encode CreateMatchmakingC
 
 -- | Constructs CreateMatchmakingConfigurationOutput from required parameters
 newCreateMatchmakingConfigurationOutput :: CreateMatchmakingConfigurationOutput
-newCreateMatchmakingConfigurationOutput  = CreateMatchmakingConfigurationOutput { "Configuration": (NullOrUndefined Nothing) }
+newCreateMatchmakingConfigurationOutput  = CreateMatchmakingConfigurationOutput { "Configuration": Nothing }
 
 -- | Constructs CreateMatchmakingConfigurationOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateMatchmakingConfigurationOutput' :: ( { "Configuration" :: NullOrUndefined (MatchmakingConfiguration) } -> {"Configuration" :: NullOrUndefined (MatchmakingConfiguration) } ) -> CreateMatchmakingConfigurationOutput
-newCreateMatchmakingConfigurationOutput'  customize = (CreateMatchmakingConfigurationOutput <<< customize) { "Configuration": (NullOrUndefined Nothing) }
+newCreateMatchmakingConfigurationOutput' :: ( { "Configuration" :: Maybe (MatchmakingConfiguration) } -> {"Configuration" :: Maybe (MatchmakingConfiguration) } ) -> CreateMatchmakingConfigurationOutput
+newCreateMatchmakingConfigurationOutput'  customize = (CreateMatchmakingConfigurationOutput <<< customize) { "Configuration": Nothing }
 
 
 
@@ -595,7 +594,7 @@ newCreateMatchmakingRuleSetOutput' _RuleSet customize = (CreateMatchmakingRuleSe
 newtype CreatePlayerSessionInput = CreatePlayerSessionInput 
   { "GameSessionId" :: (ArnStringModel)
   , "PlayerId" :: (NonZeroAndMaxString)
-  , "PlayerData" :: NullOrUndefined (PlayerData)
+  , "PlayerData" :: Maybe (PlayerData)
   }
 derive instance newtypeCreatePlayerSessionInput :: Newtype CreatePlayerSessionInput _
 derive instance repGenericCreatePlayerSessionInput :: Generic CreatePlayerSessionInput _
@@ -605,18 +604,18 @@ instance encodeCreatePlayerSessionInput :: Encode CreatePlayerSessionInput where
 
 -- | Constructs CreatePlayerSessionInput from required parameters
 newCreatePlayerSessionInput :: ArnStringModel -> NonZeroAndMaxString -> CreatePlayerSessionInput
-newCreatePlayerSessionInput _GameSessionId _PlayerId = CreatePlayerSessionInput { "GameSessionId": _GameSessionId, "PlayerId": _PlayerId, "PlayerData": (NullOrUndefined Nothing) }
+newCreatePlayerSessionInput _GameSessionId _PlayerId = CreatePlayerSessionInput { "GameSessionId": _GameSessionId, "PlayerId": _PlayerId, "PlayerData": Nothing }
 
 -- | Constructs CreatePlayerSessionInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreatePlayerSessionInput' :: ArnStringModel -> NonZeroAndMaxString -> ( { "GameSessionId" :: (ArnStringModel) , "PlayerId" :: (NonZeroAndMaxString) , "PlayerData" :: NullOrUndefined (PlayerData) } -> {"GameSessionId" :: (ArnStringModel) , "PlayerId" :: (NonZeroAndMaxString) , "PlayerData" :: NullOrUndefined (PlayerData) } ) -> CreatePlayerSessionInput
-newCreatePlayerSessionInput' _GameSessionId _PlayerId customize = (CreatePlayerSessionInput <<< customize) { "GameSessionId": _GameSessionId, "PlayerId": _PlayerId, "PlayerData": (NullOrUndefined Nothing) }
+newCreatePlayerSessionInput' :: ArnStringModel -> NonZeroAndMaxString -> ( { "GameSessionId" :: (ArnStringModel) , "PlayerId" :: (NonZeroAndMaxString) , "PlayerData" :: Maybe (PlayerData) } -> {"GameSessionId" :: (ArnStringModel) , "PlayerId" :: (NonZeroAndMaxString) , "PlayerData" :: Maybe (PlayerData) } ) -> CreatePlayerSessionInput
+newCreatePlayerSessionInput' _GameSessionId _PlayerId customize = (CreatePlayerSessionInput <<< customize) { "GameSessionId": _GameSessionId, "PlayerId": _PlayerId, "PlayerData": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype CreatePlayerSessionOutput = CreatePlayerSessionOutput 
-  { "PlayerSession" :: NullOrUndefined (PlayerSession)
+  { "PlayerSession" :: Maybe (PlayerSession)
   }
 derive instance newtypeCreatePlayerSessionOutput :: Newtype CreatePlayerSessionOutput _
 derive instance repGenericCreatePlayerSessionOutput :: Generic CreatePlayerSessionOutput _
@@ -626,12 +625,12 @@ instance encodeCreatePlayerSessionOutput :: Encode CreatePlayerSessionOutput whe
 
 -- | Constructs CreatePlayerSessionOutput from required parameters
 newCreatePlayerSessionOutput :: CreatePlayerSessionOutput
-newCreatePlayerSessionOutput  = CreatePlayerSessionOutput { "PlayerSession": (NullOrUndefined Nothing) }
+newCreatePlayerSessionOutput  = CreatePlayerSessionOutput { "PlayerSession": Nothing }
 
 -- | Constructs CreatePlayerSessionOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreatePlayerSessionOutput' :: ( { "PlayerSession" :: NullOrUndefined (PlayerSession) } -> {"PlayerSession" :: NullOrUndefined (PlayerSession) } ) -> CreatePlayerSessionOutput
-newCreatePlayerSessionOutput'  customize = (CreatePlayerSessionOutput <<< customize) { "PlayerSession": (NullOrUndefined Nothing) }
+newCreatePlayerSessionOutput' :: ( { "PlayerSession" :: Maybe (PlayerSession) } -> {"PlayerSession" :: Maybe (PlayerSession) } ) -> CreatePlayerSessionOutput
+newCreatePlayerSessionOutput'  customize = (CreatePlayerSessionOutput <<< customize) { "PlayerSession": Nothing }
 
 
 
@@ -639,7 +638,7 @@ newCreatePlayerSessionOutput'  customize = (CreatePlayerSessionOutput <<< custom
 newtype CreatePlayerSessionsInput = CreatePlayerSessionsInput 
   { "GameSessionId" :: (ArnStringModel)
   , "PlayerIds" :: (PlayerIdList)
-  , "PlayerDataMap" :: NullOrUndefined (PlayerDataMap)
+  , "PlayerDataMap" :: Maybe (PlayerDataMap)
   }
 derive instance newtypeCreatePlayerSessionsInput :: Newtype CreatePlayerSessionsInput _
 derive instance repGenericCreatePlayerSessionsInput :: Generic CreatePlayerSessionsInput _
@@ -649,18 +648,18 @@ instance encodeCreatePlayerSessionsInput :: Encode CreatePlayerSessionsInput whe
 
 -- | Constructs CreatePlayerSessionsInput from required parameters
 newCreatePlayerSessionsInput :: ArnStringModel -> PlayerIdList -> CreatePlayerSessionsInput
-newCreatePlayerSessionsInput _GameSessionId _PlayerIds = CreatePlayerSessionsInput { "GameSessionId": _GameSessionId, "PlayerIds": _PlayerIds, "PlayerDataMap": (NullOrUndefined Nothing) }
+newCreatePlayerSessionsInput _GameSessionId _PlayerIds = CreatePlayerSessionsInput { "GameSessionId": _GameSessionId, "PlayerIds": _PlayerIds, "PlayerDataMap": Nothing }
 
 -- | Constructs CreatePlayerSessionsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreatePlayerSessionsInput' :: ArnStringModel -> PlayerIdList -> ( { "GameSessionId" :: (ArnStringModel) , "PlayerIds" :: (PlayerIdList) , "PlayerDataMap" :: NullOrUndefined (PlayerDataMap) } -> {"GameSessionId" :: (ArnStringModel) , "PlayerIds" :: (PlayerIdList) , "PlayerDataMap" :: NullOrUndefined (PlayerDataMap) } ) -> CreatePlayerSessionsInput
-newCreatePlayerSessionsInput' _GameSessionId _PlayerIds customize = (CreatePlayerSessionsInput <<< customize) { "GameSessionId": _GameSessionId, "PlayerIds": _PlayerIds, "PlayerDataMap": (NullOrUndefined Nothing) }
+newCreatePlayerSessionsInput' :: ArnStringModel -> PlayerIdList -> ( { "GameSessionId" :: (ArnStringModel) , "PlayerIds" :: (PlayerIdList) , "PlayerDataMap" :: Maybe (PlayerDataMap) } -> {"GameSessionId" :: (ArnStringModel) , "PlayerIds" :: (PlayerIdList) , "PlayerDataMap" :: Maybe (PlayerDataMap) } ) -> CreatePlayerSessionsInput
+newCreatePlayerSessionsInput' _GameSessionId _PlayerIds customize = (CreatePlayerSessionsInput <<< customize) { "GameSessionId": _GameSessionId, "PlayerIds": _PlayerIds, "PlayerDataMap": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype CreatePlayerSessionsOutput = CreatePlayerSessionsOutput 
-  { "PlayerSessions" :: NullOrUndefined (PlayerSessionList)
+  { "PlayerSessions" :: Maybe (PlayerSessionList)
   }
 derive instance newtypeCreatePlayerSessionsOutput :: Newtype CreatePlayerSessionsOutput _
 derive instance repGenericCreatePlayerSessionsOutput :: Generic CreatePlayerSessionsOutput _
@@ -670,12 +669,12 @@ instance encodeCreatePlayerSessionsOutput :: Encode CreatePlayerSessionsOutput w
 
 -- | Constructs CreatePlayerSessionsOutput from required parameters
 newCreatePlayerSessionsOutput :: CreatePlayerSessionsOutput
-newCreatePlayerSessionsOutput  = CreatePlayerSessionsOutput { "PlayerSessions": (NullOrUndefined Nothing) }
+newCreatePlayerSessionsOutput  = CreatePlayerSessionsOutput { "PlayerSessions": Nothing }
 
 -- | Constructs CreatePlayerSessionsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreatePlayerSessionsOutput' :: ( { "PlayerSessions" :: NullOrUndefined (PlayerSessionList) } -> {"PlayerSessions" :: NullOrUndefined (PlayerSessionList) } ) -> CreatePlayerSessionsOutput
-newCreatePlayerSessionsOutput'  customize = (CreatePlayerSessionsOutput <<< customize) { "PlayerSessions": (NullOrUndefined Nothing) }
+newCreatePlayerSessionsOutput' :: ( { "PlayerSessions" :: Maybe (PlayerSessionList) } -> {"PlayerSessions" :: Maybe (PlayerSessionList) } ) -> CreatePlayerSessionsOutput
+newCreatePlayerSessionsOutput'  customize = (CreatePlayerSessionsOutput <<< customize) { "PlayerSessions": Nothing }
 
 
 
@@ -703,7 +702,7 @@ newCreateVpcPeeringAuthorizationInput' _GameLiftAwsAccountId _PeerVpcId customiz
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype CreateVpcPeeringAuthorizationOutput = CreateVpcPeeringAuthorizationOutput 
-  { "VpcPeeringAuthorization" :: NullOrUndefined (VpcPeeringAuthorization)
+  { "VpcPeeringAuthorization" :: Maybe (VpcPeeringAuthorization)
   }
 derive instance newtypeCreateVpcPeeringAuthorizationOutput :: Newtype CreateVpcPeeringAuthorizationOutput _
 derive instance repGenericCreateVpcPeeringAuthorizationOutput :: Generic CreateVpcPeeringAuthorizationOutput _
@@ -713,12 +712,12 @@ instance encodeCreateVpcPeeringAuthorizationOutput :: Encode CreateVpcPeeringAut
 
 -- | Constructs CreateVpcPeeringAuthorizationOutput from required parameters
 newCreateVpcPeeringAuthorizationOutput :: CreateVpcPeeringAuthorizationOutput
-newCreateVpcPeeringAuthorizationOutput  = CreateVpcPeeringAuthorizationOutput { "VpcPeeringAuthorization": (NullOrUndefined Nothing) }
+newCreateVpcPeeringAuthorizationOutput  = CreateVpcPeeringAuthorizationOutput { "VpcPeeringAuthorization": Nothing }
 
 -- | Constructs CreateVpcPeeringAuthorizationOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateVpcPeeringAuthorizationOutput' :: ( { "VpcPeeringAuthorization" :: NullOrUndefined (VpcPeeringAuthorization) } -> {"VpcPeeringAuthorization" :: NullOrUndefined (VpcPeeringAuthorization) } ) -> CreateVpcPeeringAuthorizationOutput
-newCreateVpcPeeringAuthorizationOutput'  customize = (CreateVpcPeeringAuthorizationOutput <<< customize) { "VpcPeeringAuthorization": (NullOrUndefined Nothing) }
+newCreateVpcPeeringAuthorizationOutput' :: ( { "VpcPeeringAuthorization" :: Maybe (VpcPeeringAuthorization) } -> {"VpcPeeringAuthorization" :: Maybe (VpcPeeringAuthorization) } ) -> CreateVpcPeeringAuthorizationOutput
+newCreateVpcPeeringAuthorizationOutput'  customize = (CreateVpcPeeringAuthorizationOutput <<< customize) { "VpcPeeringAuthorization": Nothing }
 
 
 
@@ -993,7 +992,7 @@ newDescribeAliasInput' _AliasId customize = (DescribeAliasInput <<< customize) {
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeAliasOutput = DescribeAliasOutput 
-  { "Alias" :: NullOrUndefined (Alias)
+  { "Alias" :: Maybe (Alias)
   }
 derive instance newtypeDescribeAliasOutput :: Newtype DescribeAliasOutput _
 derive instance repGenericDescribeAliasOutput :: Generic DescribeAliasOutput _
@@ -1003,12 +1002,12 @@ instance encodeDescribeAliasOutput :: Encode DescribeAliasOutput where encode = 
 
 -- | Constructs DescribeAliasOutput from required parameters
 newDescribeAliasOutput :: DescribeAliasOutput
-newDescribeAliasOutput  = DescribeAliasOutput { "Alias": (NullOrUndefined Nothing) }
+newDescribeAliasOutput  = DescribeAliasOutput { "Alias": Nothing }
 
 -- | Constructs DescribeAliasOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeAliasOutput' :: ( { "Alias" :: NullOrUndefined (Alias) } -> {"Alias" :: NullOrUndefined (Alias) } ) -> DescribeAliasOutput
-newDescribeAliasOutput'  customize = (DescribeAliasOutput <<< customize) { "Alias": (NullOrUndefined Nothing) }
+newDescribeAliasOutput' :: ( { "Alias" :: Maybe (Alias) } -> {"Alias" :: Maybe (Alias) } ) -> DescribeAliasOutput
+newDescribeAliasOutput'  customize = (DescribeAliasOutput <<< customize) { "Alias": Nothing }
 
 
 
@@ -1035,7 +1034,7 @@ newDescribeBuildInput' _BuildId customize = (DescribeBuildInput <<< customize) {
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeBuildOutput = DescribeBuildOutput 
-  { "Build" :: NullOrUndefined (Build)
+  { "Build" :: Maybe (Build)
   }
 derive instance newtypeDescribeBuildOutput :: Newtype DescribeBuildOutput _
 derive instance repGenericDescribeBuildOutput :: Generic DescribeBuildOutput _
@@ -1045,18 +1044,18 @@ instance encodeDescribeBuildOutput :: Encode DescribeBuildOutput where encode = 
 
 -- | Constructs DescribeBuildOutput from required parameters
 newDescribeBuildOutput :: DescribeBuildOutput
-newDescribeBuildOutput  = DescribeBuildOutput { "Build": (NullOrUndefined Nothing) }
+newDescribeBuildOutput  = DescribeBuildOutput { "Build": Nothing }
 
 -- | Constructs DescribeBuildOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeBuildOutput' :: ( { "Build" :: NullOrUndefined (Build) } -> {"Build" :: NullOrUndefined (Build) } ) -> DescribeBuildOutput
-newDescribeBuildOutput'  customize = (DescribeBuildOutput <<< customize) { "Build": (NullOrUndefined Nothing) }
+newDescribeBuildOutput' :: ( { "Build" :: Maybe (Build) } -> {"Build" :: Maybe (Build) } ) -> DescribeBuildOutput
+newDescribeBuildOutput'  customize = (DescribeBuildOutput <<< customize) { "Build": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype DescribeEC2InstanceLimitsInput = DescribeEC2InstanceLimitsInput 
-  { "EC2InstanceType" :: NullOrUndefined (EC2InstanceType)
+  { "EC2InstanceType" :: Maybe (EC2InstanceType)
   }
 derive instance newtypeDescribeEC2InstanceLimitsInput :: Newtype DescribeEC2InstanceLimitsInput _
 derive instance repGenericDescribeEC2InstanceLimitsInput :: Generic DescribeEC2InstanceLimitsInput _
@@ -1066,18 +1065,18 @@ instance encodeDescribeEC2InstanceLimitsInput :: Encode DescribeEC2InstanceLimit
 
 -- | Constructs DescribeEC2InstanceLimitsInput from required parameters
 newDescribeEC2InstanceLimitsInput :: DescribeEC2InstanceLimitsInput
-newDescribeEC2InstanceLimitsInput  = DescribeEC2InstanceLimitsInput { "EC2InstanceType": (NullOrUndefined Nothing) }
+newDescribeEC2InstanceLimitsInput  = DescribeEC2InstanceLimitsInput { "EC2InstanceType": Nothing }
 
 -- | Constructs DescribeEC2InstanceLimitsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEC2InstanceLimitsInput' :: ( { "EC2InstanceType" :: NullOrUndefined (EC2InstanceType) } -> {"EC2InstanceType" :: NullOrUndefined (EC2InstanceType) } ) -> DescribeEC2InstanceLimitsInput
-newDescribeEC2InstanceLimitsInput'  customize = (DescribeEC2InstanceLimitsInput <<< customize) { "EC2InstanceType": (NullOrUndefined Nothing) }
+newDescribeEC2InstanceLimitsInput' :: ( { "EC2InstanceType" :: Maybe (EC2InstanceType) } -> {"EC2InstanceType" :: Maybe (EC2InstanceType) } ) -> DescribeEC2InstanceLimitsInput
+newDescribeEC2InstanceLimitsInput'  customize = (DescribeEC2InstanceLimitsInput <<< customize) { "EC2InstanceType": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeEC2InstanceLimitsOutput = DescribeEC2InstanceLimitsOutput 
-  { "EC2InstanceLimits" :: NullOrUndefined (EC2InstanceLimitList)
+  { "EC2InstanceLimits" :: Maybe (EC2InstanceLimitList)
   }
 derive instance newtypeDescribeEC2InstanceLimitsOutput :: Newtype DescribeEC2InstanceLimitsOutput _
 derive instance repGenericDescribeEC2InstanceLimitsOutput :: Generic DescribeEC2InstanceLimitsOutput _
@@ -1087,20 +1086,20 @@ instance encodeDescribeEC2InstanceLimitsOutput :: Encode DescribeEC2InstanceLimi
 
 -- | Constructs DescribeEC2InstanceLimitsOutput from required parameters
 newDescribeEC2InstanceLimitsOutput :: DescribeEC2InstanceLimitsOutput
-newDescribeEC2InstanceLimitsOutput  = DescribeEC2InstanceLimitsOutput { "EC2InstanceLimits": (NullOrUndefined Nothing) }
+newDescribeEC2InstanceLimitsOutput  = DescribeEC2InstanceLimitsOutput { "EC2InstanceLimits": Nothing }
 
 -- | Constructs DescribeEC2InstanceLimitsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEC2InstanceLimitsOutput' :: ( { "EC2InstanceLimits" :: NullOrUndefined (EC2InstanceLimitList) } -> {"EC2InstanceLimits" :: NullOrUndefined (EC2InstanceLimitList) } ) -> DescribeEC2InstanceLimitsOutput
-newDescribeEC2InstanceLimitsOutput'  customize = (DescribeEC2InstanceLimitsOutput <<< customize) { "EC2InstanceLimits": (NullOrUndefined Nothing) }
+newDescribeEC2InstanceLimitsOutput' :: ( { "EC2InstanceLimits" :: Maybe (EC2InstanceLimitList) } -> {"EC2InstanceLimits" :: Maybe (EC2InstanceLimitList) } ) -> DescribeEC2InstanceLimitsOutput
+newDescribeEC2InstanceLimitsOutput'  customize = (DescribeEC2InstanceLimitsOutput <<< customize) { "EC2InstanceLimits": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype DescribeFleetAttributesInput = DescribeFleetAttributesInput 
-  { "FleetIds" :: NullOrUndefined (FleetIdList)
-  , "Limit" :: NullOrUndefined (PositiveInteger)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "FleetIds" :: Maybe (FleetIdList)
+  , "Limit" :: Maybe (PositiveInteger)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeFleetAttributesInput :: Newtype DescribeFleetAttributesInput _
 derive instance repGenericDescribeFleetAttributesInput :: Generic DescribeFleetAttributesInput _
@@ -1110,19 +1109,19 @@ instance encodeDescribeFleetAttributesInput :: Encode DescribeFleetAttributesInp
 
 -- | Constructs DescribeFleetAttributesInput from required parameters
 newDescribeFleetAttributesInput :: DescribeFleetAttributesInput
-newDescribeFleetAttributesInput  = DescribeFleetAttributesInput { "FleetIds": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetAttributesInput  = DescribeFleetAttributesInput { "FleetIds": Nothing, "Limit": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeFleetAttributesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeFleetAttributesInput' :: ( { "FleetIds" :: NullOrUndefined (FleetIdList) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"FleetIds" :: NullOrUndefined (FleetIdList) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeFleetAttributesInput
-newDescribeFleetAttributesInput'  customize = (DescribeFleetAttributesInput <<< customize) { "FleetIds": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetAttributesInput' :: ( { "FleetIds" :: Maybe (FleetIdList) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"FleetIds" :: Maybe (FleetIdList) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeFleetAttributesInput
+newDescribeFleetAttributesInput'  customize = (DescribeFleetAttributesInput <<< customize) { "FleetIds": Nothing, "Limit": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeFleetAttributesOutput = DescribeFleetAttributesOutput 
-  { "FleetAttributes" :: NullOrUndefined (FleetAttributesList)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "FleetAttributes" :: Maybe (FleetAttributesList)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeFleetAttributesOutput :: Newtype DescribeFleetAttributesOutput _
 derive instance repGenericDescribeFleetAttributesOutput :: Generic DescribeFleetAttributesOutput _
@@ -1132,20 +1131,20 @@ instance encodeDescribeFleetAttributesOutput :: Encode DescribeFleetAttributesOu
 
 -- | Constructs DescribeFleetAttributesOutput from required parameters
 newDescribeFleetAttributesOutput :: DescribeFleetAttributesOutput
-newDescribeFleetAttributesOutput  = DescribeFleetAttributesOutput { "FleetAttributes": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetAttributesOutput  = DescribeFleetAttributesOutput { "FleetAttributes": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeFleetAttributesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeFleetAttributesOutput' :: ( { "FleetAttributes" :: NullOrUndefined (FleetAttributesList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"FleetAttributes" :: NullOrUndefined (FleetAttributesList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeFleetAttributesOutput
-newDescribeFleetAttributesOutput'  customize = (DescribeFleetAttributesOutput <<< customize) { "FleetAttributes": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetAttributesOutput' :: ( { "FleetAttributes" :: Maybe (FleetAttributesList) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"FleetAttributes" :: Maybe (FleetAttributesList) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeFleetAttributesOutput
+newDescribeFleetAttributesOutput'  customize = (DescribeFleetAttributesOutput <<< customize) { "FleetAttributes": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype DescribeFleetCapacityInput = DescribeFleetCapacityInput 
-  { "FleetIds" :: NullOrUndefined (FleetIdList)
-  , "Limit" :: NullOrUndefined (PositiveInteger)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "FleetIds" :: Maybe (FleetIdList)
+  , "Limit" :: Maybe (PositiveInteger)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeFleetCapacityInput :: Newtype DescribeFleetCapacityInput _
 derive instance repGenericDescribeFleetCapacityInput :: Generic DescribeFleetCapacityInput _
@@ -1155,19 +1154,19 @@ instance encodeDescribeFleetCapacityInput :: Encode DescribeFleetCapacityInput w
 
 -- | Constructs DescribeFleetCapacityInput from required parameters
 newDescribeFleetCapacityInput :: DescribeFleetCapacityInput
-newDescribeFleetCapacityInput  = DescribeFleetCapacityInput { "FleetIds": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetCapacityInput  = DescribeFleetCapacityInput { "FleetIds": Nothing, "Limit": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeFleetCapacityInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeFleetCapacityInput' :: ( { "FleetIds" :: NullOrUndefined (FleetIdList) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"FleetIds" :: NullOrUndefined (FleetIdList) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeFleetCapacityInput
-newDescribeFleetCapacityInput'  customize = (DescribeFleetCapacityInput <<< customize) { "FleetIds": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetCapacityInput' :: ( { "FleetIds" :: Maybe (FleetIdList) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"FleetIds" :: Maybe (FleetIdList) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeFleetCapacityInput
+newDescribeFleetCapacityInput'  customize = (DescribeFleetCapacityInput <<< customize) { "FleetIds": Nothing, "Limit": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeFleetCapacityOutput = DescribeFleetCapacityOutput 
-  { "FleetCapacity" :: NullOrUndefined (FleetCapacityList)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "FleetCapacity" :: Maybe (FleetCapacityList)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeFleetCapacityOutput :: Newtype DescribeFleetCapacityOutput _
 derive instance repGenericDescribeFleetCapacityOutput :: Generic DescribeFleetCapacityOutput _
@@ -1177,22 +1176,22 @@ instance encodeDescribeFleetCapacityOutput :: Encode DescribeFleetCapacityOutput
 
 -- | Constructs DescribeFleetCapacityOutput from required parameters
 newDescribeFleetCapacityOutput :: DescribeFleetCapacityOutput
-newDescribeFleetCapacityOutput  = DescribeFleetCapacityOutput { "FleetCapacity": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetCapacityOutput  = DescribeFleetCapacityOutput { "FleetCapacity": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeFleetCapacityOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeFleetCapacityOutput' :: ( { "FleetCapacity" :: NullOrUndefined (FleetCapacityList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"FleetCapacity" :: NullOrUndefined (FleetCapacityList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeFleetCapacityOutput
-newDescribeFleetCapacityOutput'  customize = (DescribeFleetCapacityOutput <<< customize) { "FleetCapacity": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetCapacityOutput' :: ( { "FleetCapacity" :: Maybe (FleetCapacityList) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"FleetCapacity" :: Maybe (FleetCapacityList) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeFleetCapacityOutput
+newDescribeFleetCapacityOutput'  customize = (DescribeFleetCapacityOutput <<< customize) { "FleetCapacity": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype DescribeFleetEventsInput = DescribeFleetEventsInput 
   { "FleetId" :: (FleetId)
-  , "StartTime" :: NullOrUndefined (Types.Timestamp)
-  , "EndTime" :: NullOrUndefined (Types.Timestamp)
-  , "Limit" :: NullOrUndefined (PositiveInteger)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  , "StartTime" :: Maybe (Types.Timestamp)
+  , "EndTime" :: Maybe (Types.Timestamp)
+  , "Limit" :: Maybe (PositiveInteger)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeFleetEventsInput :: Newtype DescribeFleetEventsInput _
 derive instance repGenericDescribeFleetEventsInput :: Generic DescribeFleetEventsInput _
@@ -1202,19 +1201,19 @@ instance encodeDescribeFleetEventsInput :: Encode DescribeFleetEventsInput where
 
 -- | Constructs DescribeFleetEventsInput from required parameters
 newDescribeFleetEventsInput :: FleetId -> DescribeFleetEventsInput
-newDescribeFleetEventsInput _FleetId = DescribeFleetEventsInput { "FleetId": _FleetId, "EndTime": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing) }
+newDescribeFleetEventsInput _FleetId = DescribeFleetEventsInput { "FleetId": _FleetId, "EndTime": Nothing, "Limit": Nothing, "NextToken": Nothing, "StartTime": Nothing }
 
 -- | Constructs DescribeFleetEventsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeFleetEventsInput' :: FleetId -> ( { "FleetId" :: (FleetId) , "StartTime" :: NullOrUndefined (Types.Timestamp) , "EndTime" :: NullOrUndefined (Types.Timestamp) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"FleetId" :: (FleetId) , "StartTime" :: NullOrUndefined (Types.Timestamp) , "EndTime" :: NullOrUndefined (Types.Timestamp) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeFleetEventsInput
-newDescribeFleetEventsInput' _FleetId customize = (DescribeFleetEventsInput <<< customize) { "FleetId": _FleetId, "EndTime": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing) }
+newDescribeFleetEventsInput' :: FleetId -> ( { "FleetId" :: (FleetId) , "StartTime" :: Maybe (Types.Timestamp) , "EndTime" :: Maybe (Types.Timestamp) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"FleetId" :: (FleetId) , "StartTime" :: Maybe (Types.Timestamp) , "EndTime" :: Maybe (Types.Timestamp) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeFleetEventsInput
+newDescribeFleetEventsInput' _FleetId customize = (DescribeFleetEventsInput <<< customize) { "FleetId": _FleetId, "EndTime": Nothing, "Limit": Nothing, "NextToken": Nothing, "StartTime": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeFleetEventsOutput = DescribeFleetEventsOutput 
-  { "Events" :: NullOrUndefined (EventList)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "Events" :: Maybe (EventList)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeFleetEventsOutput :: Newtype DescribeFleetEventsOutput _
 derive instance repGenericDescribeFleetEventsOutput :: Generic DescribeFleetEventsOutput _
@@ -1224,12 +1223,12 @@ instance encodeDescribeFleetEventsOutput :: Encode DescribeFleetEventsOutput whe
 
 -- | Constructs DescribeFleetEventsOutput from required parameters
 newDescribeFleetEventsOutput :: DescribeFleetEventsOutput
-newDescribeFleetEventsOutput  = DescribeFleetEventsOutput { "Events": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetEventsOutput  = DescribeFleetEventsOutput { "Events": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeFleetEventsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeFleetEventsOutput' :: ( { "Events" :: NullOrUndefined (EventList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"Events" :: NullOrUndefined (EventList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeFleetEventsOutput
-newDescribeFleetEventsOutput'  customize = (DescribeFleetEventsOutput <<< customize) { "Events": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetEventsOutput' :: ( { "Events" :: Maybe (EventList) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"Events" :: Maybe (EventList) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeFleetEventsOutput
+newDescribeFleetEventsOutput'  customize = (DescribeFleetEventsOutput <<< customize) { "Events": Nothing, "NextToken": Nothing }
 
 
 
@@ -1256,7 +1255,7 @@ newDescribeFleetPortSettingsInput' _FleetId customize = (DescribeFleetPortSettin
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeFleetPortSettingsOutput = DescribeFleetPortSettingsOutput 
-  { "InboundPermissions" :: NullOrUndefined (IpPermissionsList)
+  { "InboundPermissions" :: Maybe (IpPermissionsList)
   }
 derive instance newtypeDescribeFleetPortSettingsOutput :: Newtype DescribeFleetPortSettingsOutput _
 derive instance repGenericDescribeFleetPortSettingsOutput :: Generic DescribeFleetPortSettingsOutput _
@@ -1266,20 +1265,20 @@ instance encodeDescribeFleetPortSettingsOutput :: Encode DescribeFleetPortSettin
 
 -- | Constructs DescribeFleetPortSettingsOutput from required parameters
 newDescribeFleetPortSettingsOutput :: DescribeFleetPortSettingsOutput
-newDescribeFleetPortSettingsOutput  = DescribeFleetPortSettingsOutput { "InboundPermissions": (NullOrUndefined Nothing) }
+newDescribeFleetPortSettingsOutput  = DescribeFleetPortSettingsOutput { "InboundPermissions": Nothing }
 
 -- | Constructs DescribeFleetPortSettingsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeFleetPortSettingsOutput' :: ( { "InboundPermissions" :: NullOrUndefined (IpPermissionsList) } -> {"InboundPermissions" :: NullOrUndefined (IpPermissionsList) } ) -> DescribeFleetPortSettingsOutput
-newDescribeFleetPortSettingsOutput'  customize = (DescribeFleetPortSettingsOutput <<< customize) { "InboundPermissions": (NullOrUndefined Nothing) }
+newDescribeFleetPortSettingsOutput' :: ( { "InboundPermissions" :: Maybe (IpPermissionsList) } -> {"InboundPermissions" :: Maybe (IpPermissionsList) } ) -> DescribeFleetPortSettingsOutput
+newDescribeFleetPortSettingsOutput'  customize = (DescribeFleetPortSettingsOutput <<< customize) { "InboundPermissions": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype DescribeFleetUtilizationInput = DescribeFleetUtilizationInput 
-  { "FleetIds" :: NullOrUndefined (FleetIdList)
-  , "Limit" :: NullOrUndefined (PositiveInteger)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "FleetIds" :: Maybe (FleetIdList)
+  , "Limit" :: Maybe (PositiveInteger)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeFleetUtilizationInput :: Newtype DescribeFleetUtilizationInput _
 derive instance repGenericDescribeFleetUtilizationInput :: Generic DescribeFleetUtilizationInput _
@@ -1289,19 +1288,19 @@ instance encodeDescribeFleetUtilizationInput :: Encode DescribeFleetUtilizationI
 
 -- | Constructs DescribeFleetUtilizationInput from required parameters
 newDescribeFleetUtilizationInput :: DescribeFleetUtilizationInput
-newDescribeFleetUtilizationInput  = DescribeFleetUtilizationInput { "FleetIds": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetUtilizationInput  = DescribeFleetUtilizationInput { "FleetIds": Nothing, "Limit": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeFleetUtilizationInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeFleetUtilizationInput' :: ( { "FleetIds" :: NullOrUndefined (FleetIdList) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"FleetIds" :: NullOrUndefined (FleetIdList) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeFleetUtilizationInput
-newDescribeFleetUtilizationInput'  customize = (DescribeFleetUtilizationInput <<< customize) { "FleetIds": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetUtilizationInput' :: ( { "FleetIds" :: Maybe (FleetIdList) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"FleetIds" :: Maybe (FleetIdList) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeFleetUtilizationInput
+newDescribeFleetUtilizationInput'  customize = (DescribeFleetUtilizationInput <<< customize) { "FleetIds": Nothing, "Limit": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeFleetUtilizationOutput = DescribeFleetUtilizationOutput 
-  { "FleetUtilization" :: NullOrUndefined (FleetUtilizationList)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "FleetUtilization" :: Maybe (FleetUtilizationList)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeFleetUtilizationOutput :: Newtype DescribeFleetUtilizationOutput _
 derive instance repGenericDescribeFleetUtilizationOutput :: Generic DescribeFleetUtilizationOutput _
@@ -1311,23 +1310,23 @@ instance encodeDescribeFleetUtilizationOutput :: Encode DescribeFleetUtilization
 
 -- | Constructs DescribeFleetUtilizationOutput from required parameters
 newDescribeFleetUtilizationOutput :: DescribeFleetUtilizationOutput
-newDescribeFleetUtilizationOutput  = DescribeFleetUtilizationOutput { "FleetUtilization": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetUtilizationOutput  = DescribeFleetUtilizationOutput { "FleetUtilization": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeFleetUtilizationOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeFleetUtilizationOutput' :: ( { "FleetUtilization" :: NullOrUndefined (FleetUtilizationList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"FleetUtilization" :: NullOrUndefined (FleetUtilizationList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeFleetUtilizationOutput
-newDescribeFleetUtilizationOutput'  customize = (DescribeFleetUtilizationOutput <<< customize) { "FleetUtilization": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeFleetUtilizationOutput' :: ( { "FleetUtilization" :: Maybe (FleetUtilizationList) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"FleetUtilization" :: Maybe (FleetUtilizationList) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeFleetUtilizationOutput
+newDescribeFleetUtilizationOutput'  customize = (DescribeFleetUtilizationOutput <<< customize) { "FleetUtilization": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype DescribeGameSessionDetailsInput = DescribeGameSessionDetailsInput 
-  { "FleetId" :: NullOrUndefined (FleetId)
-  , "GameSessionId" :: NullOrUndefined (ArnStringModel)
-  , "AliasId" :: NullOrUndefined (AliasId)
-  , "StatusFilter" :: NullOrUndefined (NonZeroAndMaxString)
-  , "Limit" :: NullOrUndefined (PositiveInteger)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "FleetId" :: Maybe (FleetId)
+  , "GameSessionId" :: Maybe (ArnStringModel)
+  , "AliasId" :: Maybe (AliasId)
+  , "StatusFilter" :: Maybe (NonZeroAndMaxString)
+  , "Limit" :: Maybe (PositiveInteger)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeGameSessionDetailsInput :: Newtype DescribeGameSessionDetailsInput _
 derive instance repGenericDescribeGameSessionDetailsInput :: Generic DescribeGameSessionDetailsInput _
@@ -1337,19 +1336,19 @@ instance encodeDescribeGameSessionDetailsInput :: Encode DescribeGameSessionDeta
 
 -- | Constructs DescribeGameSessionDetailsInput from required parameters
 newDescribeGameSessionDetailsInput :: DescribeGameSessionDetailsInput
-newDescribeGameSessionDetailsInput  = DescribeGameSessionDetailsInput { "AliasId": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "GameSessionId": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "StatusFilter": (NullOrUndefined Nothing) }
+newDescribeGameSessionDetailsInput  = DescribeGameSessionDetailsInput { "AliasId": Nothing, "FleetId": Nothing, "GameSessionId": Nothing, "Limit": Nothing, "NextToken": Nothing, "StatusFilter": Nothing }
 
 -- | Constructs DescribeGameSessionDetailsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeGameSessionDetailsInput' :: ( { "FleetId" :: NullOrUndefined (FleetId) , "GameSessionId" :: NullOrUndefined (ArnStringModel) , "AliasId" :: NullOrUndefined (AliasId) , "StatusFilter" :: NullOrUndefined (NonZeroAndMaxString) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"FleetId" :: NullOrUndefined (FleetId) , "GameSessionId" :: NullOrUndefined (ArnStringModel) , "AliasId" :: NullOrUndefined (AliasId) , "StatusFilter" :: NullOrUndefined (NonZeroAndMaxString) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeGameSessionDetailsInput
-newDescribeGameSessionDetailsInput'  customize = (DescribeGameSessionDetailsInput <<< customize) { "AliasId": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "GameSessionId": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "StatusFilter": (NullOrUndefined Nothing) }
+newDescribeGameSessionDetailsInput' :: ( { "FleetId" :: Maybe (FleetId) , "GameSessionId" :: Maybe (ArnStringModel) , "AliasId" :: Maybe (AliasId) , "StatusFilter" :: Maybe (NonZeroAndMaxString) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"FleetId" :: Maybe (FleetId) , "GameSessionId" :: Maybe (ArnStringModel) , "AliasId" :: Maybe (AliasId) , "StatusFilter" :: Maybe (NonZeroAndMaxString) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeGameSessionDetailsInput
+newDescribeGameSessionDetailsInput'  customize = (DescribeGameSessionDetailsInput <<< customize) { "AliasId": Nothing, "FleetId": Nothing, "GameSessionId": Nothing, "Limit": Nothing, "NextToken": Nothing, "StatusFilter": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeGameSessionDetailsOutput = DescribeGameSessionDetailsOutput 
-  { "GameSessionDetails" :: NullOrUndefined (GameSessionDetailList)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "GameSessionDetails" :: Maybe (GameSessionDetailList)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeGameSessionDetailsOutput :: Newtype DescribeGameSessionDetailsOutput _
 derive instance repGenericDescribeGameSessionDetailsOutput :: Generic DescribeGameSessionDetailsOutput _
@@ -1359,12 +1358,12 @@ instance encodeDescribeGameSessionDetailsOutput :: Encode DescribeGameSessionDet
 
 -- | Constructs DescribeGameSessionDetailsOutput from required parameters
 newDescribeGameSessionDetailsOutput :: DescribeGameSessionDetailsOutput
-newDescribeGameSessionDetailsOutput  = DescribeGameSessionDetailsOutput { "GameSessionDetails": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeGameSessionDetailsOutput  = DescribeGameSessionDetailsOutput { "GameSessionDetails": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeGameSessionDetailsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeGameSessionDetailsOutput' :: ( { "GameSessionDetails" :: NullOrUndefined (GameSessionDetailList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"GameSessionDetails" :: NullOrUndefined (GameSessionDetailList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeGameSessionDetailsOutput
-newDescribeGameSessionDetailsOutput'  customize = (DescribeGameSessionDetailsOutput <<< customize) { "GameSessionDetails": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeGameSessionDetailsOutput' :: ( { "GameSessionDetails" :: Maybe (GameSessionDetailList) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"GameSessionDetails" :: Maybe (GameSessionDetailList) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeGameSessionDetailsOutput
+newDescribeGameSessionDetailsOutput'  customize = (DescribeGameSessionDetailsOutput <<< customize) { "GameSessionDetails": Nothing, "NextToken": Nothing }
 
 
 
@@ -1391,7 +1390,7 @@ newDescribeGameSessionPlacementInput' _PlacementId customize = (DescribeGameSess
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeGameSessionPlacementOutput = DescribeGameSessionPlacementOutput 
-  { "GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement)
+  { "GameSessionPlacement" :: Maybe (GameSessionPlacement)
   }
 derive instance newtypeDescribeGameSessionPlacementOutput :: Newtype DescribeGameSessionPlacementOutput _
 derive instance repGenericDescribeGameSessionPlacementOutput :: Generic DescribeGameSessionPlacementOutput _
@@ -1401,20 +1400,20 @@ instance encodeDescribeGameSessionPlacementOutput :: Encode DescribeGameSessionP
 
 -- | Constructs DescribeGameSessionPlacementOutput from required parameters
 newDescribeGameSessionPlacementOutput :: DescribeGameSessionPlacementOutput
-newDescribeGameSessionPlacementOutput  = DescribeGameSessionPlacementOutput { "GameSessionPlacement": (NullOrUndefined Nothing) }
+newDescribeGameSessionPlacementOutput  = DescribeGameSessionPlacementOutput { "GameSessionPlacement": Nothing }
 
 -- | Constructs DescribeGameSessionPlacementOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeGameSessionPlacementOutput' :: ( { "GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement) } -> {"GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement) } ) -> DescribeGameSessionPlacementOutput
-newDescribeGameSessionPlacementOutput'  customize = (DescribeGameSessionPlacementOutput <<< customize) { "GameSessionPlacement": (NullOrUndefined Nothing) }
+newDescribeGameSessionPlacementOutput' :: ( { "GameSessionPlacement" :: Maybe (GameSessionPlacement) } -> {"GameSessionPlacement" :: Maybe (GameSessionPlacement) } ) -> DescribeGameSessionPlacementOutput
+newDescribeGameSessionPlacementOutput'  customize = (DescribeGameSessionPlacementOutput <<< customize) { "GameSessionPlacement": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype DescribeGameSessionQueuesInput = DescribeGameSessionQueuesInput 
-  { "Names" :: NullOrUndefined (GameSessionQueueNameList)
-  , "Limit" :: NullOrUndefined (PositiveInteger)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "Names" :: Maybe (GameSessionQueueNameList)
+  , "Limit" :: Maybe (PositiveInteger)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeGameSessionQueuesInput :: Newtype DescribeGameSessionQueuesInput _
 derive instance repGenericDescribeGameSessionQueuesInput :: Generic DescribeGameSessionQueuesInput _
@@ -1424,19 +1423,19 @@ instance encodeDescribeGameSessionQueuesInput :: Encode DescribeGameSessionQueue
 
 -- | Constructs DescribeGameSessionQueuesInput from required parameters
 newDescribeGameSessionQueuesInput :: DescribeGameSessionQueuesInput
-newDescribeGameSessionQueuesInput  = DescribeGameSessionQueuesInput { "Limit": (NullOrUndefined Nothing), "Names": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeGameSessionQueuesInput  = DescribeGameSessionQueuesInput { "Limit": Nothing, "Names": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeGameSessionQueuesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeGameSessionQueuesInput' :: ( { "Names" :: NullOrUndefined (GameSessionQueueNameList) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"Names" :: NullOrUndefined (GameSessionQueueNameList) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeGameSessionQueuesInput
-newDescribeGameSessionQueuesInput'  customize = (DescribeGameSessionQueuesInput <<< customize) { "Limit": (NullOrUndefined Nothing), "Names": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeGameSessionQueuesInput' :: ( { "Names" :: Maybe (GameSessionQueueNameList) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"Names" :: Maybe (GameSessionQueueNameList) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeGameSessionQueuesInput
+newDescribeGameSessionQueuesInput'  customize = (DescribeGameSessionQueuesInput <<< customize) { "Limit": Nothing, "Names": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeGameSessionQueuesOutput = DescribeGameSessionQueuesOutput 
-  { "GameSessionQueues" :: NullOrUndefined (GameSessionQueueList)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "GameSessionQueues" :: Maybe (GameSessionQueueList)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeGameSessionQueuesOutput :: Newtype DescribeGameSessionQueuesOutput _
 derive instance repGenericDescribeGameSessionQueuesOutput :: Generic DescribeGameSessionQueuesOutput _
@@ -1446,23 +1445,23 @@ instance encodeDescribeGameSessionQueuesOutput :: Encode DescribeGameSessionQueu
 
 -- | Constructs DescribeGameSessionQueuesOutput from required parameters
 newDescribeGameSessionQueuesOutput :: DescribeGameSessionQueuesOutput
-newDescribeGameSessionQueuesOutput  = DescribeGameSessionQueuesOutput { "GameSessionQueues": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeGameSessionQueuesOutput  = DescribeGameSessionQueuesOutput { "GameSessionQueues": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeGameSessionQueuesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeGameSessionQueuesOutput' :: ( { "GameSessionQueues" :: NullOrUndefined (GameSessionQueueList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"GameSessionQueues" :: NullOrUndefined (GameSessionQueueList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeGameSessionQueuesOutput
-newDescribeGameSessionQueuesOutput'  customize = (DescribeGameSessionQueuesOutput <<< customize) { "GameSessionQueues": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeGameSessionQueuesOutput' :: ( { "GameSessionQueues" :: Maybe (GameSessionQueueList) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"GameSessionQueues" :: Maybe (GameSessionQueueList) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeGameSessionQueuesOutput
+newDescribeGameSessionQueuesOutput'  customize = (DescribeGameSessionQueuesOutput <<< customize) { "GameSessionQueues": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype DescribeGameSessionsInput = DescribeGameSessionsInput 
-  { "FleetId" :: NullOrUndefined (FleetId)
-  , "GameSessionId" :: NullOrUndefined (ArnStringModel)
-  , "AliasId" :: NullOrUndefined (AliasId)
-  , "StatusFilter" :: NullOrUndefined (NonZeroAndMaxString)
-  , "Limit" :: NullOrUndefined (PositiveInteger)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "FleetId" :: Maybe (FleetId)
+  , "GameSessionId" :: Maybe (ArnStringModel)
+  , "AliasId" :: Maybe (AliasId)
+  , "StatusFilter" :: Maybe (NonZeroAndMaxString)
+  , "Limit" :: Maybe (PositiveInteger)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeGameSessionsInput :: Newtype DescribeGameSessionsInput _
 derive instance repGenericDescribeGameSessionsInput :: Generic DescribeGameSessionsInput _
@@ -1472,19 +1471,19 @@ instance encodeDescribeGameSessionsInput :: Encode DescribeGameSessionsInput whe
 
 -- | Constructs DescribeGameSessionsInput from required parameters
 newDescribeGameSessionsInput :: DescribeGameSessionsInput
-newDescribeGameSessionsInput  = DescribeGameSessionsInput { "AliasId": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "GameSessionId": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "StatusFilter": (NullOrUndefined Nothing) }
+newDescribeGameSessionsInput  = DescribeGameSessionsInput { "AliasId": Nothing, "FleetId": Nothing, "GameSessionId": Nothing, "Limit": Nothing, "NextToken": Nothing, "StatusFilter": Nothing }
 
 -- | Constructs DescribeGameSessionsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeGameSessionsInput' :: ( { "FleetId" :: NullOrUndefined (FleetId) , "GameSessionId" :: NullOrUndefined (ArnStringModel) , "AliasId" :: NullOrUndefined (AliasId) , "StatusFilter" :: NullOrUndefined (NonZeroAndMaxString) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"FleetId" :: NullOrUndefined (FleetId) , "GameSessionId" :: NullOrUndefined (ArnStringModel) , "AliasId" :: NullOrUndefined (AliasId) , "StatusFilter" :: NullOrUndefined (NonZeroAndMaxString) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeGameSessionsInput
-newDescribeGameSessionsInput'  customize = (DescribeGameSessionsInput <<< customize) { "AliasId": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "GameSessionId": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "StatusFilter": (NullOrUndefined Nothing) }
+newDescribeGameSessionsInput' :: ( { "FleetId" :: Maybe (FleetId) , "GameSessionId" :: Maybe (ArnStringModel) , "AliasId" :: Maybe (AliasId) , "StatusFilter" :: Maybe (NonZeroAndMaxString) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"FleetId" :: Maybe (FleetId) , "GameSessionId" :: Maybe (ArnStringModel) , "AliasId" :: Maybe (AliasId) , "StatusFilter" :: Maybe (NonZeroAndMaxString) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeGameSessionsInput
+newDescribeGameSessionsInput'  customize = (DescribeGameSessionsInput <<< customize) { "AliasId": Nothing, "FleetId": Nothing, "GameSessionId": Nothing, "Limit": Nothing, "NextToken": Nothing, "StatusFilter": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeGameSessionsOutput = DescribeGameSessionsOutput 
-  { "GameSessions" :: NullOrUndefined (GameSessionList)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "GameSessions" :: Maybe (GameSessionList)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeGameSessionsOutput :: Newtype DescribeGameSessionsOutput _
 derive instance repGenericDescribeGameSessionsOutput :: Generic DescribeGameSessionsOutput _
@@ -1494,21 +1493,21 @@ instance encodeDescribeGameSessionsOutput :: Encode DescribeGameSessionsOutput w
 
 -- | Constructs DescribeGameSessionsOutput from required parameters
 newDescribeGameSessionsOutput :: DescribeGameSessionsOutput
-newDescribeGameSessionsOutput  = DescribeGameSessionsOutput { "GameSessions": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeGameSessionsOutput  = DescribeGameSessionsOutput { "GameSessions": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeGameSessionsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeGameSessionsOutput' :: ( { "GameSessions" :: NullOrUndefined (GameSessionList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"GameSessions" :: NullOrUndefined (GameSessionList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeGameSessionsOutput
-newDescribeGameSessionsOutput'  customize = (DescribeGameSessionsOutput <<< customize) { "GameSessions": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeGameSessionsOutput' :: ( { "GameSessions" :: Maybe (GameSessionList) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"GameSessions" :: Maybe (GameSessionList) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeGameSessionsOutput
+newDescribeGameSessionsOutput'  customize = (DescribeGameSessionsOutput <<< customize) { "GameSessions": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype DescribeInstancesInput = DescribeInstancesInput 
   { "FleetId" :: (FleetId)
-  , "InstanceId" :: NullOrUndefined (InstanceId)
-  , "Limit" :: NullOrUndefined (PositiveInteger)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  , "InstanceId" :: Maybe (InstanceId)
+  , "Limit" :: Maybe (PositiveInteger)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeInstancesInput :: Newtype DescribeInstancesInput _
 derive instance repGenericDescribeInstancesInput :: Generic DescribeInstancesInput _
@@ -1518,19 +1517,19 @@ instance encodeDescribeInstancesInput :: Encode DescribeInstancesInput where enc
 
 -- | Constructs DescribeInstancesInput from required parameters
 newDescribeInstancesInput :: FleetId -> DescribeInstancesInput
-newDescribeInstancesInput _FleetId = DescribeInstancesInput { "FleetId": _FleetId, "InstanceId": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeInstancesInput _FleetId = DescribeInstancesInput { "FleetId": _FleetId, "InstanceId": Nothing, "Limit": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeInstancesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeInstancesInput' :: FleetId -> ( { "FleetId" :: (FleetId) , "InstanceId" :: NullOrUndefined (InstanceId) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"FleetId" :: (FleetId) , "InstanceId" :: NullOrUndefined (InstanceId) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeInstancesInput
-newDescribeInstancesInput' _FleetId customize = (DescribeInstancesInput <<< customize) { "FleetId": _FleetId, "InstanceId": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeInstancesInput' :: FleetId -> ( { "FleetId" :: (FleetId) , "InstanceId" :: Maybe (InstanceId) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"FleetId" :: (FleetId) , "InstanceId" :: Maybe (InstanceId) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeInstancesInput
+newDescribeInstancesInput' _FleetId customize = (DescribeInstancesInput <<< customize) { "FleetId": _FleetId, "InstanceId": Nothing, "Limit": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeInstancesOutput = DescribeInstancesOutput 
-  { "Instances" :: NullOrUndefined (InstanceList)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "Instances" :: Maybe (InstanceList)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeInstancesOutput :: Newtype DescribeInstancesOutput _
 derive instance repGenericDescribeInstancesOutput :: Generic DescribeInstancesOutput _
@@ -1540,21 +1539,21 @@ instance encodeDescribeInstancesOutput :: Encode DescribeInstancesOutput where e
 
 -- | Constructs DescribeInstancesOutput from required parameters
 newDescribeInstancesOutput :: DescribeInstancesOutput
-newDescribeInstancesOutput  = DescribeInstancesOutput { "Instances": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeInstancesOutput  = DescribeInstancesOutput { "Instances": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeInstancesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeInstancesOutput' :: ( { "Instances" :: NullOrUndefined (InstanceList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"Instances" :: NullOrUndefined (InstanceList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeInstancesOutput
-newDescribeInstancesOutput'  customize = (DescribeInstancesOutput <<< customize) { "Instances": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeInstancesOutput' :: ( { "Instances" :: Maybe (InstanceList) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"Instances" :: Maybe (InstanceList) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeInstancesOutput
+newDescribeInstancesOutput'  customize = (DescribeInstancesOutput <<< customize) { "Instances": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype DescribeMatchmakingConfigurationsInput = DescribeMatchmakingConfigurationsInput 
-  { "Names" :: NullOrUndefined (MatchmakingIdList)
-  , "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel)
-  , "Limit" :: NullOrUndefined (PositiveInteger)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "Names" :: Maybe (MatchmakingIdList)
+  , "RuleSetName" :: Maybe (MatchmakingIdStringModel)
+  , "Limit" :: Maybe (PositiveInteger)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeMatchmakingConfigurationsInput :: Newtype DescribeMatchmakingConfigurationsInput _
 derive instance repGenericDescribeMatchmakingConfigurationsInput :: Generic DescribeMatchmakingConfigurationsInput _
@@ -1564,19 +1563,19 @@ instance encodeDescribeMatchmakingConfigurationsInput :: Encode DescribeMatchmak
 
 -- | Constructs DescribeMatchmakingConfigurationsInput from required parameters
 newDescribeMatchmakingConfigurationsInput :: DescribeMatchmakingConfigurationsInput
-newDescribeMatchmakingConfigurationsInput  = DescribeMatchmakingConfigurationsInput { "Limit": (NullOrUndefined Nothing), "Names": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "RuleSetName": (NullOrUndefined Nothing) }
+newDescribeMatchmakingConfigurationsInput  = DescribeMatchmakingConfigurationsInput { "Limit": Nothing, "Names": Nothing, "NextToken": Nothing, "RuleSetName": Nothing }
 
 -- | Constructs DescribeMatchmakingConfigurationsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeMatchmakingConfigurationsInput' :: ( { "Names" :: NullOrUndefined (MatchmakingIdList) , "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"Names" :: NullOrUndefined (MatchmakingIdList) , "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeMatchmakingConfigurationsInput
-newDescribeMatchmakingConfigurationsInput'  customize = (DescribeMatchmakingConfigurationsInput <<< customize) { "Limit": (NullOrUndefined Nothing), "Names": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "RuleSetName": (NullOrUndefined Nothing) }
+newDescribeMatchmakingConfigurationsInput' :: ( { "Names" :: Maybe (MatchmakingIdList) , "RuleSetName" :: Maybe (MatchmakingIdStringModel) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"Names" :: Maybe (MatchmakingIdList) , "RuleSetName" :: Maybe (MatchmakingIdStringModel) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeMatchmakingConfigurationsInput
+newDescribeMatchmakingConfigurationsInput'  customize = (DescribeMatchmakingConfigurationsInput <<< customize) { "Limit": Nothing, "Names": Nothing, "NextToken": Nothing, "RuleSetName": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeMatchmakingConfigurationsOutput = DescribeMatchmakingConfigurationsOutput 
-  { "Configurations" :: NullOrUndefined (MatchmakingConfigurationList)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "Configurations" :: Maybe (MatchmakingConfigurationList)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeMatchmakingConfigurationsOutput :: Newtype DescribeMatchmakingConfigurationsOutput _
 derive instance repGenericDescribeMatchmakingConfigurationsOutput :: Generic DescribeMatchmakingConfigurationsOutput _
@@ -1586,12 +1585,12 @@ instance encodeDescribeMatchmakingConfigurationsOutput :: Encode DescribeMatchma
 
 -- | Constructs DescribeMatchmakingConfigurationsOutput from required parameters
 newDescribeMatchmakingConfigurationsOutput :: DescribeMatchmakingConfigurationsOutput
-newDescribeMatchmakingConfigurationsOutput  = DescribeMatchmakingConfigurationsOutput { "Configurations": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeMatchmakingConfigurationsOutput  = DescribeMatchmakingConfigurationsOutput { "Configurations": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeMatchmakingConfigurationsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeMatchmakingConfigurationsOutput' :: ( { "Configurations" :: NullOrUndefined (MatchmakingConfigurationList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"Configurations" :: NullOrUndefined (MatchmakingConfigurationList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeMatchmakingConfigurationsOutput
-newDescribeMatchmakingConfigurationsOutput'  customize = (DescribeMatchmakingConfigurationsOutput <<< customize) { "Configurations": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeMatchmakingConfigurationsOutput' :: ( { "Configurations" :: Maybe (MatchmakingConfigurationList) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"Configurations" :: Maybe (MatchmakingConfigurationList) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeMatchmakingConfigurationsOutput
+newDescribeMatchmakingConfigurationsOutput'  customize = (DescribeMatchmakingConfigurationsOutput <<< customize) { "Configurations": Nothing, "NextToken": Nothing }
 
 
 
@@ -1618,7 +1617,7 @@ newDescribeMatchmakingInput' _TicketIds customize = (DescribeMatchmakingInput <<
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeMatchmakingOutput = DescribeMatchmakingOutput 
-  { "TicketList" :: NullOrUndefined (MatchmakingTicketList)
+  { "TicketList" :: Maybe (MatchmakingTicketList)
   }
 derive instance newtypeDescribeMatchmakingOutput :: Newtype DescribeMatchmakingOutput _
 derive instance repGenericDescribeMatchmakingOutput :: Generic DescribeMatchmakingOutput _
@@ -1628,20 +1627,20 @@ instance encodeDescribeMatchmakingOutput :: Encode DescribeMatchmakingOutput whe
 
 -- | Constructs DescribeMatchmakingOutput from required parameters
 newDescribeMatchmakingOutput :: DescribeMatchmakingOutput
-newDescribeMatchmakingOutput  = DescribeMatchmakingOutput { "TicketList": (NullOrUndefined Nothing) }
+newDescribeMatchmakingOutput  = DescribeMatchmakingOutput { "TicketList": Nothing }
 
 -- | Constructs DescribeMatchmakingOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeMatchmakingOutput' :: ( { "TicketList" :: NullOrUndefined (MatchmakingTicketList) } -> {"TicketList" :: NullOrUndefined (MatchmakingTicketList) } ) -> DescribeMatchmakingOutput
-newDescribeMatchmakingOutput'  customize = (DescribeMatchmakingOutput <<< customize) { "TicketList": (NullOrUndefined Nothing) }
+newDescribeMatchmakingOutput' :: ( { "TicketList" :: Maybe (MatchmakingTicketList) } -> {"TicketList" :: Maybe (MatchmakingTicketList) } ) -> DescribeMatchmakingOutput
+newDescribeMatchmakingOutput'  customize = (DescribeMatchmakingOutput <<< customize) { "TicketList": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype DescribeMatchmakingRuleSetsInput = DescribeMatchmakingRuleSetsInput 
-  { "Names" :: NullOrUndefined (MatchmakingRuleSetNameList)
-  , "Limit" :: NullOrUndefined (RuleSetLimit)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "Names" :: Maybe (MatchmakingRuleSetNameList)
+  , "Limit" :: Maybe (RuleSetLimit)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeMatchmakingRuleSetsInput :: Newtype DescribeMatchmakingRuleSetsInput _
 derive instance repGenericDescribeMatchmakingRuleSetsInput :: Generic DescribeMatchmakingRuleSetsInput _
@@ -1651,19 +1650,19 @@ instance encodeDescribeMatchmakingRuleSetsInput :: Encode DescribeMatchmakingRul
 
 -- | Constructs DescribeMatchmakingRuleSetsInput from required parameters
 newDescribeMatchmakingRuleSetsInput :: DescribeMatchmakingRuleSetsInput
-newDescribeMatchmakingRuleSetsInput  = DescribeMatchmakingRuleSetsInput { "Limit": (NullOrUndefined Nothing), "Names": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeMatchmakingRuleSetsInput  = DescribeMatchmakingRuleSetsInput { "Limit": Nothing, "Names": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeMatchmakingRuleSetsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeMatchmakingRuleSetsInput' :: ( { "Names" :: NullOrUndefined (MatchmakingRuleSetNameList) , "Limit" :: NullOrUndefined (RuleSetLimit) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"Names" :: NullOrUndefined (MatchmakingRuleSetNameList) , "Limit" :: NullOrUndefined (RuleSetLimit) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeMatchmakingRuleSetsInput
-newDescribeMatchmakingRuleSetsInput'  customize = (DescribeMatchmakingRuleSetsInput <<< customize) { "Limit": (NullOrUndefined Nothing), "Names": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeMatchmakingRuleSetsInput' :: ( { "Names" :: Maybe (MatchmakingRuleSetNameList) , "Limit" :: Maybe (RuleSetLimit) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"Names" :: Maybe (MatchmakingRuleSetNameList) , "Limit" :: Maybe (RuleSetLimit) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeMatchmakingRuleSetsInput
+newDescribeMatchmakingRuleSetsInput'  customize = (DescribeMatchmakingRuleSetsInput <<< customize) { "Limit": Nothing, "Names": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeMatchmakingRuleSetsOutput = DescribeMatchmakingRuleSetsOutput 
   { "RuleSets" :: (MatchmakingRuleSetList)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeMatchmakingRuleSetsOutput :: Newtype DescribeMatchmakingRuleSetsOutput _
 derive instance repGenericDescribeMatchmakingRuleSetsOutput :: Generic DescribeMatchmakingRuleSetsOutput _
@@ -1673,23 +1672,23 @@ instance encodeDescribeMatchmakingRuleSetsOutput :: Encode DescribeMatchmakingRu
 
 -- | Constructs DescribeMatchmakingRuleSetsOutput from required parameters
 newDescribeMatchmakingRuleSetsOutput :: MatchmakingRuleSetList -> DescribeMatchmakingRuleSetsOutput
-newDescribeMatchmakingRuleSetsOutput _RuleSets = DescribeMatchmakingRuleSetsOutput { "RuleSets": _RuleSets, "NextToken": (NullOrUndefined Nothing) }
+newDescribeMatchmakingRuleSetsOutput _RuleSets = DescribeMatchmakingRuleSetsOutput { "RuleSets": _RuleSets, "NextToken": Nothing }
 
 -- | Constructs DescribeMatchmakingRuleSetsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeMatchmakingRuleSetsOutput' :: MatchmakingRuleSetList -> ( { "RuleSets" :: (MatchmakingRuleSetList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"RuleSets" :: (MatchmakingRuleSetList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeMatchmakingRuleSetsOutput
-newDescribeMatchmakingRuleSetsOutput' _RuleSets customize = (DescribeMatchmakingRuleSetsOutput <<< customize) { "RuleSets": _RuleSets, "NextToken": (NullOrUndefined Nothing) }
+newDescribeMatchmakingRuleSetsOutput' :: MatchmakingRuleSetList -> ( { "RuleSets" :: (MatchmakingRuleSetList) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"RuleSets" :: (MatchmakingRuleSetList) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeMatchmakingRuleSetsOutput
+newDescribeMatchmakingRuleSetsOutput' _RuleSets customize = (DescribeMatchmakingRuleSetsOutput <<< customize) { "RuleSets": _RuleSets, "NextToken": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype DescribePlayerSessionsInput = DescribePlayerSessionsInput 
-  { "GameSessionId" :: NullOrUndefined (ArnStringModel)
-  , "PlayerId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "PlayerSessionId" :: NullOrUndefined (PlayerSessionId)
-  , "PlayerSessionStatusFilter" :: NullOrUndefined (NonZeroAndMaxString)
-  , "Limit" :: NullOrUndefined (PositiveInteger)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "GameSessionId" :: Maybe (ArnStringModel)
+  , "PlayerId" :: Maybe (NonZeroAndMaxString)
+  , "PlayerSessionId" :: Maybe (PlayerSessionId)
+  , "PlayerSessionStatusFilter" :: Maybe (NonZeroAndMaxString)
+  , "Limit" :: Maybe (PositiveInteger)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribePlayerSessionsInput :: Newtype DescribePlayerSessionsInput _
 derive instance repGenericDescribePlayerSessionsInput :: Generic DescribePlayerSessionsInput _
@@ -1699,19 +1698,19 @@ instance encodeDescribePlayerSessionsInput :: Encode DescribePlayerSessionsInput
 
 -- | Constructs DescribePlayerSessionsInput from required parameters
 newDescribePlayerSessionsInput :: DescribePlayerSessionsInput
-newDescribePlayerSessionsInput  = DescribePlayerSessionsInput { "GameSessionId": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "PlayerId": (NullOrUndefined Nothing), "PlayerSessionId": (NullOrUndefined Nothing), "PlayerSessionStatusFilter": (NullOrUndefined Nothing) }
+newDescribePlayerSessionsInput  = DescribePlayerSessionsInput { "GameSessionId": Nothing, "Limit": Nothing, "NextToken": Nothing, "PlayerId": Nothing, "PlayerSessionId": Nothing, "PlayerSessionStatusFilter": Nothing }
 
 -- | Constructs DescribePlayerSessionsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribePlayerSessionsInput' :: ( { "GameSessionId" :: NullOrUndefined (ArnStringModel) , "PlayerId" :: NullOrUndefined (NonZeroAndMaxString) , "PlayerSessionId" :: NullOrUndefined (PlayerSessionId) , "PlayerSessionStatusFilter" :: NullOrUndefined (NonZeroAndMaxString) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"GameSessionId" :: NullOrUndefined (ArnStringModel) , "PlayerId" :: NullOrUndefined (NonZeroAndMaxString) , "PlayerSessionId" :: NullOrUndefined (PlayerSessionId) , "PlayerSessionStatusFilter" :: NullOrUndefined (NonZeroAndMaxString) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribePlayerSessionsInput
-newDescribePlayerSessionsInput'  customize = (DescribePlayerSessionsInput <<< customize) { "GameSessionId": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "PlayerId": (NullOrUndefined Nothing), "PlayerSessionId": (NullOrUndefined Nothing), "PlayerSessionStatusFilter": (NullOrUndefined Nothing) }
+newDescribePlayerSessionsInput' :: ( { "GameSessionId" :: Maybe (ArnStringModel) , "PlayerId" :: Maybe (NonZeroAndMaxString) , "PlayerSessionId" :: Maybe (PlayerSessionId) , "PlayerSessionStatusFilter" :: Maybe (NonZeroAndMaxString) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"GameSessionId" :: Maybe (ArnStringModel) , "PlayerId" :: Maybe (NonZeroAndMaxString) , "PlayerSessionId" :: Maybe (PlayerSessionId) , "PlayerSessionStatusFilter" :: Maybe (NonZeroAndMaxString) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribePlayerSessionsInput
+newDescribePlayerSessionsInput'  customize = (DescribePlayerSessionsInput <<< customize) { "GameSessionId": Nothing, "Limit": Nothing, "NextToken": Nothing, "PlayerId": Nothing, "PlayerSessionId": Nothing, "PlayerSessionStatusFilter": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribePlayerSessionsOutput = DescribePlayerSessionsOutput 
-  { "PlayerSessions" :: NullOrUndefined (PlayerSessionList)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "PlayerSessions" :: Maybe (PlayerSessionList)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribePlayerSessionsOutput :: Newtype DescribePlayerSessionsOutput _
 derive instance repGenericDescribePlayerSessionsOutput :: Generic DescribePlayerSessionsOutput _
@@ -1721,12 +1720,12 @@ instance encodeDescribePlayerSessionsOutput :: Encode DescribePlayerSessionsOutp
 
 -- | Constructs DescribePlayerSessionsOutput from required parameters
 newDescribePlayerSessionsOutput :: DescribePlayerSessionsOutput
-newDescribePlayerSessionsOutput  = DescribePlayerSessionsOutput { "NextToken": (NullOrUndefined Nothing), "PlayerSessions": (NullOrUndefined Nothing) }
+newDescribePlayerSessionsOutput  = DescribePlayerSessionsOutput { "NextToken": Nothing, "PlayerSessions": Nothing }
 
 -- | Constructs DescribePlayerSessionsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribePlayerSessionsOutput' :: ( { "PlayerSessions" :: NullOrUndefined (PlayerSessionList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"PlayerSessions" :: NullOrUndefined (PlayerSessionList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribePlayerSessionsOutput
-newDescribePlayerSessionsOutput'  customize = (DescribePlayerSessionsOutput <<< customize) { "NextToken": (NullOrUndefined Nothing), "PlayerSessions": (NullOrUndefined Nothing) }
+newDescribePlayerSessionsOutput' :: ( { "PlayerSessions" :: Maybe (PlayerSessionList) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"PlayerSessions" :: Maybe (PlayerSessionList) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribePlayerSessionsOutput
+newDescribePlayerSessionsOutput'  customize = (DescribePlayerSessionsOutput <<< customize) { "NextToken": Nothing, "PlayerSessions": Nothing }
 
 
 
@@ -1753,7 +1752,7 @@ newDescribeRuntimeConfigurationInput' _FleetId customize = (DescribeRuntimeConfi
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeRuntimeConfigurationOutput = DescribeRuntimeConfigurationOutput 
-  { "RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration)
+  { "RuntimeConfiguration" :: Maybe (RuntimeConfiguration)
   }
 derive instance newtypeDescribeRuntimeConfigurationOutput :: Newtype DescribeRuntimeConfigurationOutput _
 derive instance repGenericDescribeRuntimeConfigurationOutput :: Generic DescribeRuntimeConfigurationOutput _
@@ -1763,21 +1762,21 @@ instance encodeDescribeRuntimeConfigurationOutput :: Encode DescribeRuntimeConfi
 
 -- | Constructs DescribeRuntimeConfigurationOutput from required parameters
 newDescribeRuntimeConfigurationOutput :: DescribeRuntimeConfigurationOutput
-newDescribeRuntimeConfigurationOutput  = DescribeRuntimeConfigurationOutput { "RuntimeConfiguration": (NullOrUndefined Nothing) }
+newDescribeRuntimeConfigurationOutput  = DescribeRuntimeConfigurationOutput { "RuntimeConfiguration": Nothing }
 
 -- | Constructs DescribeRuntimeConfigurationOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeRuntimeConfigurationOutput' :: ( { "RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration) } -> {"RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration) } ) -> DescribeRuntimeConfigurationOutput
-newDescribeRuntimeConfigurationOutput'  customize = (DescribeRuntimeConfigurationOutput <<< customize) { "RuntimeConfiguration": (NullOrUndefined Nothing) }
+newDescribeRuntimeConfigurationOutput' :: ( { "RuntimeConfiguration" :: Maybe (RuntimeConfiguration) } -> {"RuntimeConfiguration" :: Maybe (RuntimeConfiguration) } ) -> DescribeRuntimeConfigurationOutput
+newDescribeRuntimeConfigurationOutput'  customize = (DescribeRuntimeConfigurationOutput <<< customize) { "RuntimeConfiguration": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype DescribeScalingPoliciesInput = DescribeScalingPoliciesInput 
   { "FleetId" :: (FleetId)
-  , "StatusFilter" :: NullOrUndefined (ScalingStatusType)
-  , "Limit" :: NullOrUndefined (PositiveInteger)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  , "StatusFilter" :: Maybe (ScalingStatusType)
+  , "Limit" :: Maybe (PositiveInteger)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeScalingPoliciesInput :: Newtype DescribeScalingPoliciesInput _
 derive instance repGenericDescribeScalingPoliciesInput :: Generic DescribeScalingPoliciesInput _
@@ -1787,19 +1786,19 @@ instance encodeDescribeScalingPoliciesInput :: Encode DescribeScalingPoliciesInp
 
 -- | Constructs DescribeScalingPoliciesInput from required parameters
 newDescribeScalingPoliciesInput :: FleetId -> DescribeScalingPoliciesInput
-newDescribeScalingPoliciesInput _FleetId = DescribeScalingPoliciesInput { "FleetId": _FleetId, "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "StatusFilter": (NullOrUndefined Nothing) }
+newDescribeScalingPoliciesInput _FleetId = DescribeScalingPoliciesInput { "FleetId": _FleetId, "Limit": Nothing, "NextToken": Nothing, "StatusFilter": Nothing }
 
 -- | Constructs DescribeScalingPoliciesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeScalingPoliciesInput' :: FleetId -> ( { "FleetId" :: (FleetId) , "StatusFilter" :: NullOrUndefined (ScalingStatusType) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"FleetId" :: (FleetId) , "StatusFilter" :: NullOrUndefined (ScalingStatusType) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeScalingPoliciesInput
-newDescribeScalingPoliciesInput' _FleetId customize = (DescribeScalingPoliciesInput <<< customize) { "FleetId": _FleetId, "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "StatusFilter": (NullOrUndefined Nothing) }
+newDescribeScalingPoliciesInput' :: FleetId -> ( { "FleetId" :: (FleetId) , "StatusFilter" :: Maybe (ScalingStatusType) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"FleetId" :: (FleetId) , "StatusFilter" :: Maybe (ScalingStatusType) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeScalingPoliciesInput
+newDescribeScalingPoliciesInput' _FleetId customize = (DescribeScalingPoliciesInput <<< customize) { "FleetId": _FleetId, "Limit": Nothing, "NextToken": Nothing, "StatusFilter": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeScalingPoliciesOutput = DescribeScalingPoliciesOutput 
-  { "ScalingPolicies" :: NullOrUndefined (ScalingPolicyList)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "ScalingPolicies" :: Maybe (ScalingPolicyList)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeDescribeScalingPoliciesOutput :: Newtype DescribeScalingPoliciesOutput _
 derive instance repGenericDescribeScalingPoliciesOutput :: Generic DescribeScalingPoliciesOutput _
@@ -1809,12 +1808,12 @@ instance encodeDescribeScalingPoliciesOutput :: Encode DescribeScalingPoliciesOu
 
 -- | Constructs DescribeScalingPoliciesOutput from required parameters
 newDescribeScalingPoliciesOutput :: DescribeScalingPoliciesOutput
-newDescribeScalingPoliciesOutput  = DescribeScalingPoliciesOutput { "NextToken": (NullOrUndefined Nothing), "ScalingPolicies": (NullOrUndefined Nothing) }
+newDescribeScalingPoliciesOutput  = DescribeScalingPoliciesOutput { "NextToken": Nothing, "ScalingPolicies": Nothing }
 
 -- | Constructs DescribeScalingPoliciesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeScalingPoliciesOutput' :: ( { "ScalingPolicies" :: NullOrUndefined (ScalingPolicyList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"ScalingPolicies" :: NullOrUndefined (ScalingPolicyList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> DescribeScalingPoliciesOutput
-newDescribeScalingPoliciesOutput'  customize = (DescribeScalingPoliciesOutput <<< customize) { "NextToken": (NullOrUndefined Nothing), "ScalingPolicies": (NullOrUndefined Nothing) }
+newDescribeScalingPoliciesOutput' :: ( { "ScalingPolicies" :: Maybe (ScalingPolicyList) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"ScalingPolicies" :: Maybe (ScalingPolicyList) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> DescribeScalingPoliciesOutput
+newDescribeScalingPoliciesOutput'  customize = (DescribeScalingPoliciesOutput <<< customize) { "NextToken": Nothing, "ScalingPolicies": Nothing }
 
 
 
@@ -1828,7 +1827,7 @@ instance encodeDescribeVpcPeeringAuthorizationsInput :: Encode DescribeVpcPeerin
 
 
 newtype DescribeVpcPeeringAuthorizationsOutput = DescribeVpcPeeringAuthorizationsOutput 
-  { "VpcPeeringAuthorizations" :: NullOrUndefined (VpcPeeringAuthorizationList)
+  { "VpcPeeringAuthorizations" :: Maybe (VpcPeeringAuthorizationList)
   }
 derive instance newtypeDescribeVpcPeeringAuthorizationsOutput :: Newtype DescribeVpcPeeringAuthorizationsOutput _
 derive instance repGenericDescribeVpcPeeringAuthorizationsOutput :: Generic DescribeVpcPeeringAuthorizationsOutput _
@@ -1838,18 +1837,18 @@ instance encodeDescribeVpcPeeringAuthorizationsOutput :: Encode DescribeVpcPeeri
 
 -- | Constructs DescribeVpcPeeringAuthorizationsOutput from required parameters
 newDescribeVpcPeeringAuthorizationsOutput :: DescribeVpcPeeringAuthorizationsOutput
-newDescribeVpcPeeringAuthorizationsOutput  = DescribeVpcPeeringAuthorizationsOutput { "VpcPeeringAuthorizations": (NullOrUndefined Nothing) }
+newDescribeVpcPeeringAuthorizationsOutput  = DescribeVpcPeeringAuthorizationsOutput { "VpcPeeringAuthorizations": Nothing }
 
 -- | Constructs DescribeVpcPeeringAuthorizationsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeVpcPeeringAuthorizationsOutput' :: ( { "VpcPeeringAuthorizations" :: NullOrUndefined (VpcPeeringAuthorizationList) } -> {"VpcPeeringAuthorizations" :: NullOrUndefined (VpcPeeringAuthorizationList) } ) -> DescribeVpcPeeringAuthorizationsOutput
-newDescribeVpcPeeringAuthorizationsOutput'  customize = (DescribeVpcPeeringAuthorizationsOutput <<< customize) { "VpcPeeringAuthorizations": (NullOrUndefined Nothing) }
+newDescribeVpcPeeringAuthorizationsOutput' :: ( { "VpcPeeringAuthorizations" :: Maybe (VpcPeeringAuthorizationList) } -> {"VpcPeeringAuthorizations" :: Maybe (VpcPeeringAuthorizationList) } ) -> DescribeVpcPeeringAuthorizationsOutput
+newDescribeVpcPeeringAuthorizationsOutput'  customize = (DescribeVpcPeeringAuthorizationsOutput <<< customize) { "VpcPeeringAuthorizations": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype DescribeVpcPeeringConnectionsInput = DescribeVpcPeeringConnectionsInput 
-  { "FleetId" :: NullOrUndefined (FleetId)
+  { "FleetId" :: Maybe (FleetId)
   }
 derive instance newtypeDescribeVpcPeeringConnectionsInput :: Newtype DescribeVpcPeeringConnectionsInput _
 derive instance repGenericDescribeVpcPeeringConnectionsInput :: Generic DescribeVpcPeeringConnectionsInput _
@@ -1859,18 +1858,18 @@ instance encodeDescribeVpcPeeringConnectionsInput :: Encode DescribeVpcPeeringCo
 
 -- | Constructs DescribeVpcPeeringConnectionsInput from required parameters
 newDescribeVpcPeeringConnectionsInput :: DescribeVpcPeeringConnectionsInput
-newDescribeVpcPeeringConnectionsInput  = DescribeVpcPeeringConnectionsInput { "FleetId": (NullOrUndefined Nothing) }
+newDescribeVpcPeeringConnectionsInput  = DescribeVpcPeeringConnectionsInput { "FleetId": Nothing }
 
 -- | Constructs DescribeVpcPeeringConnectionsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeVpcPeeringConnectionsInput' :: ( { "FleetId" :: NullOrUndefined (FleetId) } -> {"FleetId" :: NullOrUndefined (FleetId) } ) -> DescribeVpcPeeringConnectionsInput
-newDescribeVpcPeeringConnectionsInput'  customize = (DescribeVpcPeeringConnectionsInput <<< customize) { "FleetId": (NullOrUndefined Nothing) }
+newDescribeVpcPeeringConnectionsInput' :: ( { "FleetId" :: Maybe (FleetId) } -> {"FleetId" :: Maybe (FleetId) } ) -> DescribeVpcPeeringConnectionsInput
+newDescribeVpcPeeringConnectionsInput'  customize = (DescribeVpcPeeringConnectionsInput <<< customize) { "FleetId": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype DescribeVpcPeeringConnectionsOutput = DescribeVpcPeeringConnectionsOutput 
-  { "VpcPeeringConnections" :: NullOrUndefined (VpcPeeringConnectionList)
+  { "VpcPeeringConnections" :: Maybe (VpcPeeringConnectionList)
   }
 derive instance newtypeDescribeVpcPeeringConnectionsOutput :: Newtype DescribeVpcPeeringConnectionsOutput _
 derive instance repGenericDescribeVpcPeeringConnectionsOutput :: Generic DescribeVpcPeeringConnectionsOutput _
@@ -1880,19 +1879,19 @@ instance encodeDescribeVpcPeeringConnectionsOutput :: Encode DescribeVpcPeeringC
 
 -- | Constructs DescribeVpcPeeringConnectionsOutput from required parameters
 newDescribeVpcPeeringConnectionsOutput :: DescribeVpcPeeringConnectionsOutput
-newDescribeVpcPeeringConnectionsOutput  = DescribeVpcPeeringConnectionsOutput { "VpcPeeringConnections": (NullOrUndefined Nothing) }
+newDescribeVpcPeeringConnectionsOutput  = DescribeVpcPeeringConnectionsOutput { "VpcPeeringConnections": Nothing }
 
 -- | Constructs DescribeVpcPeeringConnectionsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeVpcPeeringConnectionsOutput' :: ( { "VpcPeeringConnections" :: NullOrUndefined (VpcPeeringConnectionList) } -> {"VpcPeeringConnections" :: NullOrUndefined (VpcPeeringConnectionList) } ) -> DescribeVpcPeeringConnectionsOutput
-newDescribeVpcPeeringConnectionsOutput'  customize = (DescribeVpcPeeringConnectionsOutput <<< customize) { "VpcPeeringConnections": (NullOrUndefined Nothing) }
+newDescribeVpcPeeringConnectionsOutput' :: ( { "VpcPeeringConnections" :: Maybe (VpcPeeringConnectionList) } -> {"VpcPeeringConnections" :: Maybe (VpcPeeringConnectionList) } ) -> DescribeVpcPeeringConnectionsOutput
+newDescribeVpcPeeringConnectionsOutput'  customize = (DescribeVpcPeeringConnectionsOutput <<< customize) { "VpcPeeringConnections": Nothing }
 
 
 
 -- | <p>Player information for use when creating player sessions using a game session placement request with <a>StartGameSessionPlacement</a>.</p>
 newtype DesiredPlayerSession = DesiredPlayerSession 
-  { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "PlayerData" :: NullOrUndefined (PlayerData)
+  { "PlayerId" :: Maybe (NonZeroAndMaxString)
+  , "PlayerData" :: Maybe (PlayerData)
   }
 derive instance newtypeDesiredPlayerSession :: Newtype DesiredPlayerSession _
 derive instance repGenericDesiredPlayerSession :: Generic DesiredPlayerSession _
@@ -1902,12 +1901,12 @@ instance encodeDesiredPlayerSession :: Encode DesiredPlayerSession where encode 
 
 -- | Constructs DesiredPlayerSession from required parameters
 newDesiredPlayerSession :: DesiredPlayerSession
-newDesiredPlayerSession  = DesiredPlayerSession { "PlayerData": (NullOrUndefined Nothing), "PlayerId": (NullOrUndefined Nothing) }
+newDesiredPlayerSession  = DesiredPlayerSession { "PlayerData": Nothing, "PlayerId": Nothing }
 
 -- | Constructs DesiredPlayerSession's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDesiredPlayerSession' :: ( { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString) , "PlayerData" :: NullOrUndefined (PlayerData) } -> {"PlayerId" :: NullOrUndefined (NonZeroAndMaxString) , "PlayerData" :: NullOrUndefined (PlayerData) } ) -> DesiredPlayerSession
-newDesiredPlayerSession'  customize = (DesiredPlayerSession <<< customize) { "PlayerData": (NullOrUndefined Nothing), "PlayerId": (NullOrUndefined Nothing) }
+newDesiredPlayerSession' :: ( { "PlayerId" :: Maybe (NonZeroAndMaxString) , "PlayerData" :: Maybe (PlayerData) } -> {"PlayerId" :: Maybe (NonZeroAndMaxString) , "PlayerData" :: Maybe (PlayerData) } ) -> DesiredPlayerSession
+newDesiredPlayerSession'  customize = (DesiredPlayerSession <<< customize) { "PlayerData": Nothing, "PlayerId": Nothing }
 
 
 
@@ -1931,13 +1930,13 @@ instance encodeDoubleObject :: Encode DoubleObject where encode = genericEncode 
 
 -- | <p>Current status of fleet capacity. The number of active instances should match or be in the process of matching the number of desired instances. Pending and terminating counts are non-zero only if fleet capacity is adjusting to an <a>UpdateFleetCapacity</a> request, or if access to resources is temporarily affected.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
 newtype EC2InstanceCounts = EC2InstanceCounts 
-  { "DESIRED" :: NullOrUndefined (WholeNumber)
-  , "MINIMUM" :: NullOrUndefined (WholeNumber)
-  , "MAXIMUM" :: NullOrUndefined (WholeNumber)
-  , "PENDING" :: NullOrUndefined (WholeNumber)
-  , "ACTIVE" :: NullOrUndefined (WholeNumber)
-  , "IDLE" :: NullOrUndefined (WholeNumber)
-  , "TERMINATING" :: NullOrUndefined (WholeNumber)
+  { "DESIRED" :: Maybe (WholeNumber)
+  , "MINIMUM" :: Maybe (WholeNumber)
+  , "MAXIMUM" :: Maybe (WholeNumber)
+  , "PENDING" :: Maybe (WholeNumber)
+  , "ACTIVE" :: Maybe (WholeNumber)
+  , "IDLE" :: Maybe (WholeNumber)
+  , "TERMINATING" :: Maybe (WholeNumber)
   }
 derive instance newtypeEC2InstanceCounts :: Newtype EC2InstanceCounts _
 derive instance repGenericEC2InstanceCounts :: Generic EC2InstanceCounts _
@@ -1947,20 +1946,20 @@ instance encodeEC2InstanceCounts :: Encode EC2InstanceCounts where encode = gene
 
 -- | Constructs EC2InstanceCounts from required parameters
 newEC2InstanceCounts :: EC2InstanceCounts
-newEC2InstanceCounts  = EC2InstanceCounts { "ACTIVE": (NullOrUndefined Nothing), "DESIRED": (NullOrUndefined Nothing), "IDLE": (NullOrUndefined Nothing), "MAXIMUM": (NullOrUndefined Nothing), "MINIMUM": (NullOrUndefined Nothing), "PENDING": (NullOrUndefined Nothing), "TERMINATING": (NullOrUndefined Nothing) }
+newEC2InstanceCounts  = EC2InstanceCounts { "ACTIVE": Nothing, "DESIRED": Nothing, "IDLE": Nothing, "MAXIMUM": Nothing, "MINIMUM": Nothing, "PENDING": Nothing, "TERMINATING": Nothing }
 
 -- | Constructs EC2InstanceCounts's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEC2InstanceCounts' :: ( { "DESIRED" :: NullOrUndefined (WholeNumber) , "MINIMUM" :: NullOrUndefined (WholeNumber) , "MAXIMUM" :: NullOrUndefined (WholeNumber) , "PENDING" :: NullOrUndefined (WholeNumber) , "ACTIVE" :: NullOrUndefined (WholeNumber) , "IDLE" :: NullOrUndefined (WholeNumber) , "TERMINATING" :: NullOrUndefined (WholeNumber) } -> {"DESIRED" :: NullOrUndefined (WholeNumber) , "MINIMUM" :: NullOrUndefined (WholeNumber) , "MAXIMUM" :: NullOrUndefined (WholeNumber) , "PENDING" :: NullOrUndefined (WholeNumber) , "ACTIVE" :: NullOrUndefined (WholeNumber) , "IDLE" :: NullOrUndefined (WholeNumber) , "TERMINATING" :: NullOrUndefined (WholeNumber) } ) -> EC2InstanceCounts
-newEC2InstanceCounts'  customize = (EC2InstanceCounts <<< customize) { "ACTIVE": (NullOrUndefined Nothing), "DESIRED": (NullOrUndefined Nothing), "IDLE": (NullOrUndefined Nothing), "MAXIMUM": (NullOrUndefined Nothing), "MINIMUM": (NullOrUndefined Nothing), "PENDING": (NullOrUndefined Nothing), "TERMINATING": (NullOrUndefined Nothing) }
+newEC2InstanceCounts' :: ( { "DESIRED" :: Maybe (WholeNumber) , "MINIMUM" :: Maybe (WholeNumber) , "MAXIMUM" :: Maybe (WholeNumber) , "PENDING" :: Maybe (WholeNumber) , "ACTIVE" :: Maybe (WholeNumber) , "IDLE" :: Maybe (WholeNumber) , "TERMINATING" :: Maybe (WholeNumber) } -> {"DESIRED" :: Maybe (WholeNumber) , "MINIMUM" :: Maybe (WholeNumber) , "MAXIMUM" :: Maybe (WholeNumber) , "PENDING" :: Maybe (WholeNumber) , "ACTIVE" :: Maybe (WholeNumber) , "IDLE" :: Maybe (WholeNumber) , "TERMINATING" :: Maybe (WholeNumber) } ) -> EC2InstanceCounts
+newEC2InstanceCounts'  customize = (EC2InstanceCounts <<< customize) { "ACTIVE": Nothing, "DESIRED": Nothing, "IDLE": Nothing, "MAXIMUM": Nothing, "MINIMUM": Nothing, "PENDING": Nothing, "TERMINATING": Nothing }
 
 
 
 -- | <p>Maximum number of instances allowed based on the Amazon Elastic Compute Cloud (Amazon EC2) instance type. Instance limits can be retrieved by calling <a>DescribeEC2InstanceLimits</a>.</p>
 newtype EC2InstanceLimit = EC2InstanceLimit 
-  { "EC2InstanceType" :: NullOrUndefined (EC2InstanceType)
-  , "CurrentInstances" :: NullOrUndefined (WholeNumber)
-  , "InstanceLimit" :: NullOrUndefined (WholeNumber)
+  { "EC2InstanceType" :: Maybe (EC2InstanceType)
+  , "CurrentInstances" :: Maybe (WholeNumber)
+  , "InstanceLimit" :: Maybe (WholeNumber)
   }
 derive instance newtypeEC2InstanceLimit :: Newtype EC2InstanceLimit _
 derive instance repGenericEC2InstanceLimit :: Generic EC2InstanceLimit _
@@ -1970,12 +1969,12 @@ instance encodeEC2InstanceLimit :: Encode EC2InstanceLimit where encode = generi
 
 -- | Constructs EC2InstanceLimit from required parameters
 newEC2InstanceLimit :: EC2InstanceLimit
-newEC2InstanceLimit  = EC2InstanceLimit { "CurrentInstances": (NullOrUndefined Nothing), "EC2InstanceType": (NullOrUndefined Nothing), "InstanceLimit": (NullOrUndefined Nothing) }
+newEC2InstanceLimit  = EC2InstanceLimit { "CurrentInstances": Nothing, "EC2InstanceType": Nothing, "InstanceLimit": Nothing }
 
 -- | Constructs EC2InstanceLimit's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEC2InstanceLimit' :: ( { "EC2InstanceType" :: NullOrUndefined (EC2InstanceType) , "CurrentInstances" :: NullOrUndefined (WholeNumber) , "InstanceLimit" :: NullOrUndefined (WholeNumber) } -> {"EC2InstanceType" :: NullOrUndefined (EC2InstanceType) , "CurrentInstances" :: NullOrUndefined (WholeNumber) , "InstanceLimit" :: NullOrUndefined (WholeNumber) } ) -> EC2InstanceLimit
-newEC2InstanceLimit'  customize = (EC2InstanceLimit <<< customize) { "CurrentInstances": (NullOrUndefined Nothing), "EC2InstanceType": (NullOrUndefined Nothing), "InstanceLimit": (NullOrUndefined Nothing) }
+newEC2InstanceLimit' :: ( { "EC2InstanceType" :: Maybe (EC2InstanceType) , "CurrentInstances" :: Maybe (WholeNumber) , "InstanceLimit" :: Maybe (WholeNumber) } -> {"EC2InstanceType" :: Maybe (EC2InstanceType) , "CurrentInstances" :: Maybe (WholeNumber) , "InstanceLimit" :: Maybe (WholeNumber) } ) -> EC2InstanceLimit
+newEC2InstanceLimit'  customize = (EC2InstanceLimit <<< customize) { "CurrentInstances": Nothing, "EC2InstanceType": Nothing, "InstanceLimit": Nothing }
 
 
 
@@ -1999,12 +1998,12 @@ instance encodeEC2InstanceType :: Encode EC2InstanceType where encode = genericE
 
 -- | <p>Log entry describing an event that involves Amazon GameLift resources (such as a fleet). In addition to tracking activity, event codes and messages can provide additional information for troubleshooting and debugging problems.</p>
 newtype Event = Event 
-  { "EventId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "ResourceId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "EventCode" :: NullOrUndefined (EventCode)
-  , "Message" :: NullOrUndefined (NonEmptyString)
-  , "EventTime" :: NullOrUndefined (Types.Timestamp)
-  , "PreSignedLogUrl" :: NullOrUndefined (NonZeroAndMaxString)
+  { "EventId" :: Maybe (NonZeroAndMaxString)
+  , "ResourceId" :: Maybe (NonZeroAndMaxString)
+  , "EventCode" :: Maybe (EventCode)
+  , "Message" :: Maybe (NonEmptyString)
+  , "EventTime" :: Maybe (Types.Timestamp)
+  , "PreSignedLogUrl" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeEvent :: Newtype Event _
 derive instance repGenericEvent :: Generic Event _
@@ -2014,12 +2013,12 @@ instance encodeEvent :: Encode Event where encode = genericEncode options
 
 -- | Constructs Event from required parameters
 newEvent :: Event
-newEvent  = Event { "EventCode": (NullOrUndefined Nothing), "EventId": (NullOrUndefined Nothing), "EventTime": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing), "PreSignedLogUrl": (NullOrUndefined Nothing), "ResourceId": (NullOrUndefined Nothing) }
+newEvent  = Event { "EventCode": Nothing, "EventId": Nothing, "EventTime": Nothing, "Message": Nothing, "PreSignedLogUrl": Nothing, "ResourceId": Nothing }
 
 -- | Constructs Event's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEvent' :: ( { "EventId" :: NullOrUndefined (NonZeroAndMaxString) , "ResourceId" :: NullOrUndefined (NonZeroAndMaxString) , "EventCode" :: NullOrUndefined (EventCode) , "Message" :: NullOrUndefined (NonEmptyString) , "EventTime" :: NullOrUndefined (Types.Timestamp) , "PreSignedLogUrl" :: NullOrUndefined (NonZeroAndMaxString) } -> {"EventId" :: NullOrUndefined (NonZeroAndMaxString) , "ResourceId" :: NullOrUndefined (NonZeroAndMaxString) , "EventCode" :: NullOrUndefined (EventCode) , "Message" :: NullOrUndefined (NonEmptyString) , "EventTime" :: NullOrUndefined (Types.Timestamp) , "PreSignedLogUrl" :: NullOrUndefined (NonZeroAndMaxString) } ) -> Event
-newEvent'  customize = (Event <<< customize) { "EventCode": (NullOrUndefined Nothing), "EventId": (NullOrUndefined Nothing), "EventTime": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing), "PreSignedLogUrl": (NullOrUndefined Nothing), "ResourceId": (NullOrUndefined Nothing) }
+newEvent' :: ( { "EventId" :: Maybe (NonZeroAndMaxString) , "ResourceId" :: Maybe (NonZeroAndMaxString) , "EventCode" :: Maybe (EventCode) , "Message" :: Maybe (NonEmptyString) , "EventTime" :: Maybe (Types.Timestamp) , "PreSignedLogUrl" :: Maybe (NonZeroAndMaxString) } -> {"EventId" :: Maybe (NonZeroAndMaxString) , "ResourceId" :: Maybe (NonZeroAndMaxString) , "EventCode" :: Maybe (EventCode) , "Message" :: Maybe (NonEmptyString) , "EventTime" :: Maybe (Types.Timestamp) , "PreSignedLogUrl" :: Maybe (NonZeroAndMaxString) } ) -> Event
+newEvent'  customize = (Event <<< customize) { "EventCode": Nothing, "EventId": Nothing, "EventTime": Nothing, "Message": Nothing, "PreSignedLogUrl": Nothing, "ResourceId": Nothing }
 
 
 
@@ -2043,23 +2042,23 @@ instance encodeEventList :: Encode EventList where encode = genericEncode option
 
 -- | <p>General properties describing a fleet.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
 newtype FleetAttributes = FleetAttributes 
-  { "FleetId" :: NullOrUndefined (FleetId)
-  , "FleetArn" :: NullOrUndefined (ArnStringModel)
-  , "FleetType" :: NullOrUndefined (FleetType)
-  , "InstanceType" :: NullOrUndefined (EC2InstanceType)
-  , "Description" :: NullOrUndefined (NonZeroAndMaxString)
-  , "Name" :: NullOrUndefined (NonZeroAndMaxString)
-  , "CreationTime" :: NullOrUndefined (Types.Timestamp)
-  , "TerminationTime" :: NullOrUndefined (Types.Timestamp)
-  , "Status" :: NullOrUndefined (FleetStatus)
-  , "BuildId" :: NullOrUndefined (BuildId)
-  , "ServerLaunchPath" :: NullOrUndefined (NonZeroAndMaxString)
-  , "ServerLaunchParameters" :: NullOrUndefined (NonZeroAndMaxString)
-  , "LogPaths" :: NullOrUndefined (StringList)
-  , "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy)
-  , "OperatingSystem" :: NullOrUndefined (OperatingSystem)
-  , "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy)
-  , "MetricGroups" :: NullOrUndefined (MetricGroupList)
+  { "FleetId" :: Maybe (FleetId)
+  , "FleetArn" :: Maybe (ArnStringModel)
+  , "FleetType" :: Maybe (FleetType)
+  , "InstanceType" :: Maybe (EC2InstanceType)
+  , "Description" :: Maybe (NonZeroAndMaxString)
+  , "Name" :: Maybe (NonZeroAndMaxString)
+  , "CreationTime" :: Maybe (Types.Timestamp)
+  , "TerminationTime" :: Maybe (Types.Timestamp)
+  , "Status" :: Maybe (FleetStatus)
+  , "BuildId" :: Maybe (BuildId)
+  , "ServerLaunchPath" :: Maybe (NonZeroAndMaxString)
+  , "ServerLaunchParameters" :: Maybe (NonZeroAndMaxString)
+  , "LogPaths" :: Maybe (StringList)
+  , "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy)
+  , "OperatingSystem" :: Maybe (OperatingSystem)
+  , "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy)
+  , "MetricGroups" :: Maybe (MetricGroupList)
   }
 derive instance newtypeFleetAttributes :: Newtype FleetAttributes _
 derive instance repGenericFleetAttributes :: Generic FleetAttributes _
@@ -2069,12 +2068,12 @@ instance encodeFleetAttributes :: Encode FleetAttributes where encode = genericE
 
 -- | Constructs FleetAttributes from required parameters
 newFleetAttributes :: FleetAttributes
-newFleetAttributes  = FleetAttributes { "BuildId": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "FleetArn": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "FleetType": (NullOrUndefined Nothing), "InstanceType": (NullOrUndefined Nothing), "LogPaths": (NullOrUndefined Nothing), "MetricGroups": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "NewGameSessionProtectionPolicy": (NullOrUndefined Nothing), "OperatingSystem": (NullOrUndefined Nothing), "ResourceCreationLimitPolicy": (NullOrUndefined Nothing), "ServerLaunchParameters": (NullOrUndefined Nothing), "ServerLaunchPath": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "TerminationTime": (NullOrUndefined Nothing) }
+newFleetAttributes  = FleetAttributes { "BuildId": Nothing, "CreationTime": Nothing, "Description": Nothing, "FleetArn": Nothing, "FleetId": Nothing, "FleetType": Nothing, "InstanceType": Nothing, "LogPaths": Nothing, "MetricGroups": Nothing, "Name": Nothing, "NewGameSessionProtectionPolicy": Nothing, "OperatingSystem": Nothing, "ResourceCreationLimitPolicy": Nothing, "ServerLaunchParameters": Nothing, "ServerLaunchPath": Nothing, "Status": Nothing, "TerminationTime": Nothing }
 
 -- | Constructs FleetAttributes's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFleetAttributes' :: ( { "FleetId" :: NullOrUndefined (FleetId) , "FleetArn" :: NullOrUndefined (ArnStringModel) , "FleetType" :: NullOrUndefined (FleetType) , "InstanceType" :: NullOrUndefined (EC2InstanceType) , "Description" :: NullOrUndefined (NonZeroAndMaxString) , "Name" :: NullOrUndefined (NonZeroAndMaxString) , "CreationTime" :: NullOrUndefined (Types.Timestamp) , "TerminationTime" :: NullOrUndefined (Types.Timestamp) , "Status" :: NullOrUndefined (FleetStatus) , "BuildId" :: NullOrUndefined (BuildId) , "ServerLaunchPath" :: NullOrUndefined (NonZeroAndMaxString) , "ServerLaunchParameters" :: NullOrUndefined (NonZeroAndMaxString) , "LogPaths" :: NullOrUndefined (StringList) , "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy) , "OperatingSystem" :: NullOrUndefined (OperatingSystem) , "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy) , "MetricGroups" :: NullOrUndefined (MetricGroupList) } -> {"FleetId" :: NullOrUndefined (FleetId) , "FleetArn" :: NullOrUndefined (ArnStringModel) , "FleetType" :: NullOrUndefined (FleetType) , "InstanceType" :: NullOrUndefined (EC2InstanceType) , "Description" :: NullOrUndefined (NonZeroAndMaxString) , "Name" :: NullOrUndefined (NonZeroAndMaxString) , "CreationTime" :: NullOrUndefined (Types.Timestamp) , "TerminationTime" :: NullOrUndefined (Types.Timestamp) , "Status" :: NullOrUndefined (FleetStatus) , "BuildId" :: NullOrUndefined (BuildId) , "ServerLaunchPath" :: NullOrUndefined (NonZeroAndMaxString) , "ServerLaunchParameters" :: NullOrUndefined (NonZeroAndMaxString) , "LogPaths" :: NullOrUndefined (StringList) , "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy) , "OperatingSystem" :: NullOrUndefined (OperatingSystem) , "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy) , "MetricGroups" :: NullOrUndefined (MetricGroupList) } ) -> FleetAttributes
-newFleetAttributes'  customize = (FleetAttributes <<< customize) { "BuildId": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "FleetArn": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "FleetType": (NullOrUndefined Nothing), "InstanceType": (NullOrUndefined Nothing), "LogPaths": (NullOrUndefined Nothing), "MetricGroups": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "NewGameSessionProtectionPolicy": (NullOrUndefined Nothing), "OperatingSystem": (NullOrUndefined Nothing), "ResourceCreationLimitPolicy": (NullOrUndefined Nothing), "ServerLaunchParameters": (NullOrUndefined Nothing), "ServerLaunchPath": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "TerminationTime": (NullOrUndefined Nothing) }
+newFleetAttributes' :: ( { "FleetId" :: Maybe (FleetId) , "FleetArn" :: Maybe (ArnStringModel) , "FleetType" :: Maybe (FleetType) , "InstanceType" :: Maybe (EC2InstanceType) , "Description" :: Maybe (NonZeroAndMaxString) , "Name" :: Maybe (NonZeroAndMaxString) , "CreationTime" :: Maybe (Types.Timestamp) , "TerminationTime" :: Maybe (Types.Timestamp) , "Status" :: Maybe (FleetStatus) , "BuildId" :: Maybe (BuildId) , "ServerLaunchPath" :: Maybe (NonZeroAndMaxString) , "ServerLaunchParameters" :: Maybe (NonZeroAndMaxString) , "LogPaths" :: Maybe (StringList) , "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy) , "OperatingSystem" :: Maybe (OperatingSystem) , "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy) , "MetricGroups" :: Maybe (MetricGroupList) } -> {"FleetId" :: Maybe (FleetId) , "FleetArn" :: Maybe (ArnStringModel) , "FleetType" :: Maybe (FleetType) , "InstanceType" :: Maybe (EC2InstanceType) , "Description" :: Maybe (NonZeroAndMaxString) , "Name" :: Maybe (NonZeroAndMaxString) , "CreationTime" :: Maybe (Types.Timestamp) , "TerminationTime" :: Maybe (Types.Timestamp) , "Status" :: Maybe (FleetStatus) , "BuildId" :: Maybe (BuildId) , "ServerLaunchPath" :: Maybe (NonZeroAndMaxString) , "ServerLaunchParameters" :: Maybe (NonZeroAndMaxString) , "LogPaths" :: Maybe (StringList) , "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy) , "OperatingSystem" :: Maybe (OperatingSystem) , "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy) , "MetricGroups" :: Maybe (MetricGroupList) } ) -> FleetAttributes
+newFleetAttributes'  customize = (FleetAttributes <<< customize) { "BuildId": Nothing, "CreationTime": Nothing, "Description": Nothing, "FleetArn": Nothing, "FleetId": Nothing, "FleetType": Nothing, "InstanceType": Nothing, "LogPaths": Nothing, "MetricGroups": Nothing, "Name": Nothing, "NewGameSessionProtectionPolicy": Nothing, "OperatingSystem": Nothing, "ResourceCreationLimitPolicy": Nothing, "ServerLaunchParameters": Nothing, "ServerLaunchPath": Nothing, "Status": Nothing, "TerminationTime": Nothing }
 
 
 
@@ -2089,9 +2088,9 @@ instance encodeFleetAttributesList :: Encode FleetAttributesList where encode = 
 
 -- | <p>Information about the fleet's capacity. Fleet capacity is measured in EC2 instances. By default, new fleets have a capacity of one instance, but can be updated as needed. The maximum number of instances for a fleet is determined by the fleet's instance type.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
 newtype FleetCapacity = FleetCapacity 
-  { "FleetId" :: NullOrUndefined (FleetId)
-  , "InstanceType" :: NullOrUndefined (EC2InstanceType)
-  , "InstanceCounts" :: NullOrUndefined (EC2InstanceCounts)
+  { "FleetId" :: Maybe (FleetId)
+  , "InstanceType" :: Maybe (EC2InstanceType)
+  , "InstanceCounts" :: Maybe (EC2InstanceCounts)
   }
 derive instance newtypeFleetCapacity :: Newtype FleetCapacity _
 derive instance repGenericFleetCapacity :: Generic FleetCapacity _
@@ -2101,18 +2100,18 @@ instance encodeFleetCapacity :: Encode FleetCapacity where encode = genericEncod
 
 -- | Constructs FleetCapacity from required parameters
 newFleetCapacity :: FleetCapacity
-newFleetCapacity  = FleetCapacity { "FleetId": (NullOrUndefined Nothing), "InstanceCounts": (NullOrUndefined Nothing), "InstanceType": (NullOrUndefined Nothing) }
+newFleetCapacity  = FleetCapacity { "FleetId": Nothing, "InstanceCounts": Nothing, "InstanceType": Nothing }
 
 -- | Constructs FleetCapacity's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFleetCapacity' :: ( { "FleetId" :: NullOrUndefined (FleetId) , "InstanceType" :: NullOrUndefined (EC2InstanceType) , "InstanceCounts" :: NullOrUndefined (EC2InstanceCounts) } -> {"FleetId" :: NullOrUndefined (FleetId) , "InstanceType" :: NullOrUndefined (EC2InstanceType) , "InstanceCounts" :: NullOrUndefined (EC2InstanceCounts) } ) -> FleetCapacity
-newFleetCapacity'  customize = (FleetCapacity <<< customize) { "FleetId": (NullOrUndefined Nothing), "InstanceCounts": (NullOrUndefined Nothing), "InstanceType": (NullOrUndefined Nothing) }
+newFleetCapacity' :: ( { "FleetId" :: Maybe (FleetId) , "InstanceType" :: Maybe (EC2InstanceType) , "InstanceCounts" :: Maybe (EC2InstanceCounts) } -> {"FleetId" :: Maybe (FleetId) , "InstanceType" :: Maybe (EC2InstanceType) , "InstanceCounts" :: Maybe (EC2InstanceCounts) } ) -> FleetCapacity
+newFleetCapacity'  customize = (FleetCapacity <<< customize) { "FleetId": Nothing, "InstanceCounts": Nothing, "InstanceType": Nothing }
 
 
 
 -- | <p>The specified fleet has no available instances to fulfill a <code>CreateGameSession</code> request. Clients can retry such requests immediately or after a waiting period.</p>
 newtype FleetCapacityExceededException = FleetCapacityExceededException 
-  { "Message" :: NullOrUndefined (NonEmptyString)
+  { "Message" :: Maybe (NonEmptyString)
   }
 derive instance newtypeFleetCapacityExceededException :: Newtype FleetCapacityExceededException _
 derive instance repGenericFleetCapacityExceededException :: Generic FleetCapacityExceededException _
@@ -2122,12 +2121,12 @@ instance encodeFleetCapacityExceededException :: Encode FleetCapacityExceededExc
 
 -- | Constructs FleetCapacityExceededException from required parameters
 newFleetCapacityExceededException :: FleetCapacityExceededException
-newFleetCapacityExceededException  = FleetCapacityExceededException { "Message": (NullOrUndefined Nothing) }
+newFleetCapacityExceededException  = FleetCapacityExceededException { "Message": Nothing }
 
 -- | Constructs FleetCapacityExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFleetCapacityExceededException' :: ( { "Message" :: NullOrUndefined (NonEmptyString) } -> {"Message" :: NullOrUndefined (NonEmptyString) } ) -> FleetCapacityExceededException
-newFleetCapacityExceededException'  customize = (FleetCapacityExceededException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newFleetCapacityExceededException' :: ( { "Message" :: Maybe (NonEmptyString) } -> {"Message" :: Maybe (NonEmptyString) } ) -> FleetCapacityExceededException
+newFleetCapacityExceededException'  customize = (FleetCapacityExceededException <<< customize) { "Message": Nothing }
 
 
 
@@ -2178,11 +2177,11 @@ instance encodeFleetType :: Encode FleetType where encode = genericEncode option
 
 -- | <p>Current status of fleet utilization, including the number of game and player sessions being hosted.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
 newtype FleetUtilization = FleetUtilization 
-  { "FleetId" :: NullOrUndefined (FleetId)
-  , "ActiveServerProcessCount" :: NullOrUndefined (WholeNumber)
-  , "ActiveGameSessionCount" :: NullOrUndefined (WholeNumber)
-  , "CurrentPlayerSessionCount" :: NullOrUndefined (WholeNumber)
-  , "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber)
+  { "FleetId" :: Maybe (FleetId)
+  , "ActiveServerProcessCount" :: Maybe (WholeNumber)
+  , "ActiveGameSessionCount" :: Maybe (WholeNumber)
+  , "CurrentPlayerSessionCount" :: Maybe (WholeNumber)
+  , "MaximumPlayerSessionCount" :: Maybe (WholeNumber)
   }
 derive instance newtypeFleetUtilization :: Newtype FleetUtilization _
 derive instance repGenericFleetUtilization :: Generic FleetUtilization _
@@ -2192,12 +2191,12 @@ instance encodeFleetUtilization :: Encode FleetUtilization where encode = generi
 
 -- | Constructs FleetUtilization from required parameters
 newFleetUtilization :: FleetUtilization
-newFleetUtilization  = FleetUtilization { "ActiveGameSessionCount": (NullOrUndefined Nothing), "ActiveServerProcessCount": (NullOrUndefined Nothing), "CurrentPlayerSessionCount": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "MaximumPlayerSessionCount": (NullOrUndefined Nothing) }
+newFleetUtilization  = FleetUtilization { "ActiveGameSessionCount": Nothing, "ActiveServerProcessCount": Nothing, "CurrentPlayerSessionCount": Nothing, "FleetId": Nothing, "MaximumPlayerSessionCount": Nothing }
 
 -- | Constructs FleetUtilization's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFleetUtilization' :: ( { "FleetId" :: NullOrUndefined (FleetId) , "ActiveServerProcessCount" :: NullOrUndefined (WholeNumber) , "ActiveGameSessionCount" :: NullOrUndefined (WholeNumber) , "CurrentPlayerSessionCount" :: NullOrUndefined (WholeNumber) , "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber) } -> {"FleetId" :: NullOrUndefined (FleetId) , "ActiveServerProcessCount" :: NullOrUndefined (WholeNumber) , "ActiveGameSessionCount" :: NullOrUndefined (WholeNumber) , "CurrentPlayerSessionCount" :: NullOrUndefined (WholeNumber) , "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber) } ) -> FleetUtilization
-newFleetUtilization'  customize = (FleetUtilization <<< customize) { "ActiveGameSessionCount": (NullOrUndefined Nothing), "ActiveServerProcessCount": (NullOrUndefined Nothing), "CurrentPlayerSessionCount": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "MaximumPlayerSessionCount": (NullOrUndefined Nothing) }
+newFleetUtilization' :: ( { "FleetId" :: Maybe (FleetId) , "ActiveServerProcessCount" :: Maybe (WholeNumber) , "ActiveGameSessionCount" :: Maybe (WholeNumber) , "CurrentPlayerSessionCount" :: Maybe (WholeNumber) , "MaximumPlayerSessionCount" :: Maybe (WholeNumber) } -> {"FleetId" :: Maybe (FleetId) , "ActiveServerProcessCount" :: Maybe (WholeNumber) , "ActiveGameSessionCount" :: Maybe (WholeNumber) , "CurrentPlayerSessionCount" :: Maybe (WholeNumber) , "MaximumPlayerSessionCount" :: Maybe (WholeNumber) } ) -> FleetUtilization
+newFleetUtilization'  customize = (FleetUtilization <<< customize) { "ActiveGameSessionCount": Nothing, "ActiveServerProcessCount": Nothing, "CurrentPlayerSessionCount": Nothing, "FleetId": Nothing, "MaximumPlayerSessionCount": Nothing }
 
 
 
@@ -2270,22 +2269,22 @@ instance encodeGamePropertyValue :: Encode GamePropertyValue where encode = gene
 
 -- | <p>Properties describing a game session.</p> <p>A game session in ACTIVE status can host players. When a game session ends, its status is set to <code>TERMINATED</code>. </p> <p>Once the session ends, the game session object is retained for 30 days. This means you can reuse idempotency token values after this time. Game session logs are retained for 14 days.</p> <p>Game-session-related operations include:</p> <ul> <li> <p> <a>CreateGameSession</a> </p> </li> <li> <p> <a>DescribeGameSessions</a> </p> </li> <li> <p> <a>DescribeGameSessionDetails</a> </p> </li> <li> <p> <a>SearchGameSessions</a> </p> </li> <li> <p> <a>UpdateGameSession</a> </p> </li> <li> <p> <a>GetGameSessionLogUrl</a> </p> </li> <li> <p>Game session placements</p> <ul> <li> <p> <a>StartGameSessionPlacement</a> </p> </li> <li> <p> <a>DescribeGameSessionPlacement</a> </p> </li> <li> <p> <a>StopGameSessionPlacement</a> </p> </li> </ul> </li> </ul>
 newtype GameSession = GameSession 
-  { "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "Name" :: NullOrUndefined (NonZeroAndMaxString)
-  , "FleetId" :: NullOrUndefined (FleetId)
-  , "CreationTime" :: NullOrUndefined (Types.Timestamp)
-  , "TerminationTime" :: NullOrUndefined (Types.Timestamp)
-  , "CurrentPlayerSessionCount" :: NullOrUndefined (WholeNumber)
-  , "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber)
-  , "Status" :: NullOrUndefined (GameSessionStatus)
-  , "StatusReason" :: NullOrUndefined (GameSessionStatusReason)
-  , "GameProperties" :: NullOrUndefined (GamePropertyList)
-  , "IpAddress" :: NullOrUndefined (IpAddress)
-  , "Port" :: NullOrUndefined (PortNumber)
-  , "PlayerSessionCreationPolicy" :: NullOrUndefined (PlayerSessionCreationPolicy)
-  , "CreatorId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "GameSessionData" :: NullOrUndefined (GameSessionData)
-  , "MatchmakerData" :: NullOrUndefined (MatchmakerData)
+  { "GameSessionId" :: Maybe (NonZeroAndMaxString)
+  , "Name" :: Maybe (NonZeroAndMaxString)
+  , "FleetId" :: Maybe (FleetId)
+  , "CreationTime" :: Maybe (Types.Timestamp)
+  , "TerminationTime" :: Maybe (Types.Timestamp)
+  , "CurrentPlayerSessionCount" :: Maybe (WholeNumber)
+  , "MaximumPlayerSessionCount" :: Maybe (WholeNumber)
+  , "Status" :: Maybe (GameSessionStatus)
+  , "StatusReason" :: Maybe (GameSessionStatusReason)
+  , "GameProperties" :: Maybe (GamePropertyList)
+  , "IpAddress" :: Maybe (IpAddress)
+  , "Port" :: Maybe (PortNumber)
+  , "PlayerSessionCreationPolicy" :: Maybe (PlayerSessionCreationPolicy)
+  , "CreatorId" :: Maybe (NonZeroAndMaxString)
+  , "GameSessionData" :: Maybe (GameSessionData)
+  , "MatchmakerData" :: Maybe (MatchmakerData)
   }
 derive instance newtypeGameSession :: Newtype GameSession _
 derive instance repGenericGameSession :: Generic GameSession _
@@ -2295,12 +2294,12 @@ instance encodeGameSession :: Encode GameSession where encode = genericEncode op
 
 -- | Constructs GameSession from required parameters
 newGameSession :: GameSession
-newGameSession  = GameSession { "CreationTime": (NullOrUndefined Nothing), "CreatorId": (NullOrUndefined Nothing), "CurrentPlayerSessionCount": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "GameProperties": (NullOrUndefined Nothing), "GameSessionData": (NullOrUndefined Nothing), "GameSessionId": (NullOrUndefined Nothing), "IpAddress": (NullOrUndefined Nothing), "MatchmakerData": (NullOrUndefined Nothing), "MaximumPlayerSessionCount": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "PlayerSessionCreationPolicy": (NullOrUndefined Nothing), "Port": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "StatusReason": (NullOrUndefined Nothing), "TerminationTime": (NullOrUndefined Nothing) }
+newGameSession  = GameSession { "CreationTime": Nothing, "CreatorId": Nothing, "CurrentPlayerSessionCount": Nothing, "FleetId": Nothing, "GameProperties": Nothing, "GameSessionData": Nothing, "GameSessionId": Nothing, "IpAddress": Nothing, "MatchmakerData": Nothing, "MaximumPlayerSessionCount": Nothing, "Name": Nothing, "PlayerSessionCreationPolicy": Nothing, "Port": Nothing, "Status": Nothing, "StatusReason": Nothing, "TerminationTime": Nothing }
 
 -- | Constructs GameSession's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGameSession' :: ( { "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString) , "Name" :: NullOrUndefined (NonZeroAndMaxString) , "FleetId" :: NullOrUndefined (FleetId) , "CreationTime" :: NullOrUndefined (Types.Timestamp) , "TerminationTime" :: NullOrUndefined (Types.Timestamp) , "CurrentPlayerSessionCount" :: NullOrUndefined (WholeNumber) , "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber) , "Status" :: NullOrUndefined (GameSessionStatus) , "StatusReason" :: NullOrUndefined (GameSessionStatusReason) , "GameProperties" :: NullOrUndefined (GamePropertyList) , "IpAddress" :: NullOrUndefined (IpAddress) , "Port" :: NullOrUndefined (PortNumber) , "PlayerSessionCreationPolicy" :: NullOrUndefined (PlayerSessionCreationPolicy) , "CreatorId" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionData" :: NullOrUndefined (GameSessionData) , "MatchmakerData" :: NullOrUndefined (MatchmakerData) } -> {"GameSessionId" :: NullOrUndefined (NonZeroAndMaxString) , "Name" :: NullOrUndefined (NonZeroAndMaxString) , "FleetId" :: NullOrUndefined (FleetId) , "CreationTime" :: NullOrUndefined (Types.Timestamp) , "TerminationTime" :: NullOrUndefined (Types.Timestamp) , "CurrentPlayerSessionCount" :: NullOrUndefined (WholeNumber) , "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber) , "Status" :: NullOrUndefined (GameSessionStatus) , "StatusReason" :: NullOrUndefined (GameSessionStatusReason) , "GameProperties" :: NullOrUndefined (GamePropertyList) , "IpAddress" :: NullOrUndefined (IpAddress) , "Port" :: NullOrUndefined (PortNumber) , "PlayerSessionCreationPolicy" :: NullOrUndefined (PlayerSessionCreationPolicy) , "CreatorId" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionData" :: NullOrUndefined (GameSessionData) , "MatchmakerData" :: NullOrUndefined (MatchmakerData) } ) -> GameSession
-newGameSession'  customize = (GameSession <<< customize) { "CreationTime": (NullOrUndefined Nothing), "CreatorId": (NullOrUndefined Nothing), "CurrentPlayerSessionCount": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "GameProperties": (NullOrUndefined Nothing), "GameSessionData": (NullOrUndefined Nothing), "GameSessionId": (NullOrUndefined Nothing), "IpAddress": (NullOrUndefined Nothing), "MatchmakerData": (NullOrUndefined Nothing), "MaximumPlayerSessionCount": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "PlayerSessionCreationPolicy": (NullOrUndefined Nothing), "Port": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "StatusReason": (NullOrUndefined Nothing), "TerminationTime": (NullOrUndefined Nothing) }
+newGameSession' :: ( { "GameSessionId" :: Maybe (NonZeroAndMaxString) , "Name" :: Maybe (NonZeroAndMaxString) , "FleetId" :: Maybe (FleetId) , "CreationTime" :: Maybe (Types.Timestamp) , "TerminationTime" :: Maybe (Types.Timestamp) , "CurrentPlayerSessionCount" :: Maybe (WholeNumber) , "MaximumPlayerSessionCount" :: Maybe (WholeNumber) , "Status" :: Maybe (GameSessionStatus) , "StatusReason" :: Maybe (GameSessionStatusReason) , "GameProperties" :: Maybe (GamePropertyList) , "IpAddress" :: Maybe (IpAddress) , "Port" :: Maybe (PortNumber) , "PlayerSessionCreationPolicy" :: Maybe (PlayerSessionCreationPolicy) , "CreatorId" :: Maybe (NonZeroAndMaxString) , "GameSessionData" :: Maybe (GameSessionData) , "MatchmakerData" :: Maybe (MatchmakerData) } -> {"GameSessionId" :: Maybe (NonZeroAndMaxString) , "Name" :: Maybe (NonZeroAndMaxString) , "FleetId" :: Maybe (FleetId) , "CreationTime" :: Maybe (Types.Timestamp) , "TerminationTime" :: Maybe (Types.Timestamp) , "CurrentPlayerSessionCount" :: Maybe (WholeNumber) , "MaximumPlayerSessionCount" :: Maybe (WholeNumber) , "Status" :: Maybe (GameSessionStatus) , "StatusReason" :: Maybe (GameSessionStatusReason) , "GameProperties" :: Maybe (GamePropertyList) , "IpAddress" :: Maybe (IpAddress) , "Port" :: Maybe (PortNumber) , "PlayerSessionCreationPolicy" :: Maybe (PlayerSessionCreationPolicy) , "CreatorId" :: Maybe (NonZeroAndMaxString) , "GameSessionData" :: Maybe (GameSessionData) , "MatchmakerData" :: Maybe (MatchmakerData) } ) -> GameSession
+newGameSession'  customize = (GameSession <<< customize) { "CreationTime": Nothing, "CreatorId": Nothing, "CurrentPlayerSessionCount": Nothing, "FleetId": Nothing, "GameProperties": Nothing, "GameSessionData": Nothing, "GameSessionId": Nothing, "IpAddress": Nothing, "MatchmakerData": Nothing, "MaximumPlayerSessionCount": Nothing, "Name": Nothing, "PlayerSessionCreationPolicy": Nothing, "Port": Nothing, "Status": Nothing, "StatusReason": Nothing, "TerminationTime": Nothing }
 
 
 
@@ -2315,10 +2314,10 @@ instance encodeGameSessionActivationTimeoutSeconds :: Encode GameSessionActivati
 
 -- | <p>Connection information for the new game session that is created with matchmaking. (with <a>StartMatchmaking</a>). Once a match is set, the FlexMatch engine places the match and creates a new game session for it. This information, including the game session endpoint and player sessions for each player in the original matchmaking request, is added to the <a>MatchmakingTicket</a>, which can be retrieved by calling <a>DescribeMatchmaking</a>.</p>
 newtype GameSessionConnectionInfo = GameSessionConnectionInfo 
-  { "GameSessionArn" :: NullOrUndefined (ArnStringModel)
-  , "IpAddress" :: NullOrUndefined (StringModel)
-  , "Port" :: NullOrUndefined (PositiveInteger)
-  , "MatchedPlayerSessions" :: NullOrUndefined (MatchedPlayerSessionList)
+  { "GameSessionArn" :: Maybe (ArnStringModel)
+  , "IpAddress" :: Maybe (StringModel)
+  , "Port" :: Maybe (PositiveInteger)
+  , "MatchedPlayerSessions" :: Maybe (MatchedPlayerSessionList)
   }
 derive instance newtypeGameSessionConnectionInfo :: Newtype GameSessionConnectionInfo _
 derive instance repGenericGameSessionConnectionInfo :: Generic GameSessionConnectionInfo _
@@ -2328,12 +2327,12 @@ instance encodeGameSessionConnectionInfo :: Encode GameSessionConnectionInfo whe
 
 -- | Constructs GameSessionConnectionInfo from required parameters
 newGameSessionConnectionInfo :: GameSessionConnectionInfo
-newGameSessionConnectionInfo  = GameSessionConnectionInfo { "GameSessionArn": (NullOrUndefined Nothing), "IpAddress": (NullOrUndefined Nothing), "MatchedPlayerSessions": (NullOrUndefined Nothing), "Port": (NullOrUndefined Nothing) }
+newGameSessionConnectionInfo  = GameSessionConnectionInfo { "GameSessionArn": Nothing, "IpAddress": Nothing, "MatchedPlayerSessions": Nothing, "Port": Nothing }
 
 -- | Constructs GameSessionConnectionInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGameSessionConnectionInfo' :: ( { "GameSessionArn" :: NullOrUndefined (ArnStringModel) , "IpAddress" :: NullOrUndefined (StringModel) , "Port" :: NullOrUndefined (PositiveInteger) , "MatchedPlayerSessions" :: NullOrUndefined (MatchedPlayerSessionList) } -> {"GameSessionArn" :: NullOrUndefined (ArnStringModel) , "IpAddress" :: NullOrUndefined (StringModel) , "Port" :: NullOrUndefined (PositiveInteger) , "MatchedPlayerSessions" :: NullOrUndefined (MatchedPlayerSessionList) } ) -> GameSessionConnectionInfo
-newGameSessionConnectionInfo'  customize = (GameSessionConnectionInfo <<< customize) { "GameSessionArn": (NullOrUndefined Nothing), "IpAddress": (NullOrUndefined Nothing), "MatchedPlayerSessions": (NullOrUndefined Nothing), "Port": (NullOrUndefined Nothing) }
+newGameSessionConnectionInfo' :: ( { "GameSessionArn" :: Maybe (ArnStringModel) , "IpAddress" :: Maybe (StringModel) , "Port" :: Maybe (PositiveInteger) , "MatchedPlayerSessions" :: Maybe (MatchedPlayerSessionList) } -> {"GameSessionArn" :: Maybe (ArnStringModel) , "IpAddress" :: Maybe (StringModel) , "Port" :: Maybe (PositiveInteger) , "MatchedPlayerSessions" :: Maybe (MatchedPlayerSessionList) } ) -> GameSessionConnectionInfo
+newGameSessionConnectionInfo'  customize = (GameSessionConnectionInfo <<< customize) { "GameSessionArn": Nothing, "IpAddress": Nothing, "MatchedPlayerSessions": Nothing, "Port": Nothing }
 
 
 
@@ -2348,8 +2347,8 @@ instance encodeGameSessionData :: Encode GameSessionData where encode = genericE
 
 -- | <p>A game session's properties plus the protection policy currently in force.</p>
 newtype GameSessionDetail = GameSessionDetail 
-  { "GameSession" :: NullOrUndefined (GameSession)
-  , "ProtectionPolicy" :: NullOrUndefined (ProtectionPolicy)
+  { "GameSession" :: Maybe (GameSession)
+  , "ProtectionPolicy" :: Maybe (ProtectionPolicy)
   }
 derive instance newtypeGameSessionDetail :: Newtype GameSessionDetail _
 derive instance repGenericGameSessionDetail :: Generic GameSessionDetail _
@@ -2359,12 +2358,12 @@ instance encodeGameSessionDetail :: Encode GameSessionDetail where encode = gene
 
 -- | Constructs GameSessionDetail from required parameters
 newGameSessionDetail :: GameSessionDetail
-newGameSessionDetail  = GameSessionDetail { "GameSession": (NullOrUndefined Nothing), "ProtectionPolicy": (NullOrUndefined Nothing) }
+newGameSessionDetail  = GameSessionDetail { "GameSession": Nothing, "ProtectionPolicy": Nothing }
 
 -- | Constructs GameSessionDetail's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGameSessionDetail' :: ( { "GameSession" :: NullOrUndefined (GameSession) , "ProtectionPolicy" :: NullOrUndefined (ProtectionPolicy) } -> {"GameSession" :: NullOrUndefined (GameSession) , "ProtectionPolicy" :: NullOrUndefined (ProtectionPolicy) } ) -> GameSessionDetail
-newGameSessionDetail'  customize = (GameSessionDetail <<< customize) { "GameSession": (NullOrUndefined Nothing), "ProtectionPolicy": (NullOrUndefined Nothing) }
+newGameSessionDetail' :: ( { "GameSession" :: Maybe (GameSession) , "ProtectionPolicy" :: Maybe (ProtectionPolicy) } -> {"GameSession" :: Maybe (GameSession) , "ProtectionPolicy" :: Maybe (ProtectionPolicy) } ) -> GameSessionDetail
+newGameSessionDetail'  customize = (GameSessionDetail <<< customize) { "GameSession": Nothing, "ProtectionPolicy": Nothing }
 
 
 
@@ -2379,7 +2378,7 @@ instance encodeGameSessionDetailList :: Encode GameSessionDetailList where encod
 
 -- | <p>The game instance is currently full and cannot allow the requested player(s) to join. Clients can retry such requests immediately or after a waiting period.</p>
 newtype GameSessionFullException = GameSessionFullException 
-  { "Message" :: NullOrUndefined (NonEmptyString)
+  { "Message" :: Maybe (NonEmptyString)
   }
 derive instance newtypeGameSessionFullException :: Newtype GameSessionFullException _
 derive instance repGenericGameSessionFullException :: Generic GameSessionFullException _
@@ -2389,12 +2388,12 @@ instance encodeGameSessionFullException :: Encode GameSessionFullException where
 
 -- | Constructs GameSessionFullException from required parameters
 newGameSessionFullException :: GameSessionFullException
-newGameSessionFullException  = GameSessionFullException { "Message": (NullOrUndefined Nothing) }
+newGameSessionFullException  = GameSessionFullException { "Message": Nothing }
 
 -- | Constructs GameSessionFullException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGameSessionFullException' :: ( { "Message" :: NullOrUndefined (NonEmptyString) } -> {"Message" :: NullOrUndefined (NonEmptyString) } ) -> GameSessionFullException
-newGameSessionFullException'  customize = (GameSessionFullException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newGameSessionFullException' :: ( { "Message" :: Maybe (NonEmptyString) } -> {"Message" :: Maybe (NonEmptyString) } ) -> GameSessionFullException
+newGameSessionFullException'  customize = (GameSessionFullException <<< customize) { "Message": Nothing }
 
 
 
@@ -2409,23 +2408,23 @@ instance encodeGameSessionList :: Encode GameSessionList where encode = genericE
 
 -- | <p>Object that describes a <a>StartGameSessionPlacement</a> request. This object includes the full details of the original request plus the current status and start/end time stamps.</p> <p>Game session placement-related operations include:</p> <ul> <li> <p> <a>StartGameSessionPlacement</a> </p> </li> <li> <p> <a>DescribeGameSessionPlacement</a> </p> </li> <li> <p> <a>StopGameSessionPlacement</a> </p> </li> </ul>
 newtype GameSessionPlacement = GameSessionPlacement 
-  { "PlacementId" :: NullOrUndefined (IdStringModel)
-  , "GameSessionQueueName" :: NullOrUndefined (GameSessionQueueName)
-  , "Status" :: NullOrUndefined (GameSessionPlacementState)
-  , "GameProperties" :: NullOrUndefined (GamePropertyList)
-  , "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber)
-  , "GameSessionName" :: NullOrUndefined (NonZeroAndMaxString)
-  , "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "GameSessionArn" :: NullOrUndefined (NonZeroAndMaxString)
-  , "GameSessionRegion" :: NullOrUndefined (NonZeroAndMaxString)
-  , "PlayerLatencies" :: NullOrUndefined (PlayerLatencyList)
-  , "StartTime" :: NullOrUndefined (Types.Timestamp)
-  , "EndTime" :: NullOrUndefined (Types.Timestamp)
-  , "IpAddress" :: NullOrUndefined (IpAddress)
-  , "Port" :: NullOrUndefined (PortNumber)
-  , "PlacedPlayerSessions" :: NullOrUndefined (PlacedPlayerSessionList)
-  , "GameSessionData" :: NullOrUndefined (GameSessionData)
-  , "MatchmakerData" :: NullOrUndefined (MatchmakerData)
+  { "PlacementId" :: Maybe (IdStringModel)
+  , "GameSessionQueueName" :: Maybe (GameSessionQueueName)
+  , "Status" :: Maybe (GameSessionPlacementState)
+  , "GameProperties" :: Maybe (GamePropertyList)
+  , "MaximumPlayerSessionCount" :: Maybe (WholeNumber)
+  , "GameSessionName" :: Maybe (NonZeroAndMaxString)
+  , "GameSessionId" :: Maybe (NonZeroAndMaxString)
+  , "GameSessionArn" :: Maybe (NonZeroAndMaxString)
+  , "GameSessionRegion" :: Maybe (NonZeroAndMaxString)
+  , "PlayerLatencies" :: Maybe (PlayerLatencyList)
+  , "StartTime" :: Maybe (Types.Timestamp)
+  , "EndTime" :: Maybe (Types.Timestamp)
+  , "IpAddress" :: Maybe (IpAddress)
+  , "Port" :: Maybe (PortNumber)
+  , "PlacedPlayerSessions" :: Maybe (PlacedPlayerSessionList)
+  , "GameSessionData" :: Maybe (GameSessionData)
+  , "MatchmakerData" :: Maybe (MatchmakerData)
   }
 derive instance newtypeGameSessionPlacement :: Newtype GameSessionPlacement _
 derive instance repGenericGameSessionPlacement :: Generic GameSessionPlacement _
@@ -2435,12 +2434,12 @@ instance encodeGameSessionPlacement :: Encode GameSessionPlacement where encode 
 
 -- | Constructs GameSessionPlacement from required parameters
 newGameSessionPlacement :: GameSessionPlacement
-newGameSessionPlacement  = GameSessionPlacement { "EndTime": (NullOrUndefined Nothing), "GameProperties": (NullOrUndefined Nothing), "GameSessionArn": (NullOrUndefined Nothing), "GameSessionData": (NullOrUndefined Nothing), "GameSessionId": (NullOrUndefined Nothing), "GameSessionName": (NullOrUndefined Nothing), "GameSessionQueueName": (NullOrUndefined Nothing), "GameSessionRegion": (NullOrUndefined Nothing), "IpAddress": (NullOrUndefined Nothing), "MatchmakerData": (NullOrUndefined Nothing), "MaximumPlayerSessionCount": (NullOrUndefined Nothing), "PlacedPlayerSessions": (NullOrUndefined Nothing), "PlacementId": (NullOrUndefined Nothing), "PlayerLatencies": (NullOrUndefined Nothing), "Port": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newGameSessionPlacement  = GameSessionPlacement { "EndTime": Nothing, "GameProperties": Nothing, "GameSessionArn": Nothing, "GameSessionData": Nothing, "GameSessionId": Nothing, "GameSessionName": Nothing, "GameSessionQueueName": Nothing, "GameSessionRegion": Nothing, "IpAddress": Nothing, "MatchmakerData": Nothing, "MaximumPlayerSessionCount": Nothing, "PlacedPlayerSessions": Nothing, "PlacementId": Nothing, "PlayerLatencies": Nothing, "Port": Nothing, "StartTime": Nothing, "Status": Nothing }
 
 -- | Constructs GameSessionPlacement's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGameSessionPlacement' :: ( { "PlacementId" :: NullOrUndefined (IdStringModel) , "GameSessionQueueName" :: NullOrUndefined (GameSessionQueueName) , "Status" :: NullOrUndefined (GameSessionPlacementState) , "GameProperties" :: NullOrUndefined (GamePropertyList) , "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber) , "GameSessionName" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionArn" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionRegion" :: NullOrUndefined (NonZeroAndMaxString) , "PlayerLatencies" :: NullOrUndefined (PlayerLatencyList) , "StartTime" :: NullOrUndefined (Types.Timestamp) , "EndTime" :: NullOrUndefined (Types.Timestamp) , "IpAddress" :: NullOrUndefined (IpAddress) , "Port" :: NullOrUndefined (PortNumber) , "PlacedPlayerSessions" :: NullOrUndefined (PlacedPlayerSessionList) , "GameSessionData" :: NullOrUndefined (GameSessionData) , "MatchmakerData" :: NullOrUndefined (MatchmakerData) } -> {"PlacementId" :: NullOrUndefined (IdStringModel) , "GameSessionQueueName" :: NullOrUndefined (GameSessionQueueName) , "Status" :: NullOrUndefined (GameSessionPlacementState) , "GameProperties" :: NullOrUndefined (GamePropertyList) , "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber) , "GameSessionName" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionArn" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionRegion" :: NullOrUndefined (NonZeroAndMaxString) , "PlayerLatencies" :: NullOrUndefined (PlayerLatencyList) , "StartTime" :: NullOrUndefined (Types.Timestamp) , "EndTime" :: NullOrUndefined (Types.Timestamp) , "IpAddress" :: NullOrUndefined (IpAddress) , "Port" :: NullOrUndefined (PortNumber) , "PlacedPlayerSessions" :: NullOrUndefined (PlacedPlayerSessionList) , "GameSessionData" :: NullOrUndefined (GameSessionData) , "MatchmakerData" :: NullOrUndefined (MatchmakerData) } ) -> GameSessionPlacement
-newGameSessionPlacement'  customize = (GameSessionPlacement <<< customize) { "EndTime": (NullOrUndefined Nothing), "GameProperties": (NullOrUndefined Nothing), "GameSessionArn": (NullOrUndefined Nothing), "GameSessionData": (NullOrUndefined Nothing), "GameSessionId": (NullOrUndefined Nothing), "GameSessionName": (NullOrUndefined Nothing), "GameSessionQueueName": (NullOrUndefined Nothing), "GameSessionRegion": (NullOrUndefined Nothing), "IpAddress": (NullOrUndefined Nothing), "MatchmakerData": (NullOrUndefined Nothing), "MaximumPlayerSessionCount": (NullOrUndefined Nothing), "PlacedPlayerSessions": (NullOrUndefined Nothing), "PlacementId": (NullOrUndefined Nothing), "PlayerLatencies": (NullOrUndefined Nothing), "Port": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newGameSessionPlacement' :: ( { "PlacementId" :: Maybe (IdStringModel) , "GameSessionQueueName" :: Maybe (GameSessionQueueName) , "Status" :: Maybe (GameSessionPlacementState) , "GameProperties" :: Maybe (GamePropertyList) , "MaximumPlayerSessionCount" :: Maybe (WholeNumber) , "GameSessionName" :: Maybe (NonZeroAndMaxString) , "GameSessionId" :: Maybe (NonZeroAndMaxString) , "GameSessionArn" :: Maybe (NonZeroAndMaxString) , "GameSessionRegion" :: Maybe (NonZeroAndMaxString) , "PlayerLatencies" :: Maybe (PlayerLatencyList) , "StartTime" :: Maybe (Types.Timestamp) , "EndTime" :: Maybe (Types.Timestamp) , "IpAddress" :: Maybe (IpAddress) , "Port" :: Maybe (PortNumber) , "PlacedPlayerSessions" :: Maybe (PlacedPlayerSessionList) , "GameSessionData" :: Maybe (GameSessionData) , "MatchmakerData" :: Maybe (MatchmakerData) } -> {"PlacementId" :: Maybe (IdStringModel) , "GameSessionQueueName" :: Maybe (GameSessionQueueName) , "Status" :: Maybe (GameSessionPlacementState) , "GameProperties" :: Maybe (GamePropertyList) , "MaximumPlayerSessionCount" :: Maybe (WholeNumber) , "GameSessionName" :: Maybe (NonZeroAndMaxString) , "GameSessionId" :: Maybe (NonZeroAndMaxString) , "GameSessionArn" :: Maybe (NonZeroAndMaxString) , "GameSessionRegion" :: Maybe (NonZeroAndMaxString) , "PlayerLatencies" :: Maybe (PlayerLatencyList) , "StartTime" :: Maybe (Types.Timestamp) , "EndTime" :: Maybe (Types.Timestamp) , "IpAddress" :: Maybe (IpAddress) , "Port" :: Maybe (PortNumber) , "PlacedPlayerSessions" :: Maybe (PlacedPlayerSessionList) , "GameSessionData" :: Maybe (GameSessionData) , "MatchmakerData" :: Maybe (MatchmakerData) } ) -> GameSessionPlacement
+newGameSessionPlacement'  customize = (GameSessionPlacement <<< customize) { "EndTime": Nothing, "GameProperties": Nothing, "GameSessionArn": Nothing, "GameSessionData": Nothing, "GameSessionId": Nothing, "GameSessionName": Nothing, "GameSessionQueueName": Nothing, "GameSessionRegion": Nothing, "IpAddress": Nothing, "MatchmakerData": Nothing, "MaximumPlayerSessionCount": Nothing, "PlacedPlayerSessions": Nothing, "PlacementId": Nothing, "PlayerLatencies": Nothing, "Port": Nothing, "StartTime": Nothing, "Status": Nothing }
 
 
 
@@ -2455,11 +2454,11 @@ instance encodeGameSessionPlacementState :: Encode GameSessionPlacementState whe
 
 -- | <p>Configuration of a queue that is used to process game session placement requests. The queue configuration identifies several game features:</p> <ul> <li> <p>The destinations where a new game session can potentially be hosted. Amazon GameLift tries these destinations in an order based on either the queue's default order or player latency information, if provided in a placement request. With latency information, Amazon GameLift can place game sessions where the majority of players are reporting the lowest possible latency. </p> </li> <li> <p>The length of time that placement requests can wait in the queue before timing out. </p> </li> <li> <p>A set of optional latency policies that protect individual players from high latencies, preventing game sessions from being placed where any individual player is reporting latency higher than a policy's maximum.</p> </li> </ul> <p>Queue-related operations include:</p> <ul> <li> <p> <a>CreateGameSessionQueue</a> </p> </li> <li> <p> <a>DescribeGameSessionQueues</a> </p> </li> <li> <p> <a>UpdateGameSessionQueue</a> </p> </li> <li> <p> <a>DeleteGameSessionQueue</a> </p> </li> </ul>
 newtype GameSessionQueue = GameSessionQueue 
-  { "Name" :: NullOrUndefined (GameSessionQueueName)
-  , "GameSessionQueueArn" :: NullOrUndefined (ArnStringModel)
-  , "TimeoutInSeconds" :: NullOrUndefined (WholeNumber)
-  , "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList)
-  , "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList)
+  { "Name" :: Maybe (GameSessionQueueName)
+  , "GameSessionQueueArn" :: Maybe (ArnStringModel)
+  , "TimeoutInSeconds" :: Maybe (WholeNumber)
+  , "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList)
+  , "Destinations" :: Maybe (GameSessionQueueDestinationList)
   }
 derive instance newtypeGameSessionQueue :: Newtype GameSessionQueue _
 derive instance repGenericGameSessionQueue :: Generic GameSessionQueue _
@@ -2469,18 +2468,18 @@ instance encodeGameSessionQueue :: Encode GameSessionQueue where encode = generi
 
 -- | Constructs GameSessionQueue from required parameters
 newGameSessionQueue :: GameSessionQueue
-newGameSessionQueue  = GameSessionQueue { "Destinations": (NullOrUndefined Nothing), "GameSessionQueueArn": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "PlayerLatencyPolicies": (NullOrUndefined Nothing), "TimeoutInSeconds": (NullOrUndefined Nothing) }
+newGameSessionQueue  = GameSessionQueue { "Destinations": Nothing, "GameSessionQueueArn": Nothing, "Name": Nothing, "PlayerLatencyPolicies": Nothing, "TimeoutInSeconds": Nothing }
 
 -- | Constructs GameSessionQueue's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGameSessionQueue' :: ( { "Name" :: NullOrUndefined (GameSessionQueueName) , "GameSessionQueueArn" :: NullOrUndefined (ArnStringModel) , "TimeoutInSeconds" :: NullOrUndefined (WholeNumber) , "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList) , "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList) } -> {"Name" :: NullOrUndefined (GameSessionQueueName) , "GameSessionQueueArn" :: NullOrUndefined (ArnStringModel) , "TimeoutInSeconds" :: NullOrUndefined (WholeNumber) , "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList) , "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList) } ) -> GameSessionQueue
-newGameSessionQueue'  customize = (GameSessionQueue <<< customize) { "Destinations": (NullOrUndefined Nothing), "GameSessionQueueArn": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "PlayerLatencyPolicies": (NullOrUndefined Nothing), "TimeoutInSeconds": (NullOrUndefined Nothing) }
+newGameSessionQueue' :: ( { "Name" :: Maybe (GameSessionQueueName) , "GameSessionQueueArn" :: Maybe (ArnStringModel) , "TimeoutInSeconds" :: Maybe (WholeNumber) , "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList) , "Destinations" :: Maybe (GameSessionQueueDestinationList) } -> {"Name" :: Maybe (GameSessionQueueName) , "GameSessionQueueArn" :: Maybe (ArnStringModel) , "TimeoutInSeconds" :: Maybe (WholeNumber) , "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList) , "Destinations" :: Maybe (GameSessionQueueDestinationList) } ) -> GameSessionQueue
+newGameSessionQueue'  customize = (GameSessionQueue <<< customize) { "Destinations": Nothing, "GameSessionQueueArn": Nothing, "Name": Nothing, "PlayerLatencyPolicies": Nothing, "TimeoutInSeconds": Nothing }
 
 
 
 -- | <p>Fleet designated in a game session queue. Requests for new game sessions in the queue are fulfilled by starting a new game session on any destination configured for a queue. </p> <p>Queue-related operations include:</p> <ul> <li> <p> <a>CreateGameSessionQueue</a> </p> </li> <li> <p> <a>DescribeGameSessionQueues</a> </p> </li> <li> <p> <a>UpdateGameSessionQueue</a> </p> </li> <li> <p> <a>DeleteGameSessionQueue</a> </p> </li> </ul>
 newtype GameSessionQueueDestination = GameSessionQueueDestination 
-  { "DestinationArn" :: NullOrUndefined (ArnStringModel)
+  { "DestinationArn" :: Maybe (ArnStringModel)
   }
 derive instance newtypeGameSessionQueueDestination :: Newtype GameSessionQueueDestination _
 derive instance repGenericGameSessionQueueDestination :: Generic GameSessionQueueDestination _
@@ -2490,12 +2489,12 @@ instance encodeGameSessionQueueDestination :: Encode GameSessionQueueDestination
 
 -- | Constructs GameSessionQueueDestination from required parameters
 newGameSessionQueueDestination :: GameSessionQueueDestination
-newGameSessionQueueDestination  = GameSessionQueueDestination { "DestinationArn": (NullOrUndefined Nothing) }
+newGameSessionQueueDestination  = GameSessionQueueDestination { "DestinationArn": Nothing }
 
 -- | Constructs GameSessionQueueDestination's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGameSessionQueueDestination' :: ( { "DestinationArn" :: NullOrUndefined (ArnStringModel) } -> {"DestinationArn" :: NullOrUndefined (ArnStringModel) } ) -> GameSessionQueueDestination
-newGameSessionQueueDestination'  customize = (GameSessionQueueDestination <<< customize) { "DestinationArn": (NullOrUndefined Nothing) }
+newGameSessionQueueDestination' :: ( { "DestinationArn" :: Maybe (ArnStringModel) } -> {"DestinationArn" :: Maybe (ArnStringModel) } ) -> GameSessionQueueDestination
+newGameSessionQueueDestination'  customize = (GameSessionQueueDestination <<< customize) { "DestinationArn": Nothing }
 
 
 
@@ -2576,7 +2575,7 @@ newGetGameSessionLogUrlInput' _GameSessionId customize = (GetGameSessionLogUrlIn
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype GetGameSessionLogUrlOutput = GetGameSessionLogUrlOutput 
-  { "PreSignedUrl" :: NullOrUndefined (NonZeroAndMaxString)
+  { "PreSignedUrl" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeGetGameSessionLogUrlOutput :: Newtype GetGameSessionLogUrlOutput _
 derive instance repGenericGetGameSessionLogUrlOutput :: Generic GetGameSessionLogUrlOutput _
@@ -2586,12 +2585,12 @@ instance encodeGetGameSessionLogUrlOutput :: Encode GetGameSessionLogUrlOutput w
 
 -- | Constructs GetGameSessionLogUrlOutput from required parameters
 newGetGameSessionLogUrlOutput :: GetGameSessionLogUrlOutput
-newGetGameSessionLogUrlOutput  = GetGameSessionLogUrlOutput { "PreSignedUrl": (NullOrUndefined Nothing) }
+newGetGameSessionLogUrlOutput  = GetGameSessionLogUrlOutput { "PreSignedUrl": Nothing }
 
 -- | Constructs GetGameSessionLogUrlOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetGameSessionLogUrlOutput' :: ( { "PreSignedUrl" :: NullOrUndefined (NonZeroAndMaxString) } -> {"PreSignedUrl" :: NullOrUndefined (NonZeroAndMaxString) } ) -> GetGameSessionLogUrlOutput
-newGetGameSessionLogUrlOutput'  customize = (GetGameSessionLogUrlOutput <<< customize) { "PreSignedUrl": (NullOrUndefined Nothing) }
+newGetGameSessionLogUrlOutput' :: ( { "PreSignedUrl" :: Maybe (NonZeroAndMaxString) } -> {"PreSignedUrl" :: Maybe (NonZeroAndMaxString) } ) -> GetGameSessionLogUrlOutput
+newGetGameSessionLogUrlOutput'  customize = (GetGameSessionLogUrlOutput <<< customize) { "PreSignedUrl": Nothing }
 
 
 
@@ -2619,7 +2618,7 @@ newGetInstanceAccessInput' _FleetId _InstanceId customize = (GetInstanceAccessIn
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype GetInstanceAccessOutput = GetInstanceAccessOutput 
-  { "InstanceAccess" :: NullOrUndefined (InstanceAccess)
+  { "InstanceAccess" :: Maybe (InstanceAccess)
   }
 derive instance newtypeGetInstanceAccessOutput :: Newtype GetInstanceAccessOutput _
 derive instance repGenericGetInstanceAccessOutput :: Generic GetInstanceAccessOutput _
@@ -2629,12 +2628,12 @@ instance encodeGetInstanceAccessOutput :: Encode GetInstanceAccessOutput where e
 
 -- | Constructs GetInstanceAccessOutput from required parameters
 newGetInstanceAccessOutput :: GetInstanceAccessOutput
-newGetInstanceAccessOutput  = GetInstanceAccessOutput { "InstanceAccess": (NullOrUndefined Nothing) }
+newGetInstanceAccessOutput  = GetInstanceAccessOutput { "InstanceAccess": Nothing }
 
 -- | Constructs GetInstanceAccessOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetInstanceAccessOutput' :: ( { "InstanceAccess" :: NullOrUndefined (InstanceAccess) } -> {"InstanceAccess" :: NullOrUndefined (InstanceAccess) } ) -> GetInstanceAccessOutput
-newGetInstanceAccessOutput'  customize = (GetInstanceAccessOutput <<< customize) { "InstanceAccess": (NullOrUndefined Nothing) }
+newGetInstanceAccessOutput' :: ( { "InstanceAccess" :: Maybe (InstanceAccess) } -> {"InstanceAccess" :: Maybe (InstanceAccess) } ) -> GetInstanceAccessOutput
+newGetInstanceAccessOutput'  customize = (GetInstanceAccessOutput <<< customize) { "InstanceAccess": Nothing }
 
 
 
@@ -2649,7 +2648,7 @@ instance encodeIdStringModel :: Encode IdStringModel where encode = genericEncod
 
 -- | <p>A game session with this custom ID string already exists in this fleet. Resolve this conflict before retrying this request.</p>
 newtype IdempotentParameterMismatchException = IdempotentParameterMismatchException 
-  { "Message" :: NullOrUndefined (NonEmptyString)
+  { "Message" :: Maybe (NonEmptyString)
   }
 derive instance newtypeIdempotentParameterMismatchException :: Newtype IdempotentParameterMismatchException _
 derive instance repGenericIdempotentParameterMismatchException :: Generic IdempotentParameterMismatchException _
@@ -2659,24 +2658,24 @@ instance encodeIdempotentParameterMismatchException :: Encode IdempotentParamete
 
 -- | Constructs IdempotentParameterMismatchException from required parameters
 newIdempotentParameterMismatchException :: IdempotentParameterMismatchException
-newIdempotentParameterMismatchException  = IdempotentParameterMismatchException { "Message": (NullOrUndefined Nothing) }
+newIdempotentParameterMismatchException  = IdempotentParameterMismatchException { "Message": Nothing }
 
 -- | Constructs IdempotentParameterMismatchException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newIdempotentParameterMismatchException' :: ( { "Message" :: NullOrUndefined (NonEmptyString) } -> {"Message" :: NullOrUndefined (NonEmptyString) } ) -> IdempotentParameterMismatchException
-newIdempotentParameterMismatchException'  customize = (IdempotentParameterMismatchException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newIdempotentParameterMismatchException' :: ( { "Message" :: Maybe (NonEmptyString) } -> {"Message" :: Maybe (NonEmptyString) } ) -> IdempotentParameterMismatchException
+newIdempotentParameterMismatchException'  customize = (IdempotentParameterMismatchException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Properties that describe an instance of a virtual computing resource that hosts one or more game servers. A fleet may contain zero or more instances.</p>
 newtype Instance = Instance 
-  { "FleetId" :: NullOrUndefined (FleetId)
-  , "InstanceId" :: NullOrUndefined (InstanceId)
-  , "IpAddress" :: NullOrUndefined (IpAddress)
-  , "OperatingSystem" :: NullOrUndefined (OperatingSystem)
-  , "Type" :: NullOrUndefined (EC2InstanceType)
-  , "Status" :: NullOrUndefined (InstanceStatus)
-  , "CreationTime" :: NullOrUndefined (Types.Timestamp)
+  { "FleetId" :: Maybe (FleetId)
+  , "InstanceId" :: Maybe (InstanceId)
+  , "IpAddress" :: Maybe (IpAddress)
+  , "OperatingSystem" :: Maybe (OperatingSystem)
+  , "Type" :: Maybe (EC2InstanceType)
+  , "Status" :: Maybe (InstanceStatus)
+  , "CreationTime" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeInstance :: Newtype Instance _
 derive instance repGenericInstance :: Generic Instance _
@@ -2686,22 +2685,22 @@ instance encodeInstance :: Encode Instance where encode = genericEncode options
 
 -- | Constructs Instance from required parameters
 newInstance :: Instance
-newInstance  = Instance { "CreationTime": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "InstanceId": (NullOrUndefined Nothing), "IpAddress": (NullOrUndefined Nothing), "OperatingSystem": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newInstance  = Instance { "CreationTime": Nothing, "FleetId": Nothing, "InstanceId": Nothing, "IpAddress": Nothing, "OperatingSystem": Nothing, "Status": Nothing, "Type": Nothing }
 
 -- | Constructs Instance's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInstance' :: ( { "FleetId" :: NullOrUndefined (FleetId) , "InstanceId" :: NullOrUndefined (InstanceId) , "IpAddress" :: NullOrUndefined (IpAddress) , "OperatingSystem" :: NullOrUndefined (OperatingSystem) , "Type" :: NullOrUndefined (EC2InstanceType) , "Status" :: NullOrUndefined (InstanceStatus) , "CreationTime" :: NullOrUndefined (Types.Timestamp) } -> {"FleetId" :: NullOrUndefined (FleetId) , "InstanceId" :: NullOrUndefined (InstanceId) , "IpAddress" :: NullOrUndefined (IpAddress) , "OperatingSystem" :: NullOrUndefined (OperatingSystem) , "Type" :: NullOrUndefined (EC2InstanceType) , "Status" :: NullOrUndefined (InstanceStatus) , "CreationTime" :: NullOrUndefined (Types.Timestamp) } ) -> Instance
-newInstance'  customize = (Instance <<< customize) { "CreationTime": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "InstanceId": (NullOrUndefined Nothing), "IpAddress": (NullOrUndefined Nothing), "OperatingSystem": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newInstance' :: ( { "FleetId" :: Maybe (FleetId) , "InstanceId" :: Maybe (InstanceId) , "IpAddress" :: Maybe (IpAddress) , "OperatingSystem" :: Maybe (OperatingSystem) , "Type" :: Maybe (EC2InstanceType) , "Status" :: Maybe (InstanceStatus) , "CreationTime" :: Maybe (Types.Timestamp) } -> {"FleetId" :: Maybe (FleetId) , "InstanceId" :: Maybe (InstanceId) , "IpAddress" :: Maybe (IpAddress) , "OperatingSystem" :: Maybe (OperatingSystem) , "Type" :: Maybe (EC2InstanceType) , "Status" :: Maybe (InstanceStatus) , "CreationTime" :: Maybe (Types.Timestamp) } ) -> Instance
+newInstance'  customize = (Instance <<< customize) { "CreationTime": Nothing, "FleetId": Nothing, "InstanceId": Nothing, "IpAddress": Nothing, "OperatingSystem": Nothing, "Status": Nothing, "Type": Nothing }
 
 
 
 -- | <p>Information required to remotely connect to a fleet instance. Access is requested by calling <a>GetInstanceAccess</a>. </p>
 newtype InstanceAccess = InstanceAccess 
-  { "FleetId" :: NullOrUndefined (FleetId)
-  , "InstanceId" :: NullOrUndefined (InstanceId)
-  , "IpAddress" :: NullOrUndefined (IpAddress)
-  , "OperatingSystem" :: NullOrUndefined (OperatingSystem)
-  , "Credentials" :: NullOrUndefined (InstanceCredentials)
+  { "FleetId" :: Maybe (FleetId)
+  , "InstanceId" :: Maybe (InstanceId)
+  , "IpAddress" :: Maybe (IpAddress)
+  , "OperatingSystem" :: Maybe (OperatingSystem)
+  , "Credentials" :: Maybe (InstanceCredentials)
   }
 derive instance newtypeInstanceAccess :: Newtype InstanceAccess _
 derive instance repGenericInstanceAccess :: Generic InstanceAccess _
@@ -2711,19 +2710,19 @@ instance encodeInstanceAccess :: Encode InstanceAccess where encode = genericEnc
 
 -- | Constructs InstanceAccess from required parameters
 newInstanceAccess :: InstanceAccess
-newInstanceAccess  = InstanceAccess { "Credentials": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "InstanceId": (NullOrUndefined Nothing), "IpAddress": (NullOrUndefined Nothing), "OperatingSystem": (NullOrUndefined Nothing) }
+newInstanceAccess  = InstanceAccess { "Credentials": Nothing, "FleetId": Nothing, "InstanceId": Nothing, "IpAddress": Nothing, "OperatingSystem": Nothing }
 
 -- | Constructs InstanceAccess's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInstanceAccess' :: ( { "FleetId" :: NullOrUndefined (FleetId) , "InstanceId" :: NullOrUndefined (InstanceId) , "IpAddress" :: NullOrUndefined (IpAddress) , "OperatingSystem" :: NullOrUndefined (OperatingSystem) , "Credentials" :: NullOrUndefined (InstanceCredentials) } -> {"FleetId" :: NullOrUndefined (FleetId) , "InstanceId" :: NullOrUndefined (InstanceId) , "IpAddress" :: NullOrUndefined (IpAddress) , "OperatingSystem" :: NullOrUndefined (OperatingSystem) , "Credentials" :: NullOrUndefined (InstanceCredentials) } ) -> InstanceAccess
-newInstanceAccess'  customize = (InstanceAccess <<< customize) { "Credentials": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "InstanceId": (NullOrUndefined Nothing), "IpAddress": (NullOrUndefined Nothing), "OperatingSystem": (NullOrUndefined Nothing) }
+newInstanceAccess' :: ( { "FleetId" :: Maybe (FleetId) , "InstanceId" :: Maybe (InstanceId) , "IpAddress" :: Maybe (IpAddress) , "OperatingSystem" :: Maybe (OperatingSystem) , "Credentials" :: Maybe (InstanceCredentials) } -> {"FleetId" :: Maybe (FleetId) , "InstanceId" :: Maybe (InstanceId) , "IpAddress" :: Maybe (IpAddress) , "OperatingSystem" :: Maybe (OperatingSystem) , "Credentials" :: Maybe (InstanceCredentials) } ) -> InstanceAccess
+newInstanceAccess'  customize = (InstanceAccess <<< customize) { "Credentials": Nothing, "FleetId": Nothing, "InstanceId": Nothing, "IpAddress": Nothing, "OperatingSystem": Nothing }
 
 
 
 -- | <p>Set of credentials required to remotely access a fleet instance. Access credentials are requested by calling <a>GetInstanceAccess</a> and returned in an <a>InstanceAccess</a> object.</p>
 newtype InstanceCredentials = InstanceCredentials 
-  { "UserName" :: NullOrUndefined (NonEmptyString)
-  , "Secret" :: NullOrUndefined (NonEmptyString)
+  { "UserName" :: Maybe (NonEmptyString)
+  , "Secret" :: Maybe (NonEmptyString)
   }
 derive instance newtypeInstanceCredentials :: Newtype InstanceCredentials _
 derive instance repGenericInstanceCredentials :: Generic InstanceCredentials _
@@ -2733,12 +2732,12 @@ instance encodeInstanceCredentials :: Encode InstanceCredentials where encode = 
 
 -- | Constructs InstanceCredentials from required parameters
 newInstanceCredentials :: InstanceCredentials
-newInstanceCredentials  = InstanceCredentials { "Secret": (NullOrUndefined Nothing), "UserName": (NullOrUndefined Nothing) }
+newInstanceCredentials  = InstanceCredentials { "Secret": Nothing, "UserName": Nothing }
 
 -- | Constructs InstanceCredentials's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInstanceCredentials' :: ( { "UserName" :: NullOrUndefined (NonEmptyString) , "Secret" :: NullOrUndefined (NonEmptyString) } -> {"UserName" :: NullOrUndefined (NonEmptyString) , "Secret" :: NullOrUndefined (NonEmptyString) } ) -> InstanceCredentials
-newInstanceCredentials'  customize = (InstanceCredentials <<< customize) { "Secret": (NullOrUndefined Nothing), "UserName": (NullOrUndefined Nothing) }
+newInstanceCredentials' :: ( { "UserName" :: Maybe (NonEmptyString) , "Secret" :: Maybe (NonEmptyString) } -> {"UserName" :: Maybe (NonEmptyString) , "Secret" :: Maybe (NonEmptyString) } ) -> InstanceCredentials
+newInstanceCredentials'  customize = (InstanceCredentials <<< customize) { "Secret": Nothing, "UserName": Nothing }
 
 
 
@@ -2771,7 +2770,7 @@ instance encodeInstanceStatus :: Encode InstanceStatus where encode = genericEnc
 
 -- | <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
 newtype InternalServiceException = InternalServiceException 
-  { "Message" :: NullOrUndefined (NonEmptyString)
+  { "Message" :: Maybe (NonEmptyString)
   }
 derive instance newtypeInternalServiceException :: Newtype InternalServiceException _
 derive instance repGenericInternalServiceException :: Generic InternalServiceException _
@@ -2781,18 +2780,18 @@ instance encodeInternalServiceException :: Encode InternalServiceException where
 
 -- | Constructs InternalServiceException from required parameters
 newInternalServiceException :: InternalServiceException
-newInternalServiceException  = InternalServiceException { "Message": (NullOrUndefined Nothing) }
+newInternalServiceException  = InternalServiceException { "Message": Nothing }
 
 -- | Constructs InternalServiceException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInternalServiceException' :: ( { "Message" :: NullOrUndefined (NonEmptyString) } -> {"Message" :: NullOrUndefined (NonEmptyString) } ) -> InternalServiceException
-newInternalServiceException'  customize = (InternalServiceException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInternalServiceException' :: ( { "Message" :: Maybe (NonEmptyString) } -> {"Message" :: Maybe (NonEmptyString) } ) -> InternalServiceException
+newInternalServiceException'  customize = (InternalServiceException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The requested operation would cause a conflict with the current state of a resource associated with the request and/or the fleet. Resolve the conflict before retrying.</p>
 newtype InvalidFleetStatusException = InvalidFleetStatusException 
-  { "Message" :: NullOrUndefined (NonEmptyString)
+  { "Message" :: Maybe (NonEmptyString)
   }
 derive instance newtypeInvalidFleetStatusException :: Newtype InvalidFleetStatusException _
 derive instance repGenericInvalidFleetStatusException :: Generic InvalidFleetStatusException _
@@ -2802,18 +2801,18 @@ instance encodeInvalidFleetStatusException :: Encode InvalidFleetStatusException
 
 -- | Constructs InvalidFleetStatusException from required parameters
 newInvalidFleetStatusException :: InvalidFleetStatusException
-newInvalidFleetStatusException  = InvalidFleetStatusException { "Message": (NullOrUndefined Nothing) }
+newInvalidFleetStatusException  = InvalidFleetStatusException { "Message": Nothing }
 
 -- | Constructs InvalidFleetStatusException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidFleetStatusException' :: ( { "Message" :: NullOrUndefined (NonEmptyString) } -> {"Message" :: NullOrUndefined (NonEmptyString) } ) -> InvalidFleetStatusException
-newInvalidFleetStatusException'  customize = (InvalidFleetStatusException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidFleetStatusException' :: ( { "Message" :: Maybe (NonEmptyString) } -> {"Message" :: Maybe (NonEmptyString) } ) -> InvalidFleetStatusException
+newInvalidFleetStatusException'  customize = (InvalidFleetStatusException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The requested operation would cause a conflict with the current state of a resource associated with the request and/or the game instance. Resolve the conflict before retrying.</p>
 newtype InvalidGameSessionStatusException = InvalidGameSessionStatusException 
-  { "Message" :: NullOrUndefined (NonEmptyString)
+  { "Message" :: Maybe (NonEmptyString)
   }
 derive instance newtypeInvalidGameSessionStatusException :: Newtype InvalidGameSessionStatusException _
 derive instance repGenericInvalidGameSessionStatusException :: Generic InvalidGameSessionStatusException _
@@ -2823,18 +2822,18 @@ instance encodeInvalidGameSessionStatusException :: Encode InvalidGameSessionSta
 
 -- | Constructs InvalidGameSessionStatusException from required parameters
 newInvalidGameSessionStatusException :: InvalidGameSessionStatusException
-newInvalidGameSessionStatusException  = InvalidGameSessionStatusException { "Message": (NullOrUndefined Nothing) }
+newInvalidGameSessionStatusException  = InvalidGameSessionStatusException { "Message": Nothing }
 
 -- | Constructs InvalidGameSessionStatusException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidGameSessionStatusException' :: ( { "Message" :: NullOrUndefined (NonEmptyString) } -> {"Message" :: NullOrUndefined (NonEmptyString) } ) -> InvalidGameSessionStatusException
-newInvalidGameSessionStatusException'  customize = (InvalidGameSessionStatusException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidGameSessionStatusException' :: ( { "Message" :: Maybe (NonEmptyString) } -> {"Message" :: Maybe (NonEmptyString) } ) -> InvalidGameSessionStatusException
+newInvalidGameSessionStatusException'  customize = (InvalidGameSessionStatusException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
 newtype InvalidRequestException = InvalidRequestException 
-  { "Message" :: NullOrUndefined (NonEmptyString)
+  { "Message" :: Maybe (NonEmptyString)
   }
 derive instance newtypeInvalidRequestException :: Newtype InvalidRequestException _
 derive instance repGenericInvalidRequestException :: Generic InvalidRequestException _
@@ -2844,12 +2843,12 @@ instance encodeInvalidRequestException :: Encode InvalidRequestException where e
 
 -- | Constructs InvalidRequestException from required parameters
 newInvalidRequestException :: InvalidRequestException
-newInvalidRequestException  = InvalidRequestException { "Message": (NullOrUndefined Nothing) }
+newInvalidRequestException  = InvalidRequestException { "Message": Nothing }
 
 -- | Constructs InvalidRequestException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidRequestException' :: ( { "Message" :: NullOrUndefined (NonEmptyString) } -> {"Message" :: NullOrUndefined (NonEmptyString) } ) -> InvalidRequestException
-newInvalidRequestException'  customize = (InvalidRequestException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidRequestException' :: ( { "Message" :: Maybe (NonEmptyString) } -> {"Message" :: Maybe (NonEmptyString) } ) -> InvalidRequestException
+newInvalidRequestException'  customize = (InvalidRequestException <<< customize) { "Message": Nothing }
 
 
 
@@ -2915,7 +2914,7 @@ instance encodeLatencyMap :: Encode LatencyMap where encode = genericEncode opti
 
 -- | <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
 newtype LimitExceededException = LimitExceededException 
-  { "Message" :: NullOrUndefined (NonEmptyString)
+  { "Message" :: Maybe (NonEmptyString)
   }
 derive instance newtypeLimitExceededException :: Newtype LimitExceededException _
 derive instance repGenericLimitExceededException :: Generic LimitExceededException _
@@ -2925,21 +2924,21 @@ instance encodeLimitExceededException :: Encode LimitExceededException where enc
 
 -- | Constructs LimitExceededException from required parameters
 newLimitExceededException :: LimitExceededException
-newLimitExceededException  = LimitExceededException { "Message": (NullOrUndefined Nothing) }
+newLimitExceededException  = LimitExceededException { "Message": Nothing }
 
 -- | Constructs LimitExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLimitExceededException' :: ( { "Message" :: NullOrUndefined (NonEmptyString) } -> {"Message" :: NullOrUndefined (NonEmptyString) } ) -> LimitExceededException
-newLimitExceededException'  customize = (LimitExceededException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newLimitExceededException' :: ( { "Message" :: Maybe (NonEmptyString) } -> {"Message" :: Maybe (NonEmptyString) } ) -> LimitExceededException
+newLimitExceededException'  customize = (LimitExceededException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype ListAliasesInput = ListAliasesInput 
-  { "RoutingStrategyType" :: NullOrUndefined (RoutingStrategyType)
-  , "Name" :: NullOrUndefined (NonEmptyString)
-  , "Limit" :: NullOrUndefined (PositiveInteger)
-  , "NextToken" :: NullOrUndefined (NonEmptyString)
+  { "RoutingStrategyType" :: Maybe (RoutingStrategyType)
+  , "Name" :: Maybe (NonEmptyString)
+  , "Limit" :: Maybe (PositiveInteger)
+  , "NextToken" :: Maybe (NonEmptyString)
   }
 derive instance newtypeListAliasesInput :: Newtype ListAliasesInput _
 derive instance repGenericListAliasesInput :: Generic ListAliasesInput _
@@ -2949,19 +2948,19 @@ instance encodeListAliasesInput :: Encode ListAliasesInput where encode = generi
 
 -- | Constructs ListAliasesInput from required parameters
 newListAliasesInput :: ListAliasesInput
-newListAliasesInput  = ListAliasesInput { "Limit": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "RoutingStrategyType": (NullOrUndefined Nothing) }
+newListAliasesInput  = ListAliasesInput { "Limit": Nothing, "Name": Nothing, "NextToken": Nothing, "RoutingStrategyType": Nothing }
 
 -- | Constructs ListAliasesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListAliasesInput' :: ( { "RoutingStrategyType" :: NullOrUndefined (RoutingStrategyType) , "Name" :: NullOrUndefined (NonEmptyString) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonEmptyString) } -> {"RoutingStrategyType" :: NullOrUndefined (RoutingStrategyType) , "Name" :: NullOrUndefined (NonEmptyString) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonEmptyString) } ) -> ListAliasesInput
-newListAliasesInput'  customize = (ListAliasesInput <<< customize) { "Limit": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "RoutingStrategyType": (NullOrUndefined Nothing) }
+newListAliasesInput' :: ( { "RoutingStrategyType" :: Maybe (RoutingStrategyType) , "Name" :: Maybe (NonEmptyString) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonEmptyString) } -> {"RoutingStrategyType" :: Maybe (RoutingStrategyType) , "Name" :: Maybe (NonEmptyString) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonEmptyString) } ) -> ListAliasesInput
+newListAliasesInput'  customize = (ListAliasesInput <<< customize) { "Limit": Nothing, "Name": Nothing, "NextToken": Nothing, "RoutingStrategyType": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype ListAliasesOutput = ListAliasesOutput 
-  { "Aliases" :: NullOrUndefined (AliasList)
-  , "NextToken" :: NullOrUndefined (NonEmptyString)
+  { "Aliases" :: Maybe (AliasList)
+  , "NextToken" :: Maybe (NonEmptyString)
   }
 derive instance newtypeListAliasesOutput :: Newtype ListAliasesOutput _
 derive instance repGenericListAliasesOutput :: Generic ListAliasesOutput _
@@ -2971,20 +2970,20 @@ instance encodeListAliasesOutput :: Encode ListAliasesOutput where encode = gene
 
 -- | Constructs ListAliasesOutput from required parameters
 newListAliasesOutput :: ListAliasesOutput
-newListAliasesOutput  = ListAliasesOutput { "Aliases": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListAliasesOutput  = ListAliasesOutput { "Aliases": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListAliasesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListAliasesOutput' :: ( { "Aliases" :: NullOrUndefined (AliasList) , "NextToken" :: NullOrUndefined (NonEmptyString) } -> {"Aliases" :: NullOrUndefined (AliasList) , "NextToken" :: NullOrUndefined (NonEmptyString) } ) -> ListAliasesOutput
-newListAliasesOutput'  customize = (ListAliasesOutput <<< customize) { "Aliases": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListAliasesOutput' :: ( { "Aliases" :: Maybe (AliasList) , "NextToken" :: Maybe (NonEmptyString) } -> {"Aliases" :: Maybe (AliasList) , "NextToken" :: Maybe (NonEmptyString) } ) -> ListAliasesOutput
+newListAliasesOutput'  customize = (ListAliasesOutput <<< customize) { "Aliases": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype ListBuildsInput = ListBuildsInput 
-  { "Status" :: NullOrUndefined (BuildStatus)
-  , "Limit" :: NullOrUndefined (PositiveInteger)
-  , "NextToken" :: NullOrUndefined (NonEmptyString)
+  { "Status" :: Maybe (BuildStatus)
+  , "Limit" :: Maybe (PositiveInteger)
+  , "NextToken" :: Maybe (NonEmptyString)
   }
 derive instance newtypeListBuildsInput :: Newtype ListBuildsInput _
 derive instance repGenericListBuildsInput :: Generic ListBuildsInput _
@@ -2994,19 +2993,19 @@ instance encodeListBuildsInput :: Encode ListBuildsInput where encode = genericE
 
 -- | Constructs ListBuildsInput from required parameters
 newListBuildsInput :: ListBuildsInput
-newListBuildsInput  = ListBuildsInput { "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newListBuildsInput  = ListBuildsInput { "Limit": Nothing, "NextToken": Nothing, "Status": Nothing }
 
 -- | Constructs ListBuildsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListBuildsInput' :: ( { "Status" :: NullOrUndefined (BuildStatus) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonEmptyString) } -> {"Status" :: NullOrUndefined (BuildStatus) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonEmptyString) } ) -> ListBuildsInput
-newListBuildsInput'  customize = (ListBuildsInput <<< customize) { "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newListBuildsInput' :: ( { "Status" :: Maybe (BuildStatus) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonEmptyString) } -> {"Status" :: Maybe (BuildStatus) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonEmptyString) } ) -> ListBuildsInput
+newListBuildsInput'  customize = (ListBuildsInput <<< customize) { "Limit": Nothing, "NextToken": Nothing, "Status": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype ListBuildsOutput = ListBuildsOutput 
-  { "Builds" :: NullOrUndefined (BuildList)
-  , "NextToken" :: NullOrUndefined (NonEmptyString)
+  { "Builds" :: Maybe (BuildList)
+  , "NextToken" :: Maybe (NonEmptyString)
   }
 derive instance newtypeListBuildsOutput :: Newtype ListBuildsOutput _
 derive instance repGenericListBuildsOutput :: Generic ListBuildsOutput _
@@ -3016,20 +3015,20 @@ instance encodeListBuildsOutput :: Encode ListBuildsOutput where encode = generi
 
 -- | Constructs ListBuildsOutput from required parameters
 newListBuildsOutput :: ListBuildsOutput
-newListBuildsOutput  = ListBuildsOutput { "Builds": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListBuildsOutput  = ListBuildsOutput { "Builds": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListBuildsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListBuildsOutput' :: ( { "Builds" :: NullOrUndefined (BuildList) , "NextToken" :: NullOrUndefined (NonEmptyString) } -> {"Builds" :: NullOrUndefined (BuildList) , "NextToken" :: NullOrUndefined (NonEmptyString) } ) -> ListBuildsOutput
-newListBuildsOutput'  customize = (ListBuildsOutput <<< customize) { "Builds": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListBuildsOutput' :: ( { "Builds" :: Maybe (BuildList) , "NextToken" :: Maybe (NonEmptyString) } -> {"Builds" :: Maybe (BuildList) , "NextToken" :: Maybe (NonEmptyString) } ) -> ListBuildsOutput
+newListBuildsOutput'  customize = (ListBuildsOutput <<< customize) { "Builds": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype ListFleetsInput = ListFleetsInput 
-  { "BuildId" :: NullOrUndefined (BuildId)
-  , "Limit" :: NullOrUndefined (PositiveInteger)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "BuildId" :: Maybe (BuildId)
+  , "Limit" :: Maybe (PositiveInteger)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeListFleetsInput :: Newtype ListFleetsInput _
 derive instance repGenericListFleetsInput :: Generic ListFleetsInput _
@@ -3039,19 +3038,19 @@ instance encodeListFleetsInput :: Encode ListFleetsInput where encode = genericE
 
 -- | Constructs ListFleetsInput from required parameters
 newListFleetsInput :: ListFleetsInput
-newListFleetsInput  = ListFleetsInput { "BuildId": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListFleetsInput  = ListFleetsInput { "BuildId": Nothing, "Limit": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListFleetsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListFleetsInput' :: ( { "BuildId" :: NullOrUndefined (BuildId) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"BuildId" :: NullOrUndefined (BuildId) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> ListFleetsInput
-newListFleetsInput'  customize = (ListFleetsInput <<< customize) { "BuildId": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListFleetsInput' :: ( { "BuildId" :: Maybe (BuildId) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"BuildId" :: Maybe (BuildId) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> ListFleetsInput
+newListFleetsInput'  customize = (ListFleetsInput <<< customize) { "BuildId": Nothing, "Limit": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype ListFleetsOutput = ListFleetsOutput 
-  { "FleetIds" :: NullOrUndefined (FleetIdList)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "FleetIds" :: Maybe (FleetIdList)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeListFleetsOutput :: Newtype ListFleetsOutput _
 derive instance repGenericListFleetsOutput :: Generic ListFleetsOutput _
@@ -3061,19 +3060,19 @@ instance encodeListFleetsOutput :: Encode ListFleetsOutput where encode = generi
 
 -- | Constructs ListFleetsOutput from required parameters
 newListFleetsOutput :: ListFleetsOutput
-newListFleetsOutput  = ListFleetsOutput { "FleetIds": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListFleetsOutput  = ListFleetsOutput { "FleetIds": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListFleetsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListFleetsOutput' :: ( { "FleetIds" :: NullOrUndefined (FleetIdList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"FleetIds" :: NullOrUndefined (FleetIdList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> ListFleetsOutput
-newListFleetsOutput'  customize = (ListFleetsOutput <<< customize) { "FleetIds": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListFleetsOutput' :: ( { "FleetIds" :: Maybe (FleetIdList) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"FleetIds" :: Maybe (FleetIdList) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> ListFleetsOutput
+newListFleetsOutput'  customize = (ListFleetsOutput <<< customize) { "FleetIds": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>Represents a new player session that is created as a result of a successful FlexMatch match. A successful match automatically creates new player sessions for every player ID in the original matchmaking request. </p> <p>When players connect to the match's game session, they must include both player ID and player session ID in order to claim their assigned player slot.</p>
 newtype MatchedPlayerSession = MatchedPlayerSession 
-  { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "PlayerSessionId" :: NullOrUndefined (PlayerSessionId)
+  { "PlayerId" :: Maybe (NonZeroAndMaxString)
+  , "PlayerSessionId" :: Maybe (PlayerSessionId)
   }
 derive instance newtypeMatchedPlayerSession :: Newtype MatchedPlayerSession _
 derive instance repGenericMatchedPlayerSession :: Generic MatchedPlayerSession _
@@ -3083,12 +3082,12 @@ instance encodeMatchedPlayerSession :: Encode MatchedPlayerSession where encode 
 
 -- | Constructs MatchedPlayerSession from required parameters
 newMatchedPlayerSession :: MatchedPlayerSession
-newMatchedPlayerSession  = MatchedPlayerSession { "PlayerId": (NullOrUndefined Nothing), "PlayerSessionId": (NullOrUndefined Nothing) }
+newMatchedPlayerSession  = MatchedPlayerSession { "PlayerId": Nothing, "PlayerSessionId": Nothing }
 
 -- | Constructs MatchedPlayerSession's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMatchedPlayerSession' :: ( { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString) , "PlayerSessionId" :: NullOrUndefined (PlayerSessionId) } -> {"PlayerId" :: NullOrUndefined (NonZeroAndMaxString) , "PlayerSessionId" :: NullOrUndefined (PlayerSessionId) } ) -> MatchedPlayerSession
-newMatchedPlayerSession'  customize = (MatchedPlayerSession <<< customize) { "PlayerId": (NullOrUndefined Nothing), "PlayerSessionId": (NullOrUndefined Nothing) }
+newMatchedPlayerSession' :: ( { "PlayerId" :: Maybe (NonZeroAndMaxString) , "PlayerSessionId" :: Maybe (PlayerSessionId) } -> {"PlayerId" :: Maybe (NonZeroAndMaxString) , "PlayerSessionId" :: Maybe (PlayerSessionId) } ) -> MatchedPlayerSession
+newMatchedPlayerSession'  customize = (MatchedPlayerSession <<< customize) { "PlayerId": Nothing, "PlayerSessionId": Nothing }
 
 
 
@@ -3121,19 +3120,19 @@ instance encodeMatchmakingAcceptanceTimeoutInteger :: Encode MatchmakingAcceptan
 
 -- | <p>Guidelines for use with FlexMatch to match players into games. All matchmaking requests must specify a matchmaking configuration.</p>
 newtype MatchmakingConfiguration = MatchmakingConfiguration 
-  { "Name" :: NullOrUndefined (MatchmakingIdStringModel)
-  , "Description" :: NullOrUndefined (NonZeroAndMaxString)
-  , "GameSessionQueueArns" :: NullOrUndefined (QueueArnsList)
-  , "RequestTimeoutSeconds" :: NullOrUndefined (MatchmakingRequestTimeoutInteger)
-  , "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger)
-  , "AcceptanceRequired" :: NullOrUndefined (BooleanModel)
-  , "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel)
-  , "NotificationTarget" :: NullOrUndefined (SnsArnStringModel)
-  , "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber)
-  , "CustomEventData" :: NullOrUndefined (CustomEventData)
-  , "CreationTime" :: NullOrUndefined (Types.Timestamp)
-  , "GameProperties" :: NullOrUndefined (GamePropertyList)
-  , "GameSessionData" :: NullOrUndefined (GameSessionData)
+  { "Name" :: Maybe (MatchmakingIdStringModel)
+  , "Description" :: Maybe (NonZeroAndMaxString)
+  , "GameSessionQueueArns" :: Maybe (QueueArnsList)
+  , "RequestTimeoutSeconds" :: Maybe (MatchmakingRequestTimeoutInteger)
+  , "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger)
+  , "AcceptanceRequired" :: Maybe (BooleanModel)
+  , "RuleSetName" :: Maybe (MatchmakingIdStringModel)
+  , "NotificationTarget" :: Maybe (SnsArnStringModel)
+  , "AdditionalPlayerCount" :: Maybe (WholeNumber)
+  , "CustomEventData" :: Maybe (CustomEventData)
+  , "CreationTime" :: Maybe (Types.Timestamp)
+  , "GameProperties" :: Maybe (GamePropertyList)
+  , "GameSessionData" :: Maybe (GameSessionData)
   }
 derive instance newtypeMatchmakingConfiguration :: Newtype MatchmakingConfiguration _
 derive instance repGenericMatchmakingConfiguration :: Generic MatchmakingConfiguration _
@@ -3143,12 +3142,12 @@ instance encodeMatchmakingConfiguration :: Encode MatchmakingConfiguration where
 
 -- | Constructs MatchmakingConfiguration from required parameters
 newMatchmakingConfiguration :: MatchmakingConfiguration
-newMatchmakingConfiguration  = MatchmakingConfiguration { "AcceptanceRequired": (NullOrUndefined Nothing), "AcceptanceTimeoutSeconds": (NullOrUndefined Nothing), "AdditionalPlayerCount": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "CustomEventData": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "GameProperties": (NullOrUndefined Nothing), "GameSessionData": (NullOrUndefined Nothing), "GameSessionQueueArns": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "NotificationTarget": (NullOrUndefined Nothing), "RequestTimeoutSeconds": (NullOrUndefined Nothing), "RuleSetName": (NullOrUndefined Nothing) }
+newMatchmakingConfiguration  = MatchmakingConfiguration { "AcceptanceRequired": Nothing, "AcceptanceTimeoutSeconds": Nothing, "AdditionalPlayerCount": Nothing, "CreationTime": Nothing, "CustomEventData": Nothing, "Description": Nothing, "GameProperties": Nothing, "GameSessionData": Nothing, "GameSessionQueueArns": Nothing, "Name": Nothing, "NotificationTarget": Nothing, "RequestTimeoutSeconds": Nothing, "RuleSetName": Nothing }
 
 -- | Constructs MatchmakingConfiguration's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMatchmakingConfiguration' :: ( { "Name" :: NullOrUndefined (MatchmakingIdStringModel) , "Description" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionQueueArns" :: NullOrUndefined (QueueArnsList) , "RequestTimeoutSeconds" :: NullOrUndefined (MatchmakingRequestTimeoutInteger) , "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger) , "AcceptanceRequired" :: NullOrUndefined (BooleanModel) , "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel) , "NotificationTarget" :: NullOrUndefined (SnsArnStringModel) , "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber) , "CustomEventData" :: NullOrUndefined (CustomEventData) , "CreationTime" :: NullOrUndefined (Types.Timestamp) , "GameProperties" :: NullOrUndefined (GamePropertyList) , "GameSessionData" :: NullOrUndefined (GameSessionData) } -> {"Name" :: NullOrUndefined (MatchmakingIdStringModel) , "Description" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionQueueArns" :: NullOrUndefined (QueueArnsList) , "RequestTimeoutSeconds" :: NullOrUndefined (MatchmakingRequestTimeoutInteger) , "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger) , "AcceptanceRequired" :: NullOrUndefined (BooleanModel) , "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel) , "NotificationTarget" :: NullOrUndefined (SnsArnStringModel) , "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber) , "CustomEventData" :: NullOrUndefined (CustomEventData) , "CreationTime" :: NullOrUndefined (Types.Timestamp) , "GameProperties" :: NullOrUndefined (GamePropertyList) , "GameSessionData" :: NullOrUndefined (GameSessionData) } ) -> MatchmakingConfiguration
-newMatchmakingConfiguration'  customize = (MatchmakingConfiguration <<< customize) { "AcceptanceRequired": (NullOrUndefined Nothing), "AcceptanceTimeoutSeconds": (NullOrUndefined Nothing), "AdditionalPlayerCount": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "CustomEventData": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "GameProperties": (NullOrUndefined Nothing), "GameSessionData": (NullOrUndefined Nothing), "GameSessionQueueArns": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "NotificationTarget": (NullOrUndefined Nothing), "RequestTimeoutSeconds": (NullOrUndefined Nothing), "RuleSetName": (NullOrUndefined Nothing) }
+newMatchmakingConfiguration' :: ( { "Name" :: Maybe (MatchmakingIdStringModel) , "Description" :: Maybe (NonZeroAndMaxString) , "GameSessionQueueArns" :: Maybe (QueueArnsList) , "RequestTimeoutSeconds" :: Maybe (MatchmakingRequestTimeoutInteger) , "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger) , "AcceptanceRequired" :: Maybe (BooleanModel) , "RuleSetName" :: Maybe (MatchmakingIdStringModel) , "NotificationTarget" :: Maybe (SnsArnStringModel) , "AdditionalPlayerCount" :: Maybe (WholeNumber) , "CustomEventData" :: Maybe (CustomEventData) , "CreationTime" :: Maybe (Types.Timestamp) , "GameProperties" :: Maybe (GamePropertyList) , "GameSessionData" :: Maybe (GameSessionData) } -> {"Name" :: Maybe (MatchmakingIdStringModel) , "Description" :: Maybe (NonZeroAndMaxString) , "GameSessionQueueArns" :: Maybe (QueueArnsList) , "RequestTimeoutSeconds" :: Maybe (MatchmakingRequestTimeoutInteger) , "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger) , "AcceptanceRequired" :: Maybe (BooleanModel) , "RuleSetName" :: Maybe (MatchmakingIdStringModel) , "NotificationTarget" :: Maybe (SnsArnStringModel) , "AdditionalPlayerCount" :: Maybe (WholeNumber) , "CustomEventData" :: Maybe (CustomEventData) , "CreationTime" :: Maybe (Types.Timestamp) , "GameProperties" :: Maybe (GamePropertyList) , "GameSessionData" :: Maybe (GameSessionData) } ) -> MatchmakingConfiguration
+newMatchmakingConfiguration'  customize = (MatchmakingConfiguration <<< customize) { "AcceptanceRequired": Nothing, "AcceptanceTimeoutSeconds": Nothing, "AdditionalPlayerCount": Nothing, "CreationTime": Nothing, "CustomEventData": Nothing, "Description": Nothing, "GameProperties": Nothing, "GameSessionData": Nothing, "GameSessionQueueArns": Nothing, "Name": Nothing, "NotificationTarget": Nothing, "RequestTimeoutSeconds": Nothing, "RuleSetName": Nothing }
 
 
 
@@ -3199,9 +3198,9 @@ instance encodeMatchmakingRequestTimeoutInteger :: Encode MatchmakingRequestTime
 
 -- | <p>Set of rule statements, used with FlexMatch, that determine how to build a certain kind of player match. Each rule set describes a type of group to be created and defines the parameters for acceptable player matches. Rule sets are used in <a>MatchmakingConfiguration</a> objects.</p> <p>A rule set may define the following elements for a match. For detailed information and examples showing how to construct a rule set, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html">Build a FlexMatch Rule Set</a>. </p> <ul> <li> <p>Teams -- Required. A rule set must define one or multiple teams for the match and set minimum and maximum team sizes. For example, a rule set might describe a 4x4 match that requires all eight slots to be filled. </p> </li> <li> <p>Player attributes -- Optional. These attributes specify a set of player characteristics to evaluate when looking for a match. Matchmaking requests that use a rule set with player attributes must provide the corresponding attribute values. For example, an attribute might specify a player's skill or level.</p> </li> <li> <p>Rules -- Optional. Rules define how to evaluate potential players for a match based on player attributes. A rule might specify minimum requirements for individual players, teams, or entire matches. For example, a rule might require each player to meet a certain skill level, each team to have at least one player in a certain role, or the match to have a minimum average skill level. or may describe an entire group--such as all teams must be evenly matched or have at least one player in a certain role. </p> </li> <li> <p>Expansions -- Optional. Expansions allow you to relax the rules after a period of time when no acceptable matches are found. This feature lets you balance getting players into games in a reasonable amount of time instead of making them wait indefinitely for the best possible match. For example, you might use an expansion to increase the maximum skill variance between players after 30 seconds.</p> </li> </ul>
 newtype MatchmakingRuleSet = MatchmakingRuleSet 
-  { "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel)
+  { "RuleSetName" :: Maybe (MatchmakingIdStringModel)
   , "RuleSetBody" :: (RuleSetBody)
-  , "CreationTime" :: NullOrUndefined (Types.Timestamp)
+  , "CreationTime" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeMatchmakingRuleSet :: Newtype MatchmakingRuleSet _
 derive instance repGenericMatchmakingRuleSet :: Generic MatchmakingRuleSet _
@@ -3211,12 +3210,12 @@ instance encodeMatchmakingRuleSet :: Encode MatchmakingRuleSet where encode = ge
 
 -- | Constructs MatchmakingRuleSet from required parameters
 newMatchmakingRuleSet :: RuleSetBody -> MatchmakingRuleSet
-newMatchmakingRuleSet _RuleSetBody = MatchmakingRuleSet { "RuleSetBody": _RuleSetBody, "CreationTime": (NullOrUndefined Nothing), "RuleSetName": (NullOrUndefined Nothing) }
+newMatchmakingRuleSet _RuleSetBody = MatchmakingRuleSet { "RuleSetBody": _RuleSetBody, "CreationTime": Nothing, "RuleSetName": Nothing }
 
 -- | Constructs MatchmakingRuleSet's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMatchmakingRuleSet' :: RuleSetBody -> ( { "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel) , "RuleSetBody" :: (RuleSetBody) , "CreationTime" :: NullOrUndefined (Types.Timestamp) } -> {"RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel) , "RuleSetBody" :: (RuleSetBody) , "CreationTime" :: NullOrUndefined (Types.Timestamp) } ) -> MatchmakingRuleSet
-newMatchmakingRuleSet' _RuleSetBody customize = (MatchmakingRuleSet <<< customize) { "RuleSetBody": _RuleSetBody, "CreationTime": (NullOrUndefined Nothing), "RuleSetName": (NullOrUndefined Nothing) }
+newMatchmakingRuleSet' :: RuleSetBody -> ( { "RuleSetName" :: Maybe (MatchmakingIdStringModel) , "RuleSetBody" :: (RuleSetBody) , "CreationTime" :: Maybe (Types.Timestamp) } -> {"RuleSetName" :: Maybe (MatchmakingIdStringModel) , "RuleSetBody" :: (RuleSetBody) , "CreationTime" :: Maybe (Types.Timestamp) } ) -> MatchmakingRuleSet
+newMatchmakingRuleSet' _RuleSetBody customize = (MatchmakingRuleSet <<< customize) { "RuleSetBody": _RuleSetBody, "CreationTime": Nothing, "RuleSetName": Nothing }
 
 
 
@@ -3240,16 +3239,16 @@ instance encodeMatchmakingRuleSetNameList :: Encode MatchmakingRuleSetNameList w
 
 -- | <p>Ticket generated to track the progress of a matchmaking request. Each ticket is uniquely identified by a ticket ID, supplied by the requester, when creating a matchmaking request with <a>StartMatchmaking</a>. Tickets can be retrieved by calling <a>DescribeMatchmaking</a> with the ticket ID.</p>
 newtype MatchmakingTicket = MatchmakingTicket 
-  { "TicketId" :: NullOrUndefined (MatchmakingIdStringModel)
-  , "ConfigurationName" :: NullOrUndefined (MatchmakingIdStringModel)
-  , "Status" :: NullOrUndefined (MatchmakingConfigurationStatus)
-  , "StatusReason" :: NullOrUndefined (StringModel)
-  , "StatusMessage" :: NullOrUndefined (StringModel)
-  , "StartTime" :: NullOrUndefined (Types.Timestamp)
-  , "EndTime" :: NullOrUndefined (Types.Timestamp)
-  , "Players" :: NullOrUndefined (PlayerList)
-  , "GameSessionConnectionInfo" :: NullOrUndefined (GameSessionConnectionInfo)
-  , "EstimatedWaitTime" :: NullOrUndefined (WholeNumber)
+  { "TicketId" :: Maybe (MatchmakingIdStringModel)
+  , "ConfigurationName" :: Maybe (MatchmakingIdStringModel)
+  , "Status" :: Maybe (MatchmakingConfigurationStatus)
+  , "StatusReason" :: Maybe (StringModel)
+  , "StatusMessage" :: Maybe (StringModel)
+  , "StartTime" :: Maybe (Types.Timestamp)
+  , "EndTime" :: Maybe (Types.Timestamp)
+  , "Players" :: Maybe (PlayerList)
+  , "GameSessionConnectionInfo" :: Maybe (GameSessionConnectionInfo)
+  , "EstimatedWaitTime" :: Maybe (WholeNumber)
   }
 derive instance newtypeMatchmakingTicket :: Newtype MatchmakingTicket _
 derive instance repGenericMatchmakingTicket :: Generic MatchmakingTicket _
@@ -3259,12 +3258,12 @@ instance encodeMatchmakingTicket :: Encode MatchmakingTicket where encode = gene
 
 -- | Constructs MatchmakingTicket from required parameters
 newMatchmakingTicket :: MatchmakingTicket
-newMatchmakingTicket  = MatchmakingTicket { "ConfigurationName": (NullOrUndefined Nothing), "EndTime": (NullOrUndefined Nothing), "EstimatedWaitTime": (NullOrUndefined Nothing), "GameSessionConnectionInfo": (NullOrUndefined Nothing), "Players": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "StatusMessage": (NullOrUndefined Nothing), "StatusReason": (NullOrUndefined Nothing), "TicketId": (NullOrUndefined Nothing) }
+newMatchmakingTicket  = MatchmakingTicket { "ConfigurationName": Nothing, "EndTime": Nothing, "EstimatedWaitTime": Nothing, "GameSessionConnectionInfo": Nothing, "Players": Nothing, "StartTime": Nothing, "Status": Nothing, "StatusMessage": Nothing, "StatusReason": Nothing, "TicketId": Nothing }
 
 -- | Constructs MatchmakingTicket's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMatchmakingTicket' :: ( { "TicketId" :: NullOrUndefined (MatchmakingIdStringModel) , "ConfigurationName" :: NullOrUndefined (MatchmakingIdStringModel) , "Status" :: NullOrUndefined (MatchmakingConfigurationStatus) , "StatusReason" :: NullOrUndefined (StringModel) , "StatusMessage" :: NullOrUndefined (StringModel) , "StartTime" :: NullOrUndefined (Types.Timestamp) , "EndTime" :: NullOrUndefined (Types.Timestamp) , "Players" :: NullOrUndefined (PlayerList) , "GameSessionConnectionInfo" :: NullOrUndefined (GameSessionConnectionInfo) , "EstimatedWaitTime" :: NullOrUndefined (WholeNumber) } -> {"TicketId" :: NullOrUndefined (MatchmakingIdStringModel) , "ConfigurationName" :: NullOrUndefined (MatchmakingIdStringModel) , "Status" :: NullOrUndefined (MatchmakingConfigurationStatus) , "StatusReason" :: NullOrUndefined (StringModel) , "StatusMessage" :: NullOrUndefined (StringModel) , "StartTime" :: NullOrUndefined (Types.Timestamp) , "EndTime" :: NullOrUndefined (Types.Timestamp) , "Players" :: NullOrUndefined (PlayerList) , "GameSessionConnectionInfo" :: NullOrUndefined (GameSessionConnectionInfo) , "EstimatedWaitTime" :: NullOrUndefined (WholeNumber) } ) -> MatchmakingTicket
-newMatchmakingTicket'  customize = (MatchmakingTicket <<< customize) { "ConfigurationName": (NullOrUndefined Nothing), "EndTime": (NullOrUndefined Nothing), "EstimatedWaitTime": (NullOrUndefined Nothing), "GameSessionConnectionInfo": (NullOrUndefined Nothing), "Players": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "StatusMessage": (NullOrUndefined Nothing), "StatusReason": (NullOrUndefined Nothing), "TicketId": (NullOrUndefined Nothing) }
+newMatchmakingTicket' :: ( { "TicketId" :: Maybe (MatchmakingIdStringModel) , "ConfigurationName" :: Maybe (MatchmakingIdStringModel) , "Status" :: Maybe (MatchmakingConfigurationStatus) , "StatusReason" :: Maybe (StringModel) , "StatusMessage" :: Maybe (StringModel) , "StartTime" :: Maybe (Types.Timestamp) , "EndTime" :: Maybe (Types.Timestamp) , "Players" :: Maybe (PlayerList) , "GameSessionConnectionInfo" :: Maybe (GameSessionConnectionInfo) , "EstimatedWaitTime" :: Maybe (WholeNumber) } -> {"TicketId" :: Maybe (MatchmakingIdStringModel) , "ConfigurationName" :: Maybe (MatchmakingIdStringModel) , "Status" :: Maybe (MatchmakingConfigurationStatus) , "StatusReason" :: Maybe (StringModel) , "StatusMessage" :: Maybe (StringModel) , "StartTime" :: Maybe (Types.Timestamp) , "EndTime" :: Maybe (Types.Timestamp) , "Players" :: Maybe (PlayerList) , "GameSessionConnectionInfo" :: Maybe (GameSessionConnectionInfo) , "EstimatedWaitTime" :: Maybe (WholeNumber) } ) -> MatchmakingTicket
+newMatchmakingTicket'  customize = (MatchmakingTicket <<< customize) { "ConfigurationName": Nothing, "EndTime": Nothing, "EstimatedWaitTime": Nothing, "GameSessionConnectionInfo": Nothing, "Players": Nothing, "StartTime": Nothing, "Status": Nothing, "StatusMessage": Nothing, "StatusReason": Nothing, "TicketId": Nothing }
 
 
 
@@ -3351,7 +3350,7 @@ instance encodeNonZeroAndMaxString :: Encode NonZeroAndMaxString where encode = 
 
 -- | <p>A service resource associated with the request could not be found. Clients should not retry such requests.</p>
 newtype NotFoundException = NotFoundException 
-  { "Message" :: NullOrUndefined (NonEmptyString)
+  { "Message" :: Maybe (NonEmptyString)
   }
 derive instance newtypeNotFoundException :: Newtype NotFoundException _
 derive instance repGenericNotFoundException :: Generic NotFoundException _
@@ -3361,12 +3360,12 @@ instance encodeNotFoundException :: Encode NotFoundException where encode = gene
 
 -- | Constructs NotFoundException from required parameters
 newNotFoundException :: NotFoundException
-newNotFoundException  = NotFoundException { "Message": (NullOrUndefined Nothing) }
+newNotFoundException  = NotFoundException { "Message": Nothing }
 
 -- | Constructs NotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNotFoundException' :: ( { "Message" :: NullOrUndefined (NonEmptyString) } -> {"Message" :: NullOrUndefined (NonEmptyString) } ) -> NotFoundException
-newNotFoundException'  customize = (NotFoundException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newNotFoundException' :: ( { "Message" :: Maybe (NonEmptyString) } -> {"Message" :: Maybe (NonEmptyString) } ) -> NotFoundException
+newNotFoundException'  customize = (NotFoundException <<< customize) { "Message": Nothing }
 
 
 
@@ -3381,8 +3380,8 @@ instance encodeOperatingSystem :: Encode OperatingSystem where encode = genericE
 
 -- | <p>Information about a player session that was created as part of a <a>StartGameSessionPlacement</a> request. This object contains only the player ID and player session ID. To retrieve full details on a player session, call <a>DescribePlayerSessions</a> with the player session ID.</p> <p>Player-session-related operations include:</p> <ul> <li> <p> <a>CreatePlayerSession</a> </p> </li> <li> <p> <a>CreatePlayerSessions</a> </p> </li> <li> <p> <a>DescribePlayerSessions</a> </p> </li> <li> <p>Game session placements</p> <ul> <li> <p> <a>StartGameSessionPlacement</a> </p> </li> <li> <p> <a>DescribeGameSessionPlacement</a> </p> </li> <li> <p> <a>StopGameSessionPlacement</a> </p> </li> </ul> </li> </ul>
 newtype PlacedPlayerSession = PlacedPlayerSession 
-  { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "PlayerSessionId" :: NullOrUndefined (PlayerSessionId)
+  { "PlayerId" :: Maybe (NonZeroAndMaxString)
+  , "PlayerSessionId" :: Maybe (PlayerSessionId)
   }
 derive instance newtypePlacedPlayerSession :: Newtype PlacedPlayerSession _
 derive instance repGenericPlacedPlayerSession :: Generic PlacedPlayerSession _
@@ -3392,12 +3391,12 @@ instance encodePlacedPlayerSession :: Encode PlacedPlayerSession where encode = 
 
 -- | Constructs PlacedPlayerSession from required parameters
 newPlacedPlayerSession :: PlacedPlayerSession
-newPlacedPlayerSession  = PlacedPlayerSession { "PlayerId": (NullOrUndefined Nothing), "PlayerSessionId": (NullOrUndefined Nothing) }
+newPlacedPlayerSession  = PlacedPlayerSession { "PlayerId": Nothing, "PlayerSessionId": Nothing }
 
 -- | Constructs PlacedPlayerSession's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPlacedPlayerSession' :: ( { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString) , "PlayerSessionId" :: NullOrUndefined (PlayerSessionId) } -> {"PlayerId" :: NullOrUndefined (NonZeroAndMaxString) , "PlayerSessionId" :: NullOrUndefined (PlayerSessionId) } ) -> PlacedPlayerSession
-newPlacedPlayerSession'  customize = (PlacedPlayerSession <<< customize) { "PlayerId": (NullOrUndefined Nothing), "PlayerSessionId": (NullOrUndefined Nothing) }
+newPlacedPlayerSession' :: ( { "PlayerId" :: Maybe (NonZeroAndMaxString) , "PlayerSessionId" :: Maybe (PlayerSessionId) } -> {"PlayerId" :: Maybe (NonZeroAndMaxString) , "PlayerSessionId" :: Maybe (PlayerSessionId) } ) -> PlacedPlayerSession
+newPlacedPlayerSession'  customize = (PlacedPlayerSession <<< customize) { "PlayerId": Nothing, "PlayerSessionId": Nothing }
 
 
 
@@ -3412,10 +3411,10 @@ instance encodePlacedPlayerSessionList :: Encode PlacedPlayerSessionList where e
 
 -- | <p>Represents a player in matchmaking. When starting a matchmaking request, a player has a player ID, attributes, and may have latency data. Team information is added after a match has been successfully completed.</p>
 newtype Player = Player 
-  { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "PlayerAttributes" :: NullOrUndefined (PlayerAttributeMap)
-  , "Team" :: NullOrUndefined (NonZeroAndMaxString)
-  , "LatencyInMs" :: NullOrUndefined (LatencyMap)
+  { "PlayerId" :: Maybe (NonZeroAndMaxString)
+  , "PlayerAttributes" :: Maybe (PlayerAttributeMap)
+  , "Team" :: Maybe (NonZeroAndMaxString)
+  , "LatencyInMs" :: Maybe (LatencyMap)
   }
 derive instance newtypePlayer :: Newtype Player _
 derive instance repGenericPlayer :: Generic Player _
@@ -3425,12 +3424,12 @@ instance encodePlayer :: Encode Player where encode = genericEncode options
 
 -- | Constructs Player from required parameters
 newPlayer :: Player
-newPlayer  = Player { "LatencyInMs": (NullOrUndefined Nothing), "PlayerAttributes": (NullOrUndefined Nothing), "PlayerId": (NullOrUndefined Nothing), "Team": (NullOrUndefined Nothing) }
+newPlayer  = Player { "LatencyInMs": Nothing, "PlayerAttributes": Nothing, "PlayerId": Nothing, "Team": Nothing }
 
 -- | Constructs Player's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPlayer' :: ( { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString) , "PlayerAttributes" :: NullOrUndefined (PlayerAttributeMap) , "Team" :: NullOrUndefined (NonZeroAndMaxString) , "LatencyInMs" :: NullOrUndefined (LatencyMap) } -> {"PlayerId" :: NullOrUndefined (NonZeroAndMaxString) , "PlayerAttributes" :: NullOrUndefined (PlayerAttributeMap) , "Team" :: NullOrUndefined (NonZeroAndMaxString) , "LatencyInMs" :: NullOrUndefined (LatencyMap) } ) -> Player
-newPlayer'  customize = (Player <<< customize) { "LatencyInMs": (NullOrUndefined Nothing), "PlayerAttributes": (NullOrUndefined Nothing), "PlayerId": (NullOrUndefined Nothing), "Team": (NullOrUndefined Nothing) }
+newPlayer' :: ( { "PlayerId" :: Maybe (NonZeroAndMaxString) , "PlayerAttributes" :: Maybe (PlayerAttributeMap) , "Team" :: Maybe (NonZeroAndMaxString) , "LatencyInMs" :: Maybe (LatencyMap) } -> {"PlayerId" :: Maybe (NonZeroAndMaxString) , "PlayerAttributes" :: Maybe (PlayerAttributeMap) , "Team" :: Maybe (NonZeroAndMaxString) , "LatencyInMs" :: Maybe (LatencyMap) } ) -> Player
+newPlayer'  customize = (Player <<< customize) { "LatencyInMs": Nothing, "PlayerAttributes": Nothing, "PlayerId": Nothing, "Team": Nothing }
 
 
 
@@ -3472,9 +3471,9 @@ instance encodePlayerIdList :: Encode PlayerIdList where encode = genericEncode 
 
 -- | <p>Regional latency information for a player, used when requesting a new game session with <a>StartGameSessionPlacement</a>. This value indicates the amount of time lag that exists when the player is connected to a fleet in the specified region. The relative difference between a player's latency values for multiple regions are used to determine which fleets are best suited to place a new game session for the player. </p>
 newtype PlayerLatency = PlayerLatency 
-  { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "RegionIdentifier" :: NullOrUndefined (NonZeroAndMaxString)
-  , "LatencyInMilliseconds" :: NullOrUndefined (Number)
+  { "PlayerId" :: Maybe (NonZeroAndMaxString)
+  , "RegionIdentifier" :: Maybe (NonZeroAndMaxString)
+  , "LatencyInMilliseconds" :: Maybe (Number)
   }
 derive instance newtypePlayerLatency :: Newtype PlayerLatency _
 derive instance repGenericPlayerLatency :: Generic PlayerLatency _
@@ -3484,12 +3483,12 @@ instance encodePlayerLatency :: Encode PlayerLatency where encode = genericEncod
 
 -- | Constructs PlayerLatency from required parameters
 newPlayerLatency :: PlayerLatency
-newPlayerLatency  = PlayerLatency { "LatencyInMilliseconds": (NullOrUndefined Nothing), "PlayerId": (NullOrUndefined Nothing), "RegionIdentifier": (NullOrUndefined Nothing) }
+newPlayerLatency  = PlayerLatency { "LatencyInMilliseconds": Nothing, "PlayerId": Nothing, "RegionIdentifier": Nothing }
 
 -- | Constructs PlayerLatency's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPlayerLatency' :: ( { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString) , "RegionIdentifier" :: NullOrUndefined (NonZeroAndMaxString) , "LatencyInMilliseconds" :: NullOrUndefined (Number) } -> {"PlayerId" :: NullOrUndefined (NonZeroAndMaxString) , "RegionIdentifier" :: NullOrUndefined (NonZeroAndMaxString) , "LatencyInMilliseconds" :: NullOrUndefined (Number) } ) -> PlayerLatency
-newPlayerLatency'  customize = (PlayerLatency <<< customize) { "LatencyInMilliseconds": (NullOrUndefined Nothing), "PlayerId": (NullOrUndefined Nothing), "RegionIdentifier": (NullOrUndefined Nothing) }
+newPlayerLatency' :: ( { "PlayerId" :: Maybe (NonZeroAndMaxString) , "RegionIdentifier" :: Maybe (NonZeroAndMaxString) , "LatencyInMilliseconds" :: Maybe (Number) } -> {"PlayerId" :: Maybe (NonZeroAndMaxString) , "RegionIdentifier" :: Maybe (NonZeroAndMaxString) , "LatencyInMilliseconds" :: Maybe (Number) } ) -> PlayerLatency
+newPlayerLatency'  customize = (PlayerLatency <<< customize) { "LatencyInMilliseconds": Nothing, "PlayerId": Nothing, "RegionIdentifier": Nothing }
 
 
 
@@ -3504,8 +3503,8 @@ instance encodePlayerLatencyList :: Encode PlayerLatencyList where encode = gene
 
 -- | <p>Queue setting that determines the highest latency allowed for individual players when placing a game session. When a latency policy is in force, a game session cannot be placed at any destination in a region where a player is reporting latency higher than the cap. Latency policies are only enforced when the placement request contains player latency information.</p> <p>Queue-related operations include:</p> <ul> <li> <p> <a>CreateGameSessionQueue</a> </p> </li> <li> <p> <a>DescribeGameSessionQueues</a> </p> </li> <li> <p> <a>UpdateGameSessionQueue</a> </p> </li> <li> <p> <a>DeleteGameSessionQueue</a> </p> </li> </ul>
 newtype PlayerLatencyPolicy = PlayerLatencyPolicy 
-  { "MaximumIndividualPlayerLatencyMilliseconds" :: NullOrUndefined (WholeNumber)
-  , "PolicyDurationSeconds" :: NullOrUndefined (WholeNumber)
+  { "MaximumIndividualPlayerLatencyMilliseconds" :: Maybe (WholeNumber)
+  , "PolicyDurationSeconds" :: Maybe (WholeNumber)
   }
 derive instance newtypePlayerLatencyPolicy :: Newtype PlayerLatencyPolicy _
 derive instance repGenericPlayerLatencyPolicy :: Generic PlayerLatencyPolicy _
@@ -3515,12 +3514,12 @@ instance encodePlayerLatencyPolicy :: Encode PlayerLatencyPolicy where encode = 
 
 -- | Constructs PlayerLatencyPolicy from required parameters
 newPlayerLatencyPolicy :: PlayerLatencyPolicy
-newPlayerLatencyPolicy  = PlayerLatencyPolicy { "MaximumIndividualPlayerLatencyMilliseconds": (NullOrUndefined Nothing), "PolicyDurationSeconds": (NullOrUndefined Nothing) }
+newPlayerLatencyPolicy  = PlayerLatencyPolicy { "MaximumIndividualPlayerLatencyMilliseconds": Nothing, "PolicyDurationSeconds": Nothing }
 
 -- | Constructs PlayerLatencyPolicy's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPlayerLatencyPolicy' :: ( { "MaximumIndividualPlayerLatencyMilliseconds" :: NullOrUndefined (WholeNumber) , "PolicyDurationSeconds" :: NullOrUndefined (WholeNumber) } -> {"MaximumIndividualPlayerLatencyMilliseconds" :: NullOrUndefined (WholeNumber) , "PolicyDurationSeconds" :: NullOrUndefined (WholeNumber) } ) -> PlayerLatencyPolicy
-newPlayerLatencyPolicy'  customize = (PlayerLatencyPolicy <<< customize) { "MaximumIndividualPlayerLatencyMilliseconds": (NullOrUndefined Nothing), "PolicyDurationSeconds": (NullOrUndefined Nothing) }
+newPlayerLatencyPolicy' :: ( { "MaximumIndividualPlayerLatencyMilliseconds" :: Maybe (WholeNumber) , "PolicyDurationSeconds" :: Maybe (WholeNumber) } -> {"MaximumIndividualPlayerLatencyMilliseconds" :: Maybe (WholeNumber) , "PolicyDurationSeconds" :: Maybe (WholeNumber) } ) -> PlayerLatencyPolicy
+newPlayerLatencyPolicy'  customize = (PlayerLatencyPolicy <<< customize) { "MaximumIndividualPlayerLatencyMilliseconds": Nothing, "PolicyDurationSeconds": Nothing }
 
 
 
@@ -3544,16 +3543,16 @@ instance encodePlayerList :: Encode PlayerList where encode = genericEncode opti
 
 -- | <p>Properties describing a player session. Player session objects are created either by creating a player session for a specific game session, or as part of a game session placement. A player session represents either a player reservation for a game session (status <code>RESERVED</code>) or actual player activity in a game session (status <code>ACTIVE</code>). A player session object (including player data) is automatically passed to a game session when the player connects to the game session and is validated.</p> <p>When a player disconnects, the player session status changes to <code>COMPLETED</code>. Once the session ends, the player session object is retained for 30 days and then removed.</p> <p>Player-session-related operations include:</p> <ul> <li> <p> <a>CreatePlayerSession</a> </p> </li> <li> <p> <a>CreatePlayerSessions</a> </p> </li> <li> <p> <a>DescribePlayerSessions</a> </p> </li> <li> <p>Game session placements</p> <ul> <li> <p> <a>StartGameSessionPlacement</a> </p> </li> <li> <p> <a>DescribeGameSessionPlacement</a> </p> </li> <li> <p> <a>StopGameSessionPlacement</a> </p> </li> </ul> </li> </ul>
 newtype PlayerSession = PlayerSession 
-  { "PlayerSessionId" :: NullOrUndefined (PlayerSessionId)
-  , "PlayerId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "FleetId" :: NullOrUndefined (FleetId)
-  , "CreationTime" :: NullOrUndefined (Types.Timestamp)
-  , "TerminationTime" :: NullOrUndefined (Types.Timestamp)
-  , "Status" :: NullOrUndefined (PlayerSessionStatus)
-  , "IpAddress" :: NullOrUndefined (IpAddress)
-  , "Port" :: NullOrUndefined (PortNumber)
-  , "PlayerData" :: NullOrUndefined (PlayerData)
+  { "PlayerSessionId" :: Maybe (PlayerSessionId)
+  , "PlayerId" :: Maybe (NonZeroAndMaxString)
+  , "GameSessionId" :: Maybe (NonZeroAndMaxString)
+  , "FleetId" :: Maybe (FleetId)
+  , "CreationTime" :: Maybe (Types.Timestamp)
+  , "TerminationTime" :: Maybe (Types.Timestamp)
+  , "Status" :: Maybe (PlayerSessionStatus)
+  , "IpAddress" :: Maybe (IpAddress)
+  , "Port" :: Maybe (PortNumber)
+  , "PlayerData" :: Maybe (PlayerData)
   }
 derive instance newtypePlayerSession :: Newtype PlayerSession _
 derive instance repGenericPlayerSession :: Generic PlayerSession _
@@ -3563,12 +3562,12 @@ instance encodePlayerSession :: Encode PlayerSession where encode = genericEncod
 
 -- | Constructs PlayerSession from required parameters
 newPlayerSession :: PlayerSession
-newPlayerSession  = PlayerSession { "CreationTime": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "GameSessionId": (NullOrUndefined Nothing), "IpAddress": (NullOrUndefined Nothing), "PlayerData": (NullOrUndefined Nothing), "PlayerId": (NullOrUndefined Nothing), "PlayerSessionId": (NullOrUndefined Nothing), "Port": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "TerminationTime": (NullOrUndefined Nothing) }
+newPlayerSession  = PlayerSession { "CreationTime": Nothing, "FleetId": Nothing, "GameSessionId": Nothing, "IpAddress": Nothing, "PlayerData": Nothing, "PlayerId": Nothing, "PlayerSessionId": Nothing, "Port": Nothing, "Status": Nothing, "TerminationTime": Nothing }
 
 -- | Constructs PlayerSession's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPlayerSession' :: ( { "PlayerSessionId" :: NullOrUndefined (PlayerSessionId) , "PlayerId" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString) , "FleetId" :: NullOrUndefined (FleetId) , "CreationTime" :: NullOrUndefined (Types.Timestamp) , "TerminationTime" :: NullOrUndefined (Types.Timestamp) , "Status" :: NullOrUndefined (PlayerSessionStatus) , "IpAddress" :: NullOrUndefined (IpAddress) , "Port" :: NullOrUndefined (PortNumber) , "PlayerData" :: NullOrUndefined (PlayerData) } -> {"PlayerSessionId" :: NullOrUndefined (PlayerSessionId) , "PlayerId" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString) , "FleetId" :: NullOrUndefined (FleetId) , "CreationTime" :: NullOrUndefined (Types.Timestamp) , "TerminationTime" :: NullOrUndefined (Types.Timestamp) , "Status" :: NullOrUndefined (PlayerSessionStatus) , "IpAddress" :: NullOrUndefined (IpAddress) , "Port" :: NullOrUndefined (PortNumber) , "PlayerData" :: NullOrUndefined (PlayerData) } ) -> PlayerSession
-newPlayerSession'  customize = (PlayerSession <<< customize) { "CreationTime": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "GameSessionId": (NullOrUndefined Nothing), "IpAddress": (NullOrUndefined Nothing), "PlayerData": (NullOrUndefined Nothing), "PlayerId": (NullOrUndefined Nothing), "PlayerSessionId": (NullOrUndefined Nothing), "Port": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "TerminationTime": (NullOrUndefined Nothing) }
+newPlayerSession' :: ( { "PlayerSessionId" :: Maybe (PlayerSessionId) , "PlayerId" :: Maybe (NonZeroAndMaxString) , "GameSessionId" :: Maybe (NonZeroAndMaxString) , "FleetId" :: Maybe (FleetId) , "CreationTime" :: Maybe (Types.Timestamp) , "TerminationTime" :: Maybe (Types.Timestamp) , "Status" :: Maybe (PlayerSessionStatus) , "IpAddress" :: Maybe (IpAddress) , "Port" :: Maybe (PortNumber) , "PlayerData" :: Maybe (PlayerData) } -> {"PlayerSessionId" :: Maybe (PlayerSessionId) , "PlayerId" :: Maybe (NonZeroAndMaxString) , "GameSessionId" :: Maybe (NonZeroAndMaxString) , "FleetId" :: Maybe (FleetId) , "CreationTime" :: Maybe (Types.Timestamp) , "TerminationTime" :: Maybe (Types.Timestamp) , "Status" :: Maybe (PlayerSessionStatus) , "IpAddress" :: Maybe (IpAddress) , "Port" :: Maybe (PortNumber) , "PlayerData" :: Maybe (PlayerData) } ) -> PlayerSession
+newPlayerSession'  customize = (PlayerSession <<< customize) { "CreationTime": Nothing, "FleetId": Nothing, "GameSessionId": Nothing, "IpAddress": Nothing, "PlayerData": Nothing, "PlayerId": Nothing, "PlayerSessionId": Nothing, "Port": Nothing, "Status": Nothing, "TerminationTime": Nothing }
 
 
 
@@ -3674,7 +3673,7 @@ newPutScalingPolicyInput' _ComparisonOperator _EvaluationPeriods _FleetId _Metri
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype PutScalingPolicyOutput = PutScalingPolicyOutput 
-  { "Name" :: NullOrUndefined (NonZeroAndMaxString)
+  { "Name" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypePutScalingPolicyOutput :: Newtype PutScalingPolicyOutput _
 derive instance repGenericPutScalingPolicyOutput :: Generic PutScalingPolicyOutput _
@@ -3684,12 +3683,12 @@ instance encodePutScalingPolicyOutput :: Encode PutScalingPolicyOutput where enc
 
 -- | Constructs PutScalingPolicyOutput from required parameters
 newPutScalingPolicyOutput :: PutScalingPolicyOutput
-newPutScalingPolicyOutput  = PutScalingPolicyOutput { "Name": (NullOrUndefined Nothing) }
+newPutScalingPolicyOutput  = PutScalingPolicyOutput { "Name": Nothing }
 
 -- | Constructs PutScalingPolicyOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutScalingPolicyOutput' :: ( { "Name" :: NullOrUndefined (NonZeroAndMaxString) } -> {"Name" :: NullOrUndefined (NonZeroAndMaxString) } ) -> PutScalingPolicyOutput
-newPutScalingPolicyOutput'  customize = (PutScalingPolicyOutput <<< customize) { "Name": (NullOrUndefined Nothing) }
+newPutScalingPolicyOutput' :: ( { "Name" :: Maybe (NonZeroAndMaxString) } -> {"Name" :: Maybe (NonZeroAndMaxString) } ) -> PutScalingPolicyOutput
+newPutScalingPolicyOutput'  customize = (PutScalingPolicyOutput <<< customize) { "Name": Nothing }
 
 
 
@@ -3725,8 +3724,8 @@ newRequestUploadCredentialsInput' _BuildId customize = (RequestUploadCredentials
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype RequestUploadCredentialsOutput = RequestUploadCredentialsOutput 
-  { "UploadCredentials" :: NullOrUndefined (AwsCredentials)
-  , "StorageLocation" :: NullOrUndefined (S3Location)
+  { "UploadCredentials" :: Maybe (AwsCredentials)
+  , "StorageLocation" :: Maybe (S3Location)
   }
 derive instance newtypeRequestUploadCredentialsOutput :: Newtype RequestUploadCredentialsOutput _
 derive instance repGenericRequestUploadCredentialsOutput :: Generic RequestUploadCredentialsOutput _
@@ -3736,12 +3735,12 @@ instance encodeRequestUploadCredentialsOutput :: Encode RequestUploadCredentials
 
 -- | Constructs RequestUploadCredentialsOutput from required parameters
 newRequestUploadCredentialsOutput :: RequestUploadCredentialsOutput
-newRequestUploadCredentialsOutput  = RequestUploadCredentialsOutput { "StorageLocation": (NullOrUndefined Nothing), "UploadCredentials": (NullOrUndefined Nothing) }
+newRequestUploadCredentialsOutput  = RequestUploadCredentialsOutput { "StorageLocation": Nothing, "UploadCredentials": Nothing }
 
 -- | Constructs RequestUploadCredentialsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRequestUploadCredentialsOutput' :: ( { "UploadCredentials" :: NullOrUndefined (AwsCredentials) , "StorageLocation" :: NullOrUndefined (S3Location) } -> {"UploadCredentials" :: NullOrUndefined (AwsCredentials) , "StorageLocation" :: NullOrUndefined (S3Location) } ) -> RequestUploadCredentialsOutput
-newRequestUploadCredentialsOutput'  customize = (RequestUploadCredentialsOutput <<< customize) { "StorageLocation": (NullOrUndefined Nothing), "UploadCredentials": (NullOrUndefined Nothing) }
+newRequestUploadCredentialsOutput' :: ( { "UploadCredentials" :: Maybe (AwsCredentials) , "StorageLocation" :: Maybe (S3Location) } -> {"UploadCredentials" :: Maybe (AwsCredentials) , "StorageLocation" :: Maybe (S3Location) } ) -> RequestUploadCredentialsOutput
+newRequestUploadCredentialsOutput'  customize = (RequestUploadCredentialsOutput <<< customize) { "StorageLocation": Nothing, "UploadCredentials": Nothing }
 
 
 
@@ -3768,7 +3767,7 @@ newResolveAliasInput' _AliasId customize = (ResolveAliasInput <<< customize) { "
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype ResolveAliasOutput = ResolveAliasOutput 
-  { "FleetId" :: NullOrUndefined (FleetId)
+  { "FleetId" :: Maybe (FleetId)
   }
 derive instance newtypeResolveAliasOutput :: Newtype ResolveAliasOutput _
 derive instance repGenericResolveAliasOutput :: Generic ResolveAliasOutput _
@@ -3778,19 +3777,19 @@ instance encodeResolveAliasOutput :: Encode ResolveAliasOutput where encode = ge
 
 -- | Constructs ResolveAliasOutput from required parameters
 newResolveAliasOutput :: ResolveAliasOutput
-newResolveAliasOutput  = ResolveAliasOutput { "FleetId": (NullOrUndefined Nothing) }
+newResolveAliasOutput  = ResolveAliasOutput { "FleetId": Nothing }
 
 -- | Constructs ResolveAliasOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResolveAliasOutput' :: ( { "FleetId" :: NullOrUndefined (FleetId) } -> {"FleetId" :: NullOrUndefined (FleetId) } ) -> ResolveAliasOutput
-newResolveAliasOutput'  customize = (ResolveAliasOutput <<< customize) { "FleetId": (NullOrUndefined Nothing) }
+newResolveAliasOutput' :: ( { "FleetId" :: Maybe (FleetId) } -> {"FleetId" :: Maybe (FleetId) } ) -> ResolveAliasOutput
+newResolveAliasOutput'  customize = (ResolveAliasOutput <<< customize) { "FleetId": Nothing }
 
 
 
 -- | <p>Policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".</p> <p>The policy is evaluated when a player tries to create a new game session. For example, with a policy of 10 new game sessions and a time period of 60 minutes, on receiving a <code>CreateGameSession</code> request, Amazon GameLift checks that the player (identified by <code>CreatorId</code>) has created fewer than 10 game sessions in the past 60 minutes.</p>
 newtype ResourceCreationLimitPolicy = ResourceCreationLimitPolicy 
-  { "NewGameSessionsPerCreator" :: NullOrUndefined (WholeNumber)
-  , "PolicyPeriodInMinutes" :: NullOrUndefined (WholeNumber)
+  { "NewGameSessionsPerCreator" :: Maybe (WholeNumber)
+  , "PolicyPeriodInMinutes" :: Maybe (WholeNumber)
   }
 derive instance newtypeResourceCreationLimitPolicy :: Newtype ResourceCreationLimitPolicy _
 derive instance repGenericResourceCreationLimitPolicy :: Generic ResourceCreationLimitPolicy _
@@ -3800,20 +3799,20 @@ instance encodeResourceCreationLimitPolicy :: Encode ResourceCreationLimitPolicy
 
 -- | Constructs ResourceCreationLimitPolicy from required parameters
 newResourceCreationLimitPolicy :: ResourceCreationLimitPolicy
-newResourceCreationLimitPolicy  = ResourceCreationLimitPolicy { "NewGameSessionsPerCreator": (NullOrUndefined Nothing), "PolicyPeriodInMinutes": (NullOrUndefined Nothing) }
+newResourceCreationLimitPolicy  = ResourceCreationLimitPolicy { "NewGameSessionsPerCreator": Nothing, "PolicyPeriodInMinutes": Nothing }
 
 -- | Constructs ResourceCreationLimitPolicy's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceCreationLimitPolicy' :: ( { "NewGameSessionsPerCreator" :: NullOrUndefined (WholeNumber) , "PolicyPeriodInMinutes" :: NullOrUndefined (WholeNumber) } -> {"NewGameSessionsPerCreator" :: NullOrUndefined (WholeNumber) , "PolicyPeriodInMinutes" :: NullOrUndefined (WholeNumber) } ) -> ResourceCreationLimitPolicy
-newResourceCreationLimitPolicy'  customize = (ResourceCreationLimitPolicy <<< customize) { "NewGameSessionsPerCreator": (NullOrUndefined Nothing), "PolicyPeriodInMinutes": (NullOrUndefined Nothing) }
+newResourceCreationLimitPolicy' :: ( { "NewGameSessionsPerCreator" :: Maybe (WholeNumber) , "PolicyPeriodInMinutes" :: Maybe (WholeNumber) } -> {"NewGameSessionsPerCreator" :: Maybe (WholeNumber) , "PolicyPeriodInMinutes" :: Maybe (WholeNumber) } ) -> ResourceCreationLimitPolicy
+newResourceCreationLimitPolicy'  customize = (ResourceCreationLimitPolicy <<< customize) { "NewGameSessionsPerCreator": Nothing, "PolicyPeriodInMinutes": Nothing }
 
 
 
 -- | <p>Routing configuration for a fleet alias.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
 newtype RoutingStrategy = RoutingStrategy 
-  { "Type" :: NullOrUndefined (RoutingStrategyType)
-  , "FleetId" :: NullOrUndefined (FleetId)
-  , "Message" :: NullOrUndefined (FreeText)
+  { "Type" :: Maybe (RoutingStrategyType)
+  , "FleetId" :: Maybe (FleetId)
+  , "Message" :: Maybe (FreeText)
   }
 derive instance newtypeRoutingStrategy :: Newtype RoutingStrategy _
 derive instance repGenericRoutingStrategy :: Generic RoutingStrategy _
@@ -3823,12 +3822,12 @@ instance encodeRoutingStrategy :: Encode RoutingStrategy where encode = genericE
 
 -- | Constructs RoutingStrategy from required parameters
 newRoutingStrategy :: RoutingStrategy
-newRoutingStrategy  = RoutingStrategy { "FleetId": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newRoutingStrategy  = RoutingStrategy { "FleetId": Nothing, "Message": Nothing, "Type": Nothing }
 
 -- | Constructs RoutingStrategy's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRoutingStrategy' :: ( { "Type" :: NullOrUndefined (RoutingStrategyType) , "FleetId" :: NullOrUndefined (FleetId) , "Message" :: NullOrUndefined (FreeText) } -> {"Type" :: NullOrUndefined (RoutingStrategyType) , "FleetId" :: NullOrUndefined (FleetId) , "Message" :: NullOrUndefined (FreeText) } ) -> RoutingStrategy
-newRoutingStrategy'  customize = (RoutingStrategy <<< customize) { "FleetId": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newRoutingStrategy' :: ( { "Type" :: Maybe (RoutingStrategyType) , "FleetId" :: Maybe (FleetId) , "Message" :: Maybe (FreeText) } -> {"Type" :: Maybe (RoutingStrategyType) , "FleetId" :: Maybe (FleetId) , "Message" :: Maybe (FreeText) } ) -> RoutingStrategy
+newRoutingStrategy'  customize = (RoutingStrategy <<< customize) { "FleetId": Nothing, "Message": Nothing, "Type": Nothing }
 
 
 
@@ -3861,9 +3860,9 @@ instance encodeRuleSetLimit :: Encode RuleSetLimit where encode = genericEncode 
 
 -- | <p>A collection of server process configurations that describe what processes to run on each instance in a fleet. All fleets must have a run-time configuration. Each instance in the fleet launches the server processes specified in the run-time configuration and launches new ones as existing processes end. Each instance regularly checks for an updated run-time configuration and follows the new instructions. </p> <p>The run-time configuration enables the instances in a fleet to run multiple processes simultaneously. Potential scenarios are as follows: (1) Run multiple processes of a single game server executable to maximize usage of your hosting resources. (2) Run one or more processes of different build executables, such as your game server executable and a related program, or two or more different versions of a game server. (3) Run multiple processes of a single game server but with different launch parameters, for example to run one process on each instance in debug mode.</p> <p>A Amazon GameLift instance is limited to 50 processes running simultaneously. A run-time configuration must specify fewer than this limit. To calculate the total number of processes specified in a run-time configuration, add the values of the <code>ConcurrentExecutions</code> parameter for each <code> <a>ServerProcess</a> </code> object in the run-time configuration.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
 newtype RuntimeConfiguration = RuntimeConfiguration 
-  { "ServerProcesses" :: NullOrUndefined (ServerProcessList)
-  , "MaxConcurrentGameSessionActivations" :: NullOrUndefined (MaxConcurrentGameSessionActivations)
-  , "GameSessionActivationTimeoutSeconds" :: NullOrUndefined (GameSessionActivationTimeoutSeconds)
+  { "ServerProcesses" :: Maybe (ServerProcessList)
+  , "MaxConcurrentGameSessionActivations" :: Maybe (MaxConcurrentGameSessionActivations)
+  , "GameSessionActivationTimeoutSeconds" :: Maybe (GameSessionActivationTimeoutSeconds)
   }
 derive instance newtypeRuntimeConfiguration :: Newtype RuntimeConfiguration _
 derive instance repGenericRuntimeConfiguration :: Generic RuntimeConfiguration _
@@ -3873,20 +3872,20 @@ instance encodeRuntimeConfiguration :: Encode RuntimeConfiguration where encode 
 
 -- | Constructs RuntimeConfiguration from required parameters
 newRuntimeConfiguration :: RuntimeConfiguration
-newRuntimeConfiguration  = RuntimeConfiguration { "GameSessionActivationTimeoutSeconds": (NullOrUndefined Nothing), "MaxConcurrentGameSessionActivations": (NullOrUndefined Nothing), "ServerProcesses": (NullOrUndefined Nothing) }
+newRuntimeConfiguration  = RuntimeConfiguration { "GameSessionActivationTimeoutSeconds": Nothing, "MaxConcurrentGameSessionActivations": Nothing, "ServerProcesses": Nothing }
 
 -- | Constructs RuntimeConfiguration's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRuntimeConfiguration' :: ( { "ServerProcesses" :: NullOrUndefined (ServerProcessList) , "MaxConcurrentGameSessionActivations" :: NullOrUndefined (MaxConcurrentGameSessionActivations) , "GameSessionActivationTimeoutSeconds" :: NullOrUndefined (GameSessionActivationTimeoutSeconds) } -> {"ServerProcesses" :: NullOrUndefined (ServerProcessList) , "MaxConcurrentGameSessionActivations" :: NullOrUndefined (MaxConcurrentGameSessionActivations) , "GameSessionActivationTimeoutSeconds" :: NullOrUndefined (GameSessionActivationTimeoutSeconds) } ) -> RuntimeConfiguration
-newRuntimeConfiguration'  customize = (RuntimeConfiguration <<< customize) { "GameSessionActivationTimeoutSeconds": (NullOrUndefined Nothing), "MaxConcurrentGameSessionActivations": (NullOrUndefined Nothing), "ServerProcesses": (NullOrUndefined Nothing) }
+newRuntimeConfiguration' :: ( { "ServerProcesses" :: Maybe (ServerProcessList) , "MaxConcurrentGameSessionActivations" :: Maybe (MaxConcurrentGameSessionActivations) , "GameSessionActivationTimeoutSeconds" :: Maybe (GameSessionActivationTimeoutSeconds) } -> {"ServerProcesses" :: Maybe (ServerProcessList) , "MaxConcurrentGameSessionActivations" :: Maybe (MaxConcurrentGameSessionActivations) , "GameSessionActivationTimeoutSeconds" :: Maybe (GameSessionActivationTimeoutSeconds) } ) -> RuntimeConfiguration
+newRuntimeConfiguration'  customize = (RuntimeConfiguration <<< customize) { "GameSessionActivationTimeoutSeconds": Nothing, "MaxConcurrentGameSessionActivations": Nothing, "ServerProcesses": Nothing }
 
 
 
 -- | <p>Location in Amazon Simple Storage Service (Amazon S3) where build files can be stored for access by Amazon GameLift. This location is specified in a <a>CreateBuild</a> request. For more details, see the <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build">Create a Build with Files in Amazon S3</a>.</p>
 newtype S3Location = S3Location 
-  { "Bucket" :: NullOrUndefined (NonEmptyString)
-  , "Key" :: NullOrUndefined (NonEmptyString)
-  , "RoleArn" :: NullOrUndefined (NonEmptyString)
+  { "Bucket" :: Maybe (NonEmptyString)
+  , "Key" :: Maybe (NonEmptyString)
+  , "RoleArn" :: Maybe (NonEmptyString)
   }
 derive instance newtypeS3Location :: Newtype S3Location _
 derive instance repGenericS3Location :: Generic S3Location _
@@ -3896,12 +3895,12 @@ instance encodeS3Location :: Encode S3Location where encode = genericEncode opti
 
 -- | Constructs S3Location from required parameters
 newS3Location :: S3Location
-newS3Location  = S3Location { "Bucket": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "RoleArn": (NullOrUndefined Nothing) }
+newS3Location  = S3Location { "Bucket": Nothing, "Key": Nothing, "RoleArn": Nothing }
 
 -- | Constructs S3Location's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newS3Location' :: ( { "Bucket" :: NullOrUndefined (NonEmptyString) , "Key" :: NullOrUndefined (NonEmptyString) , "RoleArn" :: NullOrUndefined (NonEmptyString) } -> {"Bucket" :: NullOrUndefined (NonEmptyString) , "Key" :: NullOrUndefined (NonEmptyString) , "RoleArn" :: NullOrUndefined (NonEmptyString) } ) -> S3Location
-newS3Location'  customize = (S3Location <<< customize) { "Bucket": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "RoleArn": (NullOrUndefined Nothing) }
+newS3Location' :: ( { "Bucket" :: Maybe (NonEmptyString) , "Key" :: Maybe (NonEmptyString) , "RoleArn" :: Maybe (NonEmptyString) } -> {"Bucket" :: Maybe (NonEmptyString) , "Key" :: Maybe (NonEmptyString) , "RoleArn" :: Maybe (NonEmptyString) } ) -> S3Location
+newS3Location'  customize = (S3Location <<< customize) { "Bucket": Nothing, "Key": Nothing, "RoleArn": Nothing }
 
 
 
@@ -3916,15 +3915,15 @@ instance encodeScalingAdjustmentType :: Encode ScalingAdjustmentType where encod
 
 -- | <p>Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
 newtype ScalingPolicy = ScalingPolicy 
-  { "FleetId" :: NullOrUndefined (FleetId)
-  , "Name" :: NullOrUndefined (NonZeroAndMaxString)
-  , "Status" :: NullOrUndefined (ScalingStatusType)
-  , "ScalingAdjustment" :: NullOrUndefined (Int)
-  , "ScalingAdjustmentType" :: NullOrUndefined (ScalingAdjustmentType)
-  , "ComparisonOperator" :: NullOrUndefined (ComparisonOperatorType)
-  , "Threshold" :: NullOrUndefined (Number)
-  , "EvaluationPeriods" :: NullOrUndefined (PositiveInteger)
-  , "MetricName" :: NullOrUndefined (MetricName)
+  { "FleetId" :: Maybe (FleetId)
+  , "Name" :: Maybe (NonZeroAndMaxString)
+  , "Status" :: Maybe (ScalingStatusType)
+  , "ScalingAdjustment" :: Maybe (Int)
+  , "ScalingAdjustmentType" :: Maybe (ScalingAdjustmentType)
+  , "ComparisonOperator" :: Maybe (ComparisonOperatorType)
+  , "Threshold" :: Maybe (Number)
+  , "EvaluationPeriods" :: Maybe (PositiveInteger)
+  , "MetricName" :: Maybe (MetricName)
   }
 derive instance newtypeScalingPolicy :: Newtype ScalingPolicy _
 derive instance repGenericScalingPolicy :: Generic ScalingPolicy _
@@ -3934,12 +3933,12 @@ instance encodeScalingPolicy :: Encode ScalingPolicy where encode = genericEncod
 
 -- | Constructs ScalingPolicy from required parameters
 newScalingPolicy :: ScalingPolicy
-newScalingPolicy  = ScalingPolicy { "ComparisonOperator": (NullOrUndefined Nothing), "EvaluationPeriods": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "MetricName": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "ScalingAdjustment": (NullOrUndefined Nothing), "ScalingAdjustmentType": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "Threshold": (NullOrUndefined Nothing) }
+newScalingPolicy  = ScalingPolicy { "ComparisonOperator": Nothing, "EvaluationPeriods": Nothing, "FleetId": Nothing, "MetricName": Nothing, "Name": Nothing, "ScalingAdjustment": Nothing, "ScalingAdjustmentType": Nothing, "Status": Nothing, "Threshold": Nothing }
 
 -- | Constructs ScalingPolicy's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newScalingPolicy' :: ( { "FleetId" :: NullOrUndefined (FleetId) , "Name" :: NullOrUndefined (NonZeroAndMaxString) , "Status" :: NullOrUndefined (ScalingStatusType) , "ScalingAdjustment" :: NullOrUndefined (Int) , "ScalingAdjustmentType" :: NullOrUndefined (ScalingAdjustmentType) , "ComparisonOperator" :: NullOrUndefined (ComparisonOperatorType) , "Threshold" :: NullOrUndefined (Number) , "EvaluationPeriods" :: NullOrUndefined (PositiveInteger) , "MetricName" :: NullOrUndefined (MetricName) } -> {"FleetId" :: NullOrUndefined (FleetId) , "Name" :: NullOrUndefined (NonZeroAndMaxString) , "Status" :: NullOrUndefined (ScalingStatusType) , "ScalingAdjustment" :: NullOrUndefined (Int) , "ScalingAdjustmentType" :: NullOrUndefined (ScalingAdjustmentType) , "ComparisonOperator" :: NullOrUndefined (ComparisonOperatorType) , "Threshold" :: NullOrUndefined (Number) , "EvaluationPeriods" :: NullOrUndefined (PositiveInteger) , "MetricName" :: NullOrUndefined (MetricName) } ) -> ScalingPolicy
-newScalingPolicy'  customize = (ScalingPolicy <<< customize) { "ComparisonOperator": (NullOrUndefined Nothing), "EvaluationPeriods": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "MetricName": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "ScalingAdjustment": (NullOrUndefined Nothing), "ScalingAdjustmentType": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "Threshold": (NullOrUndefined Nothing) }
+newScalingPolicy' :: ( { "FleetId" :: Maybe (FleetId) , "Name" :: Maybe (NonZeroAndMaxString) , "Status" :: Maybe (ScalingStatusType) , "ScalingAdjustment" :: Maybe (Int) , "ScalingAdjustmentType" :: Maybe (ScalingAdjustmentType) , "ComparisonOperator" :: Maybe (ComparisonOperatorType) , "Threshold" :: Maybe (Number) , "EvaluationPeriods" :: Maybe (PositiveInteger) , "MetricName" :: Maybe (MetricName) } -> {"FleetId" :: Maybe (FleetId) , "Name" :: Maybe (NonZeroAndMaxString) , "Status" :: Maybe (ScalingStatusType) , "ScalingAdjustment" :: Maybe (Int) , "ScalingAdjustmentType" :: Maybe (ScalingAdjustmentType) , "ComparisonOperator" :: Maybe (ComparisonOperatorType) , "Threshold" :: Maybe (Number) , "EvaluationPeriods" :: Maybe (PositiveInteger) , "MetricName" :: Maybe (MetricName) } ) -> ScalingPolicy
+newScalingPolicy'  customize = (ScalingPolicy <<< customize) { "ComparisonOperator": Nothing, "EvaluationPeriods": Nothing, "FleetId": Nothing, "MetricName": Nothing, "Name": Nothing, "ScalingAdjustment": Nothing, "ScalingAdjustmentType": Nothing, "Status": Nothing, "Threshold": Nothing }
 
 
 
@@ -3963,12 +3962,12 @@ instance encodeScalingStatusType :: Encode ScalingStatusType where encode = gene
 
 -- | <p>Represents the input for a request action.</p>
 newtype SearchGameSessionsInput = SearchGameSessionsInput 
-  { "FleetId" :: NullOrUndefined (FleetId)
-  , "AliasId" :: NullOrUndefined (AliasId)
-  , "FilterExpression" :: NullOrUndefined (NonZeroAndMaxString)
-  , "SortExpression" :: NullOrUndefined (NonZeroAndMaxString)
-  , "Limit" :: NullOrUndefined (PositiveInteger)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "FleetId" :: Maybe (FleetId)
+  , "AliasId" :: Maybe (AliasId)
+  , "FilterExpression" :: Maybe (NonZeroAndMaxString)
+  , "SortExpression" :: Maybe (NonZeroAndMaxString)
+  , "Limit" :: Maybe (PositiveInteger)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeSearchGameSessionsInput :: Newtype SearchGameSessionsInput _
 derive instance repGenericSearchGameSessionsInput :: Generic SearchGameSessionsInput _
@@ -3978,19 +3977,19 @@ instance encodeSearchGameSessionsInput :: Encode SearchGameSessionsInput where e
 
 -- | Constructs SearchGameSessionsInput from required parameters
 newSearchGameSessionsInput :: SearchGameSessionsInput
-newSearchGameSessionsInput  = SearchGameSessionsInput { "AliasId": (NullOrUndefined Nothing), "FilterExpression": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "SortExpression": (NullOrUndefined Nothing) }
+newSearchGameSessionsInput  = SearchGameSessionsInput { "AliasId": Nothing, "FilterExpression": Nothing, "FleetId": Nothing, "Limit": Nothing, "NextToken": Nothing, "SortExpression": Nothing }
 
 -- | Constructs SearchGameSessionsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSearchGameSessionsInput' :: ( { "FleetId" :: NullOrUndefined (FleetId) , "AliasId" :: NullOrUndefined (AliasId) , "FilterExpression" :: NullOrUndefined (NonZeroAndMaxString) , "SortExpression" :: NullOrUndefined (NonZeroAndMaxString) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"FleetId" :: NullOrUndefined (FleetId) , "AliasId" :: NullOrUndefined (AliasId) , "FilterExpression" :: NullOrUndefined (NonZeroAndMaxString) , "SortExpression" :: NullOrUndefined (NonZeroAndMaxString) , "Limit" :: NullOrUndefined (PositiveInteger) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> SearchGameSessionsInput
-newSearchGameSessionsInput'  customize = (SearchGameSessionsInput <<< customize) { "AliasId": (NullOrUndefined Nothing), "FilterExpression": (NullOrUndefined Nothing), "FleetId": (NullOrUndefined Nothing), "Limit": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "SortExpression": (NullOrUndefined Nothing) }
+newSearchGameSessionsInput' :: ( { "FleetId" :: Maybe (FleetId) , "AliasId" :: Maybe (AliasId) , "FilterExpression" :: Maybe (NonZeroAndMaxString) , "SortExpression" :: Maybe (NonZeroAndMaxString) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"FleetId" :: Maybe (FleetId) , "AliasId" :: Maybe (AliasId) , "FilterExpression" :: Maybe (NonZeroAndMaxString) , "SortExpression" :: Maybe (NonZeroAndMaxString) , "Limit" :: Maybe (PositiveInteger) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> SearchGameSessionsInput
+newSearchGameSessionsInput'  customize = (SearchGameSessionsInput <<< customize) { "AliasId": Nothing, "FilterExpression": Nothing, "FleetId": Nothing, "Limit": Nothing, "NextToken": Nothing, "SortExpression": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype SearchGameSessionsOutput = SearchGameSessionsOutput 
-  { "GameSessions" :: NullOrUndefined (GameSessionList)
-  , "NextToken" :: NullOrUndefined (NonZeroAndMaxString)
+  { "GameSessions" :: Maybe (GameSessionList)
+  , "NextToken" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeSearchGameSessionsOutput :: Newtype SearchGameSessionsOutput _
 derive instance repGenericSearchGameSessionsOutput :: Generic SearchGameSessionsOutput _
@@ -4000,19 +3999,19 @@ instance encodeSearchGameSessionsOutput :: Encode SearchGameSessionsOutput where
 
 -- | Constructs SearchGameSessionsOutput from required parameters
 newSearchGameSessionsOutput :: SearchGameSessionsOutput
-newSearchGameSessionsOutput  = SearchGameSessionsOutput { "GameSessions": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newSearchGameSessionsOutput  = SearchGameSessionsOutput { "GameSessions": Nothing, "NextToken": Nothing }
 
 -- | Constructs SearchGameSessionsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSearchGameSessionsOutput' :: ( { "GameSessions" :: NullOrUndefined (GameSessionList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> {"GameSessions" :: NullOrUndefined (GameSessionList) , "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } ) -> SearchGameSessionsOutput
-newSearchGameSessionsOutput'  customize = (SearchGameSessionsOutput <<< customize) { "GameSessions": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newSearchGameSessionsOutput' :: ( { "GameSessions" :: Maybe (GameSessionList) , "NextToken" :: Maybe (NonZeroAndMaxString) } -> {"GameSessions" :: Maybe (GameSessionList) , "NextToken" :: Maybe (NonZeroAndMaxString) } ) -> SearchGameSessionsOutput
+newSearchGameSessionsOutput'  customize = (SearchGameSessionsOutput <<< customize) { "GameSessions": Nothing, "NextToken": Nothing }
 
 
 
 -- | <p>A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's <code> <a>RuntimeConfiguration</a> </code>.</p>
 newtype ServerProcess = ServerProcess 
   { "LaunchPath" :: (NonZeroAndMaxString)
-  , "Parameters" :: NullOrUndefined (NonZeroAndMaxString)
+  , "Parameters" :: Maybe (NonZeroAndMaxString)
   , "ConcurrentExecutions" :: (PositiveInteger)
   }
 derive instance newtypeServerProcess :: Newtype ServerProcess _
@@ -4023,12 +4022,12 @@ instance encodeServerProcess :: Encode ServerProcess where encode = genericEncod
 
 -- | Constructs ServerProcess from required parameters
 newServerProcess :: PositiveInteger -> NonZeroAndMaxString -> ServerProcess
-newServerProcess _ConcurrentExecutions _LaunchPath = ServerProcess { "ConcurrentExecutions": _ConcurrentExecutions, "LaunchPath": _LaunchPath, "Parameters": (NullOrUndefined Nothing) }
+newServerProcess _ConcurrentExecutions _LaunchPath = ServerProcess { "ConcurrentExecutions": _ConcurrentExecutions, "LaunchPath": _LaunchPath, "Parameters": Nothing }
 
 -- | Constructs ServerProcess's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServerProcess' :: PositiveInteger -> NonZeroAndMaxString -> ( { "LaunchPath" :: (NonZeroAndMaxString) , "Parameters" :: NullOrUndefined (NonZeroAndMaxString) , "ConcurrentExecutions" :: (PositiveInteger) } -> {"LaunchPath" :: (NonZeroAndMaxString) , "Parameters" :: NullOrUndefined (NonZeroAndMaxString) , "ConcurrentExecutions" :: (PositiveInteger) } ) -> ServerProcess
-newServerProcess' _ConcurrentExecutions _LaunchPath customize = (ServerProcess <<< customize) { "ConcurrentExecutions": _ConcurrentExecutions, "LaunchPath": _LaunchPath, "Parameters": (NullOrUndefined Nothing) }
+newServerProcess' :: PositiveInteger -> NonZeroAndMaxString -> ( { "LaunchPath" :: (NonZeroAndMaxString) , "Parameters" :: Maybe (NonZeroAndMaxString) , "ConcurrentExecutions" :: (PositiveInteger) } -> {"LaunchPath" :: (NonZeroAndMaxString) , "Parameters" :: Maybe (NonZeroAndMaxString) , "ConcurrentExecutions" :: (PositiveInteger) } ) -> ServerProcess
+newServerProcess' _ConcurrentExecutions _LaunchPath customize = (ServerProcess <<< customize) { "ConcurrentExecutions": _ConcurrentExecutions, "LaunchPath": _LaunchPath, "Parameters": Nothing }
 
 
 
@@ -4054,12 +4053,12 @@ instance encodeSnsArnStringModel :: Encode SnsArnStringModel where encode = gene
 newtype StartGameSessionPlacementInput = StartGameSessionPlacementInput 
   { "PlacementId" :: (IdStringModel)
   , "GameSessionQueueName" :: (GameSessionQueueName)
-  , "GameProperties" :: NullOrUndefined (GamePropertyList)
+  , "GameProperties" :: Maybe (GamePropertyList)
   , "MaximumPlayerSessionCount" :: (WholeNumber)
-  , "GameSessionName" :: NullOrUndefined (NonZeroAndMaxString)
-  , "PlayerLatencies" :: NullOrUndefined (PlayerLatencyList)
-  , "DesiredPlayerSessions" :: NullOrUndefined (DesiredPlayerSessionList)
-  , "GameSessionData" :: NullOrUndefined (GameSessionData)
+  , "GameSessionName" :: Maybe (NonZeroAndMaxString)
+  , "PlayerLatencies" :: Maybe (PlayerLatencyList)
+  , "DesiredPlayerSessions" :: Maybe (DesiredPlayerSessionList)
+  , "GameSessionData" :: Maybe (GameSessionData)
   }
 derive instance newtypeStartGameSessionPlacementInput :: Newtype StartGameSessionPlacementInput _
 derive instance repGenericStartGameSessionPlacementInput :: Generic StartGameSessionPlacementInput _
@@ -4069,18 +4068,18 @@ instance encodeStartGameSessionPlacementInput :: Encode StartGameSessionPlacemen
 
 -- | Constructs StartGameSessionPlacementInput from required parameters
 newStartGameSessionPlacementInput :: GameSessionQueueName -> WholeNumber -> IdStringModel -> StartGameSessionPlacementInput
-newStartGameSessionPlacementInput _GameSessionQueueName _MaximumPlayerSessionCount _PlacementId = StartGameSessionPlacementInput { "GameSessionQueueName": _GameSessionQueueName, "MaximumPlayerSessionCount": _MaximumPlayerSessionCount, "PlacementId": _PlacementId, "DesiredPlayerSessions": (NullOrUndefined Nothing), "GameProperties": (NullOrUndefined Nothing), "GameSessionData": (NullOrUndefined Nothing), "GameSessionName": (NullOrUndefined Nothing), "PlayerLatencies": (NullOrUndefined Nothing) }
+newStartGameSessionPlacementInput _GameSessionQueueName _MaximumPlayerSessionCount _PlacementId = StartGameSessionPlacementInput { "GameSessionQueueName": _GameSessionQueueName, "MaximumPlayerSessionCount": _MaximumPlayerSessionCount, "PlacementId": _PlacementId, "DesiredPlayerSessions": Nothing, "GameProperties": Nothing, "GameSessionData": Nothing, "GameSessionName": Nothing, "PlayerLatencies": Nothing }
 
 -- | Constructs StartGameSessionPlacementInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartGameSessionPlacementInput' :: GameSessionQueueName -> WholeNumber -> IdStringModel -> ( { "PlacementId" :: (IdStringModel) , "GameSessionQueueName" :: (GameSessionQueueName) , "GameProperties" :: NullOrUndefined (GamePropertyList) , "MaximumPlayerSessionCount" :: (WholeNumber) , "GameSessionName" :: NullOrUndefined (NonZeroAndMaxString) , "PlayerLatencies" :: NullOrUndefined (PlayerLatencyList) , "DesiredPlayerSessions" :: NullOrUndefined (DesiredPlayerSessionList) , "GameSessionData" :: NullOrUndefined (GameSessionData) } -> {"PlacementId" :: (IdStringModel) , "GameSessionQueueName" :: (GameSessionQueueName) , "GameProperties" :: NullOrUndefined (GamePropertyList) , "MaximumPlayerSessionCount" :: (WholeNumber) , "GameSessionName" :: NullOrUndefined (NonZeroAndMaxString) , "PlayerLatencies" :: NullOrUndefined (PlayerLatencyList) , "DesiredPlayerSessions" :: NullOrUndefined (DesiredPlayerSessionList) , "GameSessionData" :: NullOrUndefined (GameSessionData) } ) -> StartGameSessionPlacementInput
-newStartGameSessionPlacementInput' _GameSessionQueueName _MaximumPlayerSessionCount _PlacementId customize = (StartGameSessionPlacementInput <<< customize) { "GameSessionQueueName": _GameSessionQueueName, "MaximumPlayerSessionCount": _MaximumPlayerSessionCount, "PlacementId": _PlacementId, "DesiredPlayerSessions": (NullOrUndefined Nothing), "GameProperties": (NullOrUndefined Nothing), "GameSessionData": (NullOrUndefined Nothing), "GameSessionName": (NullOrUndefined Nothing), "PlayerLatencies": (NullOrUndefined Nothing) }
+newStartGameSessionPlacementInput' :: GameSessionQueueName -> WholeNumber -> IdStringModel -> ( { "PlacementId" :: (IdStringModel) , "GameSessionQueueName" :: (GameSessionQueueName) , "GameProperties" :: Maybe (GamePropertyList) , "MaximumPlayerSessionCount" :: (WholeNumber) , "GameSessionName" :: Maybe (NonZeroAndMaxString) , "PlayerLatencies" :: Maybe (PlayerLatencyList) , "DesiredPlayerSessions" :: Maybe (DesiredPlayerSessionList) , "GameSessionData" :: Maybe (GameSessionData) } -> {"PlacementId" :: (IdStringModel) , "GameSessionQueueName" :: (GameSessionQueueName) , "GameProperties" :: Maybe (GamePropertyList) , "MaximumPlayerSessionCount" :: (WholeNumber) , "GameSessionName" :: Maybe (NonZeroAndMaxString) , "PlayerLatencies" :: Maybe (PlayerLatencyList) , "DesiredPlayerSessions" :: Maybe (DesiredPlayerSessionList) , "GameSessionData" :: Maybe (GameSessionData) } ) -> StartGameSessionPlacementInput
+newStartGameSessionPlacementInput' _GameSessionQueueName _MaximumPlayerSessionCount _PlacementId customize = (StartGameSessionPlacementInput <<< customize) { "GameSessionQueueName": _GameSessionQueueName, "MaximumPlayerSessionCount": _MaximumPlayerSessionCount, "PlacementId": _PlacementId, "DesiredPlayerSessions": Nothing, "GameProperties": Nothing, "GameSessionData": Nothing, "GameSessionName": Nothing, "PlayerLatencies": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype StartGameSessionPlacementOutput = StartGameSessionPlacementOutput 
-  { "GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement)
+  { "GameSessionPlacement" :: Maybe (GameSessionPlacement)
   }
 derive instance newtypeStartGameSessionPlacementOutput :: Newtype StartGameSessionPlacementOutput _
 derive instance repGenericStartGameSessionPlacementOutput :: Generic StartGameSessionPlacementOutput _
@@ -4090,18 +4089,18 @@ instance encodeStartGameSessionPlacementOutput :: Encode StartGameSessionPlaceme
 
 -- | Constructs StartGameSessionPlacementOutput from required parameters
 newStartGameSessionPlacementOutput :: StartGameSessionPlacementOutput
-newStartGameSessionPlacementOutput  = StartGameSessionPlacementOutput { "GameSessionPlacement": (NullOrUndefined Nothing) }
+newStartGameSessionPlacementOutput  = StartGameSessionPlacementOutput { "GameSessionPlacement": Nothing }
 
 -- | Constructs StartGameSessionPlacementOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartGameSessionPlacementOutput' :: ( { "GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement) } -> {"GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement) } ) -> StartGameSessionPlacementOutput
-newStartGameSessionPlacementOutput'  customize = (StartGameSessionPlacementOutput <<< customize) { "GameSessionPlacement": (NullOrUndefined Nothing) }
+newStartGameSessionPlacementOutput' :: ( { "GameSessionPlacement" :: Maybe (GameSessionPlacement) } -> {"GameSessionPlacement" :: Maybe (GameSessionPlacement) } ) -> StartGameSessionPlacementOutput
+newStartGameSessionPlacementOutput'  customize = (StartGameSessionPlacementOutput <<< customize) { "GameSessionPlacement": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype StartMatchBackfillInput = StartMatchBackfillInput 
-  { "TicketId" :: NullOrUndefined (MatchmakingIdStringModel)
+  { "TicketId" :: Maybe (MatchmakingIdStringModel)
   , "ConfigurationName" :: (MatchmakingIdStringModel)
   , "GameSessionArn" :: (ArnStringModel)
   , "Players" :: (PlayerList)
@@ -4114,18 +4113,18 @@ instance encodeStartMatchBackfillInput :: Encode StartMatchBackfillInput where e
 
 -- | Constructs StartMatchBackfillInput from required parameters
 newStartMatchBackfillInput :: MatchmakingIdStringModel -> ArnStringModel -> PlayerList -> StartMatchBackfillInput
-newStartMatchBackfillInput _ConfigurationName _GameSessionArn _Players = StartMatchBackfillInput { "ConfigurationName": _ConfigurationName, "GameSessionArn": _GameSessionArn, "Players": _Players, "TicketId": (NullOrUndefined Nothing) }
+newStartMatchBackfillInput _ConfigurationName _GameSessionArn _Players = StartMatchBackfillInput { "ConfigurationName": _ConfigurationName, "GameSessionArn": _GameSessionArn, "Players": _Players, "TicketId": Nothing }
 
 -- | Constructs StartMatchBackfillInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartMatchBackfillInput' :: MatchmakingIdStringModel -> ArnStringModel -> PlayerList -> ( { "TicketId" :: NullOrUndefined (MatchmakingIdStringModel) , "ConfigurationName" :: (MatchmakingIdStringModel) , "GameSessionArn" :: (ArnStringModel) , "Players" :: (PlayerList) } -> {"TicketId" :: NullOrUndefined (MatchmakingIdStringModel) , "ConfigurationName" :: (MatchmakingIdStringModel) , "GameSessionArn" :: (ArnStringModel) , "Players" :: (PlayerList) } ) -> StartMatchBackfillInput
-newStartMatchBackfillInput' _ConfigurationName _GameSessionArn _Players customize = (StartMatchBackfillInput <<< customize) { "ConfigurationName": _ConfigurationName, "GameSessionArn": _GameSessionArn, "Players": _Players, "TicketId": (NullOrUndefined Nothing) }
+newStartMatchBackfillInput' :: MatchmakingIdStringModel -> ArnStringModel -> PlayerList -> ( { "TicketId" :: Maybe (MatchmakingIdStringModel) , "ConfigurationName" :: (MatchmakingIdStringModel) , "GameSessionArn" :: (ArnStringModel) , "Players" :: (PlayerList) } -> {"TicketId" :: Maybe (MatchmakingIdStringModel) , "ConfigurationName" :: (MatchmakingIdStringModel) , "GameSessionArn" :: (ArnStringModel) , "Players" :: (PlayerList) } ) -> StartMatchBackfillInput
+newStartMatchBackfillInput' _ConfigurationName _GameSessionArn _Players customize = (StartMatchBackfillInput <<< customize) { "ConfigurationName": _ConfigurationName, "GameSessionArn": _GameSessionArn, "Players": _Players, "TicketId": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype StartMatchBackfillOutput = StartMatchBackfillOutput 
-  { "MatchmakingTicket" :: NullOrUndefined (MatchmakingTicket)
+  { "MatchmakingTicket" :: Maybe (MatchmakingTicket)
   }
 derive instance newtypeStartMatchBackfillOutput :: Newtype StartMatchBackfillOutput _
 derive instance repGenericStartMatchBackfillOutput :: Generic StartMatchBackfillOutput _
@@ -4135,18 +4134,18 @@ instance encodeStartMatchBackfillOutput :: Encode StartMatchBackfillOutput where
 
 -- | Constructs StartMatchBackfillOutput from required parameters
 newStartMatchBackfillOutput :: StartMatchBackfillOutput
-newStartMatchBackfillOutput  = StartMatchBackfillOutput { "MatchmakingTicket": (NullOrUndefined Nothing) }
+newStartMatchBackfillOutput  = StartMatchBackfillOutput { "MatchmakingTicket": Nothing }
 
 -- | Constructs StartMatchBackfillOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartMatchBackfillOutput' :: ( { "MatchmakingTicket" :: NullOrUndefined (MatchmakingTicket) } -> {"MatchmakingTicket" :: NullOrUndefined (MatchmakingTicket) } ) -> StartMatchBackfillOutput
-newStartMatchBackfillOutput'  customize = (StartMatchBackfillOutput <<< customize) { "MatchmakingTicket": (NullOrUndefined Nothing) }
+newStartMatchBackfillOutput' :: ( { "MatchmakingTicket" :: Maybe (MatchmakingTicket) } -> {"MatchmakingTicket" :: Maybe (MatchmakingTicket) } ) -> StartMatchBackfillOutput
+newStartMatchBackfillOutput'  customize = (StartMatchBackfillOutput <<< customize) { "MatchmakingTicket": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype StartMatchmakingInput = StartMatchmakingInput 
-  { "TicketId" :: NullOrUndefined (MatchmakingIdStringModel)
+  { "TicketId" :: Maybe (MatchmakingIdStringModel)
   , "ConfigurationName" :: (MatchmakingIdStringModel)
   , "Players" :: (PlayerList)
   }
@@ -4158,18 +4157,18 @@ instance encodeStartMatchmakingInput :: Encode StartMatchmakingInput where encod
 
 -- | Constructs StartMatchmakingInput from required parameters
 newStartMatchmakingInput :: MatchmakingIdStringModel -> PlayerList -> StartMatchmakingInput
-newStartMatchmakingInput _ConfigurationName _Players = StartMatchmakingInput { "ConfigurationName": _ConfigurationName, "Players": _Players, "TicketId": (NullOrUndefined Nothing) }
+newStartMatchmakingInput _ConfigurationName _Players = StartMatchmakingInput { "ConfigurationName": _ConfigurationName, "Players": _Players, "TicketId": Nothing }
 
 -- | Constructs StartMatchmakingInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartMatchmakingInput' :: MatchmakingIdStringModel -> PlayerList -> ( { "TicketId" :: NullOrUndefined (MatchmakingIdStringModel) , "ConfigurationName" :: (MatchmakingIdStringModel) , "Players" :: (PlayerList) } -> {"TicketId" :: NullOrUndefined (MatchmakingIdStringModel) , "ConfigurationName" :: (MatchmakingIdStringModel) , "Players" :: (PlayerList) } ) -> StartMatchmakingInput
-newStartMatchmakingInput' _ConfigurationName _Players customize = (StartMatchmakingInput <<< customize) { "ConfigurationName": _ConfigurationName, "Players": _Players, "TicketId": (NullOrUndefined Nothing) }
+newStartMatchmakingInput' :: MatchmakingIdStringModel -> PlayerList -> ( { "TicketId" :: Maybe (MatchmakingIdStringModel) , "ConfigurationName" :: (MatchmakingIdStringModel) , "Players" :: (PlayerList) } -> {"TicketId" :: Maybe (MatchmakingIdStringModel) , "ConfigurationName" :: (MatchmakingIdStringModel) , "Players" :: (PlayerList) } ) -> StartMatchmakingInput
+newStartMatchmakingInput' _ConfigurationName _Players customize = (StartMatchmakingInput <<< customize) { "ConfigurationName": _ConfigurationName, "Players": _Players, "TicketId": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype StartMatchmakingOutput = StartMatchmakingOutput 
-  { "MatchmakingTicket" :: NullOrUndefined (MatchmakingTicket)
+  { "MatchmakingTicket" :: Maybe (MatchmakingTicket)
   }
 derive instance newtypeStartMatchmakingOutput :: Newtype StartMatchmakingOutput _
 derive instance repGenericStartMatchmakingOutput :: Generic StartMatchmakingOutput _
@@ -4179,12 +4178,12 @@ instance encodeStartMatchmakingOutput :: Encode StartMatchmakingOutput where enc
 
 -- | Constructs StartMatchmakingOutput from required parameters
 newStartMatchmakingOutput :: StartMatchmakingOutput
-newStartMatchmakingOutput  = StartMatchmakingOutput { "MatchmakingTicket": (NullOrUndefined Nothing) }
+newStartMatchmakingOutput  = StartMatchmakingOutput { "MatchmakingTicket": Nothing }
 
 -- | Constructs StartMatchmakingOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartMatchmakingOutput' :: ( { "MatchmakingTicket" :: NullOrUndefined (MatchmakingTicket) } -> {"MatchmakingTicket" :: NullOrUndefined (MatchmakingTicket) } ) -> StartMatchmakingOutput
-newStartMatchmakingOutput'  customize = (StartMatchmakingOutput <<< customize) { "MatchmakingTicket": (NullOrUndefined Nothing) }
+newStartMatchmakingOutput' :: ( { "MatchmakingTicket" :: Maybe (MatchmakingTicket) } -> {"MatchmakingTicket" :: Maybe (MatchmakingTicket) } ) -> StartMatchmakingOutput
+newStartMatchmakingOutput'  customize = (StartMatchmakingOutput <<< customize) { "MatchmakingTicket": Nothing }
 
 
 
@@ -4211,7 +4210,7 @@ newStopGameSessionPlacementInput' _PlacementId customize = (StopGameSessionPlace
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype StopGameSessionPlacementOutput = StopGameSessionPlacementOutput 
-  { "GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement)
+  { "GameSessionPlacement" :: Maybe (GameSessionPlacement)
   }
 derive instance newtypeStopGameSessionPlacementOutput :: Newtype StopGameSessionPlacementOutput _
 derive instance repGenericStopGameSessionPlacementOutput :: Generic StopGameSessionPlacementOutput _
@@ -4221,12 +4220,12 @@ instance encodeStopGameSessionPlacementOutput :: Encode StopGameSessionPlacement
 
 -- | Constructs StopGameSessionPlacementOutput from required parameters
 newStopGameSessionPlacementOutput :: StopGameSessionPlacementOutput
-newStopGameSessionPlacementOutput  = StopGameSessionPlacementOutput { "GameSessionPlacement": (NullOrUndefined Nothing) }
+newStopGameSessionPlacementOutput  = StopGameSessionPlacementOutput { "GameSessionPlacement": Nothing }
 
 -- | Constructs StopGameSessionPlacementOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStopGameSessionPlacementOutput' :: ( { "GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement) } -> {"GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement) } ) -> StopGameSessionPlacementOutput
-newStopGameSessionPlacementOutput'  customize = (StopGameSessionPlacementOutput <<< customize) { "GameSessionPlacement": (NullOrUndefined Nothing) }
+newStopGameSessionPlacementOutput' :: ( { "GameSessionPlacement" :: Maybe (GameSessionPlacement) } -> {"GameSessionPlacement" :: Maybe (GameSessionPlacement) } ) -> StopGameSessionPlacementOutput
+newStopGameSessionPlacementOutput'  customize = (StopGameSessionPlacementOutput <<< customize) { "GameSessionPlacement": Nothing }
 
 
 
@@ -4289,7 +4288,7 @@ instance encodeStringModel :: Encode StringModel where encode = genericEncode op
 
 -- | <p>The service is unable to resolve the routing for a particular alias because it has a terminal <a>RoutingStrategy</a> associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified. </p>
 newtype TerminalRoutingStrategyException = TerminalRoutingStrategyException 
-  { "Message" :: NullOrUndefined (NonEmptyString)
+  { "Message" :: Maybe (NonEmptyString)
   }
 derive instance newtypeTerminalRoutingStrategyException :: Newtype TerminalRoutingStrategyException _
 derive instance repGenericTerminalRoutingStrategyException :: Generic TerminalRoutingStrategyException _
@@ -4299,18 +4298,18 @@ instance encodeTerminalRoutingStrategyException :: Encode TerminalRoutingStrateg
 
 -- | Constructs TerminalRoutingStrategyException from required parameters
 newTerminalRoutingStrategyException :: TerminalRoutingStrategyException
-newTerminalRoutingStrategyException  = TerminalRoutingStrategyException { "Message": (NullOrUndefined Nothing) }
+newTerminalRoutingStrategyException  = TerminalRoutingStrategyException { "Message": Nothing }
 
 -- | Constructs TerminalRoutingStrategyException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTerminalRoutingStrategyException' :: ( { "Message" :: NullOrUndefined (NonEmptyString) } -> {"Message" :: NullOrUndefined (NonEmptyString) } ) -> TerminalRoutingStrategyException
-newTerminalRoutingStrategyException'  customize = (TerminalRoutingStrategyException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTerminalRoutingStrategyException' :: ( { "Message" :: Maybe (NonEmptyString) } -> {"Message" :: Maybe (NonEmptyString) } ) -> TerminalRoutingStrategyException
+newTerminalRoutingStrategyException'  customize = (TerminalRoutingStrategyException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The client failed authentication. Clients should not retry such requests.</p>
 newtype UnauthorizedException = UnauthorizedException 
-  { "Message" :: NullOrUndefined (NonEmptyString)
+  { "Message" :: Maybe (NonEmptyString)
   }
 derive instance newtypeUnauthorizedException :: Newtype UnauthorizedException _
 derive instance repGenericUnauthorizedException :: Generic UnauthorizedException _
@@ -4320,18 +4319,18 @@ instance encodeUnauthorizedException :: Encode UnauthorizedException where encod
 
 -- | Constructs UnauthorizedException from required parameters
 newUnauthorizedException :: UnauthorizedException
-newUnauthorizedException  = UnauthorizedException { "Message": (NullOrUndefined Nothing) }
+newUnauthorizedException  = UnauthorizedException { "Message": Nothing }
 
 -- | Constructs UnauthorizedException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUnauthorizedException' :: ( { "Message" :: NullOrUndefined (NonEmptyString) } -> {"Message" :: NullOrUndefined (NonEmptyString) } ) -> UnauthorizedException
-newUnauthorizedException'  customize = (UnauthorizedException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newUnauthorizedException' :: ( { "Message" :: Maybe (NonEmptyString) } -> {"Message" :: Maybe (NonEmptyString) } ) -> UnauthorizedException
+newUnauthorizedException'  customize = (UnauthorizedException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The requested operation is not supported in the region specified.</p>
 newtype UnsupportedRegionException = UnsupportedRegionException 
-  { "Message" :: NullOrUndefined (NonEmptyString)
+  { "Message" :: Maybe (NonEmptyString)
   }
 derive instance newtypeUnsupportedRegionException :: Newtype UnsupportedRegionException _
 derive instance repGenericUnsupportedRegionException :: Generic UnsupportedRegionException _
@@ -4341,21 +4340,21 @@ instance encodeUnsupportedRegionException :: Encode UnsupportedRegionException w
 
 -- | Constructs UnsupportedRegionException from required parameters
 newUnsupportedRegionException :: UnsupportedRegionException
-newUnsupportedRegionException  = UnsupportedRegionException { "Message": (NullOrUndefined Nothing) }
+newUnsupportedRegionException  = UnsupportedRegionException { "Message": Nothing }
 
 -- | Constructs UnsupportedRegionException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUnsupportedRegionException' :: ( { "Message" :: NullOrUndefined (NonEmptyString) } -> {"Message" :: NullOrUndefined (NonEmptyString) } ) -> UnsupportedRegionException
-newUnsupportedRegionException'  customize = (UnsupportedRegionException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newUnsupportedRegionException' :: ( { "Message" :: Maybe (NonEmptyString) } -> {"Message" :: Maybe (NonEmptyString) } ) -> UnsupportedRegionException
+newUnsupportedRegionException'  customize = (UnsupportedRegionException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype UpdateAliasInput = UpdateAliasInput 
   { "AliasId" :: (AliasId)
-  , "Name" :: NullOrUndefined (NonBlankAndLengthConstraintString)
-  , "Description" :: NullOrUndefined (NonZeroAndMaxString)
-  , "RoutingStrategy" :: NullOrUndefined (RoutingStrategy)
+  , "Name" :: Maybe (NonBlankAndLengthConstraintString)
+  , "Description" :: Maybe (NonZeroAndMaxString)
+  , "RoutingStrategy" :: Maybe (RoutingStrategy)
   }
 derive instance newtypeUpdateAliasInput :: Newtype UpdateAliasInput _
 derive instance repGenericUpdateAliasInput :: Generic UpdateAliasInput _
@@ -4365,18 +4364,18 @@ instance encodeUpdateAliasInput :: Encode UpdateAliasInput where encode = generi
 
 -- | Constructs UpdateAliasInput from required parameters
 newUpdateAliasInput :: AliasId -> UpdateAliasInput
-newUpdateAliasInput _AliasId = UpdateAliasInput { "AliasId": _AliasId, "Description": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "RoutingStrategy": (NullOrUndefined Nothing) }
+newUpdateAliasInput _AliasId = UpdateAliasInput { "AliasId": _AliasId, "Description": Nothing, "Name": Nothing, "RoutingStrategy": Nothing }
 
 -- | Constructs UpdateAliasInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateAliasInput' :: AliasId -> ( { "AliasId" :: (AliasId) , "Name" :: NullOrUndefined (NonBlankAndLengthConstraintString) , "Description" :: NullOrUndefined (NonZeroAndMaxString) , "RoutingStrategy" :: NullOrUndefined (RoutingStrategy) } -> {"AliasId" :: (AliasId) , "Name" :: NullOrUndefined (NonBlankAndLengthConstraintString) , "Description" :: NullOrUndefined (NonZeroAndMaxString) , "RoutingStrategy" :: NullOrUndefined (RoutingStrategy) } ) -> UpdateAliasInput
-newUpdateAliasInput' _AliasId customize = (UpdateAliasInput <<< customize) { "AliasId": _AliasId, "Description": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "RoutingStrategy": (NullOrUndefined Nothing) }
+newUpdateAliasInput' :: AliasId -> ( { "AliasId" :: (AliasId) , "Name" :: Maybe (NonBlankAndLengthConstraintString) , "Description" :: Maybe (NonZeroAndMaxString) , "RoutingStrategy" :: Maybe (RoutingStrategy) } -> {"AliasId" :: (AliasId) , "Name" :: Maybe (NonBlankAndLengthConstraintString) , "Description" :: Maybe (NonZeroAndMaxString) , "RoutingStrategy" :: Maybe (RoutingStrategy) } ) -> UpdateAliasInput
+newUpdateAliasInput' _AliasId customize = (UpdateAliasInput <<< customize) { "AliasId": _AliasId, "Description": Nothing, "Name": Nothing, "RoutingStrategy": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype UpdateAliasOutput = UpdateAliasOutput 
-  { "Alias" :: NullOrUndefined (Alias)
+  { "Alias" :: Maybe (Alias)
   }
 derive instance newtypeUpdateAliasOutput :: Newtype UpdateAliasOutput _
 derive instance repGenericUpdateAliasOutput :: Generic UpdateAliasOutput _
@@ -4386,20 +4385,20 @@ instance encodeUpdateAliasOutput :: Encode UpdateAliasOutput where encode = gene
 
 -- | Constructs UpdateAliasOutput from required parameters
 newUpdateAliasOutput :: UpdateAliasOutput
-newUpdateAliasOutput  = UpdateAliasOutput { "Alias": (NullOrUndefined Nothing) }
+newUpdateAliasOutput  = UpdateAliasOutput { "Alias": Nothing }
 
 -- | Constructs UpdateAliasOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateAliasOutput' :: ( { "Alias" :: NullOrUndefined (Alias) } -> {"Alias" :: NullOrUndefined (Alias) } ) -> UpdateAliasOutput
-newUpdateAliasOutput'  customize = (UpdateAliasOutput <<< customize) { "Alias": (NullOrUndefined Nothing) }
+newUpdateAliasOutput' :: ( { "Alias" :: Maybe (Alias) } -> {"Alias" :: Maybe (Alias) } ) -> UpdateAliasOutput
+newUpdateAliasOutput'  customize = (UpdateAliasOutput <<< customize) { "Alias": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype UpdateBuildInput = UpdateBuildInput 
   { "BuildId" :: (BuildId)
-  , "Name" :: NullOrUndefined (NonZeroAndMaxString)
-  , "Version" :: NullOrUndefined (NonZeroAndMaxString)
+  , "Name" :: Maybe (NonZeroAndMaxString)
+  , "Version" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeUpdateBuildInput :: Newtype UpdateBuildInput _
 derive instance repGenericUpdateBuildInput :: Generic UpdateBuildInput _
@@ -4409,18 +4408,18 @@ instance encodeUpdateBuildInput :: Encode UpdateBuildInput where encode = generi
 
 -- | Constructs UpdateBuildInput from required parameters
 newUpdateBuildInput :: BuildId -> UpdateBuildInput
-newUpdateBuildInput _BuildId = UpdateBuildInput { "BuildId": _BuildId, "Name": (NullOrUndefined Nothing), "Version": (NullOrUndefined Nothing) }
+newUpdateBuildInput _BuildId = UpdateBuildInput { "BuildId": _BuildId, "Name": Nothing, "Version": Nothing }
 
 -- | Constructs UpdateBuildInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateBuildInput' :: BuildId -> ( { "BuildId" :: (BuildId) , "Name" :: NullOrUndefined (NonZeroAndMaxString) , "Version" :: NullOrUndefined (NonZeroAndMaxString) } -> {"BuildId" :: (BuildId) , "Name" :: NullOrUndefined (NonZeroAndMaxString) , "Version" :: NullOrUndefined (NonZeroAndMaxString) } ) -> UpdateBuildInput
-newUpdateBuildInput' _BuildId customize = (UpdateBuildInput <<< customize) { "BuildId": _BuildId, "Name": (NullOrUndefined Nothing), "Version": (NullOrUndefined Nothing) }
+newUpdateBuildInput' :: BuildId -> ( { "BuildId" :: (BuildId) , "Name" :: Maybe (NonZeroAndMaxString) , "Version" :: Maybe (NonZeroAndMaxString) } -> {"BuildId" :: (BuildId) , "Name" :: Maybe (NonZeroAndMaxString) , "Version" :: Maybe (NonZeroAndMaxString) } ) -> UpdateBuildInput
+newUpdateBuildInput' _BuildId customize = (UpdateBuildInput <<< customize) { "BuildId": _BuildId, "Name": Nothing, "Version": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype UpdateBuildOutput = UpdateBuildOutput 
-  { "Build" :: NullOrUndefined (Build)
+  { "Build" :: Maybe (Build)
   }
 derive instance newtypeUpdateBuildOutput :: Newtype UpdateBuildOutput _
 derive instance repGenericUpdateBuildOutput :: Generic UpdateBuildOutput _
@@ -4430,23 +4429,23 @@ instance encodeUpdateBuildOutput :: Encode UpdateBuildOutput where encode = gene
 
 -- | Constructs UpdateBuildOutput from required parameters
 newUpdateBuildOutput :: UpdateBuildOutput
-newUpdateBuildOutput  = UpdateBuildOutput { "Build": (NullOrUndefined Nothing) }
+newUpdateBuildOutput  = UpdateBuildOutput { "Build": Nothing }
 
 -- | Constructs UpdateBuildOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateBuildOutput' :: ( { "Build" :: NullOrUndefined (Build) } -> {"Build" :: NullOrUndefined (Build) } ) -> UpdateBuildOutput
-newUpdateBuildOutput'  customize = (UpdateBuildOutput <<< customize) { "Build": (NullOrUndefined Nothing) }
+newUpdateBuildOutput' :: ( { "Build" :: Maybe (Build) } -> {"Build" :: Maybe (Build) } ) -> UpdateBuildOutput
+newUpdateBuildOutput'  customize = (UpdateBuildOutput <<< customize) { "Build": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype UpdateFleetAttributesInput = UpdateFleetAttributesInput 
   { "FleetId" :: (FleetId)
-  , "Name" :: NullOrUndefined (NonZeroAndMaxString)
-  , "Description" :: NullOrUndefined (NonZeroAndMaxString)
-  , "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy)
-  , "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy)
-  , "MetricGroups" :: NullOrUndefined (MetricGroupList)
+  , "Name" :: Maybe (NonZeroAndMaxString)
+  , "Description" :: Maybe (NonZeroAndMaxString)
+  , "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy)
+  , "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy)
+  , "MetricGroups" :: Maybe (MetricGroupList)
   }
 derive instance newtypeUpdateFleetAttributesInput :: Newtype UpdateFleetAttributesInput _
 derive instance repGenericUpdateFleetAttributesInput :: Generic UpdateFleetAttributesInput _
@@ -4456,18 +4455,18 @@ instance encodeUpdateFleetAttributesInput :: Encode UpdateFleetAttributesInput w
 
 -- | Constructs UpdateFleetAttributesInput from required parameters
 newUpdateFleetAttributesInput :: FleetId -> UpdateFleetAttributesInput
-newUpdateFleetAttributesInput _FleetId = UpdateFleetAttributesInput { "FleetId": _FleetId, "Description": (NullOrUndefined Nothing), "MetricGroups": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "NewGameSessionProtectionPolicy": (NullOrUndefined Nothing), "ResourceCreationLimitPolicy": (NullOrUndefined Nothing) }
+newUpdateFleetAttributesInput _FleetId = UpdateFleetAttributesInput { "FleetId": _FleetId, "Description": Nothing, "MetricGroups": Nothing, "Name": Nothing, "NewGameSessionProtectionPolicy": Nothing, "ResourceCreationLimitPolicy": Nothing }
 
 -- | Constructs UpdateFleetAttributesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateFleetAttributesInput' :: FleetId -> ( { "FleetId" :: (FleetId) , "Name" :: NullOrUndefined (NonZeroAndMaxString) , "Description" :: NullOrUndefined (NonZeroAndMaxString) , "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy) , "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy) , "MetricGroups" :: NullOrUndefined (MetricGroupList) } -> {"FleetId" :: (FleetId) , "Name" :: NullOrUndefined (NonZeroAndMaxString) , "Description" :: NullOrUndefined (NonZeroAndMaxString) , "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy) , "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy) , "MetricGroups" :: NullOrUndefined (MetricGroupList) } ) -> UpdateFleetAttributesInput
-newUpdateFleetAttributesInput' _FleetId customize = (UpdateFleetAttributesInput <<< customize) { "FleetId": _FleetId, "Description": (NullOrUndefined Nothing), "MetricGroups": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "NewGameSessionProtectionPolicy": (NullOrUndefined Nothing), "ResourceCreationLimitPolicy": (NullOrUndefined Nothing) }
+newUpdateFleetAttributesInput' :: FleetId -> ( { "FleetId" :: (FleetId) , "Name" :: Maybe (NonZeroAndMaxString) , "Description" :: Maybe (NonZeroAndMaxString) , "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy) , "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy) , "MetricGroups" :: Maybe (MetricGroupList) } -> {"FleetId" :: (FleetId) , "Name" :: Maybe (NonZeroAndMaxString) , "Description" :: Maybe (NonZeroAndMaxString) , "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy) , "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy) , "MetricGroups" :: Maybe (MetricGroupList) } ) -> UpdateFleetAttributesInput
+newUpdateFleetAttributesInput' _FleetId customize = (UpdateFleetAttributesInput <<< customize) { "FleetId": _FleetId, "Description": Nothing, "MetricGroups": Nothing, "Name": Nothing, "NewGameSessionProtectionPolicy": Nothing, "ResourceCreationLimitPolicy": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype UpdateFleetAttributesOutput = UpdateFleetAttributesOutput 
-  { "FleetId" :: NullOrUndefined (FleetId)
+  { "FleetId" :: Maybe (FleetId)
   }
 derive instance newtypeUpdateFleetAttributesOutput :: Newtype UpdateFleetAttributesOutput _
 derive instance repGenericUpdateFleetAttributesOutput :: Generic UpdateFleetAttributesOutput _
@@ -4477,21 +4476,21 @@ instance encodeUpdateFleetAttributesOutput :: Encode UpdateFleetAttributesOutput
 
 -- | Constructs UpdateFleetAttributesOutput from required parameters
 newUpdateFleetAttributesOutput :: UpdateFleetAttributesOutput
-newUpdateFleetAttributesOutput  = UpdateFleetAttributesOutput { "FleetId": (NullOrUndefined Nothing) }
+newUpdateFleetAttributesOutput  = UpdateFleetAttributesOutput { "FleetId": Nothing }
 
 -- | Constructs UpdateFleetAttributesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateFleetAttributesOutput' :: ( { "FleetId" :: NullOrUndefined (FleetId) } -> {"FleetId" :: NullOrUndefined (FleetId) } ) -> UpdateFleetAttributesOutput
-newUpdateFleetAttributesOutput'  customize = (UpdateFleetAttributesOutput <<< customize) { "FleetId": (NullOrUndefined Nothing) }
+newUpdateFleetAttributesOutput' :: ( { "FleetId" :: Maybe (FleetId) } -> {"FleetId" :: Maybe (FleetId) } ) -> UpdateFleetAttributesOutput
+newUpdateFleetAttributesOutput'  customize = (UpdateFleetAttributesOutput <<< customize) { "FleetId": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype UpdateFleetCapacityInput = UpdateFleetCapacityInput 
   { "FleetId" :: (FleetId)
-  , "DesiredInstances" :: NullOrUndefined (WholeNumber)
-  , "MinSize" :: NullOrUndefined (WholeNumber)
-  , "MaxSize" :: NullOrUndefined (WholeNumber)
+  , "DesiredInstances" :: Maybe (WholeNumber)
+  , "MinSize" :: Maybe (WholeNumber)
+  , "MaxSize" :: Maybe (WholeNumber)
   }
 derive instance newtypeUpdateFleetCapacityInput :: Newtype UpdateFleetCapacityInput _
 derive instance repGenericUpdateFleetCapacityInput :: Generic UpdateFleetCapacityInput _
@@ -4501,18 +4500,18 @@ instance encodeUpdateFleetCapacityInput :: Encode UpdateFleetCapacityInput where
 
 -- | Constructs UpdateFleetCapacityInput from required parameters
 newUpdateFleetCapacityInput :: FleetId -> UpdateFleetCapacityInput
-newUpdateFleetCapacityInput _FleetId = UpdateFleetCapacityInput { "FleetId": _FleetId, "DesiredInstances": (NullOrUndefined Nothing), "MaxSize": (NullOrUndefined Nothing), "MinSize": (NullOrUndefined Nothing) }
+newUpdateFleetCapacityInput _FleetId = UpdateFleetCapacityInput { "FleetId": _FleetId, "DesiredInstances": Nothing, "MaxSize": Nothing, "MinSize": Nothing }
 
 -- | Constructs UpdateFleetCapacityInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateFleetCapacityInput' :: FleetId -> ( { "FleetId" :: (FleetId) , "DesiredInstances" :: NullOrUndefined (WholeNumber) , "MinSize" :: NullOrUndefined (WholeNumber) , "MaxSize" :: NullOrUndefined (WholeNumber) } -> {"FleetId" :: (FleetId) , "DesiredInstances" :: NullOrUndefined (WholeNumber) , "MinSize" :: NullOrUndefined (WholeNumber) , "MaxSize" :: NullOrUndefined (WholeNumber) } ) -> UpdateFleetCapacityInput
-newUpdateFleetCapacityInput' _FleetId customize = (UpdateFleetCapacityInput <<< customize) { "FleetId": _FleetId, "DesiredInstances": (NullOrUndefined Nothing), "MaxSize": (NullOrUndefined Nothing), "MinSize": (NullOrUndefined Nothing) }
+newUpdateFleetCapacityInput' :: FleetId -> ( { "FleetId" :: (FleetId) , "DesiredInstances" :: Maybe (WholeNumber) , "MinSize" :: Maybe (WholeNumber) , "MaxSize" :: Maybe (WholeNumber) } -> {"FleetId" :: (FleetId) , "DesiredInstances" :: Maybe (WholeNumber) , "MinSize" :: Maybe (WholeNumber) , "MaxSize" :: Maybe (WholeNumber) } ) -> UpdateFleetCapacityInput
+newUpdateFleetCapacityInput' _FleetId customize = (UpdateFleetCapacityInput <<< customize) { "FleetId": _FleetId, "DesiredInstances": Nothing, "MaxSize": Nothing, "MinSize": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype UpdateFleetCapacityOutput = UpdateFleetCapacityOutput 
-  { "FleetId" :: NullOrUndefined (FleetId)
+  { "FleetId" :: Maybe (FleetId)
   }
 derive instance newtypeUpdateFleetCapacityOutput :: Newtype UpdateFleetCapacityOutput _
 derive instance repGenericUpdateFleetCapacityOutput :: Generic UpdateFleetCapacityOutput _
@@ -4522,20 +4521,20 @@ instance encodeUpdateFleetCapacityOutput :: Encode UpdateFleetCapacityOutput whe
 
 -- | Constructs UpdateFleetCapacityOutput from required parameters
 newUpdateFleetCapacityOutput :: UpdateFleetCapacityOutput
-newUpdateFleetCapacityOutput  = UpdateFleetCapacityOutput { "FleetId": (NullOrUndefined Nothing) }
+newUpdateFleetCapacityOutput  = UpdateFleetCapacityOutput { "FleetId": Nothing }
 
 -- | Constructs UpdateFleetCapacityOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateFleetCapacityOutput' :: ( { "FleetId" :: NullOrUndefined (FleetId) } -> {"FleetId" :: NullOrUndefined (FleetId) } ) -> UpdateFleetCapacityOutput
-newUpdateFleetCapacityOutput'  customize = (UpdateFleetCapacityOutput <<< customize) { "FleetId": (NullOrUndefined Nothing) }
+newUpdateFleetCapacityOutput' :: ( { "FleetId" :: Maybe (FleetId) } -> {"FleetId" :: Maybe (FleetId) } ) -> UpdateFleetCapacityOutput
+newUpdateFleetCapacityOutput'  customize = (UpdateFleetCapacityOutput <<< customize) { "FleetId": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype UpdateFleetPortSettingsInput = UpdateFleetPortSettingsInput 
   { "FleetId" :: (FleetId)
-  , "InboundPermissionAuthorizations" :: NullOrUndefined (IpPermissionsList)
-  , "InboundPermissionRevocations" :: NullOrUndefined (IpPermissionsList)
+  , "InboundPermissionAuthorizations" :: Maybe (IpPermissionsList)
+  , "InboundPermissionRevocations" :: Maybe (IpPermissionsList)
   }
 derive instance newtypeUpdateFleetPortSettingsInput :: Newtype UpdateFleetPortSettingsInput _
 derive instance repGenericUpdateFleetPortSettingsInput :: Generic UpdateFleetPortSettingsInput _
@@ -4545,18 +4544,18 @@ instance encodeUpdateFleetPortSettingsInput :: Encode UpdateFleetPortSettingsInp
 
 -- | Constructs UpdateFleetPortSettingsInput from required parameters
 newUpdateFleetPortSettingsInput :: FleetId -> UpdateFleetPortSettingsInput
-newUpdateFleetPortSettingsInput _FleetId = UpdateFleetPortSettingsInput { "FleetId": _FleetId, "InboundPermissionAuthorizations": (NullOrUndefined Nothing), "InboundPermissionRevocations": (NullOrUndefined Nothing) }
+newUpdateFleetPortSettingsInput _FleetId = UpdateFleetPortSettingsInput { "FleetId": _FleetId, "InboundPermissionAuthorizations": Nothing, "InboundPermissionRevocations": Nothing }
 
 -- | Constructs UpdateFleetPortSettingsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateFleetPortSettingsInput' :: FleetId -> ( { "FleetId" :: (FleetId) , "InboundPermissionAuthorizations" :: NullOrUndefined (IpPermissionsList) , "InboundPermissionRevocations" :: NullOrUndefined (IpPermissionsList) } -> {"FleetId" :: (FleetId) , "InboundPermissionAuthorizations" :: NullOrUndefined (IpPermissionsList) , "InboundPermissionRevocations" :: NullOrUndefined (IpPermissionsList) } ) -> UpdateFleetPortSettingsInput
-newUpdateFleetPortSettingsInput' _FleetId customize = (UpdateFleetPortSettingsInput <<< customize) { "FleetId": _FleetId, "InboundPermissionAuthorizations": (NullOrUndefined Nothing), "InboundPermissionRevocations": (NullOrUndefined Nothing) }
+newUpdateFleetPortSettingsInput' :: FleetId -> ( { "FleetId" :: (FleetId) , "InboundPermissionAuthorizations" :: Maybe (IpPermissionsList) , "InboundPermissionRevocations" :: Maybe (IpPermissionsList) } -> {"FleetId" :: (FleetId) , "InboundPermissionAuthorizations" :: Maybe (IpPermissionsList) , "InboundPermissionRevocations" :: Maybe (IpPermissionsList) } ) -> UpdateFleetPortSettingsInput
+newUpdateFleetPortSettingsInput' _FleetId customize = (UpdateFleetPortSettingsInput <<< customize) { "FleetId": _FleetId, "InboundPermissionAuthorizations": Nothing, "InboundPermissionRevocations": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype UpdateFleetPortSettingsOutput = UpdateFleetPortSettingsOutput 
-  { "FleetId" :: NullOrUndefined (FleetId)
+  { "FleetId" :: Maybe (FleetId)
   }
 derive instance newtypeUpdateFleetPortSettingsOutput :: Newtype UpdateFleetPortSettingsOutput _
 derive instance repGenericUpdateFleetPortSettingsOutput :: Generic UpdateFleetPortSettingsOutput _
@@ -4566,22 +4565,22 @@ instance encodeUpdateFleetPortSettingsOutput :: Encode UpdateFleetPortSettingsOu
 
 -- | Constructs UpdateFleetPortSettingsOutput from required parameters
 newUpdateFleetPortSettingsOutput :: UpdateFleetPortSettingsOutput
-newUpdateFleetPortSettingsOutput  = UpdateFleetPortSettingsOutput { "FleetId": (NullOrUndefined Nothing) }
+newUpdateFleetPortSettingsOutput  = UpdateFleetPortSettingsOutput { "FleetId": Nothing }
 
 -- | Constructs UpdateFleetPortSettingsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateFleetPortSettingsOutput' :: ( { "FleetId" :: NullOrUndefined (FleetId) } -> {"FleetId" :: NullOrUndefined (FleetId) } ) -> UpdateFleetPortSettingsOutput
-newUpdateFleetPortSettingsOutput'  customize = (UpdateFleetPortSettingsOutput <<< customize) { "FleetId": (NullOrUndefined Nothing) }
+newUpdateFleetPortSettingsOutput' :: ( { "FleetId" :: Maybe (FleetId) } -> {"FleetId" :: Maybe (FleetId) } ) -> UpdateFleetPortSettingsOutput
+newUpdateFleetPortSettingsOutput'  customize = (UpdateFleetPortSettingsOutput <<< customize) { "FleetId": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype UpdateGameSessionInput = UpdateGameSessionInput 
   { "GameSessionId" :: (ArnStringModel)
-  , "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber)
-  , "Name" :: NullOrUndefined (NonZeroAndMaxString)
-  , "PlayerSessionCreationPolicy" :: NullOrUndefined (PlayerSessionCreationPolicy)
-  , "ProtectionPolicy" :: NullOrUndefined (ProtectionPolicy)
+  , "MaximumPlayerSessionCount" :: Maybe (WholeNumber)
+  , "Name" :: Maybe (NonZeroAndMaxString)
+  , "PlayerSessionCreationPolicy" :: Maybe (PlayerSessionCreationPolicy)
+  , "ProtectionPolicy" :: Maybe (ProtectionPolicy)
   }
 derive instance newtypeUpdateGameSessionInput :: Newtype UpdateGameSessionInput _
 derive instance repGenericUpdateGameSessionInput :: Generic UpdateGameSessionInput _
@@ -4591,18 +4590,18 @@ instance encodeUpdateGameSessionInput :: Encode UpdateGameSessionInput where enc
 
 -- | Constructs UpdateGameSessionInput from required parameters
 newUpdateGameSessionInput :: ArnStringModel -> UpdateGameSessionInput
-newUpdateGameSessionInput _GameSessionId = UpdateGameSessionInput { "GameSessionId": _GameSessionId, "MaximumPlayerSessionCount": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "PlayerSessionCreationPolicy": (NullOrUndefined Nothing), "ProtectionPolicy": (NullOrUndefined Nothing) }
+newUpdateGameSessionInput _GameSessionId = UpdateGameSessionInput { "GameSessionId": _GameSessionId, "MaximumPlayerSessionCount": Nothing, "Name": Nothing, "PlayerSessionCreationPolicy": Nothing, "ProtectionPolicy": Nothing }
 
 -- | Constructs UpdateGameSessionInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateGameSessionInput' :: ArnStringModel -> ( { "GameSessionId" :: (ArnStringModel) , "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber) , "Name" :: NullOrUndefined (NonZeroAndMaxString) , "PlayerSessionCreationPolicy" :: NullOrUndefined (PlayerSessionCreationPolicy) , "ProtectionPolicy" :: NullOrUndefined (ProtectionPolicy) } -> {"GameSessionId" :: (ArnStringModel) , "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber) , "Name" :: NullOrUndefined (NonZeroAndMaxString) , "PlayerSessionCreationPolicy" :: NullOrUndefined (PlayerSessionCreationPolicy) , "ProtectionPolicy" :: NullOrUndefined (ProtectionPolicy) } ) -> UpdateGameSessionInput
-newUpdateGameSessionInput' _GameSessionId customize = (UpdateGameSessionInput <<< customize) { "GameSessionId": _GameSessionId, "MaximumPlayerSessionCount": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "PlayerSessionCreationPolicy": (NullOrUndefined Nothing), "ProtectionPolicy": (NullOrUndefined Nothing) }
+newUpdateGameSessionInput' :: ArnStringModel -> ( { "GameSessionId" :: (ArnStringModel) , "MaximumPlayerSessionCount" :: Maybe (WholeNumber) , "Name" :: Maybe (NonZeroAndMaxString) , "PlayerSessionCreationPolicy" :: Maybe (PlayerSessionCreationPolicy) , "ProtectionPolicy" :: Maybe (ProtectionPolicy) } -> {"GameSessionId" :: (ArnStringModel) , "MaximumPlayerSessionCount" :: Maybe (WholeNumber) , "Name" :: Maybe (NonZeroAndMaxString) , "PlayerSessionCreationPolicy" :: Maybe (PlayerSessionCreationPolicy) , "ProtectionPolicy" :: Maybe (ProtectionPolicy) } ) -> UpdateGameSessionInput
+newUpdateGameSessionInput' _GameSessionId customize = (UpdateGameSessionInput <<< customize) { "GameSessionId": _GameSessionId, "MaximumPlayerSessionCount": Nothing, "Name": Nothing, "PlayerSessionCreationPolicy": Nothing, "ProtectionPolicy": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype UpdateGameSessionOutput = UpdateGameSessionOutput 
-  { "GameSession" :: NullOrUndefined (GameSession)
+  { "GameSession" :: Maybe (GameSession)
   }
 derive instance newtypeUpdateGameSessionOutput :: Newtype UpdateGameSessionOutput _
 derive instance repGenericUpdateGameSessionOutput :: Generic UpdateGameSessionOutput _
@@ -4612,21 +4611,21 @@ instance encodeUpdateGameSessionOutput :: Encode UpdateGameSessionOutput where e
 
 -- | Constructs UpdateGameSessionOutput from required parameters
 newUpdateGameSessionOutput :: UpdateGameSessionOutput
-newUpdateGameSessionOutput  = UpdateGameSessionOutput { "GameSession": (NullOrUndefined Nothing) }
+newUpdateGameSessionOutput  = UpdateGameSessionOutput { "GameSession": Nothing }
 
 -- | Constructs UpdateGameSessionOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateGameSessionOutput' :: ( { "GameSession" :: NullOrUndefined (GameSession) } -> {"GameSession" :: NullOrUndefined (GameSession) } ) -> UpdateGameSessionOutput
-newUpdateGameSessionOutput'  customize = (UpdateGameSessionOutput <<< customize) { "GameSession": (NullOrUndefined Nothing) }
+newUpdateGameSessionOutput' :: ( { "GameSession" :: Maybe (GameSession) } -> {"GameSession" :: Maybe (GameSession) } ) -> UpdateGameSessionOutput
+newUpdateGameSessionOutput'  customize = (UpdateGameSessionOutput <<< customize) { "GameSession": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype UpdateGameSessionQueueInput = UpdateGameSessionQueueInput 
   { "Name" :: (GameSessionQueueName)
-  , "TimeoutInSeconds" :: NullOrUndefined (WholeNumber)
-  , "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList)
-  , "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList)
+  , "TimeoutInSeconds" :: Maybe (WholeNumber)
+  , "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList)
+  , "Destinations" :: Maybe (GameSessionQueueDestinationList)
   }
 derive instance newtypeUpdateGameSessionQueueInput :: Newtype UpdateGameSessionQueueInput _
 derive instance repGenericUpdateGameSessionQueueInput :: Generic UpdateGameSessionQueueInput _
@@ -4636,18 +4635,18 @@ instance encodeUpdateGameSessionQueueInput :: Encode UpdateGameSessionQueueInput
 
 -- | Constructs UpdateGameSessionQueueInput from required parameters
 newUpdateGameSessionQueueInput :: GameSessionQueueName -> UpdateGameSessionQueueInput
-newUpdateGameSessionQueueInput _Name = UpdateGameSessionQueueInput { "Name": _Name, "Destinations": (NullOrUndefined Nothing), "PlayerLatencyPolicies": (NullOrUndefined Nothing), "TimeoutInSeconds": (NullOrUndefined Nothing) }
+newUpdateGameSessionQueueInput _Name = UpdateGameSessionQueueInput { "Name": _Name, "Destinations": Nothing, "PlayerLatencyPolicies": Nothing, "TimeoutInSeconds": Nothing }
 
 -- | Constructs UpdateGameSessionQueueInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateGameSessionQueueInput' :: GameSessionQueueName -> ( { "Name" :: (GameSessionQueueName) , "TimeoutInSeconds" :: NullOrUndefined (WholeNumber) , "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList) , "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList) } -> {"Name" :: (GameSessionQueueName) , "TimeoutInSeconds" :: NullOrUndefined (WholeNumber) , "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList) , "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList) } ) -> UpdateGameSessionQueueInput
-newUpdateGameSessionQueueInput' _Name customize = (UpdateGameSessionQueueInput <<< customize) { "Name": _Name, "Destinations": (NullOrUndefined Nothing), "PlayerLatencyPolicies": (NullOrUndefined Nothing), "TimeoutInSeconds": (NullOrUndefined Nothing) }
+newUpdateGameSessionQueueInput' :: GameSessionQueueName -> ( { "Name" :: (GameSessionQueueName) , "TimeoutInSeconds" :: Maybe (WholeNumber) , "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList) , "Destinations" :: Maybe (GameSessionQueueDestinationList) } -> {"Name" :: (GameSessionQueueName) , "TimeoutInSeconds" :: Maybe (WholeNumber) , "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList) , "Destinations" :: Maybe (GameSessionQueueDestinationList) } ) -> UpdateGameSessionQueueInput
+newUpdateGameSessionQueueInput' _Name customize = (UpdateGameSessionQueueInput <<< customize) { "Name": _Name, "Destinations": Nothing, "PlayerLatencyPolicies": Nothing, "TimeoutInSeconds": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype UpdateGameSessionQueueOutput = UpdateGameSessionQueueOutput 
-  { "GameSessionQueue" :: NullOrUndefined (GameSessionQueue)
+  { "GameSessionQueue" :: Maybe (GameSessionQueue)
   }
 derive instance newtypeUpdateGameSessionQueueOutput :: Newtype UpdateGameSessionQueueOutput _
 derive instance repGenericUpdateGameSessionQueueOutput :: Generic UpdateGameSessionQueueOutput _
@@ -4657,29 +4656,29 @@ instance encodeUpdateGameSessionQueueOutput :: Encode UpdateGameSessionQueueOutp
 
 -- | Constructs UpdateGameSessionQueueOutput from required parameters
 newUpdateGameSessionQueueOutput :: UpdateGameSessionQueueOutput
-newUpdateGameSessionQueueOutput  = UpdateGameSessionQueueOutput { "GameSessionQueue": (NullOrUndefined Nothing) }
+newUpdateGameSessionQueueOutput  = UpdateGameSessionQueueOutput { "GameSessionQueue": Nothing }
 
 -- | Constructs UpdateGameSessionQueueOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateGameSessionQueueOutput' :: ( { "GameSessionQueue" :: NullOrUndefined (GameSessionQueue) } -> {"GameSessionQueue" :: NullOrUndefined (GameSessionQueue) } ) -> UpdateGameSessionQueueOutput
-newUpdateGameSessionQueueOutput'  customize = (UpdateGameSessionQueueOutput <<< customize) { "GameSessionQueue": (NullOrUndefined Nothing) }
+newUpdateGameSessionQueueOutput' :: ( { "GameSessionQueue" :: Maybe (GameSessionQueue) } -> {"GameSessionQueue" :: Maybe (GameSessionQueue) } ) -> UpdateGameSessionQueueOutput
+newUpdateGameSessionQueueOutput'  customize = (UpdateGameSessionQueueOutput <<< customize) { "GameSessionQueue": Nothing }
 
 
 
 -- | <p>Represents the input for a request action.</p>
 newtype UpdateMatchmakingConfigurationInput = UpdateMatchmakingConfigurationInput 
   { "Name" :: (MatchmakingIdStringModel)
-  , "Description" :: NullOrUndefined (NonZeroAndMaxString)
-  , "GameSessionQueueArns" :: NullOrUndefined (QueueArnsList)
-  , "RequestTimeoutSeconds" :: NullOrUndefined (MatchmakingRequestTimeoutInteger)
-  , "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger)
-  , "AcceptanceRequired" :: NullOrUndefined (BooleanModel)
-  , "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel)
-  , "NotificationTarget" :: NullOrUndefined (SnsArnStringModel)
-  , "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber)
-  , "CustomEventData" :: NullOrUndefined (CustomEventData)
-  , "GameProperties" :: NullOrUndefined (GamePropertyList)
-  , "GameSessionData" :: NullOrUndefined (GameSessionData)
+  , "Description" :: Maybe (NonZeroAndMaxString)
+  , "GameSessionQueueArns" :: Maybe (QueueArnsList)
+  , "RequestTimeoutSeconds" :: Maybe (MatchmakingRequestTimeoutInteger)
+  , "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger)
+  , "AcceptanceRequired" :: Maybe (BooleanModel)
+  , "RuleSetName" :: Maybe (MatchmakingIdStringModel)
+  , "NotificationTarget" :: Maybe (SnsArnStringModel)
+  , "AdditionalPlayerCount" :: Maybe (WholeNumber)
+  , "CustomEventData" :: Maybe (CustomEventData)
+  , "GameProperties" :: Maybe (GamePropertyList)
+  , "GameSessionData" :: Maybe (GameSessionData)
   }
 derive instance newtypeUpdateMatchmakingConfigurationInput :: Newtype UpdateMatchmakingConfigurationInput _
 derive instance repGenericUpdateMatchmakingConfigurationInput :: Generic UpdateMatchmakingConfigurationInput _
@@ -4689,18 +4688,18 @@ instance encodeUpdateMatchmakingConfigurationInput :: Encode UpdateMatchmakingCo
 
 -- | Constructs UpdateMatchmakingConfigurationInput from required parameters
 newUpdateMatchmakingConfigurationInput :: MatchmakingIdStringModel -> UpdateMatchmakingConfigurationInput
-newUpdateMatchmakingConfigurationInput _Name = UpdateMatchmakingConfigurationInput { "Name": _Name, "AcceptanceRequired": (NullOrUndefined Nothing), "AcceptanceTimeoutSeconds": (NullOrUndefined Nothing), "AdditionalPlayerCount": (NullOrUndefined Nothing), "CustomEventData": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "GameProperties": (NullOrUndefined Nothing), "GameSessionData": (NullOrUndefined Nothing), "GameSessionQueueArns": (NullOrUndefined Nothing), "NotificationTarget": (NullOrUndefined Nothing), "RequestTimeoutSeconds": (NullOrUndefined Nothing), "RuleSetName": (NullOrUndefined Nothing) }
+newUpdateMatchmakingConfigurationInput _Name = UpdateMatchmakingConfigurationInput { "Name": _Name, "AcceptanceRequired": Nothing, "AcceptanceTimeoutSeconds": Nothing, "AdditionalPlayerCount": Nothing, "CustomEventData": Nothing, "Description": Nothing, "GameProperties": Nothing, "GameSessionData": Nothing, "GameSessionQueueArns": Nothing, "NotificationTarget": Nothing, "RequestTimeoutSeconds": Nothing, "RuleSetName": Nothing }
 
 -- | Constructs UpdateMatchmakingConfigurationInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateMatchmakingConfigurationInput' :: MatchmakingIdStringModel -> ( { "Name" :: (MatchmakingIdStringModel) , "Description" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionQueueArns" :: NullOrUndefined (QueueArnsList) , "RequestTimeoutSeconds" :: NullOrUndefined (MatchmakingRequestTimeoutInteger) , "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger) , "AcceptanceRequired" :: NullOrUndefined (BooleanModel) , "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel) , "NotificationTarget" :: NullOrUndefined (SnsArnStringModel) , "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber) , "CustomEventData" :: NullOrUndefined (CustomEventData) , "GameProperties" :: NullOrUndefined (GamePropertyList) , "GameSessionData" :: NullOrUndefined (GameSessionData) } -> {"Name" :: (MatchmakingIdStringModel) , "Description" :: NullOrUndefined (NonZeroAndMaxString) , "GameSessionQueueArns" :: NullOrUndefined (QueueArnsList) , "RequestTimeoutSeconds" :: NullOrUndefined (MatchmakingRequestTimeoutInteger) , "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger) , "AcceptanceRequired" :: NullOrUndefined (BooleanModel) , "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel) , "NotificationTarget" :: NullOrUndefined (SnsArnStringModel) , "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber) , "CustomEventData" :: NullOrUndefined (CustomEventData) , "GameProperties" :: NullOrUndefined (GamePropertyList) , "GameSessionData" :: NullOrUndefined (GameSessionData) } ) -> UpdateMatchmakingConfigurationInput
-newUpdateMatchmakingConfigurationInput' _Name customize = (UpdateMatchmakingConfigurationInput <<< customize) { "Name": _Name, "AcceptanceRequired": (NullOrUndefined Nothing), "AcceptanceTimeoutSeconds": (NullOrUndefined Nothing), "AdditionalPlayerCount": (NullOrUndefined Nothing), "CustomEventData": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "GameProperties": (NullOrUndefined Nothing), "GameSessionData": (NullOrUndefined Nothing), "GameSessionQueueArns": (NullOrUndefined Nothing), "NotificationTarget": (NullOrUndefined Nothing), "RequestTimeoutSeconds": (NullOrUndefined Nothing), "RuleSetName": (NullOrUndefined Nothing) }
+newUpdateMatchmakingConfigurationInput' :: MatchmakingIdStringModel -> ( { "Name" :: (MatchmakingIdStringModel) , "Description" :: Maybe (NonZeroAndMaxString) , "GameSessionQueueArns" :: Maybe (QueueArnsList) , "RequestTimeoutSeconds" :: Maybe (MatchmakingRequestTimeoutInteger) , "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger) , "AcceptanceRequired" :: Maybe (BooleanModel) , "RuleSetName" :: Maybe (MatchmakingIdStringModel) , "NotificationTarget" :: Maybe (SnsArnStringModel) , "AdditionalPlayerCount" :: Maybe (WholeNumber) , "CustomEventData" :: Maybe (CustomEventData) , "GameProperties" :: Maybe (GamePropertyList) , "GameSessionData" :: Maybe (GameSessionData) } -> {"Name" :: (MatchmakingIdStringModel) , "Description" :: Maybe (NonZeroAndMaxString) , "GameSessionQueueArns" :: Maybe (QueueArnsList) , "RequestTimeoutSeconds" :: Maybe (MatchmakingRequestTimeoutInteger) , "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger) , "AcceptanceRequired" :: Maybe (BooleanModel) , "RuleSetName" :: Maybe (MatchmakingIdStringModel) , "NotificationTarget" :: Maybe (SnsArnStringModel) , "AdditionalPlayerCount" :: Maybe (WholeNumber) , "CustomEventData" :: Maybe (CustomEventData) , "GameProperties" :: Maybe (GamePropertyList) , "GameSessionData" :: Maybe (GameSessionData) } ) -> UpdateMatchmakingConfigurationInput
+newUpdateMatchmakingConfigurationInput' _Name customize = (UpdateMatchmakingConfigurationInput <<< customize) { "Name": _Name, "AcceptanceRequired": Nothing, "AcceptanceTimeoutSeconds": Nothing, "AdditionalPlayerCount": Nothing, "CustomEventData": Nothing, "Description": Nothing, "GameProperties": Nothing, "GameSessionData": Nothing, "GameSessionQueueArns": Nothing, "NotificationTarget": Nothing, "RequestTimeoutSeconds": Nothing, "RuleSetName": Nothing }
 
 
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype UpdateMatchmakingConfigurationOutput = UpdateMatchmakingConfigurationOutput 
-  { "Configuration" :: NullOrUndefined (MatchmakingConfiguration)
+  { "Configuration" :: Maybe (MatchmakingConfiguration)
   }
 derive instance newtypeUpdateMatchmakingConfigurationOutput :: Newtype UpdateMatchmakingConfigurationOutput _
 derive instance repGenericUpdateMatchmakingConfigurationOutput :: Generic UpdateMatchmakingConfigurationOutput _
@@ -4710,12 +4709,12 @@ instance encodeUpdateMatchmakingConfigurationOutput :: Encode UpdateMatchmakingC
 
 -- | Constructs UpdateMatchmakingConfigurationOutput from required parameters
 newUpdateMatchmakingConfigurationOutput :: UpdateMatchmakingConfigurationOutput
-newUpdateMatchmakingConfigurationOutput  = UpdateMatchmakingConfigurationOutput { "Configuration": (NullOrUndefined Nothing) }
+newUpdateMatchmakingConfigurationOutput  = UpdateMatchmakingConfigurationOutput { "Configuration": Nothing }
 
 -- | Constructs UpdateMatchmakingConfigurationOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateMatchmakingConfigurationOutput' :: ( { "Configuration" :: NullOrUndefined (MatchmakingConfiguration) } -> {"Configuration" :: NullOrUndefined (MatchmakingConfiguration) } ) -> UpdateMatchmakingConfigurationOutput
-newUpdateMatchmakingConfigurationOutput'  customize = (UpdateMatchmakingConfigurationOutput <<< customize) { "Configuration": (NullOrUndefined Nothing) }
+newUpdateMatchmakingConfigurationOutput' :: ( { "Configuration" :: Maybe (MatchmakingConfiguration) } -> {"Configuration" :: Maybe (MatchmakingConfiguration) } ) -> UpdateMatchmakingConfigurationOutput
+newUpdateMatchmakingConfigurationOutput'  customize = (UpdateMatchmakingConfigurationOutput <<< customize) { "Configuration": Nothing }
 
 
 
@@ -4743,7 +4742,7 @@ newUpdateRuntimeConfigurationInput' _FleetId _RuntimeConfiguration customize = (
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype UpdateRuntimeConfigurationOutput = UpdateRuntimeConfigurationOutput 
-  { "RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration)
+  { "RuntimeConfiguration" :: Maybe (RuntimeConfiguration)
   }
 derive instance newtypeUpdateRuntimeConfigurationOutput :: Newtype UpdateRuntimeConfigurationOutput _
 derive instance repGenericUpdateRuntimeConfigurationOutput :: Generic UpdateRuntimeConfigurationOutput _
@@ -4753,12 +4752,12 @@ instance encodeUpdateRuntimeConfigurationOutput :: Encode UpdateRuntimeConfigura
 
 -- | Constructs UpdateRuntimeConfigurationOutput from required parameters
 newUpdateRuntimeConfigurationOutput :: UpdateRuntimeConfigurationOutput
-newUpdateRuntimeConfigurationOutput  = UpdateRuntimeConfigurationOutput { "RuntimeConfiguration": (NullOrUndefined Nothing) }
+newUpdateRuntimeConfigurationOutput  = UpdateRuntimeConfigurationOutput { "RuntimeConfiguration": Nothing }
 
 -- | Constructs UpdateRuntimeConfigurationOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateRuntimeConfigurationOutput' :: ( { "RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration) } -> {"RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration) } ) -> UpdateRuntimeConfigurationOutput
-newUpdateRuntimeConfigurationOutput'  customize = (UpdateRuntimeConfigurationOutput <<< customize) { "RuntimeConfiguration": (NullOrUndefined Nothing) }
+newUpdateRuntimeConfigurationOutput' :: ( { "RuntimeConfiguration" :: Maybe (RuntimeConfiguration) } -> {"RuntimeConfiguration" :: Maybe (RuntimeConfiguration) } ) -> UpdateRuntimeConfigurationOutput
+newUpdateRuntimeConfigurationOutput'  customize = (UpdateRuntimeConfigurationOutput <<< customize) { "RuntimeConfiguration": Nothing }
 
 
 
@@ -4785,7 +4784,7 @@ newValidateMatchmakingRuleSetInput' _RuleSetBody customize = (ValidateMatchmakin
 
 -- | <p>Represents the returned data in response to a request action.</p>
 newtype ValidateMatchmakingRuleSetOutput = ValidateMatchmakingRuleSetOutput 
-  { "Valid" :: NullOrUndefined (BooleanModel)
+  { "Valid" :: Maybe (BooleanModel)
   }
 derive instance newtypeValidateMatchmakingRuleSetOutput :: Newtype ValidateMatchmakingRuleSetOutput _
 derive instance repGenericValidateMatchmakingRuleSetOutput :: Generic ValidateMatchmakingRuleSetOutput _
@@ -4795,22 +4794,22 @@ instance encodeValidateMatchmakingRuleSetOutput :: Encode ValidateMatchmakingRul
 
 -- | Constructs ValidateMatchmakingRuleSetOutput from required parameters
 newValidateMatchmakingRuleSetOutput :: ValidateMatchmakingRuleSetOutput
-newValidateMatchmakingRuleSetOutput  = ValidateMatchmakingRuleSetOutput { "Valid": (NullOrUndefined Nothing) }
+newValidateMatchmakingRuleSetOutput  = ValidateMatchmakingRuleSetOutput { "Valid": Nothing }
 
 -- | Constructs ValidateMatchmakingRuleSetOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newValidateMatchmakingRuleSetOutput' :: ( { "Valid" :: NullOrUndefined (BooleanModel) } -> {"Valid" :: NullOrUndefined (BooleanModel) } ) -> ValidateMatchmakingRuleSetOutput
-newValidateMatchmakingRuleSetOutput'  customize = (ValidateMatchmakingRuleSetOutput <<< customize) { "Valid": (NullOrUndefined Nothing) }
+newValidateMatchmakingRuleSetOutput' :: ( { "Valid" :: Maybe (BooleanModel) } -> {"Valid" :: Maybe (BooleanModel) } ) -> ValidateMatchmakingRuleSetOutput
+newValidateMatchmakingRuleSetOutput'  customize = (ValidateMatchmakingRuleSetOutput <<< customize) { "Valid": Nothing }
 
 
 
 -- | <p>Represents an authorization for a VPC peering connection between the VPC for an Amazon GameLift fleet and another VPC on an account you have access to. This authorization must exist and be valid for the peering connection to be established. Authorizations are valid for 24 hours after they are issued.</p> <p>VPC peering connection operations include:</p> <ul> <li> <p> <a>CreateVpcPeeringAuthorization</a> </p> </li> <li> <p> <a>DescribeVpcPeeringAuthorizations</a> </p> </li> <li> <p> <a>DeleteVpcPeeringAuthorization</a> </p> </li> <li> <p> <a>CreateVpcPeeringConnection</a> </p> </li> <li> <p> <a>DescribeVpcPeeringConnections</a> </p> </li> <li> <p> <a>DeleteVpcPeeringConnection</a> </p> </li> </ul>
 newtype VpcPeeringAuthorization = VpcPeeringAuthorization 
-  { "GameLiftAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "PeerVpcAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "CreationTime" :: NullOrUndefined (Types.Timestamp)
-  , "ExpirationTime" :: NullOrUndefined (Types.Timestamp)
+  { "GameLiftAwsAccountId" :: Maybe (NonZeroAndMaxString)
+  , "PeerVpcAwsAccountId" :: Maybe (NonZeroAndMaxString)
+  , "PeerVpcId" :: Maybe (NonZeroAndMaxString)
+  , "CreationTime" :: Maybe (Types.Timestamp)
+  , "ExpirationTime" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeVpcPeeringAuthorization :: Newtype VpcPeeringAuthorization _
 derive instance repGenericVpcPeeringAuthorization :: Generic VpcPeeringAuthorization _
@@ -4820,12 +4819,12 @@ instance encodeVpcPeeringAuthorization :: Encode VpcPeeringAuthorization where e
 
 -- | Constructs VpcPeeringAuthorization from required parameters
 newVpcPeeringAuthorization :: VpcPeeringAuthorization
-newVpcPeeringAuthorization  = VpcPeeringAuthorization { "CreationTime": (NullOrUndefined Nothing), "ExpirationTime": (NullOrUndefined Nothing), "GameLiftAwsAccountId": (NullOrUndefined Nothing), "PeerVpcAwsAccountId": (NullOrUndefined Nothing), "PeerVpcId": (NullOrUndefined Nothing) }
+newVpcPeeringAuthorization  = VpcPeeringAuthorization { "CreationTime": Nothing, "ExpirationTime": Nothing, "GameLiftAwsAccountId": Nothing, "PeerVpcAwsAccountId": Nothing, "PeerVpcId": Nothing }
 
 -- | Constructs VpcPeeringAuthorization's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVpcPeeringAuthorization' :: ( { "GameLiftAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString) , "PeerVpcAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString) , "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString) , "CreationTime" :: NullOrUndefined (Types.Timestamp) , "ExpirationTime" :: NullOrUndefined (Types.Timestamp) } -> {"GameLiftAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString) , "PeerVpcAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString) , "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString) , "CreationTime" :: NullOrUndefined (Types.Timestamp) , "ExpirationTime" :: NullOrUndefined (Types.Timestamp) } ) -> VpcPeeringAuthorization
-newVpcPeeringAuthorization'  customize = (VpcPeeringAuthorization <<< customize) { "CreationTime": (NullOrUndefined Nothing), "ExpirationTime": (NullOrUndefined Nothing), "GameLiftAwsAccountId": (NullOrUndefined Nothing), "PeerVpcAwsAccountId": (NullOrUndefined Nothing), "PeerVpcId": (NullOrUndefined Nothing) }
+newVpcPeeringAuthorization' :: ( { "GameLiftAwsAccountId" :: Maybe (NonZeroAndMaxString) , "PeerVpcAwsAccountId" :: Maybe (NonZeroAndMaxString) , "PeerVpcId" :: Maybe (NonZeroAndMaxString) , "CreationTime" :: Maybe (Types.Timestamp) , "ExpirationTime" :: Maybe (Types.Timestamp) } -> {"GameLiftAwsAccountId" :: Maybe (NonZeroAndMaxString) , "PeerVpcAwsAccountId" :: Maybe (NonZeroAndMaxString) , "PeerVpcId" :: Maybe (NonZeroAndMaxString) , "CreationTime" :: Maybe (Types.Timestamp) , "ExpirationTime" :: Maybe (Types.Timestamp) } ) -> VpcPeeringAuthorization
+newVpcPeeringAuthorization'  customize = (VpcPeeringAuthorization <<< customize) { "CreationTime": Nothing, "ExpirationTime": Nothing, "GameLiftAwsAccountId": Nothing, "PeerVpcAwsAccountId": Nothing, "PeerVpcId": Nothing }
 
 
 
@@ -4840,12 +4839,12 @@ instance encodeVpcPeeringAuthorizationList :: Encode VpcPeeringAuthorizationList
 
 -- | <p>Represents a peering connection between a VPC on one of your AWS accounts and the VPC for your Amazon GameLift fleets. This record may be for an active peering connection or a pending connection that has not yet been established.</p> <p>VPC peering connection operations include:</p> <ul> <li> <p> <a>CreateVpcPeeringAuthorization</a> </p> </li> <li> <p> <a>DescribeVpcPeeringAuthorizations</a> </p> </li> <li> <p> <a>DeleteVpcPeeringAuthorization</a> </p> </li> <li> <p> <a>CreateVpcPeeringConnection</a> </p> </li> <li> <p> <a>DescribeVpcPeeringConnections</a> </p> </li> <li> <p> <a>DeleteVpcPeeringConnection</a> </p> </li> </ul>
 newtype VpcPeeringConnection = VpcPeeringConnection 
-  { "FleetId" :: NullOrUndefined (FleetId)
-  , "IpV4CidrBlock" :: NullOrUndefined (NonZeroAndMaxString)
-  , "VpcPeeringConnectionId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "Status" :: NullOrUndefined (VpcPeeringConnectionStatus)
-  , "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString)
-  , "GameLiftVpcId" :: NullOrUndefined (NonZeroAndMaxString)
+  { "FleetId" :: Maybe (FleetId)
+  , "IpV4CidrBlock" :: Maybe (NonZeroAndMaxString)
+  , "VpcPeeringConnectionId" :: Maybe (NonZeroAndMaxString)
+  , "Status" :: Maybe (VpcPeeringConnectionStatus)
+  , "PeerVpcId" :: Maybe (NonZeroAndMaxString)
+  , "GameLiftVpcId" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeVpcPeeringConnection :: Newtype VpcPeeringConnection _
 derive instance repGenericVpcPeeringConnection :: Generic VpcPeeringConnection _
@@ -4855,12 +4854,12 @@ instance encodeVpcPeeringConnection :: Encode VpcPeeringConnection where encode 
 
 -- | Constructs VpcPeeringConnection from required parameters
 newVpcPeeringConnection :: VpcPeeringConnection
-newVpcPeeringConnection  = VpcPeeringConnection { "FleetId": (NullOrUndefined Nothing), "GameLiftVpcId": (NullOrUndefined Nothing), "IpV4CidrBlock": (NullOrUndefined Nothing), "PeerVpcId": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "VpcPeeringConnectionId": (NullOrUndefined Nothing) }
+newVpcPeeringConnection  = VpcPeeringConnection { "FleetId": Nothing, "GameLiftVpcId": Nothing, "IpV4CidrBlock": Nothing, "PeerVpcId": Nothing, "Status": Nothing, "VpcPeeringConnectionId": Nothing }
 
 -- | Constructs VpcPeeringConnection's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVpcPeeringConnection' :: ( { "FleetId" :: NullOrUndefined (FleetId) , "IpV4CidrBlock" :: NullOrUndefined (NonZeroAndMaxString) , "VpcPeeringConnectionId" :: NullOrUndefined (NonZeroAndMaxString) , "Status" :: NullOrUndefined (VpcPeeringConnectionStatus) , "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString) , "GameLiftVpcId" :: NullOrUndefined (NonZeroAndMaxString) } -> {"FleetId" :: NullOrUndefined (FleetId) , "IpV4CidrBlock" :: NullOrUndefined (NonZeroAndMaxString) , "VpcPeeringConnectionId" :: NullOrUndefined (NonZeroAndMaxString) , "Status" :: NullOrUndefined (VpcPeeringConnectionStatus) , "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString) , "GameLiftVpcId" :: NullOrUndefined (NonZeroAndMaxString) } ) -> VpcPeeringConnection
-newVpcPeeringConnection'  customize = (VpcPeeringConnection <<< customize) { "FleetId": (NullOrUndefined Nothing), "GameLiftVpcId": (NullOrUndefined Nothing), "IpV4CidrBlock": (NullOrUndefined Nothing), "PeerVpcId": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "VpcPeeringConnectionId": (NullOrUndefined Nothing) }
+newVpcPeeringConnection' :: ( { "FleetId" :: Maybe (FleetId) , "IpV4CidrBlock" :: Maybe (NonZeroAndMaxString) , "VpcPeeringConnectionId" :: Maybe (NonZeroAndMaxString) , "Status" :: Maybe (VpcPeeringConnectionStatus) , "PeerVpcId" :: Maybe (NonZeroAndMaxString) , "GameLiftVpcId" :: Maybe (NonZeroAndMaxString) } -> {"FleetId" :: Maybe (FleetId) , "IpV4CidrBlock" :: Maybe (NonZeroAndMaxString) , "VpcPeeringConnectionId" :: Maybe (NonZeroAndMaxString) , "Status" :: Maybe (VpcPeeringConnectionStatus) , "PeerVpcId" :: Maybe (NonZeroAndMaxString) , "GameLiftVpcId" :: Maybe (NonZeroAndMaxString) } ) -> VpcPeeringConnection
+newVpcPeeringConnection'  customize = (VpcPeeringConnection <<< customize) { "FleetId": Nothing, "GameLiftVpcId": Nothing, "IpV4CidrBlock": Nothing, "PeerVpcId": Nothing, "Status": Nothing, "VpcPeeringConnectionId": Nothing }
 
 
 
@@ -4875,8 +4874,8 @@ instance encodeVpcPeeringConnectionList :: Encode VpcPeeringConnectionList where
 
 -- | <p>Represents status information for a VPC peering connection. Status is associated with a <a>VpcPeeringConnection</a> object. Status codes and messages are provided from EC2 (see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpcPeeringConnectionStateReason.html">VpcPeeringConnectionStateReason</a>). Connection status information is also communicated as a fleet <a>Event</a>.</p>
 newtype VpcPeeringConnectionStatus = VpcPeeringConnectionStatus 
-  { "Code" :: NullOrUndefined (NonZeroAndMaxString)
-  , "Message" :: NullOrUndefined (NonZeroAndMaxString)
+  { "Code" :: Maybe (NonZeroAndMaxString)
+  , "Message" :: Maybe (NonZeroAndMaxString)
   }
 derive instance newtypeVpcPeeringConnectionStatus :: Newtype VpcPeeringConnectionStatus _
 derive instance repGenericVpcPeeringConnectionStatus :: Generic VpcPeeringConnectionStatus _
@@ -4886,12 +4885,12 @@ instance encodeVpcPeeringConnectionStatus :: Encode VpcPeeringConnectionStatus w
 
 -- | Constructs VpcPeeringConnectionStatus from required parameters
 newVpcPeeringConnectionStatus :: VpcPeeringConnectionStatus
-newVpcPeeringConnectionStatus  = VpcPeeringConnectionStatus { "Code": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newVpcPeeringConnectionStatus  = VpcPeeringConnectionStatus { "Code": Nothing, "Message": Nothing }
 
 -- | Constructs VpcPeeringConnectionStatus's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVpcPeeringConnectionStatus' :: ( { "Code" :: NullOrUndefined (NonZeroAndMaxString) , "Message" :: NullOrUndefined (NonZeroAndMaxString) } -> {"Code" :: NullOrUndefined (NonZeroAndMaxString) , "Message" :: NullOrUndefined (NonZeroAndMaxString) } ) -> VpcPeeringConnectionStatus
-newVpcPeeringConnectionStatus'  customize = (VpcPeeringConnectionStatus <<< customize) { "Code": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newVpcPeeringConnectionStatus' :: ( { "Code" :: Maybe (NonZeroAndMaxString) , "Message" :: Maybe (NonZeroAndMaxString) } -> {"Code" :: Maybe (NonZeroAndMaxString) , "Message" :: Maybe (NonZeroAndMaxString) } ) -> VpcPeeringConnectionStatus
+newVpcPeeringConnectionStatus'  customize = (VpcPeeringConnectionStatus <<< customize) { "Code": Nothing, "Message": Nothing }
 
 
 

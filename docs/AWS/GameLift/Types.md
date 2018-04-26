@@ -76,7 +76,7 @@ Encode AcceptanceType
 
 ``` purescript
 newtype Alias
-  = Alias { "AliasId" :: NullOrUndefined (AliasId), "Name" :: NullOrUndefined (NonBlankAndLengthConstraintString), "AliasArn" :: NullOrUndefined (ArnStringModel), "Description" :: NullOrUndefined (FreeText), "RoutingStrategy" :: NullOrUndefined (RoutingStrategy), "CreationTime" :: NullOrUndefined (Timestamp), "LastUpdatedTime" :: NullOrUndefined (Timestamp) }
+  = Alias { "AliasId" :: Maybe (AliasId), "Name" :: Maybe (NonBlankAndLengthConstraintString), "AliasArn" :: Maybe (ArnStringModel), "Description" :: Maybe (FreeText), "RoutingStrategy" :: Maybe (RoutingStrategy), "CreationTime" :: Maybe (Timestamp), "LastUpdatedTime" :: Maybe (Timestamp) }
 ```
 
 <p>Properties describing a fleet alias.</p> <p>Alias-related operations include:</p> <ul> <li> <p> <a>CreateAlias</a> </p> </li> <li> <p> <a>ListAliases</a> </p> </li> <li> <p> <a>DescribeAlias</a> </p> </li> <li> <p> <a>UpdateAlias</a> </p> </li> <li> <p> <a>DeleteAlias</a> </p> </li> <li> <p> <a>ResolveAlias</a> </p> </li> </ul>
@@ -101,7 +101,7 @@ Constructs Alias from required parameters
 #### `newAlias'`
 
 ``` purescript
-newAlias' :: ({ "AliasId" :: NullOrUndefined (AliasId), "Name" :: NullOrUndefined (NonBlankAndLengthConstraintString), "AliasArn" :: NullOrUndefined (ArnStringModel), "Description" :: NullOrUndefined (FreeText), "RoutingStrategy" :: NullOrUndefined (RoutingStrategy), "CreationTime" :: NullOrUndefined (Timestamp), "LastUpdatedTime" :: NullOrUndefined (Timestamp) } -> { "AliasId" :: NullOrUndefined (AliasId), "Name" :: NullOrUndefined (NonBlankAndLengthConstraintString), "AliasArn" :: NullOrUndefined (ArnStringModel), "Description" :: NullOrUndefined (FreeText), "RoutingStrategy" :: NullOrUndefined (RoutingStrategy), "CreationTime" :: NullOrUndefined (Timestamp), "LastUpdatedTime" :: NullOrUndefined (Timestamp) }) -> Alias
+newAlias' :: ({ "AliasId" :: Maybe (AliasId), "Name" :: Maybe (NonBlankAndLengthConstraintString), "AliasArn" :: Maybe (ArnStringModel), "Description" :: Maybe (FreeText), "RoutingStrategy" :: Maybe (RoutingStrategy), "CreationTime" :: Maybe (Timestamp), "LastUpdatedTime" :: Maybe (Timestamp) } -> { "AliasId" :: Maybe (AliasId), "Name" :: Maybe (NonBlankAndLengthConstraintString), "AliasArn" :: Maybe (ArnStringModel), "Description" :: Maybe (FreeText), "RoutingStrategy" :: Maybe (RoutingStrategy), "CreationTime" :: Maybe (Timestamp), "LastUpdatedTime" :: Maybe (Timestamp) }) -> Alias
 ```
 
 Constructs Alias's fields from required parameters
@@ -158,7 +158,7 @@ Encode ArnStringModel
 
 ``` purescript
 newtype AttributeValue
-  = AttributeValue { "S" :: NullOrUndefined (NonZeroAndMaxString), "N" :: NullOrUndefined (DoubleObject), "SL" :: NullOrUndefined (StringList), "SDM" :: NullOrUndefined (StringDoubleMap) }
+  = AttributeValue { "S" :: Maybe (NonZeroAndMaxString), "N" :: Maybe (DoubleObject), "SL" :: Maybe (StringList), "SDM" :: Maybe (StringDoubleMap) }
 ```
 
 <p>Values for use in <a>Player</a> attribute key:value pairs. This object lets you specify an attribute value using any of the valid data types: string, number, string array or data map. Each <code>AttributeValue</code> object can use only one of the available properties.</p>
@@ -183,7 +183,7 @@ Constructs AttributeValue from required parameters
 #### `newAttributeValue'`
 
 ``` purescript
-newAttributeValue' :: ({ "S" :: NullOrUndefined (NonZeroAndMaxString), "N" :: NullOrUndefined (DoubleObject), "SL" :: NullOrUndefined (StringList), "SDM" :: NullOrUndefined (StringDoubleMap) } -> { "S" :: NullOrUndefined (NonZeroAndMaxString), "N" :: NullOrUndefined (DoubleObject), "SL" :: NullOrUndefined (StringList), "SDM" :: NullOrUndefined (StringDoubleMap) }) -> AttributeValue
+newAttributeValue' :: ({ "S" :: Maybe (NonZeroAndMaxString), "N" :: Maybe (DoubleObject), "SL" :: Maybe (StringList), "SDM" :: Maybe (StringDoubleMap) } -> { "S" :: Maybe (NonZeroAndMaxString), "N" :: Maybe (DoubleObject), "SL" :: Maybe (StringList), "SDM" :: Maybe (StringDoubleMap) }) -> AttributeValue
 ```
 
 Constructs AttributeValue's fields from required parameters
@@ -192,7 +192,7 @@ Constructs AttributeValue's fields from required parameters
 
 ``` purescript
 newtype AwsCredentials
-  = AwsCredentials { "AccessKeyId" :: NullOrUndefined (NonEmptyString), "SecretAccessKey" :: NullOrUndefined (NonEmptyString), "SessionToken" :: NullOrUndefined (NonEmptyString) }
+  = AwsCredentials { "AccessKeyId" :: Maybe (NonEmptyString), "SecretAccessKey" :: Maybe (NonEmptyString), "SessionToken" :: Maybe (NonEmptyString) }
 ```
 
 <p>Temporary access credentials used for uploading game build files to Amazon GameLift. They are valid for a limited time. If they expire before you upload your game build, get a new set by calling <a>RequestUploadCredentials</a>.</p>
@@ -217,7 +217,7 @@ Constructs AwsCredentials from required parameters
 #### `newAwsCredentials'`
 
 ``` purescript
-newAwsCredentials' :: ({ "AccessKeyId" :: NullOrUndefined (NonEmptyString), "SecretAccessKey" :: NullOrUndefined (NonEmptyString), "SessionToken" :: NullOrUndefined (NonEmptyString) } -> { "AccessKeyId" :: NullOrUndefined (NonEmptyString), "SecretAccessKey" :: NullOrUndefined (NonEmptyString), "SessionToken" :: NullOrUndefined (NonEmptyString) }) -> AwsCredentials
+newAwsCredentials' :: ({ "AccessKeyId" :: Maybe (NonEmptyString), "SecretAccessKey" :: Maybe (NonEmptyString), "SessionToken" :: Maybe (NonEmptyString) } -> { "AccessKeyId" :: Maybe (NonEmptyString), "SecretAccessKey" :: Maybe (NonEmptyString), "SessionToken" :: Maybe (NonEmptyString) }) -> AwsCredentials
 ```
 
 Constructs AwsCredentials's fields from required parameters
@@ -242,7 +242,7 @@ Encode BooleanModel
 
 ``` purescript
 newtype Build
-  = Build { "BuildId" :: NullOrUndefined (BuildId), "Name" :: NullOrUndefined (FreeText), "Version" :: NullOrUndefined (FreeText), "Status" :: NullOrUndefined (BuildStatus), "SizeOnDisk" :: NullOrUndefined (PositiveLong), "OperatingSystem" :: NullOrUndefined (OperatingSystem), "CreationTime" :: NullOrUndefined (Timestamp) }
+  = Build { "BuildId" :: Maybe (BuildId), "Name" :: Maybe (FreeText), "Version" :: Maybe (FreeText), "Status" :: Maybe (BuildStatus), "SizeOnDisk" :: Maybe (PositiveLong), "OperatingSystem" :: Maybe (OperatingSystem), "CreationTime" :: Maybe (Timestamp) }
 ```
 
 <p>Properties describing a game build.</p> <p>Build-related operations include:</p> <ul> <li> <p> <a>CreateBuild</a> </p> </li> <li> <p> <a>ListBuilds</a> </p> </li> <li> <p> <a>DescribeBuild</a> </p> </li> <li> <p> <a>UpdateBuild</a> </p> </li> <li> <p> <a>DeleteBuild</a> </p> </li> </ul>
@@ -267,7 +267,7 @@ Constructs Build from required parameters
 #### `newBuild'`
 
 ``` purescript
-newBuild' :: ({ "BuildId" :: NullOrUndefined (BuildId), "Name" :: NullOrUndefined (FreeText), "Version" :: NullOrUndefined (FreeText), "Status" :: NullOrUndefined (BuildStatus), "SizeOnDisk" :: NullOrUndefined (PositiveLong), "OperatingSystem" :: NullOrUndefined (OperatingSystem), "CreationTime" :: NullOrUndefined (Timestamp) } -> { "BuildId" :: NullOrUndefined (BuildId), "Name" :: NullOrUndefined (FreeText), "Version" :: NullOrUndefined (FreeText), "Status" :: NullOrUndefined (BuildStatus), "SizeOnDisk" :: NullOrUndefined (PositiveLong), "OperatingSystem" :: NullOrUndefined (OperatingSystem), "CreationTime" :: NullOrUndefined (Timestamp) }) -> Build
+newBuild' :: ({ "BuildId" :: Maybe (BuildId), "Name" :: Maybe (FreeText), "Version" :: Maybe (FreeText), "Status" :: Maybe (BuildStatus), "SizeOnDisk" :: Maybe (PositiveLong), "OperatingSystem" :: Maybe (OperatingSystem), "CreationTime" :: Maybe (Timestamp) } -> { "BuildId" :: Maybe (BuildId), "Name" :: Maybe (FreeText), "Version" :: Maybe (FreeText), "Status" :: Maybe (BuildStatus), "SizeOnDisk" :: Maybe (PositiveLong), "OperatingSystem" :: Maybe (OperatingSystem), "CreationTime" :: Maybe (Timestamp) }) -> Build
 ```
 
 Constructs Build's fields from required parameters
@@ -340,7 +340,7 @@ Encode ComparisonOperatorType
 
 ``` purescript
 newtype ConflictException
-  = ConflictException { "Message" :: NullOrUndefined (NonEmptyString) }
+  = ConflictException { "Message" :: Maybe (NonEmptyString) }
 ```
 
 <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
@@ -365,7 +365,7 @@ Constructs ConflictException from required parameters
 #### `newConflictException'`
 
 ``` purescript
-newConflictException' :: ({ "Message" :: NullOrUndefined (NonEmptyString) } -> { "Message" :: NullOrUndefined (NonEmptyString) }) -> ConflictException
+newConflictException' :: ({ "Message" :: Maybe (NonEmptyString) } -> { "Message" :: Maybe (NonEmptyString) }) -> ConflictException
 ```
 
 Constructs ConflictException's fields from required parameters
@@ -374,7 +374,7 @@ Constructs ConflictException's fields from required parameters
 
 ``` purescript
 newtype CreateAliasInput
-  = CreateAliasInput { "Name" :: NonBlankAndLengthConstraintString, "Description" :: NullOrUndefined (NonZeroAndMaxString), "RoutingStrategy" :: RoutingStrategy }
+  = CreateAliasInput { "Name" :: NonBlankAndLengthConstraintString, "Description" :: Maybe (NonZeroAndMaxString), "RoutingStrategy" :: RoutingStrategy }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -399,7 +399,7 @@ Constructs CreateAliasInput from required parameters
 #### `newCreateAliasInput'`
 
 ``` purescript
-newCreateAliasInput' :: NonBlankAndLengthConstraintString -> RoutingStrategy -> ({ "Name" :: NonBlankAndLengthConstraintString, "Description" :: NullOrUndefined (NonZeroAndMaxString), "RoutingStrategy" :: RoutingStrategy } -> { "Name" :: NonBlankAndLengthConstraintString, "Description" :: NullOrUndefined (NonZeroAndMaxString), "RoutingStrategy" :: RoutingStrategy }) -> CreateAliasInput
+newCreateAliasInput' :: NonBlankAndLengthConstraintString -> RoutingStrategy -> ({ "Name" :: NonBlankAndLengthConstraintString, "Description" :: Maybe (NonZeroAndMaxString), "RoutingStrategy" :: RoutingStrategy } -> { "Name" :: NonBlankAndLengthConstraintString, "Description" :: Maybe (NonZeroAndMaxString), "RoutingStrategy" :: RoutingStrategy }) -> CreateAliasInput
 ```
 
 Constructs CreateAliasInput's fields from required parameters
@@ -408,7 +408,7 @@ Constructs CreateAliasInput's fields from required parameters
 
 ``` purescript
 newtype CreateAliasOutput
-  = CreateAliasOutput { "Alias" :: NullOrUndefined (Alias) }
+  = CreateAliasOutput { "Alias" :: Maybe (Alias) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -433,7 +433,7 @@ Constructs CreateAliasOutput from required parameters
 #### `newCreateAliasOutput'`
 
 ``` purescript
-newCreateAliasOutput' :: ({ "Alias" :: NullOrUndefined (Alias) } -> { "Alias" :: NullOrUndefined (Alias) }) -> CreateAliasOutput
+newCreateAliasOutput' :: ({ "Alias" :: Maybe (Alias) } -> { "Alias" :: Maybe (Alias) }) -> CreateAliasOutput
 ```
 
 Constructs CreateAliasOutput's fields from required parameters
@@ -442,7 +442,7 @@ Constructs CreateAliasOutput's fields from required parameters
 
 ``` purescript
 newtype CreateBuildInput
-  = CreateBuildInput { "Name" :: NullOrUndefined (NonZeroAndMaxString), "Version" :: NullOrUndefined (NonZeroAndMaxString), "StorageLocation" :: NullOrUndefined (S3Location), "OperatingSystem" :: NullOrUndefined (OperatingSystem) }
+  = CreateBuildInput { "Name" :: Maybe (NonZeroAndMaxString), "Version" :: Maybe (NonZeroAndMaxString), "StorageLocation" :: Maybe (S3Location), "OperatingSystem" :: Maybe (OperatingSystem) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -467,7 +467,7 @@ Constructs CreateBuildInput from required parameters
 #### `newCreateBuildInput'`
 
 ``` purescript
-newCreateBuildInput' :: ({ "Name" :: NullOrUndefined (NonZeroAndMaxString), "Version" :: NullOrUndefined (NonZeroAndMaxString), "StorageLocation" :: NullOrUndefined (S3Location), "OperatingSystem" :: NullOrUndefined (OperatingSystem) } -> { "Name" :: NullOrUndefined (NonZeroAndMaxString), "Version" :: NullOrUndefined (NonZeroAndMaxString), "StorageLocation" :: NullOrUndefined (S3Location), "OperatingSystem" :: NullOrUndefined (OperatingSystem) }) -> CreateBuildInput
+newCreateBuildInput' :: ({ "Name" :: Maybe (NonZeroAndMaxString), "Version" :: Maybe (NonZeroAndMaxString), "StorageLocation" :: Maybe (S3Location), "OperatingSystem" :: Maybe (OperatingSystem) } -> { "Name" :: Maybe (NonZeroAndMaxString), "Version" :: Maybe (NonZeroAndMaxString), "StorageLocation" :: Maybe (S3Location), "OperatingSystem" :: Maybe (OperatingSystem) }) -> CreateBuildInput
 ```
 
 Constructs CreateBuildInput's fields from required parameters
@@ -476,7 +476,7 @@ Constructs CreateBuildInput's fields from required parameters
 
 ``` purescript
 newtype CreateBuildOutput
-  = CreateBuildOutput { "Build" :: NullOrUndefined (Build), "UploadCredentials" :: NullOrUndefined (AwsCredentials), "StorageLocation" :: NullOrUndefined (S3Location) }
+  = CreateBuildOutput { "Build" :: Maybe (Build), "UploadCredentials" :: Maybe (AwsCredentials), "StorageLocation" :: Maybe (S3Location) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -501,7 +501,7 @@ Constructs CreateBuildOutput from required parameters
 #### `newCreateBuildOutput'`
 
 ``` purescript
-newCreateBuildOutput' :: ({ "Build" :: NullOrUndefined (Build), "UploadCredentials" :: NullOrUndefined (AwsCredentials), "StorageLocation" :: NullOrUndefined (S3Location) } -> { "Build" :: NullOrUndefined (Build), "UploadCredentials" :: NullOrUndefined (AwsCredentials), "StorageLocation" :: NullOrUndefined (S3Location) }) -> CreateBuildOutput
+newCreateBuildOutput' :: ({ "Build" :: Maybe (Build), "UploadCredentials" :: Maybe (AwsCredentials), "StorageLocation" :: Maybe (S3Location) } -> { "Build" :: Maybe (Build), "UploadCredentials" :: Maybe (AwsCredentials), "StorageLocation" :: Maybe (S3Location) }) -> CreateBuildOutput
 ```
 
 Constructs CreateBuildOutput's fields from required parameters
@@ -510,7 +510,7 @@ Constructs CreateBuildOutput's fields from required parameters
 
 ``` purescript
 newtype CreateFleetInput
-  = CreateFleetInput { "Name" :: NonZeroAndMaxString, "Description" :: NullOrUndefined (NonZeroAndMaxString), "BuildId" :: BuildId, "ServerLaunchPath" :: NullOrUndefined (NonZeroAndMaxString), "ServerLaunchParameters" :: NullOrUndefined (NonZeroAndMaxString), "LogPaths" :: NullOrUndefined (StringList), "EC2InstanceType" :: EC2InstanceType, "EC2InboundPermissions" :: NullOrUndefined (IpPermissionsList), "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy), "RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration), "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy), "MetricGroups" :: NullOrUndefined (MetricGroupList), "PeerVpcAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString), "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString), "FleetType" :: NullOrUndefined (FleetType) }
+  = CreateFleetInput { "Name" :: NonZeroAndMaxString, "Description" :: Maybe (NonZeroAndMaxString), "BuildId" :: BuildId, "ServerLaunchPath" :: Maybe (NonZeroAndMaxString), "ServerLaunchParameters" :: Maybe (NonZeroAndMaxString), "LogPaths" :: Maybe (StringList), "EC2InstanceType" :: EC2InstanceType, "EC2InboundPermissions" :: Maybe (IpPermissionsList), "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy), "RuntimeConfiguration" :: Maybe (RuntimeConfiguration), "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy), "MetricGroups" :: Maybe (MetricGroupList), "PeerVpcAwsAccountId" :: Maybe (NonZeroAndMaxString), "PeerVpcId" :: Maybe (NonZeroAndMaxString), "FleetType" :: Maybe (FleetType) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -535,7 +535,7 @@ Constructs CreateFleetInput from required parameters
 #### `newCreateFleetInput'`
 
 ``` purescript
-newCreateFleetInput' :: BuildId -> EC2InstanceType -> NonZeroAndMaxString -> ({ "Name" :: NonZeroAndMaxString, "Description" :: NullOrUndefined (NonZeroAndMaxString), "BuildId" :: BuildId, "ServerLaunchPath" :: NullOrUndefined (NonZeroAndMaxString), "ServerLaunchParameters" :: NullOrUndefined (NonZeroAndMaxString), "LogPaths" :: NullOrUndefined (StringList), "EC2InstanceType" :: EC2InstanceType, "EC2InboundPermissions" :: NullOrUndefined (IpPermissionsList), "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy), "RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration), "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy), "MetricGroups" :: NullOrUndefined (MetricGroupList), "PeerVpcAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString), "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString), "FleetType" :: NullOrUndefined (FleetType) } -> { "Name" :: NonZeroAndMaxString, "Description" :: NullOrUndefined (NonZeroAndMaxString), "BuildId" :: BuildId, "ServerLaunchPath" :: NullOrUndefined (NonZeroAndMaxString), "ServerLaunchParameters" :: NullOrUndefined (NonZeroAndMaxString), "LogPaths" :: NullOrUndefined (StringList), "EC2InstanceType" :: EC2InstanceType, "EC2InboundPermissions" :: NullOrUndefined (IpPermissionsList), "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy), "RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration), "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy), "MetricGroups" :: NullOrUndefined (MetricGroupList), "PeerVpcAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString), "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString), "FleetType" :: NullOrUndefined (FleetType) }) -> CreateFleetInput
+newCreateFleetInput' :: BuildId -> EC2InstanceType -> NonZeroAndMaxString -> ({ "Name" :: NonZeroAndMaxString, "Description" :: Maybe (NonZeroAndMaxString), "BuildId" :: BuildId, "ServerLaunchPath" :: Maybe (NonZeroAndMaxString), "ServerLaunchParameters" :: Maybe (NonZeroAndMaxString), "LogPaths" :: Maybe (StringList), "EC2InstanceType" :: EC2InstanceType, "EC2InboundPermissions" :: Maybe (IpPermissionsList), "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy), "RuntimeConfiguration" :: Maybe (RuntimeConfiguration), "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy), "MetricGroups" :: Maybe (MetricGroupList), "PeerVpcAwsAccountId" :: Maybe (NonZeroAndMaxString), "PeerVpcId" :: Maybe (NonZeroAndMaxString), "FleetType" :: Maybe (FleetType) } -> { "Name" :: NonZeroAndMaxString, "Description" :: Maybe (NonZeroAndMaxString), "BuildId" :: BuildId, "ServerLaunchPath" :: Maybe (NonZeroAndMaxString), "ServerLaunchParameters" :: Maybe (NonZeroAndMaxString), "LogPaths" :: Maybe (StringList), "EC2InstanceType" :: EC2InstanceType, "EC2InboundPermissions" :: Maybe (IpPermissionsList), "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy), "RuntimeConfiguration" :: Maybe (RuntimeConfiguration), "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy), "MetricGroups" :: Maybe (MetricGroupList), "PeerVpcAwsAccountId" :: Maybe (NonZeroAndMaxString), "PeerVpcId" :: Maybe (NonZeroAndMaxString), "FleetType" :: Maybe (FleetType) }) -> CreateFleetInput
 ```
 
 Constructs CreateFleetInput's fields from required parameters
@@ -544,7 +544,7 @@ Constructs CreateFleetInput's fields from required parameters
 
 ``` purescript
 newtype CreateFleetOutput
-  = CreateFleetOutput { "FleetAttributes" :: NullOrUndefined (FleetAttributes) }
+  = CreateFleetOutput { "FleetAttributes" :: Maybe (FleetAttributes) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -569,7 +569,7 @@ Constructs CreateFleetOutput from required parameters
 #### `newCreateFleetOutput'`
 
 ``` purescript
-newCreateFleetOutput' :: ({ "FleetAttributes" :: NullOrUndefined (FleetAttributes) } -> { "FleetAttributes" :: NullOrUndefined (FleetAttributes) }) -> CreateFleetOutput
+newCreateFleetOutput' :: ({ "FleetAttributes" :: Maybe (FleetAttributes) } -> { "FleetAttributes" :: Maybe (FleetAttributes) }) -> CreateFleetOutput
 ```
 
 Constructs CreateFleetOutput's fields from required parameters
@@ -578,7 +578,7 @@ Constructs CreateFleetOutput's fields from required parameters
 
 ``` purescript
 newtype CreateGameSessionInput
-  = CreateGameSessionInput { "FleetId" :: NullOrUndefined (FleetId), "AliasId" :: NullOrUndefined (AliasId), "MaximumPlayerSessionCount" :: WholeNumber, "Name" :: NullOrUndefined (NonZeroAndMaxString), "GameProperties" :: NullOrUndefined (GamePropertyList), "CreatorId" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionId" :: NullOrUndefined (IdStringModel), "IdempotencyToken" :: NullOrUndefined (IdStringModel), "GameSessionData" :: NullOrUndefined (GameSessionData) }
+  = CreateGameSessionInput { "FleetId" :: Maybe (FleetId), "AliasId" :: Maybe (AliasId), "MaximumPlayerSessionCount" :: WholeNumber, "Name" :: Maybe (NonZeroAndMaxString), "GameProperties" :: Maybe (GamePropertyList), "CreatorId" :: Maybe (NonZeroAndMaxString), "GameSessionId" :: Maybe (IdStringModel), "IdempotencyToken" :: Maybe (IdStringModel), "GameSessionData" :: Maybe (GameSessionData) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -603,7 +603,7 @@ Constructs CreateGameSessionInput from required parameters
 #### `newCreateGameSessionInput'`
 
 ``` purescript
-newCreateGameSessionInput' :: WholeNumber -> ({ "FleetId" :: NullOrUndefined (FleetId), "AliasId" :: NullOrUndefined (AliasId), "MaximumPlayerSessionCount" :: WholeNumber, "Name" :: NullOrUndefined (NonZeroAndMaxString), "GameProperties" :: NullOrUndefined (GamePropertyList), "CreatorId" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionId" :: NullOrUndefined (IdStringModel), "IdempotencyToken" :: NullOrUndefined (IdStringModel), "GameSessionData" :: NullOrUndefined (GameSessionData) } -> { "FleetId" :: NullOrUndefined (FleetId), "AliasId" :: NullOrUndefined (AliasId), "MaximumPlayerSessionCount" :: WholeNumber, "Name" :: NullOrUndefined (NonZeroAndMaxString), "GameProperties" :: NullOrUndefined (GamePropertyList), "CreatorId" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionId" :: NullOrUndefined (IdStringModel), "IdempotencyToken" :: NullOrUndefined (IdStringModel), "GameSessionData" :: NullOrUndefined (GameSessionData) }) -> CreateGameSessionInput
+newCreateGameSessionInput' :: WholeNumber -> ({ "FleetId" :: Maybe (FleetId), "AliasId" :: Maybe (AliasId), "MaximumPlayerSessionCount" :: WholeNumber, "Name" :: Maybe (NonZeroAndMaxString), "GameProperties" :: Maybe (GamePropertyList), "CreatorId" :: Maybe (NonZeroAndMaxString), "GameSessionId" :: Maybe (IdStringModel), "IdempotencyToken" :: Maybe (IdStringModel), "GameSessionData" :: Maybe (GameSessionData) } -> { "FleetId" :: Maybe (FleetId), "AliasId" :: Maybe (AliasId), "MaximumPlayerSessionCount" :: WholeNumber, "Name" :: Maybe (NonZeroAndMaxString), "GameProperties" :: Maybe (GamePropertyList), "CreatorId" :: Maybe (NonZeroAndMaxString), "GameSessionId" :: Maybe (IdStringModel), "IdempotencyToken" :: Maybe (IdStringModel), "GameSessionData" :: Maybe (GameSessionData) }) -> CreateGameSessionInput
 ```
 
 Constructs CreateGameSessionInput's fields from required parameters
@@ -612,7 +612,7 @@ Constructs CreateGameSessionInput's fields from required parameters
 
 ``` purescript
 newtype CreateGameSessionOutput
-  = CreateGameSessionOutput { "GameSession" :: NullOrUndefined (GameSession) }
+  = CreateGameSessionOutput { "GameSession" :: Maybe (GameSession) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -637,7 +637,7 @@ Constructs CreateGameSessionOutput from required parameters
 #### `newCreateGameSessionOutput'`
 
 ``` purescript
-newCreateGameSessionOutput' :: ({ "GameSession" :: NullOrUndefined (GameSession) } -> { "GameSession" :: NullOrUndefined (GameSession) }) -> CreateGameSessionOutput
+newCreateGameSessionOutput' :: ({ "GameSession" :: Maybe (GameSession) } -> { "GameSession" :: Maybe (GameSession) }) -> CreateGameSessionOutput
 ```
 
 Constructs CreateGameSessionOutput's fields from required parameters
@@ -646,7 +646,7 @@ Constructs CreateGameSessionOutput's fields from required parameters
 
 ``` purescript
 newtype CreateGameSessionQueueInput
-  = CreateGameSessionQueueInput { "Name" :: GameSessionQueueName, "TimeoutInSeconds" :: NullOrUndefined (WholeNumber), "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList), "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList) }
+  = CreateGameSessionQueueInput { "Name" :: GameSessionQueueName, "TimeoutInSeconds" :: Maybe (WholeNumber), "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList), "Destinations" :: Maybe (GameSessionQueueDestinationList) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -671,7 +671,7 @@ Constructs CreateGameSessionQueueInput from required parameters
 #### `newCreateGameSessionQueueInput'`
 
 ``` purescript
-newCreateGameSessionQueueInput' :: GameSessionQueueName -> ({ "Name" :: GameSessionQueueName, "TimeoutInSeconds" :: NullOrUndefined (WholeNumber), "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList), "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList) } -> { "Name" :: GameSessionQueueName, "TimeoutInSeconds" :: NullOrUndefined (WholeNumber), "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList), "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList) }) -> CreateGameSessionQueueInput
+newCreateGameSessionQueueInput' :: GameSessionQueueName -> ({ "Name" :: GameSessionQueueName, "TimeoutInSeconds" :: Maybe (WholeNumber), "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList), "Destinations" :: Maybe (GameSessionQueueDestinationList) } -> { "Name" :: GameSessionQueueName, "TimeoutInSeconds" :: Maybe (WholeNumber), "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList), "Destinations" :: Maybe (GameSessionQueueDestinationList) }) -> CreateGameSessionQueueInput
 ```
 
 Constructs CreateGameSessionQueueInput's fields from required parameters
@@ -680,7 +680,7 @@ Constructs CreateGameSessionQueueInput's fields from required parameters
 
 ``` purescript
 newtype CreateGameSessionQueueOutput
-  = CreateGameSessionQueueOutput { "GameSessionQueue" :: NullOrUndefined (GameSessionQueue) }
+  = CreateGameSessionQueueOutput { "GameSessionQueue" :: Maybe (GameSessionQueue) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -705,7 +705,7 @@ Constructs CreateGameSessionQueueOutput from required parameters
 #### `newCreateGameSessionQueueOutput'`
 
 ``` purescript
-newCreateGameSessionQueueOutput' :: ({ "GameSessionQueue" :: NullOrUndefined (GameSessionQueue) } -> { "GameSessionQueue" :: NullOrUndefined (GameSessionQueue) }) -> CreateGameSessionQueueOutput
+newCreateGameSessionQueueOutput' :: ({ "GameSessionQueue" :: Maybe (GameSessionQueue) } -> { "GameSessionQueue" :: Maybe (GameSessionQueue) }) -> CreateGameSessionQueueOutput
 ```
 
 Constructs CreateGameSessionQueueOutput's fields from required parameters
@@ -714,7 +714,7 @@ Constructs CreateGameSessionQueueOutput's fields from required parameters
 
 ``` purescript
 newtype CreateMatchmakingConfigurationInput
-  = CreateMatchmakingConfigurationInput { "Name" :: MatchmakingIdStringModel, "Description" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionQueueArns" :: QueueArnsList, "RequestTimeoutSeconds" :: MatchmakingRequestTimeoutInteger, "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: BooleanModel, "RuleSetName" :: MatchmakingIdStringModel, "NotificationTarget" :: NullOrUndefined (SnsArnStringModel), "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber), "CustomEventData" :: NullOrUndefined (CustomEventData), "GameProperties" :: NullOrUndefined (GamePropertyList), "GameSessionData" :: NullOrUndefined (GameSessionData) }
+  = CreateMatchmakingConfigurationInput { "Name" :: MatchmakingIdStringModel, "Description" :: Maybe (NonZeroAndMaxString), "GameSessionQueueArns" :: QueueArnsList, "RequestTimeoutSeconds" :: MatchmakingRequestTimeoutInteger, "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: BooleanModel, "RuleSetName" :: MatchmakingIdStringModel, "NotificationTarget" :: Maybe (SnsArnStringModel), "AdditionalPlayerCount" :: Maybe (WholeNumber), "CustomEventData" :: Maybe (CustomEventData), "GameProperties" :: Maybe (GamePropertyList), "GameSessionData" :: Maybe (GameSessionData) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -739,7 +739,7 @@ Constructs CreateMatchmakingConfigurationInput from required parameters
 #### `newCreateMatchmakingConfigurationInput'`
 
 ``` purescript
-newCreateMatchmakingConfigurationInput' :: BooleanModel -> QueueArnsList -> MatchmakingIdStringModel -> MatchmakingRequestTimeoutInteger -> MatchmakingIdStringModel -> ({ "Name" :: MatchmakingIdStringModel, "Description" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionQueueArns" :: QueueArnsList, "RequestTimeoutSeconds" :: MatchmakingRequestTimeoutInteger, "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: BooleanModel, "RuleSetName" :: MatchmakingIdStringModel, "NotificationTarget" :: NullOrUndefined (SnsArnStringModel), "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber), "CustomEventData" :: NullOrUndefined (CustomEventData), "GameProperties" :: NullOrUndefined (GamePropertyList), "GameSessionData" :: NullOrUndefined (GameSessionData) } -> { "Name" :: MatchmakingIdStringModel, "Description" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionQueueArns" :: QueueArnsList, "RequestTimeoutSeconds" :: MatchmakingRequestTimeoutInteger, "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: BooleanModel, "RuleSetName" :: MatchmakingIdStringModel, "NotificationTarget" :: NullOrUndefined (SnsArnStringModel), "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber), "CustomEventData" :: NullOrUndefined (CustomEventData), "GameProperties" :: NullOrUndefined (GamePropertyList), "GameSessionData" :: NullOrUndefined (GameSessionData) }) -> CreateMatchmakingConfigurationInput
+newCreateMatchmakingConfigurationInput' :: BooleanModel -> QueueArnsList -> MatchmakingIdStringModel -> MatchmakingRequestTimeoutInteger -> MatchmakingIdStringModel -> ({ "Name" :: MatchmakingIdStringModel, "Description" :: Maybe (NonZeroAndMaxString), "GameSessionQueueArns" :: QueueArnsList, "RequestTimeoutSeconds" :: MatchmakingRequestTimeoutInteger, "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: BooleanModel, "RuleSetName" :: MatchmakingIdStringModel, "NotificationTarget" :: Maybe (SnsArnStringModel), "AdditionalPlayerCount" :: Maybe (WholeNumber), "CustomEventData" :: Maybe (CustomEventData), "GameProperties" :: Maybe (GamePropertyList), "GameSessionData" :: Maybe (GameSessionData) } -> { "Name" :: MatchmakingIdStringModel, "Description" :: Maybe (NonZeroAndMaxString), "GameSessionQueueArns" :: QueueArnsList, "RequestTimeoutSeconds" :: MatchmakingRequestTimeoutInteger, "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: BooleanModel, "RuleSetName" :: MatchmakingIdStringModel, "NotificationTarget" :: Maybe (SnsArnStringModel), "AdditionalPlayerCount" :: Maybe (WholeNumber), "CustomEventData" :: Maybe (CustomEventData), "GameProperties" :: Maybe (GamePropertyList), "GameSessionData" :: Maybe (GameSessionData) }) -> CreateMatchmakingConfigurationInput
 ```
 
 Constructs CreateMatchmakingConfigurationInput's fields from required parameters
@@ -748,7 +748,7 @@ Constructs CreateMatchmakingConfigurationInput's fields from required parameters
 
 ``` purescript
 newtype CreateMatchmakingConfigurationOutput
-  = CreateMatchmakingConfigurationOutput { "Configuration" :: NullOrUndefined (MatchmakingConfiguration) }
+  = CreateMatchmakingConfigurationOutput { "Configuration" :: Maybe (MatchmakingConfiguration) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -773,7 +773,7 @@ Constructs CreateMatchmakingConfigurationOutput from required parameters
 #### `newCreateMatchmakingConfigurationOutput'`
 
 ``` purescript
-newCreateMatchmakingConfigurationOutput' :: ({ "Configuration" :: NullOrUndefined (MatchmakingConfiguration) } -> { "Configuration" :: NullOrUndefined (MatchmakingConfiguration) }) -> CreateMatchmakingConfigurationOutput
+newCreateMatchmakingConfigurationOutput' :: ({ "Configuration" :: Maybe (MatchmakingConfiguration) } -> { "Configuration" :: Maybe (MatchmakingConfiguration) }) -> CreateMatchmakingConfigurationOutput
 ```
 
 Constructs CreateMatchmakingConfigurationOutput's fields from required parameters
@@ -850,7 +850,7 @@ Constructs CreateMatchmakingRuleSetOutput's fields from required parameters
 
 ``` purescript
 newtype CreatePlayerSessionInput
-  = CreatePlayerSessionInput { "GameSessionId" :: ArnStringModel, "PlayerId" :: NonZeroAndMaxString, "PlayerData" :: NullOrUndefined (PlayerData) }
+  = CreatePlayerSessionInput { "GameSessionId" :: ArnStringModel, "PlayerId" :: NonZeroAndMaxString, "PlayerData" :: Maybe (PlayerData) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -875,7 +875,7 @@ Constructs CreatePlayerSessionInput from required parameters
 #### `newCreatePlayerSessionInput'`
 
 ``` purescript
-newCreatePlayerSessionInput' :: ArnStringModel -> NonZeroAndMaxString -> ({ "GameSessionId" :: ArnStringModel, "PlayerId" :: NonZeroAndMaxString, "PlayerData" :: NullOrUndefined (PlayerData) } -> { "GameSessionId" :: ArnStringModel, "PlayerId" :: NonZeroAndMaxString, "PlayerData" :: NullOrUndefined (PlayerData) }) -> CreatePlayerSessionInput
+newCreatePlayerSessionInput' :: ArnStringModel -> NonZeroAndMaxString -> ({ "GameSessionId" :: ArnStringModel, "PlayerId" :: NonZeroAndMaxString, "PlayerData" :: Maybe (PlayerData) } -> { "GameSessionId" :: ArnStringModel, "PlayerId" :: NonZeroAndMaxString, "PlayerData" :: Maybe (PlayerData) }) -> CreatePlayerSessionInput
 ```
 
 Constructs CreatePlayerSessionInput's fields from required parameters
@@ -884,7 +884,7 @@ Constructs CreatePlayerSessionInput's fields from required parameters
 
 ``` purescript
 newtype CreatePlayerSessionOutput
-  = CreatePlayerSessionOutput { "PlayerSession" :: NullOrUndefined (PlayerSession) }
+  = CreatePlayerSessionOutput { "PlayerSession" :: Maybe (PlayerSession) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -909,7 +909,7 @@ Constructs CreatePlayerSessionOutput from required parameters
 #### `newCreatePlayerSessionOutput'`
 
 ``` purescript
-newCreatePlayerSessionOutput' :: ({ "PlayerSession" :: NullOrUndefined (PlayerSession) } -> { "PlayerSession" :: NullOrUndefined (PlayerSession) }) -> CreatePlayerSessionOutput
+newCreatePlayerSessionOutput' :: ({ "PlayerSession" :: Maybe (PlayerSession) } -> { "PlayerSession" :: Maybe (PlayerSession) }) -> CreatePlayerSessionOutput
 ```
 
 Constructs CreatePlayerSessionOutput's fields from required parameters
@@ -918,7 +918,7 @@ Constructs CreatePlayerSessionOutput's fields from required parameters
 
 ``` purescript
 newtype CreatePlayerSessionsInput
-  = CreatePlayerSessionsInput { "GameSessionId" :: ArnStringModel, "PlayerIds" :: PlayerIdList, "PlayerDataMap" :: NullOrUndefined (PlayerDataMap) }
+  = CreatePlayerSessionsInput { "GameSessionId" :: ArnStringModel, "PlayerIds" :: PlayerIdList, "PlayerDataMap" :: Maybe (PlayerDataMap) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -943,7 +943,7 @@ Constructs CreatePlayerSessionsInput from required parameters
 #### `newCreatePlayerSessionsInput'`
 
 ``` purescript
-newCreatePlayerSessionsInput' :: ArnStringModel -> PlayerIdList -> ({ "GameSessionId" :: ArnStringModel, "PlayerIds" :: PlayerIdList, "PlayerDataMap" :: NullOrUndefined (PlayerDataMap) } -> { "GameSessionId" :: ArnStringModel, "PlayerIds" :: PlayerIdList, "PlayerDataMap" :: NullOrUndefined (PlayerDataMap) }) -> CreatePlayerSessionsInput
+newCreatePlayerSessionsInput' :: ArnStringModel -> PlayerIdList -> ({ "GameSessionId" :: ArnStringModel, "PlayerIds" :: PlayerIdList, "PlayerDataMap" :: Maybe (PlayerDataMap) } -> { "GameSessionId" :: ArnStringModel, "PlayerIds" :: PlayerIdList, "PlayerDataMap" :: Maybe (PlayerDataMap) }) -> CreatePlayerSessionsInput
 ```
 
 Constructs CreatePlayerSessionsInput's fields from required parameters
@@ -952,7 +952,7 @@ Constructs CreatePlayerSessionsInput's fields from required parameters
 
 ``` purescript
 newtype CreatePlayerSessionsOutput
-  = CreatePlayerSessionsOutput { "PlayerSessions" :: NullOrUndefined (PlayerSessionList) }
+  = CreatePlayerSessionsOutput { "PlayerSessions" :: Maybe (PlayerSessionList) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -977,7 +977,7 @@ Constructs CreatePlayerSessionsOutput from required parameters
 #### `newCreatePlayerSessionsOutput'`
 
 ``` purescript
-newCreatePlayerSessionsOutput' :: ({ "PlayerSessions" :: NullOrUndefined (PlayerSessionList) } -> { "PlayerSessions" :: NullOrUndefined (PlayerSessionList) }) -> CreatePlayerSessionsOutput
+newCreatePlayerSessionsOutput' :: ({ "PlayerSessions" :: Maybe (PlayerSessionList) } -> { "PlayerSessions" :: Maybe (PlayerSessionList) }) -> CreatePlayerSessionsOutput
 ```
 
 Constructs CreatePlayerSessionsOutput's fields from required parameters
@@ -1020,7 +1020,7 @@ Constructs CreateVpcPeeringAuthorizationInput's fields from required parameters
 
 ``` purescript
 newtype CreateVpcPeeringAuthorizationOutput
-  = CreateVpcPeeringAuthorizationOutput { "VpcPeeringAuthorization" :: NullOrUndefined (VpcPeeringAuthorization) }
+  = CreateVpcPeeringAuthorizationOutput { "VpcPeeringAuthorization" :: Maybe (VpcPeeringAuthorization) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -1045,7 +1045,7 @@ Constructs CreateVpcPeeringAuthorizationOutput from required parameters
 #### `newCreateVpcPeeringAuthorizationOutput'`
 
 ``` purescript
-newCreateVpcPeeringAuthorizationOutput' :: ({ "VpcPeeringAuthorization" :: NullOrUndefined (VpcPeeringAuthorization) } -> { "VpcPeeringAuthorization" :: NullOrUndefined (VpcPeeringAuthorization) }) -> CreateVpcPeeringAuthorizationOutput
+newCreateVpcPeeringAuthorizationOutput' :: ({ "VpcPeeringAuthorization" :: Maybe (VpcPeeringAuthorization) } -> { "VpcPeeringAuthorization" :: Maybe (VpcPeeringAuthorization) }) -> CreateVpcPeeringAuthorizationOutput
 ```
 
 Constructs CreateVpcPeeringAuthorizationOutput's fields from required parameters
@@ -1490,7 +1490,7 @@ Constructs DescribeAliasInput's fields from required parameters
 
 ``` purescript
 newtype DescribeAliasOutput
-  = DescribeAliasOutput { "Alias" :: NullOrUndefined (Alias) }
+  = DescribeAliasOutput { "Alias" :: Maybe (Alias) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -1515,7 +1515,7 @@ Constructs DescribeAliasOutput from required parameters
 #### `newDescribeAliasOutput'`
 
 ``` purescript
-newDescribeAliasOutput' :: ({ "Alias" :: NullOrUndefined (Alias) } -> { "Alias" :: NullOrUndefined (Alias) }) -> DescribeAliasOutput
+newDescribeAliasOutput' :: ({ "Alias" :: Maybe (Alias) } -> { "Alias" :: Maybe (Alias) }) -> DescribeAliasOutput
 ```
 
 Constructs DescribeAliasOutput's fields from required parameters
@@ -1558,7 +1558,7 @@ Constructs DescribeBuildInput's fields from required parameters
 
 ``` purescript
 newtype DescribeBuildOutput
-  = DescribeBuildOutput { "Build" :: NullOrUndefined (Build) }
+  = DescribeBuildOutput { "Build" :: Maybe (Build) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -1583,7 +1583,7 @@ Constructs DescribeBuildOutput from required parameters
 #### `newDescribeBuildOutput'`
 
 ``` purescript
-newDescribeBuildOutput' :: ({ "Build" :: NullOrUndefined (Build) } -> { "Build" :: NullOrUndefined (Build) }) -> DescribeBuildOutput
+newDescribeBuildOutput' :: ({ "Build" :: Maybe (Build) } -> { "Build" :: Maybe (Build) }) -> DescribeBuildOutput
 ```
 
 Constructs DescribeBuildOutput's fields from required parameters
@@ -1592,7 +1592,7 @@ Constructs DescribeBuildOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeEC2InstanceLimitsInput
-  = DescribeEC2InstanceLimitsInput { "EC2InstanceType" :: NullOrUndefined (EC2InstanceType) }
+  = DescribeEC2InstanceLimitsInput { "EC2InstanceType" :: Maybe (EC2InstanceType) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -1617,7 +1617,7 @@ Constructs DescribeEC2InstanceLimitsInput from required parameters
 #### `newDescribeEC2InstanceLimitsInput'`
 
 ``` purescript
-newDescribeEC2InstanceLimitsInput' :: ({ "EC2InstanceType" :: NullOrUndefined (EC2InstanceType) } -> { "EC2InstanceType" :: NullOrUndefined (EC2InstanceType) }) -> DescribeEC2InstanceLimitsInput
+newDescribeEC2InstanceLimitsInput' :: ({ "EC2InstanceType" :: Maybe (EC2InstanceType) } -> { "EC2InstanceType" :: Maybe (EC2InstanceType) }) -> DescribeEC2InstanceLimitsInput
 ```
 
 Constructs DescribeEC2InstanceLimitsInput's fields from required parameters
@@ -1626,7 +1626,7 @@ Constructs DescribeEC2InstanceLimitsInput's fields from required parameters
 
 ``` purescript
 newtype DescribeEC2InstanceLimitsOutput
-  = DescribeEC2InstanceLimitsOutput { "EC2InstanceLimits" :: NullOrUndefined (EC2InstanceLimitList) }
+  = DescribeEC2InstanceLimitsOutput { "EC2InstanceLimits" :: Maybe (EC2InstanceLimitList) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -1651,7 +1651,7 @@ Constructs DescribeEC2InstanceLimitsOutput from required parameters
 #### `newDescribeEC2InstanceLimitsOutput'`
 
 ``` purescript
-newDescribeEC2InstanceLimitsOutput' :: ({ "EC2InstanceLimits" :: NullOrUndefined (EC2InstanceLimitList) } -> { "EC2InstanceLimits" :: NullOrUndefined (EC2InstanceLimitList) }) -> DescribeEC2InstanceLimitsOutput
+newDescribeEC2InstanceLimitsOutput' :: ({ "EC2InstanceLimits" :: Maybe (EC2InstanceLimitList) } -> { "EC2InstanceLimits" :: Maybe (EC2InstanceLimitList) }) -> DescribeEC2InstanceLimitsOutput
 ```
 
 Constructs DescribeEC2InstanceLimitsOutput's fields from required parameters
@@ -1660,7 +1660,7 @@ Constructs DescribeEC2InstanceLimitsOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeFleetAttributesInput
-  = DescribeFleetAttributesInput { "FleetIds" :: NullOrUndefined (FleetIdList), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeFleetAttributesInput { "FleetIds" :: Maybe (FleetIdList), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -1685,7 +1685,7 @@ Constructs DescribeFleetAttributesInput from required parameters
 #### `newDescribeFleetAttributesInput'`
 
 ``` purescript
-newDescribeFleetAttributesInput' :: ({ "FleetIds" :: NullOrUndefined (FleetIdList), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "FleetIds" :: NullOrUndefined (FleetIdList), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeFleetAttributesInput
+newDescribeFleetAttributesInput' :: ({ "FleetIds" :: Maybe (FleetIdList), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "FleetIds" :: Maybe (FleetIdList), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeFleetAttributesInput
 ```
 
 Constructs DescribeFleetAttributesInput's fields from required parameters
@@ -1694,7 +1694,7 @@ Constructs DescribeFleetAttributesInput's fields from required parameters
 
 ``` purescript
 newtype DescribeFleetAttributesOutput
-  = DescribeFleetAttributesOutput { "FleetAttributes" :: NullOrUndefined (FleetAttributesList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeFleetAttributesOutput { "FleetAttributes" :: Maybe (FleetAttributesList), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -1719,7 +1719,7 @@ Constructs DescribeFleetAttributesOutput from required parameters
 #### `newDescribeFleetAttributesOutput'`
 
 ``` purescript
-newDescribeFleetAttributesOutput' :: ({ "FleetAttributes" :: NullOrUndefined (FleetAttributesList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "FleetAttributes" :: NullOrUndefined (FleetAttributesList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeFleetAttributesOutput
+newDescribeFleetAttributesOutput' :: ({ "FleetAttributes" :: Maybe (FleetAttributesList), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "FleetAttributes" :: Maybe (FleetAttributesList), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeFleetAttributesOutput
 ```
 
 Constructs DescribeFleetAttributesOutput's fields from required parameters
@@ -1728,7 +1728,7 @@ Constructs DescribeFleetAttributesOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeFleetCapacityInput
-  = DescribeFleetCapacityInput { "FleetIds" :: NullOrUndefined (FleetIdList), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeFleetCapacityInput { "FleetIds" :: Maybe (FleetIdList), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -1753,7 +1753,7 @@ Constructs DescribeFleetCapacityInput from required parameters
 #### `newDescribeFleetCapacityInput'`
 
 ``` purescript
-newDescribeFleetCapacityInput' :: ({ "FleetIds" :: NullOrUndefined (FleetIdList), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "FleetIds" :: NullOrUndefined (FleetIdList), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeFleetCapacityInput
+newDescribeFleetCapacityInput' :: ({ "FleetIds" :: Maybe (FleetIdList), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "FleetIds" :: Maybe (FleetIdList), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeFleetCapacityInput
 ```
 
 Constructs DescribeFleetCapacityInput's fields from required parameters
@@ -1762,7 +1762,7 @@ Constructs DescribeFleetCapacityInput's fields from required parameters
 
 ``` purescript
 newtype DescribeFleetCapacityOutput
-  = DescribeFleetCapacityOutput { "FleetCapacity" :: NullOrUndefined (FleetCapacityList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeFleetCapacityOutput { "FleetCapacity" :: Maybe (FleetCapacityList), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -1787,7 +1787,7 @@ Constructs DescribeFleetCapacityOutput from required parameters
 #### `newDescribeFleetCapacityOutput'`
 
 ``` purescript
-newDescribeFleetCapacityOutput' :: ({ "FleetCapacity" :: NullOrUndefined (FleetCapacityList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "FleetCapacity" :: NullOrUndefined (FleetCapacityList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeFleetCapacityOutput
+newDescribeFleetCapacityOutput' :: ({ "FleetCapacity" :: Maybe (FleetCapacityList), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "FleetCapacity" :: Maybe (FleetCapacityList), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeFleetCapacityOutput
 ```
 
 Constructs DescribeFleetCapacityOutput's fields from required parameters
@@ -1796,7 +1796,7 @@ Constructs DescribeFleetCapacityOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeFleetEventsInput
-  = DescribeFleetEventsInput { "FleetId" :: FleetId, "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeFleetEventsInput { "FleetId" :: FleetId, "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -1821,7 +1821,7 @@ Constructs DescribeFleetEventsInput from required parameters
 #### `newDescribeFleetEventsInput'`
 
 ``` purescript
-newDescribeFleetEventsInput' :: FleetId -> ({ "FleetId" :: FleetId, "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "FleetId" :: FleetId, "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeFleetEventsInput
+newDescribeFleetEventsInput' :: FleetId -> ({ "FleetId" :: FleetId, "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "FleetId" :: FleetId, "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeFleetEventsInput
 ```
 
 Constructs DescribeFleetEventsInput's fields from required parameters
@@ -1830,7 +1830,7 @@ Constructs DescribeFleetEventsInput's fields from required parameters
 
 ``` purescript
 newtype DescribeFleetEventsOutput
-  = DescribeFleetEventsOutput { "Events" :: NullOrUndefined (EventList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeFleetEventsOutput { "Events" :: Maybe (EventList), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -1855,7 +1855,7 @@ Constructs DescribeFleetEventsOutput from required parameters
 #### `newDescribeFleetEventsOutput'`
 
 ``` purescript
-newDescribeFleetEventsOutput' :: ({ "Events" :: NullOrUndefined (EventList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "Events" :: NullOrUndefined (EventList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeFleetEventsOutput
+newDescribeFleetEventsOutput' :: ({ "Events" :: Maybe (EventList), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "Events" :: Maybe (EventList), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeFleetEventsOutput
 ```
 
 Constructs DescribeFleetEventsOutput's fields from required parameters
@@ -1898,7 +1898,7 @@ Constructs DescribeFleetPortSettingsInput's fields from required parameters
 
 ``` purescript
 newtype DescribeFleetPortSettingsOutput
-  = DescribeFleetPortSettingsOutput { "InboundPermissions" :: NullOrUndefined (IpPermissionsList) }
+  = DescribeFleetPortSettingsOutput { "InboundPermissions" :: Maybe (IpPermissionsList) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -1923,7 +1923,7 @@ Constructs DescribeFleetPortSettingsOutput from required parameters
 #### `newDescribeFleetPortSettingsOutput'`
 
 ``` purescript
-newDescribeFleetPortSettingsOutput' :: ({ "InboundPermissions" :: NullOrUndefined (IpPermissionsList) } -> { "InboundPermissions" :: NullOrUndefined (IpPermissionsList) }) -> DescribeFleetPortSettingsOutput
+newDescribeFleetPortSettingsOutput' :: ({ "InboundPermissions" :: Maybe (IpPermissionsList) } -> { "InboundPermissions" :: Maybe (IpPermissionsList) }) -> DescribeFleetPortSettingsOutput
 ```
 
 Constructs DescribeFleetPortSettingsOutput's fields from required parameters
@@ -1932,7 +1932,7 @@ Constructs DescribeFleetPortSettingsOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeFleetUtilizationInput
-  = DescribeFleetUtilizationInput { "FleetIds" :: NullOrUndefined (FleetIdList), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeFleetUtilizationInput { "FleetIds" :: Maybe (FleetIdList), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -1957,7 +1957,7 @@ Constructs DescribeFleetUtilizationInput from required parameters
 #### `newDescribeFleetUtilizationInput'`
 
 ``` purescript
-newDescribeFleetUtilizationInput' :: ({ "FleetIds" :: NullOrUndefined (FleetIdList), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "FleetIds" :: NullOrUndefined (FleetIdList), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeFleetUtilizationInput
+newDescribeFleetUtilizationInput' :: ({ "FleetIds" :: Maybe (FleetIdList), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "FleetIds" :: Maybe (FleetIdList), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeFleetUtilizationInput
 ```
 
 Constructs DescribeFleetUtilizationInput's fields from required parameters
@@ -1966,7 +1966,7 @@ Constructs DescribeFleetUtilizationInput's fields from required parameters
 
 ``` purescript
 newtype DescribeFleetUtilizationOutput
-  = DescribeFleetUtilizationOutput { "FleetUtilization" :: NullOrUndefined (FleetUtilizationList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeFleetUtilizationOutput { "FleetUtilization" :: Maybe (FleetUtilizationList), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -1991,7 +1991,7 @@ Constructs DescribeFleetUtilizationOutput from required parameters
 #### `newDescribeFleetUtilizationOutput'`
 
 ``` purescript
-newDescribeFleetUtilizationOutput' :: ({ "FleetUtilization" :: NullOrUndefined (FleetUtilizationList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "FleetUtilization" :: NullOrUndefined (FleetUtilizationList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeFleetUtilizationOutput
+newDescribeFleetUtilizationOutput' :: ({ "FleetUtilization" :: Maybe (FleetUtilizationList), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "FleetUtilization" :: Maybe (FleetUtilizationList), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeFleetUtilizationOutput
 ```
 
 Constructs DescribeFleetUtilizationOutput's fields from required parameters
@@ -2000,7 +2000,7 @@ Constructs DescribeFleetUtilizationOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeGameSessionDetailsInput
-  = DescribeGameSessionDetailsInput { "FleetId" :: NullOrUndefined (FleetId), "GameSessionId" :: NullOrUndefined (ArnStringModel), "AliasId" :: NullOrUndefined (AliasId), "StatusFilter" :: NullOrUndefined (NonZeroAndMaxString), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeGameSessionDetailsInput { "FleetId" :: Maybe (FleetId), "GameSessionId" :: Maybe (ArnStringModel), "AliasId" :: Maybe (AliasId), "StatusFilter" :: Maybe (NonZeroAndMaxString), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -2025,7 +2025,7 @@ Constructs DescribeGameSessionDetailsInput from required parameters
 #### `newDescribeGameSessionDetailsInput'`
 
 ``` purescript
-newDescribeGameSessionDetailsInput' :: ({ "FleetId" :: NullOrUndefined (FleetId), "GameSessionId" :: NullOrUndefined (ArnStringModel), "AliasId" :: NullOrUndefined (AliasId), "StatusFilter" :: NullOrUndefined (NonZeroAndMaxString), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "FleetId" :: NullOrUndefined (FleetId), "GameSessionId" :: NullOrUndefined (ArnStringModel), "AliasId" :: NullOrUndefined (AliasId), "StatusFilter" :: NullOrUndefined (NonZeroAndMaxString), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeGameSessionDetailsInput
+newDescribeGameSessionDetailsInput' :: ({ "FleetId" :: Maybe (FleetId), "GameSessionId" :: Maybe (ArnStringModel), "AliasId" :: Maybe (AliasId), "StatusFilter" :: Maybe (NonZeroAndMaxString), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "FleetId" :: Maybe (FleetId), "GameSessionId" :: Maybe (ArnStringModel), "AliasId" :: Maybe (AliasId), "StatusFilter" :: Maybe (NonZeroAndMaxString), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeGameSessionDetailsInput
 ```
 
 Constructs DescribeGameSessionDetailsInput's fields from required parameters
@@ -2034,7 +2034,7 @@ Constructs DescribeGameSessionDetailsInput's fields from required parameters
 
 ``` purescript
 newtype DescribeGameSessionDetailsOutput
-  = DescribeGameSessionDetailsOutput { "GameSessionDetails" :: NullOrUndefined (GameSessionDetailList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeGameSessionDetailsOutput { "GameSessionDetails" :: Maybe (GameSessionDetailList), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -2059,7 +2059,7 @@ Constructs DescribeGameSessionDetailsOutput from required parameters
 #### `newDescribeGameSessionDetailsOutput'`
 
 ``` purescript
-newDescribeGameSessionDetailsOutput' :: ({ "GameSessionDetails" :: NullOrUndefined (GameSessionDetailList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "GameSessionDetails" :: NullOrUndefined (GameSessionDetailList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeGameSessionDetailsOutput
+newDescribeGameSessionDetailsOutput' :: ({ "GameSessionDetails" :: Maybe (GameSessionDetailList), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "GameSessionDetails" :: Maybe (GameSessionDetailList), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeGameSessionDetailsOutput
 ```
 
 Constructs DescribeGameSessionDetailsOutput's fields from required parameters
@@ -2102,7 +2102,7 @@ Constructs DescribeGameSessionPlacementInput's fields from required parameters
 
 ``` purescript
 newtype DescribeGameSessionPlacementOutput
-  = DescribeGameSessionPlacementOutput { "GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement) }
+  = DescribeGameSessionPlacementOutput { "GameSessionPlacement" :: Maybe (GameSessionPlacement) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -2127,7 +2127,7 @@ Constructs DescribeGameSessionPlacementOutput from required parameters
 #### `newDescribeGameSessionPlacementOutput'`
 
 ``` purescript
-newDescribeGameSessionPlacementOutput' :: ({ "GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement) } -> { "GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement) }) -> DescribeGameSessionPlacementOutput
+newDescribeGameSessionPlacementOutput' :: ({ "GameSessionPlacement" :: Maybe (GameSessionPlacement) } -> { "GameSessionPlacement" :: Maybe (GameSessionPlacement) }) -> DescribeGameSessionPlacementOutput
 ```
 
 Constructs DescribeGameSessionPlacementOutput's fields from required parameters
@@ -2136,7 +2136,7 @@ Constructs DescribeGameSessionPlacementOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeGameSessionQueuesInput
-  = DescribeGameSessionQueuesInput { "Names" :: NullOrUndefined (GameSessionQueueNameList), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeGameSessionQueuesInput { "Names" :: Maybe (GameSessionQueueNameList), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -2161,7 +2161,7 @@ Constructs DescribeGameSessionQueuesInput from required parameters
 #### `newDescribeGameSessionQueuesInput'`
 
 ``` purescript
-newDescribeGameSessionQueuesInput' :: ({ "Names" :: NullOrUndefined (GameSessionQueueNameList), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "Names" :: NullOrUndefined (GameSessionQueueNameList), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeGameSessionQueuesInput
+newDescribeGameSessionQueuesInput' :: ({ "Names" :: Maybe (GameSessionQueueNameList), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "Names" :: Maybe (GameSessionQueueNameList), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeGameSessionQueuesInput
 ```
 
 Constructs DescribeGameSessionQueuesInput's fields from required parameters
@@ -2170,7 +2170,7 @@ Constructs DescribeGameSessionQueuesInput's fields from required parameters
 
 ``` purescript
 newtype DescribeGameSessionQueuesOutput
-  = DescribeGameSessionQueuesOutput { "GameSessionQueues" :: NullOrUndefined (GameSessionQueueList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeGameSessionQueuesOutput { "GameSessionQueues" :: Maybe (GameSessionQueueList), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -2195,7 +2195,7 @@ Constructs DescribeGameSessionQueuesOutput from required parameters
 #### `newDescribeGameSessionQueuesOutput'`
 
 ``` purescript
-newDescribeGameSessionQueuesOutput' :: ({ "GameSessionQueues" :: NullOrUndefined (GameSessionQueueList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "GameSessionQueues" :: NullOrUndefined (GameSessionQueueList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeGameSessionQueuesOutput
+newDescribeGameSessionQueuesOutput' :: ({ "GameSessionQueues" :: Maybe (GameSessionQueueList), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "GameSessionQueues" :: Maybe (GameSessionQueueList), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeGameSessionQueuesOutput
 ```
 
 Constructs DescribeGameSessionQueuesOutput's fields from required parameters
@@ -2204,7 +2204,7 @@ Constructs DescribeGameSessionQueuesOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeGameSessionsInput
-  = DescribeGameSessionsInput { "FleetId" :: NullOrUndefined (FleetId), "GameSessionId" :: NullOrUndefined (ArnStringModel), "AliasId" :: NullOrUndefined (AliasId), "StatusFilter" :: NullOrUndefined (NonZeroAndMaxString), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeGameSessionsInput { "FleetId" :: Maybe (FleetId), "GameSessionId" :: Maybe (ArnStringModel), "AliasId" :: Maybe (AliasId), "StatusFilter" :: Maybe (NonZeroAndMaxString), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -2229,7 +2229,7 @@ Constructs DescribeGameSessionsInput from required parameters
 #### `newDescribeGameSessionsInput'`
 
 ``` purescript
-newDescribeGameSessionsInput' :: ({ "FleetId" :: NullOrUndefined (FleetId), "GameSessionId" :: NullOrUndefined (ArnStringModel), "AliasId" :: NullOrUndefined (AliasId), "StatusFilter" :: NullOrUndefined (NonZeroAndMaxString), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "FleetId" :: NullOrUndefined (FleetId), "GameSessionId" :: NullOrUndefined (ArnStringModel), "AliasId" :: NullOrUndefined (AliasId), "StatusFilter" :: NullOrUndefined (NonZeroAndMaxString), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeGameSessionsInput
+newDescribeGameSessionsInput' :: ({ "FleetId" :: Maybe (FleetId), "GameSessionId" :: Maybe (ArnStringModel), "AliasId" :: Maybe (AliasId), "StatusFilter" :: Maybe (NonZeroAndMaxString), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "FleetId" :: Maybe (FleetId), "GameSessionId" :: Maybe (ArnStringModel), "AliasId" :: Maybe (AliasId), "StatusFilter" :: Maybe (NonZeroAndMaxString), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeGameSessionsInput
 ```
 
 Constructs DescribeGameSessionsInput's fields from required parameters
@@ -2238,7 +2238,7 @@ Constructs DescribeGameSessionsInput's fields from required parameters
 
 ``` purescript
 newtype DescribeGameSessionsOutput
-  = DescribeGameSessionsOutput { "GameSessions" :: NullOrUndefined (GameSessionList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeGameSessionsOutput { "GameSessions" :: Maybe (GameSessionList), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -2263,7 +2263,7 @@ Constructs DescribeGameSessionsOutput from required parameters
 #### `newDescribeGameSessionsOutput'`
 
 ``` purescript
-newDescribeGameSessionsOutput' :: ({ "GameSessions" :: NullOrUndefined (GameSessionList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "GameSessions" :: NullOrUndefined (GameSessionList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeGameSessionsOutput
+newDescribeGameSessionsOutput' :: ({ "GameSessions" :: Maybe (GameSessionList), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "GameSessions" :: Maybe (GameSessionList), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeGameSessionsOutput
 ```
 
 Constructs DescribeGameSessionsOutput's fields from required parameters
@@ -2272,7 +2272,7 @@ Constructs DescribeGameSessionsOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeInstancesInput
-  = DescribeInstancesInput { "FleetId" :: FleetId, "InstanceId" :: NullOrUndefined (InstanceId), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeInstancesInput { "FleetId" :: FleetId, "InstanceId" :: Maybe (InstanceId), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -2297,7 +2297,7 @@ Constructs DescribeInstancesInput from required parameters
 #### `newDescribeInstancesInput'`
 
 ``` purescript
-newDescribeInstancesInput' :: FleetId -> ({ "FleetId" :: FleetId, "InstanceId" :: NullOrUndefined (InstanceId), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "FleetId" :: FleetId, "InstanceId" :: NullOrUndefined (InstanceId), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeInstancesInput
+newDescribeInstancesInput' :: FleetId -> ({ "FleetId" :: FleetId, "InstanceId" :: Maybe (InstanceId), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "FleetId" :: FleetId, "InstanceId" :: Maybe (InstanceId), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeInstancesInput
 ```
 
 Constructs DescribeInstancesInput's fields from required parameters
@@ -2306,7 +2306,7 @@ Constructs DescribeInstancesInput's fields from required parameters
 
 ``` purescript
 newtype DescribeInstancesOutput
-  = DescribeInstancesOutput { "Instances" :: NullOrUndefined (InstanceList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeInstancesOutput { "Instances" :: Maybe (InstanceList), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -2331,7 +2331,7 @@ Constructs DescribeInstancesOutput from required parameters
 #### `newDescribeInstancesOutput'`
 
 ``` purescript
-newDescribeInstancesOutput' :: ({ "Instances" :: NullOrUndefined (InstanceList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "Instances" :: NullOrUndefined (InstanceList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeInstancesOutput
+newDescribeInstancesOutput' :: ({ "Instances" :: Maybe (InstanceList), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "Instances" :: Maybe (InstanceList), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeInstancesOutput
 ```
 
 Constructs DescribeInstancesOutput's fields from required parameters
@@ -2340,7 +2340,7 @@ Constructs DescribeInstancesOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeMatchmakingConfigurationsInput
-  = DescribeMatchmakingConfigurationsInput { "Names" :: NullOrUndefined (MatchmakingIdList), "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeMatchmakingConfigurationsInput { "Names" :: Maybe (MatchmakingIdList), "RuleSetName" :: Maybe (MatchmakingIdStringModel), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -2365,7 +2365,7 @@ Constructs DescribeMatchmakingConfigurationsInput from required parameters
 #### `newDescribeMatchmakingConfigurationsInput'`
 
 ``` purescript
-newDescribeMatchmakingConfigurationsInput' :: ({ "Names" :: NullOrUndefined (MatchmakingIdList), "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "Names" :: NullOrUndefined (MatchmakingIdList), "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeMatchmakingConfigurationsInput
+newDescribeMatchmakingConfigurationsInput' :: ({ "Names" :: Maybe (MatchmakingIdList), "RuleSetName" :: Maybe (MatchmakingIdStringModel), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "Names" :: Maybe (MatchmakingIdList), "RuleSetName" :: Maybe (MatchmakingIdStringModel), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeMatchmakingConfigurationsInput
 ```
 
 Constructs DescribeMatchmakingConfigurationsInput's fields from required parameters
@@ -2374,7 +2374,7 @@ Constructs DescribeMatchmakingConfigurationsInput's fields from required paramet
 
 ``` purescript
 newtype DescribeMatchmakingConfigurationsOutput
-  = DescribeMatchmakingConfigurationsOutput { "Configurations" :: NullOrUndefined (MatchmakingConfigurationList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeMatchmakingConfigurationsOutput { "Configurations" :: Maybe (MatchmakingConfigurationList), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -2399,7 +2399,7 @@ Constructs DescribeMatchmakingConfigurationsOutput from required parameters
 #### `newDescribeMatchmakingConfigurationsOutput'`
 
 ``` purescript
-newDescribeMatchmakingConfigurationsOutput' :: ({ "Configurations" :: NullOrUndefined (MatchmakingConfigurationList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "Configurations" :: NullOrUndefined (MatchmakingConfigurationList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeMatchmakingConfigurationsOutput
+newDescribeMatchmakingConfigurationsOutput' :: ({ "Configurations" :: Maybe (MatchmakingConfigurationList), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "Configurations" :: Maybe (MatchmakingConfigurationList), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeMatchmakingConfigurationsOutput
 ```
 
 Constructs DescribeMatchmakingConfigurationsOutput's fields from required parameters
@@ -2442,7 +2442,7 @@ Constructs DescribeMatchmakingInput's fields from required parameters
 
 ``` purescript
 newtype DescribeMatchmakingOutput
-  = DescribeMatchmakingOutput { "TicketList" :: NullOrUndefined (MatchmakingTicketList) }
+  = DescribeMatchmakingOutput { "TicketList" :: Maybe (MatchmakingTicketList) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -2467,7 +2467,7 @@ Constructs DescribeMatchmakingOutput from required parameters
 #### `newDescribeMatchmakingOutput'`
 
 ``` purescript
-newDescribeMatchmakingOutput' :: ({ "TicketList" :: NullOrUndefined (MatchmakingTicketList) } -> { "TicketList" :: NullOrUndefined (MatchmakingTicketList) }) -> DescribeMatchmakingOutput
+newDescribeMatchmakingOutput' :: ({ "TicketList" :: Maybe (MatchmakingTicketList) } -> { "TicketList" :: Maybe (MatchmakingTicketList) }) -> DescribeMatchmakingOutput
 ```
 
 Constructs DescribeMatchmakingOutput's fields from required parameters
@@ -2476,7 +2476,7 @@ Constructs DescribeMatchmakingOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeMatchmakingRuleSetsInput
-  = DescribeMatchmakingRuleSetsInput { "Names" :: NullOrUndefined (MatchmakingRuleSetNameList), "Limit" :: NullOrUndefined (RuleSetLimit), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeMatchmakingRuleSetsInput { "Names" :: Maybe (MatchmakingRuleSetNameList), "Limit" :: Maybe (RuleSetLimit), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -2501,7 +2501,7 @@ Constructs DescribeMatchmakingRuleSetsInput from required parameters
 #### `newDescribeMatchmakingRuleSetsInput'`
 
 ``` purescript
-newDescribeMatchmakingRuleSetsInput' :: ({ "Names" :: NullOrUndefined (MatchmakingRuleSetNameList), "Limit" :: NullOrUndefined (RuleSetLimit), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "Names" :: NullOrUndefined (MatchmakingRuleSetNameList), "Limit" :: NullOrUndefined (RuleSetLimit), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeMatchmakingRuleSetsInput
+newDescribeMatchmakingRuleSetsInput' :: ({ "Names" :: Maybe (MatchmakingRuleSetNameList), "Limit" :: Maybe (RuleSetLimit), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "Names" :: Maybe (MatchmakingRuleSetNameList), "Limit" :: Maybe (RuleSetLimit), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeMatchmakingRuleSetsInput
 ```
 
 Constructs DescribeMatchmakingRuleSetsInput's fields from required parameters
@@ -2510,7 +2510,7 @@ Constructs DescribeMatchmakingRuleSetsInput's fields from required parameters
 
 ``` purescript
 newtype DescribeMatchmakingRuleSetsOutput
-  = DescribeMatchmakingRuleSetsOutput { "RuleSets" :: MatchmakingRuleSetList, "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeMatchmakingRuleSetsOutput { "RuleSets" :: MatchmakingRuleSetList, "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -2535,7 +2535,7 @@ Constructs DescribeMatchmakingRuleSetsOutput from required parameters
 #### `newDescribeMatchmakingRuleSetsOutput'`
 
 ``` purescript
-newDescribeMatchmakingRuleSetsOutput' :: MatchmakingRuleSetList -> ({ "RuleSets" :: MatchmakingRuleSetList, "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "RuleSets" :: MatchmakingRuleSetList, "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeMatchmakingRuleSetsOutput
+newDescribeMatchmakingRuleSetsOutput' :: MatchmakingRuleSetList -> ({ "RuleSets" :: MatchmakingRuleSetList, "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "RuleSets" :: MatchmakingRuleSetList, "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeMatchmakingRuleSetsOutput
 ```
 
 Constructs DescribeMatchmakingRuleSetsOutput's fields from required parameters
@@ -2544,7 +2544,7 @@ Constructs DescribeMatchmakingRuleSetsOutput's fields from required parameters
 
 ``` purescript
 newtype DescribePlayerSessionsInput
-  = DescribePlayerSessionsInput { "GameSessionId" :: NullOrUndefined (ArnStringModel), "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "PlayerSessionId" :: NullOrUndefined (PlayerSessionId), "PlayerSessionStatusFilter" :: NullOrUndefined (NonZeroAndMaxString), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribePlayerSessionsInput { "GameSessionId" :: Maybe (ArnStringModel), "PlayerId" :: Maybe (NonZeroAndMaxString), "PlayerSessionId" :: Maybe (PlayerSessionId), "PlayerSessionStatusFilter" :: Maybe (NonZeroAndMaxString), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -2569,7 +2569,7 @@ Constructs DescribePlayerSessionsInput from required parameters
 #### `newDescribePlayerSessionsInput'`
 
 ``` purescript
-newDescribePlayerSessionsInput' :: ({ "GameSessionId" :: NullOrUndefined (ArnStringModel), "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "PlayerSessionId" :: NullOrUndefined (PlayerSessionId), "PlayerSessionStatusFilter" :: NullOrUndefined (NonZeroAndMaxString), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "GameSessionId" :: NullOrUndefined (ArnStringModel), "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "PlayerSessionId" :: NullOrUndefined (PlayerSessionId), "PlayerSessionStatusFilter" :: NullOrUndefined (NonZeroAndMaxString), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribePlayerSessionsInput
+newDescribePlayerSessionsInput' :: ({ "GameSessionId" :: Maybe (ArnStringModel), "PlayerId" :: Maybe (NonZeroAndMaxString), "PlayerSessionId" :: Maybe (PlayerSessionId), "PlayerSessionStatusFilter" :: Maybe (NonZeroAndMaxString), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "GameSessionId" :: Maybe (ArnStringModel), "PlayerId" :: Maybe (NonZeroAndMaxString), "PlayerSessionId" :: Maybe (PlayerSessionId), "PlayerSessionStatusFilter" :: Maybe (NonZeroAndMaxString), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribePlayerSessionsInput
 ```
 
 Constructs DescribePlayerSessionsInput's fields from required parameters
@@ -2578,7 +2578,7 @@ Constructs DescribePlayerSessionsInput's fields from required parameters
 
 ``` purescript
 newtype DescribePlayerSessionsOutput
-  = DescribePlayerSessionsOutput { "PlayerSessions" :: NullOrUndefined (PlayerSessionList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribePlayerSessionsOutput { "PlayerSessions" :: Maybe (PlayerSessionList), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -2603,7 +2603,7 @@ Constructs DescribePlayerSessionsOutput from required parameters
 #### `newDescribePlayerSessionsOutput'`
 
 ``` purescript
-newDescribePlayerSessionsOutput' :: ({ "PlayerSessions" :: NullOrUndefined (PlayerSessionList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "PlayerSessions" :: NullOrUndefined (PlayerSessionList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribePlayerSessionsOutput
+newDescribePlayerSessionsOutput' :: ({ "PlayerSessions" :: Maybe (PlayerSessionList), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "PlayerSessions" :: Maybe (PlayerSessionList), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribePlayerSessionsOutput
 ```
 
 Constructs DescribePlayerSessionsOutput's fields from required parameters
@@ -2646,7 +2646,7 @@ Constructs DescribeRuntimeConfigurationInput's fields from required parameters
 
 ``` purescript
 newtype DescribeRuntimeConfigurationOutput
-  = DescribeRuntimeConfigurationOutput { "RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration) }
+  = DescribeRuntimeConfigurationOutput { "RuntimeConfiguration" :: Maybe (RuntimeConfiguration) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -2671,7 +2671,7 @@ Constructs DescribeRuntimeConfigurationOutput from required parameters
 #### `newDescribeRuntimeConfigurationOutput'`
 
 ``` purescript
-newDescribeRuntimeConfigurationOutput' :: ({ "RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration) } -> { "RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration) }) -> DescribeRuntimeConfigurationOutput
+newDescribeRuntimeConfigurationOutput' :: ({ "RuntimeConfiguration" :: Maybe (RuntimeConfiguration) } -> { "RuntimeConfiguration" :: Maybe (RuntimeConfiguration) }) -> DescribeRuntimeConfigurationOutput
 ```
 
 Constructs DescribeRuntimeConfigurationOutput's fields from required parameters
@@ -2680,7 +2680,7 @@ Constructs DescribeRuntimeConfigurationOutput's fields from required parameters
 
 ``` purescript
 newtype DescribeScalingPoliciesInput
-  = DescribeScalingPoliciesInput { "FleetId" :: FleetId, "StatusFilter" :: NullOrUndefined (ScalingStatusType), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeScalingPoliciesInput { "FleetId" :: FleetId, "StatusFilter" :: Maybe (ScalingStatusType), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -2705,7 +2705,7 @@ Constructs DescribeScalingPoliciesInput from required parameters
 #### `newDescribeScalingPoliciesInput'`
 
 ``` purescript
-newDescribeScalingPoliciesInput' :: FleetId -> ({ "FleetId" :: FleetId, "StatusFilter" :: NullOrUndefined (ScalingStatusType), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "FleetId" :: FleetId, "StatusFilter" :: NullOrUndefined (ScalingStatusType), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeScalingPoliciesInput
+newDescribeScalingPoliciesInput' :: FleetId -> ({ "FleetId" :: FleetId, "StatusFilter" :: Maybe (ScalingStatusType), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "FleetId" :: FleetId, "StatusFilter" :: Maybe (ScalingStatusType), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeScalingPoliciesInput
 ```
 
 Constructs DescribeScalingPoliciesInput's fields from required parameters
@@ -2714,7 +2714,7 @@ Constructs DescribeScalingPoliciesInput's fields from required parameters
 
 ``` purescript
 newtype DescribeScalingPoliciesOutput
-  = DescribeScalingPoliciesOutput { "ScalingPolicies" :: NullOrUndefined (ScalingPolicyList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = DescribeScalingPoliciesOutput { "ScalingPolicies" :: Maybe (ScalingPolicyList), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -2739,7 +2739,7 @@ Constructs DescribeScalingPoliciesOutput from required parameters
 #### `newDescribeScalingPoliciesOutput'`
 
 ``` purescript
-newDescribeScalingPoliciesOutput' :: ({ "ScalingPolicies" :: NullOrUndefined (ScalingPolicyList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "ScalingPolicies" :: NullOrUndefined (ScalingPolicyList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> DescribeScalingPoliciesOutput
+newDescribeScalingPoliciesOutput' :: ({ "ScalingPolicies" :: Maybe (ScalingPolicyList), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "ScalingPolicies" :: Maybe (ScalingPolicyList), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> DescribeScalingPoliciesOutput
 ```
 
 Constructs DescribeScalingPoliciesOutput's fields from required parameters
@@ -2764,7 +2764,7 @@ Encode DescribeVpcPeeringAuthorizationsInput
 
 ``` purescript
 newtype DescribeVpcPeeringAuthorizationsOutput
-  = DescribeVpcPeeringAuthorizationsOutput { "VpcPeeringAuthorizations" :: NullOrUndefined (VpcPeeringAuthorizationList) }
+  = DescribeVpcPeeringAuthorizationsOutput { "VpcPeeringAuthorizations" :: Maybe (VpcPeeringAuthorizationList) }
 ```
 
 ##### Instances
@@ -2787,7 +2787,7 @@ Constructs DescribeVpcPeeringAuthorizationsOutput from required parameters
 #### `newDescribeVpcPeeringAuthorizationsOutput'`
 
 ``` purescript
-newDescribeVpcPeeringAuthorizationsOutput' :: ({ "VpcPeeringAuthorizations" :: NullOrUndefined (VpcPeeringAuthorizationList) } -> { "VpcPeeringAuthorizations" :: NullOrUndefined (VpcPeeringAuthorizationList) }) -> DescribeVpcPeeringAuthorizationsOutput
+newDescribeVpcPeeringAuthorizationsOutput' :: ({ "VpcPeeringAuthorizations" :: Maybe (VpcPeeringAuthorizationList) } -> { "VpcPeeringAuthorizations" :: Maybe (VpcPeeringAuthorizationList) }) -> DescribeVpcPeeringAuthorizationsOutput
 ```
 
 Constructs DescribeVpcPeeringAuthorizationsOutput's fields from required parameters
@@ -2796,7 +2796,7 @@ Constructs DescribeVpcPeeringAuthorizationsOutput's fields from required paramet
 
 ``` purescript
 newtype DescribeVpcPeeringConnectionsInput
-  = DescribeVpcPeeringConnectionsInput { "FleetId" :: NullOrUndefined (FleetId) }
+  = DescribeVpcPeeringConnectionsInput { "FleetId" :: Maybe (FleetId) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -2821,7 +2821,7 @@ Constructs DescribeVpcPeeringConnectionsInput from required parameters
 #### `newDescribeVpcPeeringConnectionsInput'`
 
 ``` purescript
-newDescribeVpcPeeringConnectionsInput' :: ({ "FleetId" :: NullOrUndefined (FleetId) } -> { "FleetId" :: NullOrUndefined (FleetId) }) -> DescribeVpcPeeringConnectionsInput
+newDescribeVpcPeeringConnectionsInput' :: ({ "FleetId" :: Maybe (FleetId) } -> { "FleetId" :: Maybe (FleetId) }) -> DescribeVpcPeeringConnectionsInput
 ```
 
 Constructs DescribeVpcPeeringConnectionsInput's fields from required parameters
@@ -2830,7 +2830,7 @@ Constructs DescribeVpcPeeringConnectionsInput's fields from required parameters
 
 ``` purescript
 newtype DescribeVpcPeeringConnectionsOutput
-  = DescribeVpcPeeringConnectionsOutput { "VpcPeeringConnections" :: NullOrUndefined (VpcPeeringConnectionList) }
+  = DescribeVpcPeeringConnectionsOutput { "VpcPeeringConnections" :: Maybe (VpcPeeringConnectionList) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -2855,7 +2855,7 @@ Constructs DescribeVpcPeeringConnectionsOutput from required parameters
 #### `newDescribeVpcPeeringConnectionsOutput'`
 
 ``` purescript
-newDescribeVpcPeeringConnectionsOutput' :: ({ "VpcPeeringConnections" :: NullOrUndefined (VpcPeeringConnectionList) } -> { "VpcPeeringConnections" :: NullOrUndefined (VpcPeeringConnectionList) }) -> DescribeVpcPeeringConnectionsOutput
+newDescribeVpcPeeringConnectionsOutput' :: ({ "VpcPeeringConnections" :: Maybe (VpcPeeringConnectionList) } -> { "VpcPeeringConnections" :: Maybe (VpcPeeringConnectionList) }) -> DescribeVpcPeeringConnectionsOutput
 ```
 
 Constructs DescribeVpcPeeringConnectionsOutput's fields from required parameters
@@ -2864,7 +2864,7 @@ Constructs DescribeVpcPeeringConnectionsOutput's fields from required parameters
 
 ``` purescript
 newtype DesiredPlayerSession
-  = DesiredPlayerSession { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "PlayerData" :: NullOrUndefined (PlayerData) }
+  = DesiredPlayerSession { "PlayerId" :: Maybe (NonZeroAndMaxString), "PlayerData" :: Maybe (PlayerData) }
 ```
 
 <p>Player information for use when creating player sessions using a game session placement request with <a>StartGameSessionPlacement</a>.</p>
@@ -2889,7 +2889,7 @@ Constructs DesiredPlayerSession from required parameters
 #### `newDesiredPlayerSession'`
 
 ``` purescript
-newDesiredPlayerSession' :: ({ "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "PlayerData" :: NullOrUndefined (PlayerData) } -> { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "PlayerData" :: NullOrUndefined (PlayerData) }) -> DesiredPlayerSession
+newDesiredPlayerSession' :: ({ "PlayerId" :: Maybe (NonZeroAndMaxString), "PlayerData" :: Maybe (PlayerData) } -> { "PlayerId" :: Maybe (NonZeroAndMaxString), "PlayerData" :: Maybe (PlayerData) }) -> DesiredPlayerSession
 ```
 
 Constructs DesiredPlayerSession's fields from required parameters
@@ -2930,7 +2930,7 @@ Encode DoubleObject
 
 ``` purescript
 newtype EC2InstanceCounts
-  = EC2InstanceCounts { "DESIRED" :: NullOrUndefined (WholeNumber), "MINIMUM" :: NullOrUndefined (WholeNumber), "MAXIMUM" :: NullOrUndefined (WholeNumber), "PENDING" :: NullOrUndefined (WholeNumber), "ACTIVE" :: NullOrUndefined (WholeNumber), "IDLE" :: NullOrUndefined (WholeNumber), "TERMINATING" :: NullOrUndefined (WholeNumber) }
+  = EC2InstanceCounts { "DESIRED" :: Maybe (WholeNumber), "MINIMUM" :: Maybe (WholeNumber), "MAXIMUM" :: Maybe (WholeNumber), "PENDING" :: Maybe (WholeNumber), "ACTIVE" :: Maybe (WholeNumber), "IDLE" :: Maybe (WholeNumber), "TERMINATING" :: Maybe (WholeNumber) }
 ```
 
 <p>Current status of fleet capacity. The number of active instances should match or be in the process of matching the number of desired instances. Pending and terminating counts are non-zero only if fleet capacity is adjusting to an <a>UpdateFleetCapacity</a> request, or if access to resources is temporarily affected.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
@@ -2955,7 +2955,7 @@ Constructs EC2InstanceCounts from required parameters
 #### `newEC2InstanceCounts'`
 
 ``` purescript
-newEC2InstanceCounts' :: ({ "DESIRED" :: NullOrUndefined (WholeNumber), "MINIMUM" :: NullOrUndefined (WholeNumber), "MAXIMUM" :: NullOrUndefined (WholeNumber), "PENDING" :: NullOrUndefined (WholeNumber), "ACTIVE" :: NullOrUndefined (WholeNumber), "IDLE" :: NullOrUndefined (WholeNumber), "TERMINATING" :: NullOrUndefined (WholeNumber) } -> { "DESIRED" :: NullOrUndefined (WholeNumber), "MINIMUM" :: NullOrUndefined (WholeNumber), "MAXIMUM" :: NullOrUndefined (WholeNumber), "PENDING" :: NullOrUndefined (WholeNumber), "ACTIVE" :: NullOrUndefined (WholeNumber), "IDLE" :: NullOrUndefined (WholeNumber), "TERMINATING" :: NullOrUndefined (WholeNumber) }) -> EC2InstanceCounts
+newEC2InstanceCounts' :: ({ "DESIRED" :: Maybe (WholeNumber), "MINIMUM" :: Maybe (WholeNumber), "MAXIMUM" :: Maybe (WholeNumber), "PENDING" :: Maybe (WholeNumber), "ACTIVE" :: Maybe (WholeNumber), "IDLE" :: Maybe (WholeNumber), "TERMINATING" :: Maybe (WholeNumber) } -> { "DESIRED" :: Maybe (WholeNumber), "MINIMUM" :: Maybe (WholeNumber), "MAXIMUM" :: Maybe (WholeNumber), "PENDING" :: Maybe (WholeNumber), "ACTIVE" :: Maybe (WholeNumber), "IDLE" :: Maybe (WholeNumber), "TERMINATING" :: Maybe (WholeNumber) }) -> EC2InstanceCounts
 ```
 
 Constructs EC2InstanceCounts's fields from required parameters
@@ -2964,7 +2964,7 @@ Constructs EC2InstanceCounts's fields from required parameters
 
 ``` purescript
 newtype EC2InstanceLimit
-  = EC2InstanceLimit { "EC2InstanceType" :: NullOrUndefined (EC2InstanceType), "CurrentInstances" :: NullOrUndefined (WholeNumber), "InstanceLimit" :: NullOrUndefined (WholeNumber) }
+  = EC2InstanceLimit { "EC2InstanceType" :: Maybe (EC2InstanceType), "CurrentInstances" :: Maybe (WholeNumber), "InstanceLimit" :: Maybe (WholeNumber) }
 ```
 
 <p>Maximum number of instances allowed based on the Amazon Elastic Compute Cloud (Amazon EC2) instance type. Instance limits can be retrieved by calling <a>DescribeEC2InstanceLimits</a>.</p>
@@ -2989,7 +2989,7 @@ Constructs EC2InstanceLimit from required parameters
 #### `newEC2InstanceLimit'`
 
 ``` purescript
-newEC2InstanceLimit' :: ({ "EC2InstanceType" :: NullOrUndefined (EC2InstanceType), "CurrentInstances" :: NullOrUndefined (WholeNumber), "InstanceLimit" :: NullOrUndefined (WholeNumber) } -> { "EC2InstanceType" :: NullOrUndefined (EC2InstanceType), "CurrentInstances" :: NullOrUndefined (WholeNumber), "InstanceLimit" :: NullOrUndefined (WholeNumber) }) -> EC2InstanceLimit
+newEC2InstanceLimit' :: ({ "EC2InstanceType" :: Maybe (EC2InstanceType), "CurrentInstances" :: Maybe (WholeNumber), "InstanceLimit" :: Maybe (WholeNumber) } -> { "EC2InstanceType" :: Maybe (EC2InstanceType), "CurrentInstances" :: Maybe (WholeNumber), "InstanceLimit" :: Maybe (WholeNumber) }) -> EC2InstanceLimit
 ```
 
 Constructs EC2InstanceLimit's fields from required parameters
@@ -3030,7 +3030,7 @@ Encode EC2InstanceType
 
 ``` purescript
 newtype Event
-  = Event { "EventId" :: NullOrUndefined (NonZeroAndMaxString), "ResourceId" :: NullOrUndefined (NonZeroAndMaxString), "EventCode" :: NullOrUndefined (EventCode), "Message" :: NullOrUndefined (NonEmptyString), "EventTime" :: NullOrUndefined (Timestamp), "PreSignedLogUrl" :: NullOrUndefined (NonZeroAndMaxString) }
+  = Event { "EventId" :: Maybe (NonZeroAndMaxString), "ResourceId" :: Maybe (NonZeroAndMaxString), "EventCode" :: Maybe (EventCode), "Message" :: Maybe (NonEmptyString), "EventTime" :: Maybe (Timestamp), "PreSignedLogUrl" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Log entry describing an event that involves Amazon GameLift resources (such as a fleet). In addition to tracking activity, event codes and messages can provide additional information for troubleshooting and debugging problems.</p>
@@ -3055,7 +3055,7 @@ Constructs Event from required parameters
 #### `newEvent'`
 
 ``` purescript
-newEvent' :: ({ "EventId" :: NullOrUndefined (NonZeroAndMaxString), "ResourceId" :: NullOrUndefined (NonZeroAndMaxString), "EventCode" :: NullOrUndefined (EventCode), "Message" :: NullOrUndefined (NonEmptyString), "EventTime" :: NullOrUndefined (Timestamp), "PreSignedLogUrl" :: NullOrUndefined (NonZeroAndMaxString) } -> { "EventId" :: NullOrUndefined (NonZeroAndMaxString), "ResourceId" :: NullOrUndefined (NonZeroAndMaxString), "EventCode" :: NullOrUndefined (EventCode), "Message" :: NullOrUndefined (NonEmptyString), "EventTime" :: NullOrUndefined (Timestamp), "PreSignedLogUrl" :: NullOrUndefined (NonZeroAndMaxString) }) -> Event
+newEvent' :: ({ "EventId" :: Maybe (NonZeroAndMaxString), "ResourceId" :: Maybe (NonZeroAndMaxString), "EventCode" :: Maybe (EventCode), "Message" :: Maybe (NonEmptyString), "EventTime" :: Maybe (Timestamp), "PreSignedLogUrl" :: Maybe (NonZeroAndMaxString) } -> { "EventId" :: Maybe (NonZeroAndMaxString), "ResourceId" :: Maybe (NonZeroAndMaxString), "EventCode" :: Maybe (EventCode), "Message" :: Maybe (NonEmptyString), "EventTime" :: Maybe (Timestamp), "PreSignedLogUrl" :: Maybe (NonZeroAndMaxString) }) -> Event
 ```
 
 Constructs Event's fields from required parameters
@@ -3096,7 +3096,7 @@ Encode EventList
 
 ``` purescript
 newtype FleetAttributes
-  = FleetAttributes { "FleetId" :: NullOrUndefined (FleetId), "FleetArn" :: NullOrUndefined (ArnStringModel), "FleetType" :: NullOrUndefined (FleetType), "InstanceType" :: NullOrUndefined (EC2InstanceType), "Description" :: NullOrUndefined (NonZeroAndMaxString), "Name" :: NullOrUndefined (NonZeroAndMaxString), "CreationTime" :: NullOrUndefined (Timestamp), "TerminationTime" :: NullOrUndefined (Timestamp), "Status" :: NullOrUndefined (FleetStatus), "BuildId" :: NullOrUndefined (BuildId), "ServerLaunchPath" :: NullOrUndefined (NonZeroAndMaxString), "ServerLaunchParameters" :: NullOrUndefined (NonZeroAndMaxString), "LogPaths" :: NullOrUndefined (StringList), "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy), "OperatingSystem" :: NullOrUndefined (OperatingSystem), "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy), "MetricGroups" :: NullOrUndefined (MetricGroupList) }
+  = FleetAttributes { "FleetId" :: Maybe (FleetId), "FleetArn" :: Maybe (ArnStringModel), "FleetType" :: Maybe (FleetType), "InstanceType" :: Maybe (EC2InstanceType), "Description" :: Maybe (NonZeroAndMaxString), "Name" :: Maybe (NonZeroAndMaxString), "CreationTime" :: Maybe (Timestamp), "TerminationTime" :: Maybe (Timestamp), "Status" :: Maybe (FleetStatus), "BuildId" :: Maybe (BuildId), "ServerLaunchPath" :: Maybe (NonZeroAndMaxString), "ServerLaunchParameters" :: Maybe (NonZeroAndMaxString), "LogPaths" :: Maybe (StringList), "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy), "OperatingSystem" :: Maybe (OperatingSystem), "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy), "MetricGroups" :: Maybe (MetricGroupList) }
 ```
 
 <p>General properties describing a fleet.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
@@ -3121,7 +3121,7 @@ Constructs FleetAttributes from required parameters
 #### `newFleetAttributes'`
 
 ``` purescript
-newFleetAttributes' :: ({ "FleetId" :: NullOrUndefined (FleetId), "FleetArn" :: NullOrUndefined (ArnStringModel), "FleetType" :: NullOrUndefined (FleetType), "InstanceType" :: NullOrUndefined (EC2InstanceType), "Description" :: NullOrUndefined (NonZeroAndMaxString), "Name" :: NullOrUndefined (NonZeroAndMaxString), "CreationTime" :: NullOrUndefined (Timestamp), "TerminationTime" :: NullOrUndefined (Timestamp), "Status" :: NullOrUndefined (FleetStatus), "BuildId" :: NullOrUndefined (BuildId), "ServerLaunchPath" :: NullOrUndefined (NonZeroAndMaxString), "ServerLaunchParameters" :: NullOrUndefined (NonZeroAndMaxString), "LogPaths" :: NullOrUndefined (StringList), "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy), "OperatingSystem" :: NullOrUndefined (OperatingSystem), "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy), "MetricGroups" :: NullOrUndefined (MetricGroupList) } -> { "FleetId" :: NullOrUndefined (FleetId), "FleetArn" :: NullOrUndefined (ArnStringModel), "FleetType" :: NullOrUndefined (FleetType), "InstanceType" :: NullOrUndefined (EC2InstanceType), "Description" :: NullOrUndefined (NonZeroAndMaxString), "Name" :: NullOrUndefined (NonZeroAndMaxString), "CreationTime" :: NullOrUndefined (Timestamp), "TerminationTime" :: NullOrUndefined (Timestamp), "Status" :: NullOrUndefined (FleetStatus), "BuildId" :: NullOrUndefined (BuildId), "ServerLaunchPath" :: NullOrUndefined (NonZeroAndMaxString), "ServerLaunchParameters" :: NullOrUndefined (NonZeroAndMaxString), "LogPaths" :: NullOrUndefined (StringList), "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy), "OperatingSystem" :: NullOrUndefined (OperatingSystem), "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy), "MetricGroups" :: NullOrUndefined (MetricGroupList) }) -> FleetAttributes
+newFleetAttributes' :: ({ "FleetId" :: Maybe (FleetId), "FleetArn" :: Maybe (ArnStringModel), "FleetType" :: Maybe (FleetType), "InstanceType" :: Maybe (EC2InstanceType), "Description" :: Maybe (NonZeroAndMaxString), "Name" :: Maybe (NonZeroAndMaxString), "CreationTime" :: Maybe (Timestamp), "TerminationTime" :: Maybe (Timestamp), "Status" :: Maybe (FleetStatus), "BuildId" :: Maybe (BuildId), "ServerLaunchPath" :: Maybe (NonZeroAndMaxString), "ServerLaunchParameters" :: Maybe (NonZeroAndMaxString), "LogPaths" :: Maybe (StringList), "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy), "OperatingSystem" :: Maybe (OperatingSystem), "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy), "MetricGroups" :: Maybe (MetricGroupList) } -> { "FleetId" :: Maybe (FleetId), "FleetArn" :: Maybe (ArnStringModel), "FleetType" :: Maybe (FleetType), "InstanceType" :: Maybe (EC2InstanceType), "Description" :: Maybe (NonZeroAndMaxString), "Name" :: Maybe (NonZeroAndMaxString), "CreationTime" :: Maybe (Timestamp), "TerminationTime" :: Maybe (Timestamp), "Status" :: Maybe (FleetStatus), "BuildId" :: Maybe (BuildId), "ServerLaunchPath" :: Maybe (NonZeroAndMaxString), "ServerLaunchParameters" :: Maybe (NonZeroAndMaxString), "LogPaths" :: Maybe (StringList), "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy), "OperatingSystem" :: Maybe (OperatingSystem), "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy), "MetricGroups" :: Maybe (MetricGroupList) }) -> FleetAttributes
 ```
 
 Constructs FleetAttributes's fields from required parameters
@@ -3146,7 +3146,7 @@ Encode FleetAttributesList
 
 ``` purescript
 newtype FleetCapacity
-  = FleetCapacity { "FleetId" :: NullOrUndefined (FleetId), "InstanceType" :: NullOrUndefined (EC2InstanceType), "InstanceCounts" :: NullOrUndefined (EC2InstanceCounts) }
+  = FleetCapacity { "FleetId" :: Maybe (FleetId), "InstanceType" :: Maybe (EC2InstanceType), "InstanceCounts" :: Maybe (EC2InstanceCounts) }
 ```
 
 <p>Information about the fleet's capacity. Fleet capacity is measured in EC2 instances. By default, new fleets have a capacity of one instance, but can be updated as needed. The maximum number of instances for a fleet is determined by the fleet's instance type.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
@@ -3171,7 +3171,7 @@ Constructs FleetCapacity from required parameters
 #### `newFleetCapacity'`
 
 ``` purescript
-newFleetCapacity' :: ({ "FleetId" :: NullOrUndefined (FleetId), "InstanceType" :: NullOrUndefined (EC2InstanceType), "InstanceCounts" :: NullOrUndefined (EC2InstanceCounts) } -> { "FleetId" :: NullOrUndefined (FleetId), "InstanceType" :: NullOrUndefined (EC2InstanceType), "InstanceCounts" :: NullOrUndefined (EC2InstanceCounts) }) -> FleetCapacity
+newFleetCapacity' :: ({ "FleetId" :: Maybe (FleetId), "InstanceType" :: Maybe (EC2InstanceType), "InstanceCounts" :: Maybe (EC2InstanceCounts) } -> { "FleetId" :: Maybe (FleetId), "InstanceType" :: Maybe (EC2InstanceType), "InstanceCounts" :: Maybe (EC2InstanceCounts) }) -> FleetCapacity
 ```
 
 Constructs FleetCapacity's fields from required parameters
@@ -3180,7 +3180,7 @@ Constructs FleetCapacity's fields from required parameters
 
 ``` purescript
 newtype FleetCapacityExceededException
-  = FleetCapacityExceededException { "Message" :: NullOrUndefined (NonEmptyString) }
+  = FleetCapacityExceededException { "Message" :: Maybe (NonEmptyString) }
 ```
 
 <p>The specified fleet has no available instances to fulfill a <code>CreateGameSession</code> request. Clients can retry such requests immediately or after a waiting period.</p>
@@ -3205,7 +3205,7 @@ Constructs FleetCapacityExceededException from required parameters
 #### `newFleetCapacityExceededException'`
 
 ``` purescript
-newFleetCapacityExceededException' :: ({ "Message" :: NullOrUndefined (NonEmptyString) } -> { "Message" :: NullOrUndefined (NonEmptyString) }) -> FleetCapacityExceededException
+newFleetCapacityExceededException' :: ({ "Message" :: Maybe (NonEmptyString) } -> { "Message" :: Maybe (NonEmptyString) }) -> FleetCapacityExceededException
 ```
 
 Constructs FleetCapacityExceededException's fields from required parameters
@@ -3294,7 +3294,7 @@ Encode FleetType
 
 ``` purescript
 newtype FleetUtilization
-  = FleetUtilization { "FleetId" :: NullOrUndefined (FleetId), "ActiveServerProcessCount" :: NullOrUndefined (WholeNumber), "ActiveGameSessionCount" :: NullOrUndefined (WholeNumber), "CurrentPlayerSessionCount" :: NullOrUndefined (WholeNumber), "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber) }
+  = FleetUtilization { "FleetId" :: Maybe (FleetId), "ActiveServerProcessCount" :: Maybe (WholeNumber), "ActiveGameSessionCount" :: Maybe (WholeNumber), "CurrentPlayerSessionCount" :: Maybe (WholeNumber), "MaximumPlayerSessionCount" :: Maybe (WholeNumber) }
 ```
 
 <p>Current status of fleet utilization, including the number of game and player sessions being hosted.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
@@ -3319,7 +3319,7 @@ Constructs FleetUtilization from required parameters
 #### `newFleetUtilization'`
 
 ``` purescript
-newFleetUtilization' :: ({ "FleetId" :: NullOrUndefined (FleetId), "ActiveServerProcessCount" :: NullOrUndefined (WholeNumber), "ActiveGameSessionCount" :: NullOrUndefined (WholeNumber), "CurrentPlayerSessionCount" :: NullOrUndefined (WholeNumber), "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber) } -> { "FleetId" :: NullOrUndefined (FleetId), "ActiveServerProcessCount" :: NullOrUndefined (WholeNumber), "ActiveGameSessionCount" :: NullOrUndefined (WholeNumber), "CurrentPlayerSessionCount" :: NullOrUndefined (WholeNumber), "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber) }) -> FleetUtilization
+newFleetUtilization' :: ({ "FleetId" :: Maybe (FleetId), "ActiveServerProcessCount" :: Maybe (WholeNumber), "ActiveGameSessionCount" :: Maybe (WholeNumber), "CurrentPlayerSessionCount" :: Maybe (WholeNumber), "MaximumPlayerSessionCount" :: Maybe (WholeNumber) } -> { "FleetId" :: Maybe (FleetId), "ActiveServerProcessCount" :: Maybe (WholeNumber), "ActiveGameSessionCount" :: Maybe (WholeNumber), "CurrentPlayerSessionCount" :: Maybe (WholeNumber), "MaximumPlayerSessionCount" :: Maybe (WholeNumber) }) -> FleetUtilization
 ```
 
 Constructs FleetUtilization's fields from required parameters
@@ -3442,7 +3442,7 @@ Encode GamePropertyValue
 
 ``` purescript
 newtype GameSession
-  = GameSession { "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString), "Name" :: NullOrUndefined (NonZeroAndMaxString), "FleetId" :: NullOrUndefined (FleetId), "CreationTime" :: NullOrUndefined (Timestamp), "TerminationTime" :: NullOrUndefined (Timestamp), "CurrentPlayerSessionCount" :: NullOrUndefined (WholeNumber), "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber), "Status" :: NullOrUndefined (GameSessionStatus), "StatusReason" :: NullOrUndefined (GameSessionStatusReason), "GameProperties" :: NullOrUndefined (GamePropertyList), "IpAddress" :: NullOrUndefined (IpAddress), "Port" :: NullOrUndefined (PortNumber), "PlayerSessionCreationPolicy" :: NullOrUndefined (PlayerSessionCreationPolicy), "CreatorId" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionData" :: NullOrUndefined (GameSessionData), "MatchmakerData" :: NullOrUndefined (MatchmakerData) }
+  = GameSession { "GameSessionId" :: Maybe (NonZeroAndMaxString), "Name" :: Maybe (NonZeroAndMaxString), "FleetId" :: Maybe (FleetId), "CreationTime" :: Maybe (Timestamp), "TerminationTime" :: Maybe (Timestamp), "CurrentPlayerSessionCount" :: Maybe (WholeNumber), "MaximumPlayerSessionCount" :: Maybe (WholeNumber), "Status" :: Maybe (GameSessionStatus), "StatusReason" :: Maybe (GameSessionStatusReason), "GameProperties" :: Maybe (GamePropertyList), "IpAddress" :: Maybe (IpAddress), "Port" :: Maybe (PortNumber), "PlayerSessionCreationPolicy" :: Maybe (PlayerSessionCreationPolicy), "CreatorId" :: Maybe (NonZeroAndMaxString), "GameSessionData" :: Maybe (GameSessionData), "MatchmakerData" :: Maybe (MatchmakerData) }
 ```
 
 <p>Properties describing a game session.</p> <p>A game session in ACTIVE status can host players. When a game session ends, its status is set to <code>TERMINATED</code>. </p> <p>Once the session ends, the game session object is retained for 30 days. This means you can reuse idempotency token values after this time. Game session logs are retained for 14 days.</p> <p>Game-session-related operations include:</p> <ul> <li> <p> <a>CreateGameSession</a> </p> </li> <li> <p> <a>DescribeGameSessions</a> </p> </li> <li> <p> <a>DescribeGameSessionDetails</a> </p> </li> <li> <p> <a>SearchGameSessions</a> </p> </li> <li> <p> <a>UpdateGameSession</a> </p> </li> <li> <p> <a>GetGameSessionLogUrl</a> </p> </li> <li> <p>Game session placements</p> <ul> <li> <p> <a>StartGameSessionPlacement</a> </p> </li> <li> <p> <a>DescribeGameSessionPlacement</a> </p> </li> <li> <p> <a>StopGameSessionPlacement</a> </p> </li> </ul> </li> </ul>
@@ -3467,7 +3467,7 @@ Constructs GameSession from required parameters
 #### `newGameSession'`
 
 ``` purescript
-newGameSession' :: ({ "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString), "Name" :: NullOrUndefined (NonZeroAndMaxString), "FleetId" :: NullOrUndefined (FleetId), "CreationTime" :: NullOrUndefined (Timestamp), "TerminationTime" :: NullOrUndefined (Timestamp), "CurrentPlayerSessionCount" :: NullOrUndefined (WholeNumber), "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber), "Status" :: NullOrUndefined (GameSessionStatus), "StatusReason" :: NullOrUndefined (GameSessionStatusReason), "GameProperties" :: NullOrUndefined (GamePropertyList), "IpAddress" :: NullOrUndefined (IpAddress), "Port" :: NullOrUndefined (PortNumber), "PlayerSessionCreationPolicy" :: NullOrUndefined (PlayerSessionCreationPolicy), "CreatorId" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionData" :: NullOrUndefined (GameSessionData), "MatchmakerData" :: NullOrUndefined (MatchmakerData) } -> { "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString), "Name" :: NullOrUndefined (NonZeroAndMaxString), "FleetId" :: NullOrUndefined (FleetId), "CreationTime" :: NullOrUndefined (Timestamp), "TerminationTime" :: NullOrUndefined (Timestamp), "CurrentPlayerSessionCount" :: NullOrUndefined (WholeNumber), "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber), "Status" :: NullOrUndefined (GameSessionStatus), "StatusReason" :: NullOrUndefined (GameSessionStatusReason), "GameProperties" :: NullOrUndefined (GamePropertyList), "IpAddress" :: NullOrUndefined (IpAddress), "Port" :: NullOrUndefined (PortNumber), "PlayerSessionCreationPolicy" :: NullOrUndefined (PlayerSessionCreationPolicy), "CreatorId" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionData" :: NullOrUndefined (GameSessionData), "MatchmakerData" :: NullOrUndefined (MatchmakerData) }) -> GameSession
+newGameSession' :: ({ "GameSessionId" :: Maybe (NonZeroAndMaxString), "Name" :: Maybe (NonZeroAndMaxString), "FleetId" :: Maybe (FleetId), "CreationTime" :: Maybe (Timestamp), "TerminationTime" :: Maybe (Timestamp), "CurrentPlayerSessionCount" :: Maybe (WholeNumber), "MaximumPlayerSessionCount" :: Maybe (WholeNumber), "Status" :: Maybe (GameSessionStatus), "StatusReason" :: Maybe (GameSessionStatusReason), "GameProperties" :: Maybe (GamePropertyList), "IpAddress" :: Maybe (IpAddress), "Port" :: Maybe (PortNumber), "PlayerSessionCreationPolicy" :: Maybe (PlayerSessionCreationPolicy), "CreatorId" :: Maybe (NonZeroAndMaxString), "GameSessionData" :: Maybe (GameSessionData), "MatchmakerData" :: Maybe (MatchmakerData) } -> { "GameSessionId" :: Maybe (NonZeroAndMaxString), "Name" :: Maybe (NonZeroAndMaxString), "FleetId" :: Maybe (FleetId), "CreationTime" :: Maybe (Timestamp), "TerminationTime" :: Maybe (Timestamp), "CurrentPlayerSessionCount" :: Maybe (WholeNumber), "MaximumPlayerSessionCount" :: Maybe (WholeNumber), "Status" :: Maybe (GameSessionStatus), "StatusReason" :: Maybe (GameSessionStatusReason), "GameProperties" :: Maybe (GamePropertyList), "IpAddress" :: Maybe (IpAddress), "Port" :: Maybe (PortNumber), "PlayerSessionCreationPolicy" :: Maybe (PlayerSessionCreationPolicy), "CreatorId" :: Maybe (NonZeroAndMaxString), "GameSessionData" :: Maybe (GameSessionData), "MatchmakerData" :: Maybe (MatchmakerData) }) -> GameSession
 ```
 
 Constructs GameSession's fields from required parameters
@@ -3492,7 +3492,7 @@ Encode GameSessionActivationTimeoutSeconds
 
 ``` purescript
 newtype GameSessionConnectionInfo
-  = GameSessionConnectionInfo { "GameSessionArn" :: NullOrUndefined (ArnStringModel), "IpAddress" :: NullOrUndefined (StringModel), "Port" :: NullOrUndefined (PositiveInteger), "MatchedPlayerSessions" :: NullOrUndefined (MatchedPlayerSessionList) }
+  = GameSessionConnectionInfo { "GameSessionArn" :: Maybe (ArnStringModel), "IpAddress" :: Maybe (StringModel), "Port" :: Maybe (PositiveInteger), "MatchedPlayerSessions" :: Maybe (MatchedPlayerSessionList) }
 ```
 
 <p>Connection information for the new game session that is created with matchmaking. (with <a>StartMatchmaking</a>). Once a match is set, the FlexMatch engine places the match and creates a new game session for it. This information, including the game session endpoint and player sessions for each player in the original matchmaking request, is added to the <a>MatchmakingTicket</a>, which can be retrieved by calling <a>DescribeMatchmaking</a>.</p>
@@ -3517,7 +3517,7 @@ Constructs GameSessionConnectionInfo from required parameters
 #### `newGameSessionConnectionInfo'`
 
 ``` purescript
-newGameSessionConnectionInfo' :: ({ "GameSessionArn" :: NullOrUndefined (ArnStringModel), "IpAddress" :: NullOrUndefined (StringModel), "Port" :: NullOrUndefined (PositiveInteger), "MatchedPlayerSessions" :: NullOrUndefined (MatchedPlayerSessionList) } -> { "GameSessionArn" :: NullOrUndefined (ArnStringModel), "IpAddress" :: NullOrUndefined (StringModel), "Port" :: NullOrUndefined (PositiveInteger), "MatchedPlayerSessions" :: NullOrUndefined (MatchedPlayerSessionList) }) -> GameSessionConnectionInfo
+newGameSessionConnectionInfo' :: ({ "GameSessionArn" :: Maybe (ArnStringModel), "IpAddress" :: Maybe (StringModel), "Port" :: Maybe (PositiveInteger), "MatchedPlayerSessions" :: Maybe (MatchedPlayerSessionList) } -> { "GameSessionArn" :: Maybe (ArnStringModel), "IpAddress" :: Maybe (StringModel), "Port" :: Maybe (PositiveInteger), "MatchedPlayerSessions" :: Maybe (MatchedPlayerSessionList) }) -> GameSessionConnectionInfo
 ```
 
 Constructs GameSessionConnectionInfo's fields from required parameters
@@ -3542,7 +3542,7 @@ Encode GameSessionData
 
 ``` purescript
 newtype GameSessionDetail
-  = GameSessionDetail { "GameSession" :: NullOrUndefined (GameSession), "ProtectionPolicy" :: NullOrUndefined (ProtectionPolicy) }
+  = GameSessionDetail { "GameSession" :: Maybe (GameSession), "ProtectionPolicy" :: Maybe (ProtectionPolicy) }
 ```
 
 <p>A game session's properties plus the protection policy currently in force.</p>
@@ -3567,7 +3567,7 @@ Constructs GameSessionDetail from required parameters
 #### `newGameSessionDetail'`
 
 ``` purescript
-newGameSessionDetail' :: ({ "GameSession" :: NullOrUndefined (GameSession), "ProtectionPolicy" :: NullOrUndefined (ProtectionPolicy) } -> { "GameSession" :: NullOrUndefined (GameSession), "ProtectionPolicy" :: NullOrUndefined (ProtectionPolicy) }) -> GameSessionDetail
+newGameSessionDetail' :: ({ "GameSession" :: Maybe (GameSession), "ProtectionPolicy" :: Maybe (ProtectionPolicy) } -> { "GameSession" :: Maybe (GameSession), "ProtectionPolicy" :: Maybe (ProtectionPolicy) }) -> GameSessionDetail
 ```
 
 Constructs GameSessionDetail's fields from required parameters
@@ -3592,7 +3592,7 @@ Encode GameSessionDetailList
 
 ``` purescript
 newtype GameSessionFullException
-  = GameSessionFullException { "Message" :: NullOrUndefined (NonEmptyString) }
+  = GameSessionFullException { "Message" :: Maybe (NonEmptyString) }
 ```
 
 <p>The game instance is currently full and cannot allow the requested player(s) to join. Clients can retry such requests immediately or after a waiting period.</p>
@@ -3617,7 +3617,7 @@ Constructs GameSessionFullException from required parameters
 #### `newGameSessionFullException'`
 
 ``` purescript
-newGameSessionFullException' :: ({ "Message" :: NullOrUndefined (NonEmptyString) } -> { "Message" :: NullOrUndefined (NonEmptyString) }) -> GameSessionFullException
+newGameSessionFullException' :: ({ "Message" :: Maybe (NonEmptyString) } -> { "Message" :: Maybe (NonEmptyString) }) -> GameSessionFullException
 ```
 
 Constructs GameSessionFullException's fields from required parameters
@@ -3642,7 +3642,7 @@ Encode GameSessionList
 
 ``` purescript
 newtype GameSessionPlacement
-  = GameSessionPlacement { "PlacementId" :: NullOrUndefined (IdStringModel), "GameSessionQueueName" :: NullOrUndefined (GameSessionQueueName), "Status" :: NullOrUndefined (GameSessionPlacementState), "GameProperties" :: NullOrUndefined (GamePropertyList), "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber), "GameSessionName" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionArn" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionRegion" :: NullOrUndefined (NonZeroAndMaxString), "PlayerLatencies" :: NullOrUndefined (PlayerLatencyList), "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "IpAddress" :: NullOrUndefined (IpAddress), "Port" :: NullOrUndefined (PortNumber), "PlacedPlayerSessions" :: NullOrUndefined (PlacedPlayerSessionList), "GameSessionData" :: NullOrUndefined (GameSessionData), "MatchmakerData" :: NullOrUndefined (MatchmakerData) }
+  = GameSessionPlacement { "PlacementId" :: Maybe (IdStringModel), "GameSessionQueueName" :: Maybe (GameSessionQueueName), "Status" :: Maybe (GameSessionPlacementState), "GameProperties" :: Maybe (GamePropertyList), "MaximumPlayerSessionCount" :: Maybe (WholeNumber), "GameSessionName" :: Maybe (NonZeroAndMaxString), "GameSessionId" :: Maybe (NonZeroAndMaxString), "GameSessionArn" :: Maybe (NonZeroAndMaxString), "GameSessionRegion" :: Maybe (NonZeroAndMaxString), "PlayerLatencies" :: Maybe (PlayerLatencyList), "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "IpAddress" :: Maybe (IpAddress), "Port" :: Maybe (PortNumber), "PlacedPlayerSessions" :: Maybe (PlacedPlayerSessionList), "GameSessionData" :: Maybe (GameSessionData), "MatchmakerData" :: Maybe (MatchmakerData) }
 ```
 
 <p>Object that describes a <a>StartGameSessionPlacement</a> request. This object includes the full details of the original request plus the current status and start/end time stamps.</p> <p>Game session placement-related operations include:</p> <ul> <li> <p> <a>StartGameSessionPlacement</a> </p> </li> <li> <p> <a>DescribeGameSessionPlacement</a> </p> </li> <li> <p> <a>StopGameSessionPlacement</a> </p> </li> </ul>
@@ -3667,7 +3667,7 @@ Constructs GameSessionPlacement from required parameters
 #### `newGameSessionPlacement'`
 
 ``` purescript
-newGameSessionPlacement' :: ({ "PlacementId" :: NullOrUndefined (IdStringModel), "GameSessionQueueName" :: NullOrUndefined (GameSessionQueueName), "Status" :: NullOrUndefined (GameSessionPlacementState), "GameProperties" :: NullOrUndefined (GamePropertyList), "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber), "GameSessionName" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionArn" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionRegion" :: NullOrUndefined (NonZeroAndMaxString), "PlayerLatencies" :: NullOrUndefined (PlayerLatencyList), "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "IpAddress" :: NullOrUndefined (IpAddress), "Port" :: NullOrUndefined (PortNumber), "PlacedPlayerSessions" :: NullOrUndefined (PlacedPlayerSessionList), "GameSessionData" :: NullOrUndefined (GameSessionData), "MatchmakerData" :: NullOrUndefined (MatchmakerData) } -> { "PlacementId" :: NullOrUndefined (IdStringModel), "GameSessionQueueName" :: NullOrUndefined (GameSessionQueueName), "Status" :: NullOrUndefined (GameSessionPlacementState), "GameProperties" :: NullOrUndefined (GamePropertyList), "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber), "GameSessionName" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionArn" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionRegion" :: NullOrUndefined (NonZeroAndMaxString), "PlayerLatencies" :: NullOrUndefined (PlayerLatencyList), "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "IpAddress" :: NullOrUndefined (IpAddress), "Port" :: NullOrUndefined (PortNumber), "PlacedPlayerSessions" :: NullOrUndefined (PlacedPlayerSessionList), "GameSessionData" :: NullOrUndefined (GameSessionData), "MatchmakerData" :: NullOrUndefined (MatchmakerData) }) -> GameSessionPlacement
+newGameSessionPlacement' :: ({ "PlacementId" :: Maybe (IdStringModel), "GameSessionQueueName" :: Maybe (GameSessionQueueName), "Status" :: Maybe (GameSessionPlacementState), "GameProperties" :: Maybe (GamePropertyList), "MaximumPlayerSessionCount" :: Maybe (WholeNumber), "GameSessionName" :: Maybe (NonZeroAndMaxString), "GameSessionId" :: Maybe (NonZeroAndMaxString), "GameSessionArn" :: Maybe (NonZeroAndMaxString), "GameSessionRegion" :: Maybe (NonZeroAndMaxString), "PlayerLatencies" :: Maybe (PlayerLatencyList), "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "IpAddress" :: Maybe (IpAddress), "Port" :: Maybe (PortNumber), "PlacedPlayerSessions" :: Maybe (PlacedPlayerSessionList), "GameSessionData" :: Maybe (GameSessionData), "MatchmakerData" :: Maybe (MatchmakerData) } -> { "PlacementId" :: Maybe (IdStringModel), "GameSessionQueueName" :: Maybe (GameSessionQueueName), "Status" :: Maybe (GameSessionPlacementState), "GameProperties" :: Maybe (GamePropertyList), "MaximumPlayerSessionCount" :: Maybe (WholeNumber), "GameSessionName" :: Maybe (NonZeroAndMaxString), "GameSessionId" :: Maybe (NonZeroAndMaxString), "GameSessionArn" :: Maybe (NonZeroAndMaxString), "GameSessionRegion" :: Maybe (NonZeroAndMaxString), "PlayerLatencies" :: Maybe (PlayerLatencyList), "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "IpAddress" :: Maybe (IpAddress), "Port" :: Maybe (PortNumber), "PlacedPlayerSessions" :: Maybe (PlacedPlayerSessionList), "GameSessionData" :: Maybe (GameSessionData), "MatchmakerData" :: Maybe (MatchmakerData) }) -> GameSessionPlacement
 ```
 
 Constructs GameSessionPlacement's fields from required parameters
@@ -3692,7 +3692,7 @@ Encode GameSessionPlacementState
 
 ``` purescript
 newtype GameSessionQueue
-  = GameSessionQueue { "Name" :: NullOrUndefined (GameSessionQueueName), "GameSessionQueueArn" :: NullOrUndefined (ArnStringModel), "TimeoutInSeconds" :: NullOrUndefined (WholeNumber), "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList), "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList) }
+  = GameSessionQueue { "Name" :: Maybe (GameSessionQueueName), "GameSessionQueueArn" :: Maybe (ArnStringModel), "TimeoutInSeconds" :: Maybe (WholeNumber), "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList), "Destinations" :: Maybe (GameSessionQueueDestinationList) }
 ```
 
 <p>Configuration of a queue that is used to process game session placement requests. The queue configuration identifies several game features:</p> <ul> <li> <p>The destinations where a new game session can potentially be hosted. Amazon GameLift tries these destinations in an order based on either the queue's default order or player latency information, if provided in a placement request. With latency information, Amazon GameLift can place game sessions where the majority of players are reporting the lowest possible latency. </p> </li> <li> <p>The length of time that placement requests can wait in the queue before timing out. </p> </li> <li> <p>A set of optional latency policies that protect individual players from high latencies, preventing game sessions from being placed where any individual player is reporting latency higher than a policy's maximum.</p> </li> </ul> <p>Queue-related operations include:</p> <ul> <li> <p> <a>CreateGameSessionQueue</a> </p> </li> <li> <p> <a>DescribeGameSessionQueues</a> </p> </li> <li> <p> <a>UpdateGameSessionQueue</a> </p> </li> <li> <p> <a>DeleteGameSessionQueue</a> </p> </li> </ul>
@@ -3717,7 +3717,7 @@ Constructs GameSessionQueue from required parameters
 #### `newGameSessionQueue'`
 
 ``` purescript
-newGameSessionQueue' :: ({ "Name" :: NullOrUndefined (GameSessionQueueName), "GameSessionQueueArn" :: NullOrUndefined (ArnStringModel), "TimeoutInSeconds" :: NullOrUndefined (WholeNumber), "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList), "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList) } -> { "Name" :: NullOrUndefined (GameSessionQueueName), "GameSessionQueueArn" :: NullOrUndefined (ArnStringModel), "TimeoutInSeconds" :: NullOrUndefined (WholeNumber), "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList), "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList) }) -> GameSessionQueue
+newGameSessionQueue' :: ({ "Name" :: Maybe (GameSessionQueueName), "GameSessionQueueArn" :: Maybe (ArnStringModel), "TimeoutInSeconds" :: Maybe (WholeNumber), "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList), "Destinations" :: Maybe (GameSessionQueueDestinationList) } -> { "Name" :: Maybe (GameSessionQueueName), "GameSessionQueueArn" :: Maybe (ArnStringModel), "TimeoutInSeconds" :: Maybe (WholeNumber), "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList), "Destinations" :: Maybe (GameSessionQueueDestinationList) }) -> GameSessionQueue
 ```
 
 Constructs GameSessionQueue's fields from required parameters
@@ -3726,7 +3726,7 @@ Constructs GameSessionQueue's fields from required parameters
 
 ``` purescript
 newtype GameSessionQueueDestination
-  = GameSessionQueueDestination { "DestinationArn" :: NullOrUndefined (ArnStringModel) }
+  = GameSessionQueueDestination { "DestinationArn" :: Maybe (ArnStringModel) }
 ```
 
 <p>Fleet designated in a game session queue. Requests for new game sessions in the queue are fulfilled by starting a new game session on any destination configured for a queue. </p> <p>Queue-related operations include:</p> <ul> <li> <p> <a>CreateGameSessionQueue</a> </p> </li> <li> <p> <a>DescribeGameSessionQueues</a> </p> </li> <li> <p> <a>UpdateGameSessionQueue</a> </p> </li> <li> <p> <a>DeleteGameSessionQueue</a> </p> </li> </ul>
@@ -3751,7 +3751,7 @@ Constructs GameSessionQueueDestination from required parameters
 #### `newGameSessionQueueDestination'`
 
 ``` purescript
-newGameSessionQueueDestination' :: ({ "DestinationArn" :: NullOrUndefined (ArnStringModel) } -> { "DestinationArn" :: NullOrUndefined (ArnStringModel) }) -> GameSessionQueueDestination
+newGameSessionQueueDestination' :: ({ "DestinationArn" :: Maybe (ArnStringModel) } -> { "DestinationArn" :: Maybe (ArnStringModel) }) -> GameSessionQueueDestination
 ```
 
 Constructs GameSessionQueueDestination's fields from required parameters
@@ -3890,7 +3890,7 @@ Constructs GetGameSessionLogUrlInput's fields from required parameters
 
 ``` purescript
 newtype GetGameSessionLogUrlOutput
-  = GetGameSessionLogUrlOutput { "PreSignedUrl" :: NullOrUndefined (NonZeroAndMaxString) }
+  = GetGameSessionLogUrlOutput { "PreSignedUrl" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -3915,7 +3915,7 @@ Constructs GetGameSessionLogUrlOutput from required parameters
 #### `newGetGameSessionLogUrlOutput'`
 
 ``` purescript
-newGetGameSessionLogUrlOutput' :: ({ "PreSignedUrl" :: NullOrUndefined (NonZeroAndMaxString) } -> { "PreSignedUrl" :: NullOrUndefined (NonZeroAndMaxString) }) -> GetGameSessionLogUrlOutput
+newGetGameSessionLogUrlOutput' :: ({ "PreSignedUrl" :: Maybe (NonZeroAndMaxString) } -> { "PreSignedUrl" :: Maybe (NonZeroAndMaxString) }) -> GetGameSessionLogUrlOutput
 ```
 
 Constructs GetGameSessionLogUrlOutput's fields from required parameters
@@ -3958,7 +3958,7 @@ Constructs GetInstanceAccessInput's fields from required parameters
 
 ``` purescript
 newtype GetInstanceAccessOutput
-  = GetInstanceAccessOutput { "InstanceAccess" :: NullOrUndefined (InstanceAccess) }
+  = GetInstanceAccessOutput { "InstanceAccess" :: Maybe (InstanceAccess) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -3983,7 +3983,7 @@ Constructs GetInstanceAccessOutput from required parameters
 #### `newGetInstanceAccessOutput'`
 
 ``` purescript
-newGetInstanceAccessOutput' :: ({ "InstanceAccess" :: NullOrUndefined (InstanceAccess) } -> { "InstanceAccess" :: NullOrUndefined (InstanceAccess) }) -> GetInstanceAccessOutput
+newGetInstanceAccessOutput' :: ({ "InstanceAccess" :: Maybe (InstanceAccess) } -> { "InstanceAccess" :: Maybe (InstanceAccess) }) -> GetInstanceAccessOutput
 ```
 
 Constructs GetInstanceAccessOutput's fields from required parameters
@@ -4008,7 +4008,7 @@ Encode IdStringModel
 
 ``` purescript
 newtype IdempotentParameterMismatchException
-  = IdempotentParameterMismatchException { "Message" :: NullOrUndefined (NonEmptyString) }
+  = IdempotentParameterMismatchException { "Message" :: Maybe (NonEmptyString) }
 ```
 
 <p>A game session with this custom ID string already exists in this fleet. Resolve this conflict before retrying this request.</p>
@@ -4033,7 +4033,7 @@ Constructs IdempotentParameterMismatchException from required parameters
 #### `newIdempotentParameterMismatchException'`
 
 ``` purescript
-newIdempotentParameterMismatchException' :: ({ "Message" :: NullOrUndefined (NonEmptyString) } -> { "Message" :: NullOrUndefined (NonEmptyString) }) -> IdempotentParameterMismatchException
+newIdempotentParameterMismatchException' :: ({ "Message" :: Maybe (NonEmptyString) } -> { "Message" :: Maybe (NonEmptyString) }) -> IdempotentParameterMismatchException
 ```
 
 Constructs IdempotentParameterMismatchException's fields from required parameters
@@ -4042,7 +4042,7 @@ Constructs IdempotentParameterMismatchException's fields from required parameter
 
 ``` purescript
 newtype Instance
-  = Instance { "FleetId" :: NullOrUndefined (FleetId), "InstanceId" :: NullOrUndefined (InstanceId), "IpAddress" :: NullOrUndefined (IpAddress), "OperatingSystem" :: NullOrUndefined (OperatingSystem), "Type" :: NullOrUndefined (EC2InstanceType), "Status" :: NullOrUndefined (InstanceStatus), "CreationTime" :: NullOrUndefined (Timestamp) }
+  = Instance { "FleetId" :: Maybe (FleetId), "InstanceId" :: Maybe (InstanceId), "IpAddress" :: Maybe (IpAddress), "OperatingSystem" :: Maybe (OperatingSystem), "Type" :: Maybe (EC2InstanceType), "Status" :: Maybe (InstanceStatus), "CreationTime" :: Maybe (Timestamp) }
 ```
 
 <p>Properties that describe an instance of a virtual computing resource that hosts one or more game servers. A fleet may contain zero or more instances.</p>
@@ -4067,7 +4067,7 @@ Constructs Instance from required parameters
 #### `newInstance'`
 
 ``` purescript
-newInstance' :: ({ "FleetId" :: NullOrUndefined (FleetId), "InstanceId" :: NullOrUndefined (InstanceId), "IpAddress" :: NullOrUndefined (IpAddress), "OperatingSystem" :: NullOrUndefined (OperatingSystem), "Type" :: NullOrUndefined (EC2InstanceType), "Status" :: NullOrUndefined (InstanceStatus), "CreationTime" :: NullOrUndefined (Timestamp) } -> { "FleetId" :: NullOrUndefined (FleetId), "InstanceId" :: NullOrUndefined (InstanceId), "IpAddress" :: NullOrUndefined (IpAddress), "OperatingSystem" :: NullOrUndefined (OperatingSystem), "Type" :: NullOrUndefined (EC2InstanceType), "Status" :: NullOrUndefined (InstanceStatus), "CreationTime" :: NullOrUndefined (Timestamp) }) -> Instance
+newInstance' :: ({ "FleetId" :: Maybe (FleetId), "InstanceId" :: Maybe (InstanceId), "IpAddress" :: Maybe (IpAddress), "OperatingSystem" :: Maybe (OperatingSystem), "Type" :: Maybe (EC2InstanceType), "Status" :: Maybe (InstanceStatus), "CreationTime" :: Maybe (Timestamp) } -> { "FleetId" :: Maybe (FleetId), "InstanceId" :: Maybe (InstanceId), "IpAddress" :: Maybe (IpAddress), "OperatingSystem" :: Maybe (OperatingSystem), "Type" :: Maybe (EC2InstanceType), "Status" :: Maybe (InstanceStatus), "CreationTime" :: Maybe (Timestamp) }) -> Instance
 ```
 
 Constructs Instance's fields from required parameters
@@ -4076,7 +4076,7 @@ Constructs Instance's fields from required parameters
 
 ``` purescript
 newtype InstanceAccess
-  = InstanceAccess { "FleetId" :: NullOrUndefined (FleetId), "InstanceId" :: NullOrUndefined (InstanceId), "IpAddress" :: NullOrUndefined (IpAddress), "OperatingSystem" :: NullOrUndefined (OperatingSystem), "Credentials" :: NullOrUndefined (InstanceCredentials) }
+  = InstanceAccess { "FleetId" :: Maybe (FleetId), "InstanceId" :: Maybe (InstanceId), "IpAddress" :: Maybe (IpAddress), "OperatingSystem" :: Maybe (OperatingSystem), "Credentials" :: Maybe (InstanceCredentials) }
 ```
 
 <p>Information required to remotely connect to a fleet instance. Access is requested by calling <a>GetInstanceAccess</a>. </p>
@@ -4101,7 +4101,7 @@ Constructs InstanceAccess from required parameters
 #### `newInstanceAccess'`
 
 ``` purescript
-newInstanceAccess' :: ({ "FleetId" :: NullOrUndefined (FleetId), "InstanceId" :: NullOrUndefined (InstanceId), "IpAddress" :: NullOrUndefined (IpAddress), "OperatingSystem" :: NullOrUndefined (OperatingSystem), "Credentials" :: NullOrUndefined (InstanceCredentials) } -> { "FleetId" :: NullOrUndefined (FleetId), "InstanceId" :: NullOrUndefined (InstanceId), "IpAddress" :: NullOrUndefined (IpAddress), "OperatingSystem" :: NullOrUndefined (OperatingSystem), "Credentials" :: NullOrUndefined (InstanceCredentials) }) -> InstanceAccess
+newInstanceAccess' :: ({ "FleetId" :: Maybe (FleetId), "InstanceId" :: Maybe (InstanceId), "IpAddress" :: Maybe (IpAddress), "OperatingSystem" :: Maybe (OperatingSystem), "Credentials" :: Maybe (InstanceCredentials) } -> { "FleetId" :: Maybe (FleetId), "InstanceId" :: Maybe (InstanceId), "IpAddress" :: Maybe (IpAddress), "OperatingSystem" :: Maybe (OperatingSystem), "Credentials" :: Maybe (InstanceCredentials) }) -> InstanceAccess
 ```
 
 Constructs InstanceAccess's fields from required parameters
@@ -4110,7 +4110,7 @@ Constructs InstanceAccess's fields from required parameters
 
 ``` purescript
 newtype InstanceCredentials
-  = InstanceCredentials { "UserName" :: NullOrUndefined (NonEmptyString), "Secret" :: NullOrUndefined (NonEmptyString) }
+  = InstanceCredentials { "UserName" :: Maybe (NonEmptyString), "Secret" :: Maybe (NonEmptyString) }
 ```
 
 <p>Set of credentials required to remotely access a fleet instance. Access credentials are requested by calling <a>GetInstanceAccess</a> and returned in an <a>InstanceAccess</a> object.</p>
@@ -4135,7 +4135,7 @@ Constructs InstanceCredentials from required parameters
 #### `newInstanceCredentials'`
 
 ``` purescript
-newInstanceCredentials' :: ({ "UserName" :: NullOrUndefined (NonEmptyString), "Secret" :: NullOrUndefined (NonEmptyString) } -> { "UserName" :: NullOrUndefined (NonEmptyString), "Secret" :: NullOrUndefined (NonEmptyString) }) -> InstanceCredentials
+newInstanceCredentials' :: ({ "UserName" :: Maybe (NonEmptyString), "Secret" :: Maybe (NonEmptyString) } -> { "UserName" :: Maybe (NonEmptyString), "Secret" :: Maybe (NonEmptyString) }) -> InstanceCredentials
 ```
 
 Constructs InstanceCredentials's fields from required parameters
@@ -4192,7 +4192,7 @@ Encode InstanceStatus
 
 ``` purescript
 newtype InternalServiceException
-  = InternalServiceException { "Message" :: NullOrUndefined (NonEmptyString) }
+  = InternalServiceException { "Message" :: Maybe (NonEmptyString) }
 ```
 
 <p>The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.</p>
@@ -4217,7 +4217,7 @@ Constructs InternalServiceException from required parameters
 #### `newInternalServiceException'`
 
 ``` purescript
-newInternalServiceException' :: ({ "Message" :: NullOrUndefined (NonEmptyString) } -> { "Message" :: NullOrUndefined (NonEmptyString) }) -> InternalServiceException
+newInternalServiceException' :: ({ "Message" :: Maybe (NonEmptyString) } -> { "Message" :: Maybe (NonEmptyString) }) -> InternalServiceException
 ```
 
 Constructs InternalServiceException's fields from required parameters
@@ -4226,7 +4226,7 @@ Constructs InternalServiceException's fields from required parameters
 
 ``` purescript
 newtype InvalidFleetStatusException
-  = InvalidFleetStatusException { "Message" :: NullOrUndefined (NonEmptyString) }
+  = InvalidFleetStatusException { "Message" :: Maybe (NonEmptyString) }
 ```
 
 <p>The requested operation would cause a conflict with the current state of a resource associated with the request and/or the fleet. Resolve the conflict before retrying.</p>
@@ -4251,7 +4251,7 @@ Constructs InvalidFleetStatusException from required parameters
 #### `newInvalidFleetStatusException'`
 
 ``` purescript
-newInvalidFleetStatusException' :: ({ "Message" :: NullOrUndefined (NonEmptyString) } -> { "Message" :: NullOrUndefined (NonEmptyString) }) -> InvalidFleetStatusException
+newInvalidFleetStatusException' :: ({ "Message" :: Maybe (NonEmptyString) } -> { "Message" :: Maybe (NonEmptyString) }) -> InvalidFleetStatusException
 ```
 
 Constructs InvalidFleetStatusException's fields from required parameters
@@ -4260,7 +4260,7 @@ Constructs InvalidFleetStatusException's fields from required parameters
 
 ``` purescript
 newtype InvalidGameSessionStatusException
-  = InvalidGameSessionStatusException { "Message" :: NullOrUndefined (NonEmptyString) }
+  = InvalidGameSessionStatusException { "Message" :: Maybe (NonEmptyString) }
 ```
 
 <p>The requested operation would cause a conflict with the current state of a resource associated with the request and/or the game instance. Resolve the conflict before retrying.</p>
@@ -4285,7 +4285,7 @@ Constructs InvalidGameSessionStatusException from required parameters
 #### `newInvalidGameSessionStatusException'`
 
 ``` purescript
-newInvalidGameSessionStatusException' :: ({ "Message" :: NullOrUndefined (NonEmptyString) } -> { "Message" :: NullOrUndefined (NonEmptyString) }) -> InvalidGameSessionStatusException
+newInvalidGameSessionStatusException' :: ({ "Message" :: Maybe (NonEmptyString) } -> { "Message" :: Maybe (NonEmptyString) }) -> InvalidGameSessionStatusException
 ```
 
 Constructs InvalidGameSessionStatusException's fields from required parameters
@@ -4294,7 +4294,7 @@ Constructs InvalidGameSessionStatusException's fields from required parameters
 
 ``` purescript
 newtype InvalidRequestException
-  = InvalidRequestException { "Message" :: NullOrUndefined (NonEmptyString) }
+  = InvalidRequestException { "Message" :: Maybe (NonEmptyString) }
 ```
 
 <p>One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.</p>
@@ -4319,7 +4319,7 @@ Constructs InvalidRequestException from required parameters
 #### `newInvalidRequestException'`
 
 ``` purescript
-newInvalidRequestException' :: ({ "Message" :: NullOrUndefined (NonEmptyString) } -> { "Message" :: NullOrUndefined (NonEmptyString) }) -> InvalidRequestException
+newInvalidRequestException' :: ({ "Message" :: Maybe (NonEmptyString) } -> { "Message" :: Maybe (NonEmptyString) }) -> InvalidRequestException
 ```
 
 Constructs InvalidRequestException's fields from required parameters
@@ -4426,7 +4426,7 @@ Encode LatencyMap
 
 ``` purescript
 newtype LimitExceededException
-  = LimitExceededException { "Message" :: NullOrUndefined (NonEmptyString) }
+  = LimitExceededException { "Message" :: Maybe (NonEmptyString) }
 ```
 
 <p>The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.</p>
@@ -4451,7 +4451,7 @@ Constructs LimitExceededException from required parameters
 #### `newLimitExceededException'`
 
 ``` purescript
-newLimitExceededException' :: ({ "Message" :: NullOrUndefined (NonEmptyString) } -> { "Message" :: NullOrUndefined (NonEmptyString) }) -> LimitExceededException
+newLimitExceededException' :: ({ "Message" :: Maybe (NonEmptyString) } -> { "Message" :: Maybe (NonEmptyString) }) -> LimitExceededException
 ```
 
 Constructs LimitExceededException's fields from required parameters
@@ -4460,7 +4460,7 @@ Constructs LimitExceededException's fields from required parameters
 
 ``` purescript
 newtype ListAliasesInput
-  = ListAliasesInput { "RoutingStrategyType" :: NullOrUndefined (RoutingStrategyType), "Name" :: NullOrUndefined (NonEmptyString), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonEmptyString) }
+  = ListAliasesInput { "RoutingStrategyType" :: Maybe (RoutingStrategyType), "Name" :: Maybe (NonEmptyString), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonEmptyString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -4485,7 +4485,7 @@ Constructs ListAliasesInput from required parameters
 #### `newListAliasesInput'`
 
 ``` purescript
-newListAliasesInput' :: ({ "RoutingStrategyType" :: NullOrUndefined (RoutingStrategyType), "Name" :: NullOrUndefined (NonEmptyString), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonEmptyString) } -> { "RoutingStrategyType" :: NullOrUndefined (RoutingStrategyType), "Name" :: NullOrUndefined (NonEmptyString), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonEmptyString) }) -> ListAliasesInput
+newListAliasesInput' :: ({ "RoutingStrategyType" :: Maybe (RoutingStrategyType), "Name" :: Maybe (NonEmptyString), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonEmptyString) } -> { "RoutingStrategyType" :: Maybe (RoutingStrategyType), "Name" :: Maybe (NonEmptyString), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonEmptyString) }) -> ListAliasesInput
 ```
 
 Constructs ListAliasesInput's fields from required parameters
@@ -4494,7 +4494,7 @@ Constructs ListAliasesInput's fields from required parameters
 
 ``` purescript
 newtype ListAliasesOutput
-  = ListAliasesOutput { "Aliases" :: NullOrUndefined (AliasList), "NextToken" :: NullOrUndefined (NonEmptyString) }
+  = ListAliasesOutput { "Aliases" :: Maybe (AliasList), "NextToken" :: Maybe (NonEmptyString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -4519,7 +4519,7 @@ Constructs ListAliasesOutput from required parameters
 #### `newListAliasesOutput'`
 
 ``` purescript
-newListAliasesOutput' :: ({ "Aliases" :: NullOrUndefined (AliasList), "NextToken" :: NullOrUndefined (NonEmptyString) } -> { "Aliases" :: NullOrUndefined (AliasList), "NextToken" :: NullOrUndefined (NonEmptyString) }) -> ListAliasesOutput
+newListAliasesOutput' :: ({ "Aliases" :: Maybe (AliasList), "NextToken" :: Maybe (NonEmptyString) } -> { "Aliases" :: Maybe (AliasList), "NextToken" :: Maybe (NonEmptyString) }) -> ListAliasesOutput
 ```
 
 Constructs ListAliasesOutput's fields from required parameters
@@ -4528,7 +4528,7 @@ Constructs ListAliasesOutput's fields from required parameters
 
 ``` purescript
 newtype ListBuildsInput
-  = ListBuildsInput { "Status" :: NullOrUndefined (BuildStatus), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonEmptyString) }
+  = ListBuildsInput { "Status" :: Maybe (BuildStatus), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonEmptyString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -4553,7 +4553,7 @@ Constructs ListBuildsInput from required parameters
 #### `newListBuildsInput'`
 
 ``` purescript
-newListBuildsInput' :: ({ "Status" :: NullOrUndefined (BuildStatus), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonEmptyString) } -> { "Status" :: NullOrUndefined (BuildStatus), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonEmptyString) }) -> ListBuildsInput
+newListBuildsInput' :: ({ "Status" :: Maybe (BuildStatus), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonEmptyString) } -> { "Status" :: Maybe (BuildStatus), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonEmptyString) }) -> ListBuildsInput
 ```
 
 Constructs ListBuildsInput's fields from required parameters
@@ -4562,7 +4562,7 @@ Constructs ListBuildsInput's fields from required parameters
 
 ``` purescript
 newtype ListBuildsOutput
-  = ListBuildsOutput { "Builds" :: NullOrUndefined (BuildList), "NextToken" :: NullOrUndefined (NonEmptyString) }
+  = ListBuildsOutput { "Builds" :: Maybe (BuildList), "NextToken" :: Maybe (NonEmptyString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -4587,7 +4587,7 @@ Constructs ListBuildsOutput from required parameters
 #### `newListBuildsOutput'`
 
 ``` purescript
-newListBuildsOutput' :: ({ "Builds" :: NullOrUndefined (BuildList), "NextToken" :: NullOrUndefined (NonEmptyString) } -> { "Builds" :: NullOrUndefined (BuildList), "NextToken" :: NullOrUndefined (NonEmptyString) }) -> ListBuildsOutput
+newListBuildsOutput' :: ({ "Builds" :: Maybe (BuildList), "NextToken" :: Maybe (NonEmptyString) } -> { "Builds" :: Maybe (BuildList), "NextToken" :: Maybe (NonEmptyString) }) -> ListBuildsOutput
 ```
 
 Constructs ListBuildsOutput's fields from required parameters
@@ -4596,7 +4596,7 @@ Constructs ListBuildsOutput's fields from required parameters
 
 ``` purescript
 newtype ListFleetsInput
-  = ListFleetsInput { "BuildId" :: NullOrUndefined (BuildId), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = ListFleetsInput { "BuildId" :: Maybe (BuildId), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -4621,7 +4621,7 @@ Constructs ListFleetsInput from required parameters
 #### `newListFleetsInput'`
 
 ``` purescript
-newListFleetsInput' :: ({ "BuildId" :: NullOrUndefined (BuildId), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "BuildId" :: NullOrUndefined (BuildId), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> ListFleetsInput
+newListFleetsInput' :: ({ "BuildId" :: Maybe (BuildId), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "BuildId" :: Maybe (BuildId), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> ListFleetsInput
 ```
 
 Constructs ListFleetsInput's fields from required parameters
@@ -4630,7 +4630,7 @@ Constructs ListFleetsInput's fields from required parameters
 
 ``` purescript
 newtype ListFleetsOutput
-  = ListFleetsOutput { "FleetIds" :: NullOrUndefined (FleetIdList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = ListFleetsOutput { "FleetIds" :: Maybe (FleetIdList), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -4655,7 +4655,7 @@ Constructs ListFleetsOutput from required parameters
 #### `newListFleetsOutput'`
 
 ``` purescript
-newListFleetsOutput' :: ({ "FleetIds" :: NullOrUndefined (FleetIdList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "FleetIds" :: NullOrUndefined (FleetIdList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> ListFleetsOutput
+newListFleetsOutput' :: ({ "FleetIds" :: Maybe (FleetIdList), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "FleetIds" :: Maybe (FleetIdList), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> ListFleetsOutput
 ```
 
 Constructs ListFleetsOutput's fields from required parameters
@@ -4664,7 +4664,7 @@ Constructs ListFleetsOutput's fields from required parameters
 
 ``` purescript
 newtype MatchedPlayerSession
-  = MatchedPlayerSession { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "PlayerSessionId" :: NullOrUndefined (PlayerSessionId) }
+  = MatchedPlayerSession { "PlayerId" :: Maybe (NonZeroAndMaxString), "PlayerSessionId" :: Maybe (PlayerSessionId) }
 ```
 
 <p>Represents a new player session that is created as a result of a successful FlexMatch match. A successful match automatically creates new player sessions for every player ID in the original matchmaking request. </p> <p>When players connect to the match's game session, they must include both player ID and player session ID in order to claim their assigned player slot.</p>
@@ -4689,7 +4689,7 @@ Constructs MatchedPlayerSession from required parameters
 #### `newMatchedPlayerSession'`
 
 ``` purescript
-newMatchedPlayerSession' :: ({ "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "PlayerSessionId" :: NullOrUndefined (PlayerSessionId) } -> { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "PlayerSessionId" :: NullOrUndefined (PlayerSessionId) }) -> MatchedPlayerSession
+newMatchedPlayerSession' :: ({ "PlayerId" :: Maybe (NonZeroAndMaxString), "PlayerSessionId" :: Maybe (PlayerSessionId) } -> { "PlayerId" :: Maybe (NonZeroAndMaxString), "PlayerSessionId" :: Maybe (PlayerSessionId) }) -> MatchedPlayerSession
 ```
 
 Constructs MatchedPlayerSession's fields from required parameters
@@ -4746,7 +4746,7 @@ Encode MatchmakingAcceptanceTimeoutInteger
 
 ``` purescript
 newtype MatchmakingConfiguration
-  = MatchmakingConfiguration { "Name" :: NullOrUndefined (MatchmakingIdStringModel), "Description" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionQueueArns" :: NullOrUndefined (QueueArnsList), "RequestTimeoutSeconds" :: NullOrUndefined (MatchmakingRequestTimeoutInteger), "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: NullOrUndefined (BooleanModel), "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel), "NotificationTarget" :: NullOrUndefined (SnsArnStringModel), "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber), "CustomEventData" :: NullOrUndefined (CustomEventData), "CreationTime" :: NullOrUndefined (Timestamp), "GameProperties" :: NullOrUndefined (GamePropertyList), "GameSessionData" :: NullOrUndefined (GameSessionData) }
+  = MatchmakingConfiguration { "Name" :: Maybe (MatchmakingIdStringModel), "Description" :: Maybe (NonZeroAndMaxString), "GameSessionQueueArns" :: Maybe (QueueArnsList), "RequestTimeoutSeconds" :: Maybe (MatchmakingRequestTimeoutInteger), "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: Maybe (BooleanModel), "RuleSetName" :: Maybe (MatchmakingIdStringModel), "NotificationTarget" :: Maybe (SnsArnStringModel), "AdditionalPlayerCount" :: Maybe (WholeNumber), "CustomEventData" :: Maybe (CustomEventData), "CreationTime" :: Maybe (Timestamp), "GameProperties" :: Maybe (GamePropertyList), "GameSessionData" :: Maybe (GameSessionData) }
 ```
 
 <p>Guidelines for use with FlexMatch to match players into games. All matchmaking requests must specify a matchmaking configuration.</p>
@@ -4771,7 +4771,7 @@ Constructs MatchmakingConfiguration from required parameters
 #### `newMatchmakingConfiguration'`
 
 ``` purescript
-newMatchmakingConfiguration' :: ({ "Name" :: NullOrUndefined (MatchmakingIdStringModel), "Description" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionQueueArns" :: NullOrUndefined (QueueArnsList), "RequestTimeoutSeconds" :: NullOrUndefined (MatchmakingRequestTimeoutInteger), "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: NullOrUndefined (BooleanModel), "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel), "NotificationTarget" :: NullOrUndefined (SnsArnStringModel), "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber), "CustomEventData" :: NullOrUndefined (CustomEventData), "CreationTime" :: NullOrUndefined (Timestamp), "GameProperties" :: NullOrUndefined (GamePropertyList), "GameSessionData" :: NullOrUndefined (GameSessionData) } -> { "Name" :: NullOrUndefined (MatchmakingIdStringModel), "Description" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionQueueArns" :: NullOrUndefined (QueueArnsList), "RequestTimeoutSeconds" :: NullOrUndefined (MatchmakingRequestTimeoutInteger), "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: NullOrUndefined (BooleanModel), "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel), "NotificationTarget" :: NullOrUndefined (SnsArnStringModel), "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber), "CustomEventData" :: NullOrUndefined (CustomEventData), "CreationTime" :: NullOrUndefined (Timestamp), "GameProperties" :: NullOrUndefined (GamePropertyList), "GameSessionData" :: NullOrUndefined (GameSessionData) }) -> MatchmakingConfiguration
+newMatchmakingConfiguration' :: ({ "Name" :: Maybe (MatchmakingIdStringModel), "Description" :: Maybe (NonZeroAndMaxString), "GameSessionQueueArns" :: Maybe (QueueArnsList), "RequestTimeoutSeconds" :: Maybe (MatchmakingRequestTimeoutInteger), "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: Maybe (BooleanModel), "RuleSetName" :: Maybe (MatchmakingIdStringModel), "NotificationTarget" :: Maybe (SnsArnStringModel), "AdditionalPlayerCount" :: Maybe (WholeNumber), "CustomEventData" :: Maybe (CustomEventData), "CreationTime" :: Maybe (Timestamp), "GameProperties" :: Maybe (GamePropertyList), "GameSessionData" :: Maybe (GameSessionData) } -> { "Name" :: Maybe (MatchmakingIdStringModel), "Description" :: Maybe (NonZeroAndMaxString), "GameSessionQueueArns" :: Maybe (QueueArnsList), "RequestTimeoutSeconds" :: Maybe (MatchmakingRequestTimeoutInteger), "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: Maybe (BooleanModel), "RuleSetName" :: Maybe (MatchmakingIdStringModel), "NotificationTarget" :: Maybe (SnsArnStringModel), "AdditionalPlayerCount" :: Maybe (WholeNumber), "CustomEventData" :: Maybe (CustomEventData), "CreationTime" :: Maybe (Timestamp), "GameProperties" :: Maybe (GamePropertyList), "GameSessionData" :: Maybe (GameSessionData) }) -> MatchmakingConfiguration
 ```
 
 Constructs MatchmakingConfiguration's fields from required parameters
@@ -4860,7 +4860,7 @@ Encode MatchmakingRequestTimeoutInteger
 
 ``` purescript
 newtype MatchmakingRuleSet
-  = MatchmakingRuleSet { "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel), "RuleSetBody" :: RuleSetBody, "CreationTime" :: NullOrUndefined (Timestamp) }
+  = MatchmakingRuleSet { "RuleSetName" :: Maybe (MatchmakingIdStringModel), "RuleSetBody" :: RuleSetBody, "CreationTime" :: Maybe (Timestamp) }
 ```
 
 <p>Set of rule statements, used with FlexMatch, that determine how to build a certain kind of player match. Each rule set describes a type of group to be created and defines the parameters for acceptable player matches. Rule sets are used in <a>MatchmakingConfiguration</a> objects.</p> <p>A rule set may define the following elements for a match. For detailed information and examples showing how to construct a rule set, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html">Build a FlexMatch Rule Set</a>. </p> <ul> <li> <p>Teams -- Required. A rule set must define one or multiple teams for the match and set minimum and maximum team sizes. For example, a rule set might describe a 4x4 match that requires all eight slots to be filled. </p> </li> <li> <p>Player attributes -- Optional. These attributes specify a set of player characteristics to evaluate when looking for a match. Matchmaking requests that use a rule set with player attributes must provide the corresponding attribute values. For example, an attribute might specify a player's skill or level.</p> </li> <li> <p>Rules -- Optional. Rules define how to evaluate potential players for a match based on player attributes. A rule might specify minimum requirements for individual players, teams, or entire matches. For example, a rule might require each player to meet a certain skill level, each team to have at least one player in a certain role, or the match to have a minimum average skill level. or may describe an entire group--such as all teams must be evenly matched or have at least one player in a certain role. </p> </li> <li> <p>Expansions -- Optional. Expansions allow you to relax the rules after a period of time when no acceptable matches are found. This feature lets you balance getting players into games in a reasonable amount of time instead of making them wait indefinitely for the best possible match. For example, you might use an expansion to increase the maximum skill variance between players after 30 seconds.</p> </li> </ul>
@@ -4885,7 +4885,7 @@ Constructs MatchmakingRuleSet from required parameters
 #### `newMatchmakingRuleSet'`
 
 ``` purescript
-newMatchmakingRuleSet' :: RuleSetBody -> ({ "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel), "RuleSetBody" :: RuleSetBody, "CreationTime" :: NullOrUndefined (Timestamp) } -> { "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel), "RuleSetBody" :: RuleSetBody, "CreationTime" :: NullOrUndefined (Timestamp) }) -> MatchmakingRuleSet
+newMatchmakingRuleSet' :: RuleSetBody -> ({ "RuleSetName" :: Maybe (MatchmakingIdStringModel), "RuleSetBody" :: RuleSetBody, "CreationTime" :: Maybe (Timestamp) } -> { "RuleSetName" :: Maybe (MatchmakingIdStringModel), "RuleSetBody" :: RuleSetBody, "CreationTime" :: Maybe (Timestamp) }) -> MatchmakingRuleSet
 ```
 
 Constructs MatchmakingRuleSet's fields from required parameters
@@ -4926,7 +4926,7 @@ Encode MatchmakingRuleSetNameList
 
 ``` purescript
 newtype MatchmakingTicket
-  = MatchmakingTicket { "TicketId" :: NullOrUndefined (MatchmakingIdStringModel), "ConfigurationName" :: NullOrUndefined (MatchmakingIdStringModel), "Status" :: NullOrUndefined (MatchmakingConfigurationStatus), "StatusReason" :: NullOrUndefined (StringModel), "StatusMessage" :: NullOrUndefined (StringModel), "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "Players" :: NullOrUndefined (PlayerList), "GameSessionConnectionInfo" :: NullOrUndefined (GameSessionConnectionInfo), "EstimatedWaitTime" :: NullOrUndefined (WholeNumber) }
+  = MatchmakingTicket { "TicketId" :: Maybe (MatchmakingIdStringModel), "ConfigurationName" :: Maybe (MatchmakingIdStringModel), "Status" :: Maybe (MatchmakingConfigurationStatus), "StatusReason" :: Maybe (StringModel), "StatusMessage" :: Maybe (StringModel), "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "Players" :: Maybe (PlayerList), "GameSessionConnectionInfo" :: Maybe (GameSessionConnectionInfo), "EstimatedWaitTime" :: Maybe (WholeNumber) }
 ```
 
 <p>Ticket generated to track the progress of a matchmaking request. Each ticket is uniquely identified by a ticket ID, supplied by the requester, when creating a matchmaking request with <a>StartMatchmaking</a>. Tickets can be retrieved by calling <a>DescribeMatchmaking</a> with the ticket ID.</p>
@@ -4951,7 +4951,7 @@ Constructs MatchmakingTicket from required parameters
 #### `newMatchmakingTicket'`
 
 ``` purescript
-newMatchmakingTicket' :: ({ "TicketId" :: NullOrUndefined (MatchmakingIdStringModel), "ConfigurationName" :: NullOrUndefined (MatchmakingIdStringModel), "Status" :: NullOrUndefined (MatchmakingConfigurationStatus), "StatusReason" :: NullOrUndefined (StringModel), "StatusMessage" :: NullOrUndefined (StringModel), "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "Players" :: NullOrUndefined (PlayerList), "GameSessionConnectionInfo" :: NullOrUndefined (GameSessionConnectionInfo), "EstimatedWaitTime" :: NullOrUndefined (WholeNumber) } -> { "TicketId" :: NullOrUndefined (MatchmakingIdStringModel), "ConfigurationName" :: NullOrUndefined (MatchmakingIdStringModel), "Status" :: NullOrUndefined (MatchmakingConfigurationStatus), "StatusReason" :: NullOrUndefined (StringModel), "StatusMessage" :: NullOrUndefined (StringModel), "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "Players" :: NullOrUndefined (PlayerList), "GameSessionConnectionInfo" :: NullOrUndefined (GameSessionConnectionInfo), "EstimatedWaitTime" :: NullOrUndefined (WholeNumber) }) -> MatchmakingTicket
+newMatchmakingTicket' :: ({ "TicketId" :: Maybe (MatchmakingIdStringModel), "ConfigurationName" :: Maybe (MatchmakingIdStringModel), "Status" :: Maybe (MatchmakingConfigurationStatus), "StatusReason" :: Maybe (StringModel), "StatusMessage" :: Maybe (StringModel), "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "Players" :: Maybe (PlayerList), "GameSessionConnectionInfo" :: Maybe (GameSessionConnectionInfo), "EstimatedWaitTime" :: Maybe (WholeNumber) } -> { "TicketId" :: Maybe (MatchmakingIdStringModel), "ConfigurationName" :: Maybe (MatchmakingIdStringModel), "Status" :: Maybe (MatchmakingConfigurationStatus), "StatusReason" :: Maybe (StringModel), "StatusMessage" :: Maybe (StringModel), "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "Players" :: Maybe (PlayerList), "GameSessionConnectionInfo" :: Maybe (GameSessionConnectionInfo), "EstimatedWaitTime" :: Maybe (WholeNumber) }) -> MatchmakingTicket
 ```
 
 Constructs MatchmakingTicket's fields from required parameters
@@ -5104,7 +5104,7 @@ Encode NonZeroAndMaxString
 
 ``` purescript
 newtype NotFoundException
-  = NotFoundException { "Message" :: NullOrUndefined (NonEmptyString) }
+  = NotFoundException { "Message" :: Maybe (NonEmptyString) }
 ```
 
 <p>A service resource associated with the request could not be found. Clients should not retry such requests.</p>
@@ -5129,7 +5129,7 @@ Constructs NotFoundException from required parameters
 #### `newNotFoundException'`
 
 ``` purescript
-newNotFoundException' :: ({ "Message" :: NullOrUndefined (NonEmptyString) } -> { "Message" :: NullOrUndefined (NonEmptyString) }) -> NotFoundException
+newNotFoundException' :: ({ "Message" :: Maybe (NonEmptyString) } -> { "Message" :: Maybe (NonEmptyString) }) -> NotFoundException
 ```
 
 Constructs NotFoundException's fields from required parameters
@@ -5154,7 +5154,7 @@ Encode OperatingSystem
 
 ``` purescript
 newtype PlacedPlayerSession
-  = PlacedPlayerSession { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "PlayerSessionId" :: NullOrUndefined (PlayerSessionId) }
+  = PlacedPlayerSession { "PlayerId" :: Maybe (NonZeroAndMaxString), "PlayerSessionId" :: Maybe (PlayerSessionId) }
 ```
 
 <p>Information about a player session that was created as part of a <a>StartGameSessionPlacement</a> request. This object contains only the player ID and player session ID. To retrieve full details on a player session, call <a>DescribePlayerSessions</a> with the player session ID.</p> <p>Player-session-related operations include:</p> <ul> <li> <p> <a>CreatePlayerSession</a> </p> </li> <li> <p> <a>CreatePlayerSessions</a> </p> </li> <li> <p> <a>DescribePlayerSessions</a> </p> </li> <li> <p>Game session placements</p> <ul> <li> <p> <a>StartGameSessionPlacement</a> </p> </li> <li> <p> <a>DescribeGameSessionPlacement</a> </p> </li> <li> <p> <a>StopGameSessionPlacement</a> </p> </li> </ul> </li> </ul>
@@ -5179,7 +5179,7 @@ Constructs PlacedPlayerSession from required parameters
 #### `newPlacedPlayerSession'`
 
 ``` purescript
-newPlacedPlayerSession' :: ({ "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "PlayerSessionId" :: NullOrUndefined (PlayerSessionId) } -> { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "PlayerSessionId" :: NullOrUndefined (PlayerSessionId) }) -> PlacedPlayerSession
+newPlacedPlayerSession' :: ({ "PlayerId" :: Maybe (NonZeroAndMaxString), "PlayerSessionId" :: Maybe (PlayerSessionId) } -> { "PlayerId" :: Maybe (NonZeroAndMaxString), "PlayerSessionId" :: Maybe (PlayerSessionId) }) -> PlacedPlayerSession
 ```
 
 Constructs PlacedPlayerSession's fields from required parameters
@@ -5204,7 +5204,7 @@ Encode PlacedPlayerSessionList
 
 ``` purescript
 newtype Player
-  = Player { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "PlayerAttributes" :: NullOrUndefined (PlayerAttributeMap), "Team" :: NullOrUndefined (NonZeroAndMaxString), "LatencyInMs" :: NullOrUndefined (LatencyMap) }
+  = Player { "PlayerId" :: Maybe (NonZeroAndMaxString), "PlayerAttributes" :: Maybe (PlayerAttributeMap), "Team" :: Maybe (NonZeroAndMaxString), "LatencyInMs" :: Maybe (LatencyMap) }
 ```
 
 <p>Represents a player in matchmaking. When starting a matchmaking request, a player has a player ID, attributes, and may have latency data. Team information is added after a match has been successfully completed.</p>
@@ -5229,7 +5229,7 @@ Constructs Player from required parameters
 #### `newPlayer'`
 
 ``` purescript
-newPlayer' :: ({ "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "PlayerAttributes" :: NullOrUndefined (PlayerAttributeMap), "Team" :: NullOrUndefined (NonZeroAndMaxString), "LatencyInMs" :: NullOrUndefined (LatencyMap) } -> { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "PlayerAttributes" :: NullOrUndefined (PlayerAttributeMap), "Team" :: NullOrUndefined (NonZeroAndMaxString), "LatencyInMs" :: NullOrUndefined (LatencyMap) }) -> Player
+newPlayer' :: ({ "PlayerId" :: Maybe (NonZeroAndMaxString), "PlayerAttributes" :: Maybe (PlayerAttributeMap), "Team" :: Maybe (NonZeroAndMaxString), "LatencyInMs" :: Maybe (LatencyMap) } -> { "PlayerId" :: Maybe (NonZeroAndMaxString), "PlayerAttributes" :: Maybe (PlayerAttributeMap), "Team" :: Maybe (NonZeroAndMaxString), "LatencyInMs" :: Maybe (LatencyMap) }) -> Player
 ```
 
 Constructs Player's fields from required parameters
@@ -5302,7 +5302,7 @@ Encode PlayerIdList
 
 ``` purescript
 newtype PlayerLatency
-  = PlayerLatency { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "RegionIdentifier" :: NullOrUndefined (NonZeroAndMaxString), "LatencyInMilliseconds" :: NullOrUndefined (Number) }
+  = PlayerLatency { "PlayerId" :: Maybe (NonZeroAndMaxString), "RegionIdentifier" :: Maybe (NonZeroAndMaxString), "LatencyInMilliseconds" :: Maybe (Number) }
 ```
 
 <p>Regional latency information for a player, used when requesting a new game session with <a>StartGameSessionPlacement</a>. This value indicates the amount of time lag that exists when the player is connected to a fleet in the specified region. The relative difference between a player's latency values for multiple regions are used to determine which fleets are best suited to place a new game session for the player. </p>
@@ -5327,7 +5327,7 @@ Constructs PlayerLatency from required parameters
 #### `newPlayerLatency'`
 
 ``` purescript
-newPlayerLatency' :: ({ "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "RegionIdentifier" :: NullOrUndefined (NonZeroAndMaxString), "LatencyInMilliseconds" :: NullOrUndefined (Number) } -> { "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "RegionIdentifier" :: NullOrUndefined (NonZeroAndMaxString), "LatencyInMilliseconds" :: NullOrUndefined (Number) }) -> PlayerLatency
+newPlayerLatency' :: ({ "PlayerId" :: Maybe (NonZeroAndMaxString), "RegionIdentifier" :: Maybe (NonZeroAndMaxString), "LatencyInMilliseconds" :: Maybe (Number) } -> { "PlayerId" :: Maybe (NonZeroAndMaxString), "RegionIdentifier" :: Maybe (NonZeroAndMaxString), "LatencyInMilliseconds" :: Maybe (Number) }) -> PlayerLatency
 ```
 
 Constructs PlayerLatency's fields from required parameters
@@ -5352,7 +5352,7 @@ Encode PlayerLatencyList
 
 ``` purescript
 newtype PlayerLatencyPolicy
-  = PlayerLatencyPolicy { "MaximumIndividualPlayerLatencyMilliseconds" :: NullOrUndefined (WholeNumber), "PolicyDurationSeconds" :: NullOrUndefined (WholeNumber) }
+  = PlayerLatencyPolicy { "MaximumIndividualPlayerLatencyMilliseconds" :: Maybe (WholeNumber), "PolicyDurationSeconds" :: Maybe (WholeNumber) }
 ```
 
 <p>Queue setting that determines the highest latency allowed for individual players when placing a game session. When a latency policy is in force, a game session cannot be placed at any destination in a region where a player is reporting latency higher than the cap. Latency policies are only enforced when the placement request contains player latency information.</p> <p>Queue-related operations include:</p> <ul> <li> <p> <a>CreateGameSessionQueue</a> </p> </li> <li> <p> <a>DescribeGameSessionQueues</a> </p> </li> <li> <p> <a>UpdateGameSessionQueue</a> </p> </li> <li> <p> <a>DeleteGameSessionQueue</a> </p> </li> </ul>
@@ -5377,7 +5377,7 @@ Constructs PlayerLatencyPolicy from required parameters
 #### `newPlayerLatencyPolicy'`
 
 ``` purescript
-newPlayerLatencyPolicy' :: ({ "MaximumIndividualPlayerLatencyMilliseconds" :: NullOrUndefined (WholeNumber), "PolicyDurationSeconds" :: NullOrUndefined (WholeNumber) } -> { "MaximumIndividualPlayerLatencyMilliseconds" :: NullOrUndefined (WholeNumber), "PolicyDurationSeconds" :: NullOrUndefined (WholeNumber) }) -> PlayerLatencyPolicy
+newPlayerLatencyPolicy' :: ({ "MaximumIndividualPlayerLatencyMilliseconds" :: Maybe (WholeNumber), "PolicyDurationSeconds" :: Maybe (WholeNumber) } -> { "MaximumIndividualPlayerLatencyMilliseconds" :: Maybe (WholeNumber), "PolicyDurationSeconds" :: Maybe (WholeNumber) }) -> PlayerLatencyPolicy
 ```
 
 Constructs PlayerLatencyPolicy's fields from required parameters
@@ -5418,7 +5418,7 @@ Encode PlayerList
 
 ``` purescript
 newtype PlayerSession
-  = PlayerSession { "PlayerSessionId" :: NullOrUndefined (PlayerSessionId), "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString), "FleetId" :: NullOrUndefined (FleetId), "CreationTime" :: NullOrUndefined (Timestamp), "TerminationTime" :: NullOrUndefined (Timestamp), "Status" :: NullOrUndefined (PlayerSessionStatus), "IpAddress" :: NullOrUndefined (IpAddress), "Port" :: NullOrUndefined (PortNumber), "PlayerData" :: NullOrUndefined (PlayerData) }
+  = PlayerSession { "PlayerSessionId" :: Maybe (PlayerSessionId), "PlayerId" :: Maybe (NonZeroAndMaxString), "GameSessionId" :: Maybe (NonZeroAndMaxString), "FleetId" :: Maybe (FleetId), "CreationTime" :: Maybe (Timestamp), "TerminationTime" :: Maybe (Timestamp), "Status" :: Maybe (PlayerSessionStatus), "IpAddress" :: Maybe (IpAddress), "Port" :: Maybe (PortNumber), "PlayerData" :: Maybe (PlayerData) }
 ```
 
 <p>Properties describing a player session. Player session objects are created either by creating a player session for a specific game session, or as part of a game session placement. A player session represents either a player reservation for a game session (status <code>RESERVED</code>) or actual player activity in a game session (status <code>ACTIVE</code>). A player session object (including player data) is automatically passed to a game session when the player connects to the game session and is validated.</p> <p>When a player disconnects, the player session status changes to <code>COMPLETED</code>. Once the session ends, the player session object is retained for 30 days and then removed.</p> <p>Player-session-related operations include:</p> <ul> <li> <p> <a>CreatePlayerSession</a> </p> </li> <li> <p> <a>CreatePlayerSessions</a> </p> </li> <li> <p> <a>DescribePlayerSessions</a> </p> </li> <li> <p>Game session placements</p> <ul> <li> <p> <a>StartGameSessionPlacement</a> </p> </li> <li> <p> <a>DescribeGameSessionPlacement</a> </p> </li> <li> <p> <a>StopGameSessionPlacement</a> </p> </li> </ul> </li> </ul>
@@ -5443,7 +5443,7 @@ Constructs PlayerSession from required parameters
 #### `newPlayerSession'`
 
 ``` purescript
-newPlayerSession' :: ({ "PlayerSessionId" :: NullOrUndefined (PlayerSessionId), "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString), "FleetId" :: NullOrUndefined (FleetId), "CreationTime" :: NullOrUndefined (Timestamp), "TerminationTime" :: NullOrUndefined (Timestamp), "Status" :: NullOrUndefined (PlayerSessionStatus), "IpAddress" :: NullOrUndefined (IpAddress), "Port" :: NullOrUndefined (PortNumber), "PlayerData" :: NullOrUndefined (PlayerData) } -> { "PlayerSessionId" :: NullOrUndefined (PlayerSessionId), "PlayerId" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionId" :: NullOrUndefined (NonZeroAndMaxString), "FleetId" :: NullOrUndefined (FleetId), "CreationTime" :: NullOrUndefined (Timestamp), "TerminationTime" :: NullOrUndefined (Timestamp), "Status" :: NullOrUndefined (PlayerSessionStatus), "IpAddress" :: NullOrUndefined (IpAddress), "Port" :: NullOrUndefined (PortNumber), "PlayerData" :: NullOrUndefined (PlayerData) }) -> PlayerSession
+newPlayerSession' :: ({ "PlayerSessionId" :: Maybe (PlayerSessionId), "PlayerId" :: Maybe (NonZeroAndMaxString), "GameSessionId" :: Maybe (NonZeroAndMaxString), "FleetId" :: Maybe (FleetId), "CreationTime" :: Maybe (Timestamp), "TerminationTime" :: Maybe (Timestamp), "Status" :: Maybe (PlayerSessionStatus), "IpAddress" :: Maybe (IpAddress), "Port" :: Maybe (PortNumber), "PlayerData" :: Maybe (PlayerData) } -> { "PlayerSessionId" :: Maybe (PlayerSessionId), "PlayerId" :: Maybe (NonZeroAndMaxString), "GameSessionId" :: Maybe (NonZeroAndMaxString), "FleetId" :: Maybe (FleetId), "CreationTime" :: Maybe (Timestamp), "TerminationTime" :: Maybe (Timestamp), "Status" :: Maybe (PlayerSessionStatus), "IpAddress" :: Maybe (IpAddress), "Port" :: Maybe (PortNumber), "PlayerData" :: Maybe (PlayerData) }) -> PlayerSession
 ```
 
 Constructs PlayerSession's fields from required parameters
@@ -5614,7 +5614,7 @@ Constructs PutScalingPolicyInput's fields from required parameters
 
 ``` purescript
 newtype PutScalingPolicyOutput
-  = PutScalingPolicyOutput { "Name" :: NullOrUndefined (NonZeroAndMaxString) }
+  = PutScalingPolicyOutput { "Name" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -5639,7 +5639,7 @@ Constructs PutScalingPolicyOutput from required parameters
 #### `newPutScalingPolicyOutput'`
 
 ``` purescript
-newPutScalingPolicyOutput' :: ({ "Name" :: NullOrUndefined (NonZeroAndMaxString) } -> { "Name" :: NullOrUndefined (NonZeroAndMaxString) }) -> PutScalingPolicyOutput
+newPutScalingPolicyOutput' :: ({ "Name" :: Maybe (NonZeroAndMaxString) } -> { "Name" :: Maybe (NonZeroAndMaxString) }) -> PutScalingPolicyOutput
 ```
 
 Constructs PutScalingPolicyOutput's fields from required parameters
@@ -5698,7 +5698,7 @@ Constructs RequestUploadCredentialsInput's fields from required parameters
 
 ``` purescript
 newtype RequestUploadCredentialsOutput
-  = RequestUploadCredentialsOutput { "UploadCredentials" :: NullOrUndefined (AwsCredentials), "StorageLocation" :: NullOrUndefined (S3Location) }
+  = RequestUploadCredentialsOutput { "UploadCredentials" :: Maybe (AwsCredentials), "StorageLocation" :: Maybe (S3Location) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -5723,7 +5723,7 @@ Constructs RequestUploadCredentialsOutput from required parameters
 #### `newRequestUploadCredentialsOutput'`
 
 ``` purescript
-newRequestUploadCredentialsOutput' :: ({ "UploadCredentials" :: NullOrUndefined (AwsCredentials), "StorageLocation" :: NullOrUndefined (S3Location) } -> { "UploadCredentials" :: NullOrUndefined (AwsCredentials), "StorageLocation" :: NullOrUndefined (S3Location) }) -> RequestUploadCredentialsOutput
+newRequestUploadCredentialsOutput' :: ({ "UploadCredentials" :: Maybe (AwsCredentials), "StorageLocation" :: Maybe (S3Location) } -> { "UploadCredentials" :: Maybe (AwsCredentials), "StorageLocation" :: Maybe (S3Location) }) -> RequestUploadCredentialsOutput
 ```
 
 Constructs RequestUploadCredentialsOutput's fields from required parameters
@@ -5766,7 +5766,7 @@ Constructs ResolveAliasInput's fields from required parameters
 
 ``` purescript
 newtype ResolveAliasOutput
-  = ResolveAliasOutput { "FleetId" :: NullOrUndefined (FleetId) }
+  = ResolveAliasOutput { "FleetId" :: Maybe (FleetId) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -5791,7 +5791,7 @@ Constructs ResolveAliasOutput from required parameters
 #### `newResolveAliasOutput'`
 
 ``` purescript
-newResolveAliasOutput' :: ({ "FleetId" :: NullOrUndefined (FleetId) } -> { "FleetId" :: NullOrUndefined (FleetId) }) -> ResolveAliasOutput
+newResolveAliasOutput' :: ({ "FleetId" :: Maybe (FleetId) } -> { "FleetId" :: Maybe (FleetId) }) -> ResolveAliasOutput
 ```
 
 Constructs ResolveAliasOutput's fields from required parameters
@@ -5800,7 +5800,7 @@ Constructs ResolveAliasOutput's fields from required parameters
 
 ``` purescript
 newtype ResourceCreationLimitPolicy
-  = ResourceCreationLimitPolicy { "NewGameSessionsPerCreator" :: NullOrUndefined (WholeNumber), "PolicyPeriodInMinutes" :: NullOrUndefined (WholeNumber) }
+  = ResourceCreationLimitPolicy { "NewGameSessionsPerCreator" :: Maybe (WholeNumber), "PolicyPeriodInMinutes" :: Maybe (WholeNumber) }
 ```
 
 <p>Policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".</p> <p>The policy is evaluated when a player tries to create a new game session. For example, with a policy of 10 new game sessions and a time period of 60 minutes, on receiving a <code>CreateGameSession</code> request, Amazon GameLift checks that the player (identified by <code>CreatorId</code>) has created fewer than 10 game sessions in the past 60 minutes.</p>
@@ -5825,7 +5825,7 @@ Constructs ResourceCreationLimitPolicy from required parameters
 #### `newResourceCreationLimitPolicy'`
 
 ``` purescript
-newResourceCreationLimitPolicy' :: ({ "NewGameSessionsPerCreator" :: NullOrUndefined (WholeNumber), "PolicyPeriodInMinutes" :: NullOrUndefined (WholeNumber) } -> { "NewGameSessionsPerCreator" :: NullOrUndefined (WholeNumber), "PolicyPeriodInMinutes" :: NullOrUndefined (WholeNumber) }) -> ResourceCreationLimitPolicy
+newResourceCreationLimitPolicy' :: ({ "NewGameSessionsPerCreator" :: Maybe (WholeNumber), "PolicyPeriodInMinutes" :: Maybe (WholeNumber) } -> { "NewGameSessionsPerCreator" :: Maybe (WholeNumber), "PolicyPeriodInMinutes" :: Maybe (WholeNumber) }) -> ResourceCreationLimitPolicy
 ```
 
 Constructs ResourceCreationLimitPolicy's fields from required parameters
@@ -5834,7 +5834,7 @@ Constructs ResourceCreationLimitPolicy's fields from required parameters
 
 ``` purescript
 newtype RoutingStrategy
-  = RoutingStrategy { "Type" :: NullOrUndefined (RoutingStrategyType), "FleetId" :: NullOrUndefined (FleetId), "Message" :: NullOrUndefined (FreeText) }
+  = RoutingStrategy { "Type" :: Maybe (RoutingStrategyType), "FleetId" :: Maybe (FleetId), "Message" :: Maybe (FreeText) }
 ```
 
 <p>Routing configuration for a fleet alias.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
@@ -5859,7 +5859,7 @@ Constructs RoutingStrategy from required parameters
 #### `newRoutingStrategy'`
 
 ``` purescript
-newRoutingStrategy' :: ({ "Type" :: NullOrUndefined (RoutingStrategyType), "FleetId" :: NullOrUndefined (FleetId), "Message" :: NullOrUndefined (FreeText) } -> { "Type" :: NullOrUndefined (RoutingStrategyType), "FleetId" :: NullOrUndefined (FleetId), "Message" :: NullOrUndefined (FreeText) }) -> RoutingStrategy
+newRoutingStrategy' :: ({ "Type" :: Maybe (RoutingStrategyType), "FleetId" :: Maybe (FleetId), "Message" :: Maybe (FreeText) } -> { "Type" :: Maybe (RoutingStrategyType), "FleetId" :: Maybe (FleetId), "Message" :: Maybe (FreeText) }) -> RoutingStrategy
 ```
 
 Constructs RoutingStrategy's fields from required parameters
@@ -5916,7 +5916,7 @@ Encode RuleSetLimit
 
 ``` purescript
 newtype RuntimeConfiguration
-  = RuntimeConfiguration { "ServerProcesses" :: NullOrUndefined (ServerProcessList), "MaxConcurrentGameSessionActivations" :: NullOrUndefined (MaxConcurrentGameSessionActivations), "GameSessionActivationTimeoutSeconds" :: NullOrUndefined (GameSessionActivationTimeoutSeconds) }
+  = RuntimeConfiguration { "ServerProcesses" :: Maybe (ServerProcessList), "MaxConcurrentGameSessionActivations" :: Maybe (MaxConcurrentGameSessionActivations), "GameSessionActivationTimeoutSeconds" :: Maybe (GameSessionActivationTimeoutSeconds) }
 ```
 
 <p>A collection of server process configurations that describe what processes to run on each instance in a fleet. All fleets must have a run-time configuration. Each instance in the fleet launches the server processes specified in the run-time configuration and launches new ones as existing processes end. Each instance regularly checks for an updated run-time configuration and follows the new instructions. </p> <p>The run-time configuration enables the instances in a fleet to run multiple processes simultaneously. Potential scenarios are as follows: (1) Run multiple processes of a single game server executable to maximize usage of your hosting resources. (2) Run one or more processes of different build executables, such as your game server executable and a related program, or two or more different versions of a game server. (3) Run multiple processes of a single game server but with different launch parameters, for example to run one process on each instance in debug mode.</p> <p>A Amazon GameLift instance is limited to 50 processes running simultaneously. A run-time configuration must specify fewer than this limit. To calculate the total number of processes specified in a run-time configuration, add the values of the <code>ConcurrentExecutions</code> parameter for each <code> <a>ServerProcess</a> </code> object in the run-time configuration.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
@@ -5941,7 +5941,7 @@ Constructs RuntimeConfiguration from required parameters
 #### `newRuntimeConfiguration'`
 
 ``` purescript
-newRuntimeConfiguration' :: ({ "ServerProcesses" :: NullOrUndefined (ServerProcessList), "MaxConcurrentGameSessionActivations" :: NullOrUndefined (MaxConcurrentGameSessionActivations), "GameSessionActivationTimeoutSeconds" :: NullOrUndefined (GameSessionActivationTimeoutSeconds) } -> { "ServerProcesses" :: NullOrUndefined (ServerProcessList), "MaxConcurrentGameSessionActivations" :: NullOrUndefined (MaxConcurrentGameSessionActivations), "GameSessionActivationTimeoutSeconds" :: NullOrUndefined (GameSessionActivationTimeoutSeconds) }) -> RuntimeConfiguration
+newRuntimeConfiguration' :: ({ "ServerProcesses" :: Maybe (ServerProcessList), "MaxConcurrentGameSessionActivations" :: Maybe (MaxConcurrentGameSessionActivations), "GameSessionActivationTimeoutSeconds" :: Maybe (GameSessionActivationTimeoutSeconds) } -> { "ServerProcesses" :: Maybe (ServerProcessList), "MaxConcurrentGameSessionActivations" :: Maybe (MaxConcurrentGameSessionActivations), "GameSessionActivationTimeoutSeconds" :: Maybe (GameSessionActivationTimeoutSeconds) }) -> RuntimeConfiguration
 ```
 
 Constructs RuntimeConfiguration's fields from required parameters
@@ -5950,7 +5950,7 @@ Constructs RuntimeConfiguration's fields from required parameters
 
 ``` purescript
 newtype S3Location
-  = S3Location { "Bucket" :: NullOrUndefined (NonEmptyString), "Key" :: NullOrUndefined (NonEmptyString), "RoleArn" :: NullOrUndefined (NonEmptyString) }
+  = S3Location { "Bucket" :: Maybe (NonEmptyString), "Key" :: Maybe (NonEmptyString), "RoleArn" :: Maybe (NonEmptyString) }
 ```
 
 <p>Location in Amazon Simple Storage Service (Amazon S3) where build files can be stored for access by Amazon GameLift. This location is specified in a <a>CreateBuild</a> request. For more details, see the <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build">Create a Build with Files in Amazon S3</a>.</p>
@@ -5975,7 +5975,7 @@ Constructs S3Location from required parameters
 #### `newS3Location'`
 
 ``` purescript
-newS3Location' :: ({ "Bucket" :: NullOrUndefined (NonEmptyString), "Key" :: NullOrUndefined (NonEmptyString), "RoleArn" :: NullOrUndefined (NonEmptyString) } -> { "Bucket" :: NullOrUndefined (NonEmptyString), "Key" :: NullOrUndefined (NonEmptyString), "RoleArn" :: NullOrUndefined (NonEmptyString) }) -> S3Location
+newS3Location' :: ({ "Bucket" :: Maybe (NonEmptyString), "Key" :: Maybe (NonEmptyString), "RoleArn" :: Maybe (NonEmptyString) } -> { "Bucket" :: Maybe (NonEmptyString), "Key" :: Maybe (NonEmptyString), "RoleArn" :: Maybe (NonEmptyString) }) -> S3Location
 ```
 
 Constructs S3Location's fields from required parameters
@@ -6000,7 +6000,7 @@ Encode ScalingAdjustmentType
 
 ``` purescript
 newtype ScalingPolicy
-  = ScalingPolicy { "FleetId" :: NullOrUndefined (FleetId), "Name" :: NullOrUndefined (NonZeroAndMaxString), "Status" :: NullOrUndefined (ScalingStatusType), "ScalingAdjustment" :: NullOrUndefined (Int), "ScalingAdjustmentType" :: NullOrUndefined (ScalingAdjustmentType), "ComparisonOperator" :: NullOrUndefined (ComparisonOperatorType), "Threshold" :: NullOrUndefined (Number), "EvaluationPeriods" :: NullOrUndefined (PositiveInteger), "MetricName" :: NullOrUndefined (MetricName) }
+  = ScalingPolicy { "FleetId" :: Maybe (FleetId), "Name" :: Maybe (NonZeroAndMaxString), "Status" :: Maybe (ScalingStatusType), "ScalingAdjustment" :: Maybe (Int), "ScalingAdjustmentType" :: Maybe (ScalingAdjustmentType), "ComparisonOperator" :: Maybe (ComparisonOperatorType), "Threshold" :: Maybe (Number), "EvaluationPeriods" :: Maybe (PositiveInteger), "MetricName" :: Maybe (MetricName) }
 ```
 
 <p>Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
@@ -6025,7 +6025,7 @@ Constructs ScalingPolicy from required parameters
 #### `newScalingPolicy'`
 
 ``` purescript
-newScalingPolicy' :: ({ "FleetId" :: NullOrUndefined (FleetId), "Name" :: NullOrUndefined (NonZeroAndMaxString), "Status" :: NullOrUndefined (ScalingStatusType), "ScalingAdjustment" :: NullOrUndefined (Int), "ScalingAdjustmentType" :: NullOrUndefined (ScalingAdjustmentType), "ComparisonOperator" :: NullOrUndefined (ComparisonOperatorType), "Threshold" :: NullOrUndefined (Number), "EvaluationPeriods" :: NullOrUndefined (PositiveInteger), "MetricName" :: NullOrUndefined (MetricName) } -> { "FleetId" :: NullOrUndefined (FleetId), "Name" :: NullOrUndefined (NonZeroAndMaxString), "Status" :: NullOrUndefined (ScalingStatusType), "ScalingAdjustment" :: NullOrUndefined (Int), "ScalingAdjustmentType" :: NullOrUndefined (ScalingAdjustmentType), "ComparisonOperator" :: NullOrUndefined (ComparisonOperatorType), "Threshold" :: NullOrUndefined (Number), "EvaluationPeriods" :: NullOrUndefined (PositiveInteger), "MetricName" :: NullOrUndefined (MetricName) }) -> ScalingPolicy
+newScalingPolicy' :: ({ "FleetId" :: Maybe (FleetId), "Name" :: Maybe (NonZeroAndMaxString), "Status" :: Maybe (ScalingStatusType), "ScalingAdjustment" :: Maybe (Int), "ScalingAdjustmentType" :: Maybe (ScalingAdjustmentType), "ComparisonOperator" :: Maybe (ComparisonOperatorType), "Threshold" :: Maybe (Number), "EvaluationPeriods" :: Maybe (PositiveInteger), "MetricName" :: Maybe (MetricName) } -> { "FleetId" :: Maybe (FleetId), "Name" :: Maybe (NonZeroAndMaxString), "Status" :: Maybe (ScalingStatusType), "ScalingAdjustment" :: Maybe (Int), "ScalingAdjustmentType" :: Maybe (ScalingAdjustmentType), "ComparisonOperator" :: Maybe (ComparisonOperatorType), "Threshold" :: Maybe (Number), "EvaluationPeriods" :: Maybe (PositiveInteger), "MetricName" :: Maybe (MetricName) }) -> ScalingPolicy
 ```
 
 Constructs ScalingPolicy's fields from required parameters
@@ -6066,7 +6066,7 @@ Encode ScalingStatusType
 
 ``` purescript
 newtype SearchGameSessionsInput
-  = SearchGameSessionsInput { "FleetId" :: NullOrUndefined (FleetId), "AliasId" :: NullOrUndefined (AliasId), "FilterExpression" :: NullOrUndefined (NonZeroAndMaxString), "SortExpression" :: NullOrUndefined (NonZeroAndMaxString), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = SearchGameSessionsInput { "FleetId" :: Maybe (FleetId), "AliasId" :: Maybe (AliasId), "FilterExpression" :: Maybe (NonZeroAndMaxString), "SortExpression" :: Maybe (NonZeroAndMaxString), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -6091,7 +6091,7 @@ Constructs SearchGameSessionsInput from required parameters
 #### `newSearchGameSessionsInput'`
 
 ``` purescript
-newSearchGameSessionsInput' :: ({ "FleetId" :: NullOrUndefined (FleetId), "AliasId" :: NullOrUndefined (AliasId), "FilterExpression" :: NullOrUndefined (NonZeroAndMaxString), "SortExpression" :: NullOrUndefined (NonZeroAndMaxString), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "FleetId" :: NullOrUndefined (FleetId), "AliasId" :: NullOrUndefined (AliasId), "FilterExpression" :: NullOrUndefined (NonZeroAndMaxString), "SortExpression" :: NullOrUndefined (NonZeroAndMaxString), "Limit" :: NullOrUndefined (PositiveInteger), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> SearchGameSessionsInput
+newSearchGameSessionsInput' :: ({ "FleetId" :: Maybe (FleetId), "AliasId" :: Maybe (AliasId), "FilterExpression" :: Maybe (NonZeroAndMaxString), "SortExpression" :: Maybe (NonZeroAndMaxString), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "FleetId" :: Maybe (FleetId), "AliasId" :: Maybe (AliasId), "FilterExpression" :: Maybe (NonZeroAndMaxString), "SortExpression" :: Maybe (NonZeroAndMaxString), "Limit" :: Maybe (PositiveInteger), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> SearchGameSessionsInput
 ```
 
 Constructs SearchGameSessionsInput's fields from required parameters
@@ -6100,7 +6100,7 @@ Constructs SearchGameSessionsInput's fields from required parameters
 
 ``` purescript
 newtype SearchGameSessionsOutput
-  = SearchGameSessionsOutput { "GameSessions" :: NullOrUndefined (GameSessionList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }
+  = SearchGameSessionsOutput { "GameSessions" :: Maybe (GameSessionList), "NextToken" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -6125,7 +6125,7 @@ Constructs SearchGameSessionsOutput from required parameters
 #### `newSearchGameSessionsOutput'`
 
 ``` purescript
-newSearchGameSessionsOutput' :: ({ "GameSessions" :: NullOrUndefined (GameSessionList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) } -> { "GameSessions" :: NullOrUndefined (GameSessionList), "NextToken" :: NullOrUndefined (NonZeroAndMaxString) }) -> SearchGameSessionsOutput
+newSearchGameSessionsOutput' :: ({ "GameSessions" :: Maybe (GameSessionList), "NextToken" :: Maybe (NonZeroAndMaxString) } -> { "GameSessions" :: Maybe (GameSessionList), "NextToken" :: Maybe (NonZeroAndMaxString) }) -> SearchGameSessionsOutput
 ```
 
 Constructs SearchGameSessionsOutput's fields from required parameters
@@ -6134,7 +6134,7 @@ Constructs SearchGameSessionsOutput's fields from required parameters
 
 ``` purescript
 newtype ServerProcess
-  = ServerProcess { "LaunchPath" :: NonZeroAndMaxString, "Parameters" :: NullOrUndefined (NonZeroAndMaxString), "ConcurrentExecutions" :: PositiveInteger }
+  = ServerProcess { "LaunchPath" :: NonZeroAndMaxString, "Parameters" :: Maybe (NonZeroAndMaxString), "ConcurrentExecutions" :: PositiveInteger }
 ```
 
 <p>A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's <code> <a>RuntimeConfiguration</a> </code>.</p>
@@ -6159,7 +6159,7 @@ Constructs ServerProcess from required parameters
 #### `newServerProcess'`
 
 ``` purescript
-newServerProcess' :: PositiveInteger -> NonZeroAndMaxString -> ({ "LaunchPath" :: NonZeroAndMaxString, "Parameters" :: NullOrUndefined (NonZeroAndMaxString), "ConcurrentExecutions" :: PositiveInteger } -> { "LaunchPath" :: NonZeroAndMaxString, "Parameters" :: NullOrUndefined (NonZeroAndMaxString), "ConcurrentExecutions" :: PositiveInteger }) -> ServerProcess
+newServerProcess' :: PositiveInteger -> NonZeroAndMaxString -> ({ "LaunchPath" :: NonZeroAndMaxString, "Parameters" :: Maybe (NonZeroAndMaxString), "ConcurrentExecutions" :: PositiveInteger } -> { "LaunchPath" :: NonZeroAndMaxString, "Parameters" :: Maybe (NonZeroAndMaxString), "ConcurrentExecutions" :: PositiveInteger }) -> ServerProcess
 ```
 
 Constructs ServerProcess's fields from required parameters
@@ -6200,7 +6200,7 @@ Encode SnsArnStringModel
 
 ``` purescript
 newtype StartGameSessionPlacementInput
-  = StartGameSessionPlacementInput { "PlacementId" :: IdStringModel, "GameSessionQueueName" :: GameSessionQueueName, "GameProperties" :: NullOrUndefined (GamePropertyList), "MaximumPlayerSessionCount" :: WholeNumber, "GameSessionName" :: NullOrUndefined (NonZeroAndMaxString), "PlayerLatencies" :: NullOrUndefined (PlayerLatencyList), "DesiredPlayerSessions" :: NullOrUndefined (DesiredPlayerSessionList), "GameSessionData" :: NullOrUndefined (GameSessionData) }
+  = StartGameSessionPlacementInput { "PlacementId" :: IdStringModel, "GameSessionQueueName" :: GameSessionQueueName, "GameProperties" :: Maybe (GamePropertyList), "MaximumPlayerSessionCount" :: WholeNumber, "GameSessionName" :: Maybe (NonZeroAndMaxString), "PlayerLatencies" :: Maybe (PlayerLatencyList), "DesiredPlayerSessions" :: Maybe (DesiredPlayerSessionList), "GameSessionData" :: Maybe (GameSessionData) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -6225,7 +6225,7 @@ Constructs StartGameSessionPlacementInput from required parameters
 #### `newStartGameSessionPlacementInput'`
 
 ``` purescript
-newStartGameSessionPlacementInput' :: GameSessionQueueName -> WholeNumber -> IdStringModel -> ({ "PlacementId" :: IdStringModel, "GameSessionQueueName" :: GameSessionQueueName, "GameProperties" :: NullOrUndefined (GamePropertyList), "MaximumPlayerSessionCount" :: WholeNumber, "GameSessionName" :: NullOrUndefined (NonZeroAndMaxString), "PlayerLatencies" :: NullOrUndefined (PlayerLatencyList), "DesiredPlayerSessions" :: NullOrUndefined (DesiredPlayerSessionList), "GameSessionData" :: NullOrUndefined (GameSessionData) } -> { "PlacementId" :: IdStringModel, "GameSessionQueueName" :: GameSessionQueueName, "GameProperties" :: NullOrUndefined (GamePropertyList), "MaximumPlayerSessionCount" :: WholeNumber, "GameSessionName" :: NullOrUndefined (NonZeroAndMaxString), "PlayerLatencies" :: NullOrUndefined (PlayerLatencyList), "DesiredPlayerSessions" :: NullOrUndefined (DesiredPlayerSessionList), "GameSessionData" :: NullOrUndefined (GameSessionData) }) -> StartGameSessionPlacementInput
+newStartGameSessionPlacementInput' :: GameSessionQueueName -> WholeNumber -> IdStringModel -> ({ "PlacementId" :: IdStringModel, "GameSessionQueueName" :: GameSessionQueueName, "GameProperties" :: Maybe (GamePropertyList), "MaximumPlayerSessionCount" :: WholeNumber, "GameSessionName" :: Maybe (NonZeroAndMaxString), "PlayerLatencies" :: Maybe (PlayerLatencyList), "DesiredPlayerSessions" :: Maybe (DesiredPlayerSessionList), "GameSessionData" :: Maybe (GameSessionData) } -> { "PlacementId" :: IdStringModel, "GameSessionQueueName" :: GameSessionQueueName, "GameProperties" :: Maybe (GamePropertyList), "MaximumPlayerSessionCount" :: WholeNumber, "GameSessionName" :: Maybe (NonZeroAndMaxString), "PlayerLatencies" :: Maybe (PlayerLatencyList), "DesiredPlayerSessions" :: Maybe (DesiredPlayerSessionList), "GameSessionData" :: Maybe (GameSessionData) }) -> StartGameSessionPlacementInput
 ```
 
 Constructs StartGameSessionPlacementInput's fields from required parameters
@@ -6234,7 +6234,7 @@ Constructs StartGameSessionPlacementInput's fields from required parameters
 
 ``` purescript
 newtype StartGameSessionPlacementOutput
-  = StartGameSessionPlacementOutput { "GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement) }
+  = StartGameSessionPlacementOutput { "GameSessionPlacement" :: Maybe (GameSessionPlacement) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -6259,7 +6259,7 @@ Constructs StartGameSessionPlacementOutput from required parameters
 #### `newStartGameSessionPlacementOutput'`
 
 ``` purescript
-newStartGameSessionPlacementOutput' :: ({ "GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement) } -> { "GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement) }) -> StartGameSessionPlacementOutput
+newStartGameSessionPlacementOutput' :: ({ "GameSessionPlacement" :: Maybe (GameSessionPlacement) } -> { "GameSessionPlacement" :: Maybe (GameSessionPlacement) }) -> StartGameSessionPlacementOutput
 ```
 
 Constructs StartGameSessionPlacementOutput's fields from required parameters
@@ -6268,7 +6268,7 @@ Constructs StartGameSessionPlacementOutput's fields from required parameters
 
 ``` purescript
 newtype StartMatchBackfillInput
-  = StartMatchBackfillInput { "TicketId" :: NullOrUndefined (MatchmakingIdStringModel), "ConfigurationName" :: MatchmakingIdStringModel, "GameSessionArn" :: ArnStringModel, "Players" :: PlayerList }
+  = StartMatchBackfillInput { "TicketId" :: Maybe (MatchmakingIdStringModel), "ConfigurationName" :: MatchmakingIdStringModel, "GameSessionArn" :: ArnStringModel, "Players" :: PlayerList }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -6293,7 +6293,7 @@ Constructs StartMatchBackfillInput from required parameters
 #### `newStartMatchBackfillInput'`
 
 ``` purescript
-newStartMatchBackfillInput' :: MatchmakingIdStringModel -> ArnStringModel -> PlayerList -> ({ "TicketId" :: NullOrUndefined (MatchmakingIdStringModel), "ConfigurationName" :: MatchmakingIdStringModel, "GameSessionArn" :: ArnStringModel, "Players" :: PlayerList } -> { "TicketId" :: NullOrUndefined (MatchmakingIdStringModel), "ConfigurationName" :: MatchmakingIdStringModel, "GameSessionArn" :: ArnStringModel, "Players" :: PlayerList }) -> StartMatchBackfillInput
+newStartMatchBackfillInput' :: MatchmakingIdStringModel -> ArnStringModel -> PlayerList -> ({ "TicketId" :: Maybe (MatchmakingIdStringModel), "ConfigurationName" :: MatchmakingIdStringModel, "GameSessionArn" :: ArnStringModel, "Players" :: PlayerList } -> { "TicketId" :: Maybe (MatchmakingIdStringModel), "ConfigurationName" :: MatchmakingIdStringModel, "GameSessionArn" :: ArnStringModel, "Players" :: PlayerList }) -> StartMatchBackfillInput
 ```
 
 Constructs StartMatchBackfillInput's fields from required parameters
@@ -6302,7 +6302,7 @@ Constructs StartMatchBackfillInput's fields from required parameters
 
 ``` purescript
 newtype StartMatchBackfillOutput
-  = StartMatchBackfillOutput { "MatchmakingTicket" :: NullOrUndefined (MatchmakingTicket) }
+  = StartMatchBackfillOutput { "MatchmakingTicket" :: Maybe (MatchmakingTicket) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -6327,7 +6327,7 @@ Constructs StartMatchBackfillOutput from required parameters
 #### `newStartMatchBackfillOutput'`
 
 ``` purescript
-newStartMatchBackfillOutput' :: ({ "MatchmakingTicket" :: NullOrUndefined (MatchmakingTicket) } -> { "MatchmakingTicket" :: NullOrUndefined (MatchmakingTicket) }) -> StartMatchBackfillOutput
+newStartMatchBackfillOutput' :: ({ "MatchmakingTicket" :: Maybe (MatchmakingTicket) } -> { "MatchmakingTicket" :: Maybe (MatchmakingTicket) }) -> StartMatchBackfillOutput
 ```
 
 Constructs StartMatchBackfillOutput's fields from required parameters
@@ -6336,7 +6336,7 @@ Constructs StartMatchBackfillOutput's fields from required parameters
 
 ``` purescript
 newtype StartMatchmakingInput
-  = StartMatchmakingInput { "TicketId" :: NullOrUndefined (MatchmakingIdStringModel), "ConfigurationName" :: MatchmakingIdStringModel, "Players" :: PlayerList }
+  = StartMatchmakingInput { "TicketId" :: Maybe (MatchmakingIdStringModel), "ConfigurationName" :: MatchmakingIdStringModel, "Players" :: PlayerList }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -6361,7 +6361,7 @@ Constructs StartMatchmakingInput from required parameters
 #### `newStartMatchmakingInput'`
 
 ``` purescript
-newStartMatchmakingInput' :: MatchmakingIdStringModel -> PlayerList -> ({ "TicketId" :: NullOrUndefined (MatchmakingIdStringModel), "ConfigurationName" :: MatchmakingIdStringModel, "Players" :: PlayerList } -> { "TicketId" :: NullOrUndefined (MatchmakingIdStringModel), "ConfigurationName" :: MatchmakingIdStringModel, "Players" :: PlayerList }) -> StartMatchmakingInput
+newStartMatchmakingInput' :: MatchmakingIdStringModel -> PlayerList -> ({ "TicketId" :: Maybe (MatchmakingIdStringModel), "ConfigurationName" :: MatchmakingIdStringModel, "Players" :: PlayerList } -> { "TicketId" :: Maybe (MatchmakingIdStringModel), "ConfigurationName" :: MatchmakingIdStringModel, "Players" :: PlayerList }) -> StartMatchmakingInput
 ```
 
 Constructs StartMatchmakingInput's fields from required parameters
@@ -6370,7 +6370,7 @@ Constructs StartMatchmakingInput's fields from required parameters
 
 ``` purescript
 newtype StartMatchmakingOutput
-  = StartMatchmakingOutput { "MatchmakingTicket" :: NullOrUndefined (MatchmakingTicket) }
+  = StartMatchmakingOutput { "MatchmakingTicket" :: Maybe (MatchmakingTicket) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -6395,7 +6395,7 @@ Constructs StartMatchmakingOutput from required parameters
 #### `newStartMatchmakingOutput'`
 
 ``` purescript
-newStartMatchmakingOutput' :: ({ "MatchmakingTicket" :: NullOrUndefined (MatchmakingTicket) } -> { "MatchmakingTicket" :: NullOrUndefined (MatchmakingTicket) }) -> StartMatchmakingOutput
+newStartMatchmakingOutput' :: ({ "MatchmakingTicket" :: Maybe (MatchmakingTicket) } -> { "MatchmakingTicket" :: Maybe (MatchmakingTicket) }) -> StartMatchmakingOutput
 ```
 
 Constructs StartMatchmakingOutput's fields from required parameters
@@ -6438,7 +6438,7 @@ Constructs StopGameSessionPlacementInput's fields from required parameters
 
 ``` purescript
 newtype StopGameSessionPlacementOutput
-  = StopGameSessionPlacementOutput { "GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement) }
+  = StopGameSessionPlacementOutput { "GameSessionPlacement" :: Maybe (GameSessionPlacement) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -6463,7 +6463,7 @@ Constructs StopGameSessionPlacementOutput from required parameters
 #### `newStopGameSessionPlacementOutput'`
 
 ``` purescript
-newStopGameSessionPlacementOutput' :: ({ "GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement) } -> { "GameSessionPlacement" :: NullOrUndefined (GameSessionPlacement) }) -> StopGameSessionPlacementOutput
+newStopGameSessionPlacementOutput' :: ({ "GameSessionPlacement" :: Maybe (GameSessionPlacement) } -> { "GameSessionPlacement" :: Maybe (GameSessionPlacement) }) -> StopGameSessionPlacementOutput
 ```
 
 Constructs StopGameSessionPlacementOutput's fields from required parameters
@@ -6570,7 +6570,7 @@ Encode StringModel
 
 ``` purescript
 newtype TerminalRoutingStrategyException
-  = TerminalRoutingStrategyException { "Message" :: NullOrUndefined (NonEmptyString) }
+  = TerminalRoutingStrategyException { "Message" :: Maybe (NonEmptyString) }
 ```
 
 <p>The service is unable to resolve the routing for a particular alias because it has a terminal <a>RoutingStrategy</a> associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified. </p>
@@ -6595,7 +6595,7 @@ Constructs TerminalRoutingStrategyException from required parameters
 #### `newTerminalRoutingStrategyException'`
 
 ``` purescript
-newTerminalRoutingStrategyException' :: ({ "Message" :: NullOrUndefined (NonEmptyString) } -> { "Message" :: NullOrUndefined (NonEmptyString) }) -> TerminalRoutingStrategyException
+newTerminalRoutingStrategyException' :: ({ "Message" :: Maybe (NonEmptyString) } -> { "Message" :: Maybe (NonEmptyString) }) -> TerminalRoutingStrategyException
 ```
 
 Constructs TerminalRoutingStrategyException's fields from required parameters
@@ -6604,7 +6604,7 @@ Constructs TerminalRoutingStrategyException's fields from required parameters
 
 ``` purescript
 newtype UnauthorizedException
-  = UnauthorizedException { "Message" :: NullOrUndefined (NonEmptyString) }
+  = UnauthorizedException { "Message" :: Maybe (NonEmptyString) }
 ```
 
 <p>The client failed authentication. Clients should not retry such requests.</p>
@@ -6629,7 +6629,7 @@ Constructs UnauthorizedException from required parameters
 #### `newUnauthorizedException'`
 
 ``` purescript
-newUnauthorizedException' :: ({ "Message" :: NullOrUndefined (NonEmptyString) } -> { "Message" :: NullOrUndefined (NonEmptyString) }) -> UnauthorizedException
+newUnauthorizedException' :: ({ "Message" :: Maybe (NonEmptyString) } -> { "Message" :: Maybe (NonEmptyString) }) -> UnauthorizedException
 ```
 
 Constructs UnauthorizedException's fields from required parameters
@@ -6638,7 +6638,7 @@ Constructs UnauthorizedException's fields from required parameters
 
 ``` purescript
 newtype UnsupportedRegionException
-  = UnsupportedRegionException { "Message" :: NullOrUndefined (NonEmptyString) }
+  = UnsupportedRegionException { "Message" :: Maybe (NonEmptyString) }
 ```
 
 <p>The requested operation is not supported in the region specified.</p>
@@ -6663,7 +6663,7 @@ Constructs UnsupportedRegionException from required parameters
 #### `newUnsupportedRegionException'`
 
 ``` purescript
-newUnsupportedRegionException' :: ({ "Message" :: NullOrUndefined (NonEmptyString) } -> { "Message" :: NullOrUndefined (NonEmptyString) }) -> UnsupportedRegionException
+newUnsupportedRegionException' :: ({ "Message" :: Maybe (NonEmptyString) } -> { "Message" :: Maybe (NonEmptyString) }) -> UnsupportedRegionException
 ```
 
 Constructs UnsupportedRegionException's fields from required parameters
@@ -6672,7 +6672,7 @@ Constructs UnsupportedRegionException's fields from required parameters
 
 ``` purescript
 newtype UpdateAliasInput
-  = UpdateAliasInput { "AliasId" :: AliasId, "Name" :: NullOrUndefined (NonBlankAndLengthConstraintString), "Description" :: NullOrUndefined (NonZeroAndMaxString), "RoutingStrategy" :: NullOrUndefined (RoutingStrategy) }
+  = UpdateAliasInput { "AliasId" :: AliasId, "Name" :: Maybe (NonBlankAndLengthConstraintString), "Description" :: Maybe (NonZeroAndMaxString), "RoutingStrategy" :: Maybe (RoutingStrategy) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -6697,7 +6697,7 @@ Constructs UpdateAliasInput from required parameters
 #### `newUpdateAliasInput'`
 
 ``` purescript
-newUpdateAliasInput' :: AliasId -> ({ "AliasId" :: AliasId, "Name" :: NullOrUndefined (NonBlankAndLengthConstraintString), "Description" :: NullOrUndefined (NonZeroAndMaxString), "RoutingStrategy" :: NullOrUndefined (RoutingStrategy) } -> { "AliasId" :: AliasId, "Name" :: NullOrUndefined (NonBlankAndLengthConstraintString), "Description" :: NullOrUndefined (NonZeroAndMaxString), "RoutingStrategy" :: NullOrUndefined (RoutingStrategy) }) -> UpdateAliasInput
+newUpdateAliasInput' :: AliasId -> ({ "AliasId" :: AliasId, "Name" :: Maybe (NonBlankAndLengthConstraintString), "Description" :: Maybe (NonZeroAndMaxString), "RoutingStrategy" :: Maybe (RoutingStrategy) } -> { "AliasId" :: AliasId, "Name" :: Maybe (NonBlankAndLengthConstraintString), "Description" :: Maybe (NonZeroAndMaxString), "RoutingStrategy" :: Maybe (RoutingStrategy) }) -> UpdateAliasInput
 ```
 
 Constructs UpdateAliasInput's fields from required parameters
@@ -6706,7 +6706,7 @@ Constructs UpdateAliasInput's fields from required parameters
 
 ``` purescript
 newtype UpdateAliasOutput
-  = UpdateAliasOutput { "Alias" :: NullOrUndefined (Alias) }
+  = UpdateAliasOutput { "Alias" :: Maybe (Alias) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -6731,7 +6731,7 @@ Constructs UpdateAliasOutput from required parameters
 #### `newUpdateAliasOutput'`
 
 ``` purescript
-newUpdateAliasOutput' :: ({ "Alias" :: NullOrUndefined (Alias) } -> { "Alias" :: NullOrUndefined (Alias) }) -> UpdateAliasOutput
+newUpdateAliasOutput' :: ({ "Alias" :: Maybe (Alias) } -> { "Alias" :: Maybe (Alias) }) -> UpdateAliasOutput
 ```
 
 Constructs UpdateAliasOutput's fields from required parameters
@@ -6740,7 +6740,7 @@ Constructs UpdateAliasOutput's fields from required parameters
 
 ``` purescript
 newtype UpdateBuildInput
-  = UpdateBuildInput { "BuildId" :: BuildId, "Name" :: NullOrUndefined (NonZeroAndMaxString), "Version" :: NullOrUndefined (NonZeroAndMaxString) }
+  = UpdateBuildInput { "BuildId" :: BuildId, "Name" :: Maybe (NonZeroAndMaxString), "Version" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -6765,7 +6765,7 @@ Constructs UpdateBuildInput from required parameters
 #### `newUpdateBuildInput'`
 
 ``` purescript
-newUpdateBuildInput' :: BuildId -> ({ "BuildId" :: BuildId, "Name" :: NullOrUndefined (NonZeroAndMaxString), "Version" :: NullOrUndefined (NonZeroAndMaxString) } -> { "BuildId" :: BuildId, "Name" :: NullOrUndefined (NonZeroAndMaxString), "Version" :: NullOrUndefined (NonZeroAndMaxString) }) -> UpdateBuildInput
+newUpdateBuildInput' :: BuildId -> ({ "BuildId" :: BuildId, "Name" :: Maybe (NonZeroAndMaxString), "Version" :: Maybe (NonZeroAndMaxString) } -> { "BuildId" :: BuildId, "Name" :: Maybe (NonZeroAndMaxString), "Version" :: Maybe (NonZeroAndMaxString) }) -> UpdateBuildInput
 ```
 
 Constructs UpdateBuildInput's fields from required parameters
@@ -6774,7 +6774,7 @@ Constructs UpdateBuildInput's fields from required parameters
 
 ``` purescript
 newtype UpdateBuildOutput
-  = UpdateBuildOutput { "Build" :: NullOrUndefined (Build) }
+  = UpdateBuildOutput { "Build" :: Maybe (Build) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -6799,7 +6799,7 @@ Constructs UpdateBuildOutput from required parameters
 #### `newUpdateBuildOutput'`
 
 ``` purescript
-newUpdateBuildOutput' :: ({ "Build" :: NullOrUndefined (Build) } -> { "Build" :: NullOrUndefined (Build) }) -> UpdateBuildOutput
+newUpdateBuildOutput' :: ({ "Build" :: Maybe (Build) } -> { "Build" :: Maybe (Build) }) -> UpdateBuildOutput
 ```
 
 Constructs UpdateBuildOutput's fields from required parameters
@@ -6808,7 +6808,7 @@ Constructs UpdateBuildOutput's fields from required parameters
 
 ``` purescript
 newtype UpdateFleetAttributesInput
-  = UpdateFleetAttributesInput { "FleetId" :: FleetId, "Name" :: NullOrUndefined (NonZeroAndMaxString), "Description" :: NullOrUndefined (NonZeroAndMaxString), "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy), "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy), "MetricGroups" :: NullOrUndefined (MetricGroupList) }
+  = UpdateFleetAttributesInput { "FleetId" :: FleetId, "Name" :: Maybe (NonZeroAndMaxString), "Description" :: Maybe (NonZeroAndMaxString), "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy), "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy), "MetricGroups" :: Maybe (MetricGroupList) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -6833,7 +6833,7 @@ Constructs UpdateFleetAttributesInput from required parameters
 #### `newUpdateFleetAttributesInput'`
 
 ``` purescript
-newUpdateFleetAttributesInput' :: FleetId -> ({ "FleetId" :: FleetId, "Name" :: NullOrUndefined (NonZeroAndMaxString), "Description" :: NullOrUndefined (NonZeroAndMaxString), "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy), "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy), "MetricGroups" :: NullOrUndefined (MetricGroupList) } -> { "FleetId" :: FleetId, "Name" :: NullOrUndefined (NonZeroAndMaxString), "Description" :: NullOrUndefined (NonZeroAndMaxString), "NewGameSessionProtectionPolicy" :: NullOrUndefined (ProtectionPolicy), "ResourceCreationLimitPolicy" :: NullOrUndefined (ResourceCreationLimitPolicy), "MetricGroups" :: NullOrUndefined (MetricGroupList) }) -> UpdateFleetAttributesInput
+newUpdateFleetAttributesInput' :: FleetId -> ({ "FleetId" :: FleetId, "Name" :: Maybe (NonZeroAndMaxString), "Description" :: Maybe (NonZeroAndMaxString), "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy), "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy), "MetricGroups" :: Maybe (MetricGroupList) } -> { "FleetId" :: FleetId, "Name" :: Maybe (NonZeroAndMaxString), "Description" :: Maybe (NonZeroAndMaxString), "NewGameSessionProtectionPolicy" :: Maybe (ProtectionPolicy), "ResourceCreationLimitPolicy" :: Maybe (ResourceCreationLimitPolicy), "MetricGroups" :: Maybe (MetricGroupList) }) -> UpdateFleetAttributesInput
 ```
 
 Constructs UpdateFleetAttributesInput's fields from required parameters
@@ -6842,7 +6842,7 @@ Constructs UpdateFleetAttributesInput's fields from required parameters
 
 ``` purescript
 newtype UpdateFleetAttributesOutput
-  = UpdateFleetAttributesOutput { "FleetId" :: NullOrUndefined (FleetId) }
+  = UpdateFleetAttributesOutput { "FleetId" :: Maybe (FleetId) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -6867,7 +6867,7 @@ Constructs UpdateFleetAttributesOutput from required parameters
 #### `newUpdateFleetAttributesOutput'`
 
 ``` purescript
-newUpdateFleetAttributesOutput' :: ({ "FleetId" :: NullOrUndefined (FleetId) } -> { "FleetId" :: NullOrUndefined (FleetId) }) -> UpdateFleetAttributesOutput
+newUpdateFleetAttributesOutput' :: ({ "FleetId" :: Maybe (FleetId) } -> { "FleetId" :: Maybe (FleetId) }) -> UpdateFleetAttributesOutput
 ```
 
 Constructs UpdateFleetAttributesOutput's fields from required parameters
@@ -6876,7 +6876,7 @@ Constructs UpdateFleetAttributesOutput's fields from required parameters
 
 ``` purescript
 newtype UpdateFleetCapacityInput
-  = UpdateFleetCapacityInput { "FleetId" :: FleetId, "DesiredInstances" :: NullOrUndefined (WholeNumber), "MinSize" :: NullOrUndefined (WholeNumber), "MaxSize" :: NullOrUndefined (WholeNumber) }
+  = UpdateFleetCapacityInput { "FleetId" :: FleetId, "DesiredInstances" :: Maybe (WholeNumber), "MinSize" :: Maybe (WholeNumber), "MaxSize" :: Maybe (WholeNumber) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -6901,7 +6901,7 @@ Constructs UpdateFleetCapacityInput from required parameters
 #### `newUpdateFleetCapacityInput'`
 
 ``` purescript
-newUpdateFleetCapacityInput' :: FleetId -> ({ "FleetId" :: FleetId, "DesiredInstances" :: NullOrUndefined (WholeNumber), "MinSize" :: NullOrUndefined (WholeNumber), "MaxSize" :: NullOrUndefined (WholeNumber) } -> { "FleetId" :: FleetId, "DesiredInstances" :: NullOrUndefined (WholeNumber), "MinSize" :: NullOrUndefined (WholeNumber), "MaxSize" :: NullOrUndefined (WholeNumber) }) -> UpdateFleetCapacityInput
+newUpdateFleetCapacityInput' :: FleetId -> ({ "FleetId" :: FleetId, "DesiredInstances" :: Maybe (WholeNumber), "MinSize" :: Maybe (WholeNumber), "MaxSize" :: Maybe (WholeNumber) } -> { "FleetId" :: FleetId, "DesiredInstances" :: Maybe (WholeNumber), "MinSize" :: Maybe (WholeNumber), "MaxSize" :: Maybe (WholeNumber) }) -> UpdateFleetCapacityInput
 ```
 
 Constructs UpdateFleetCapacityInput's fields from required parameters
@@ -6910,7 +6910,7 @@ Constructs UpdateFleetCapacityInput's fields from required parameters
 
 ``` purescript
 newtype UpdateFleetCapacityOutput
-  = UpdateFleetCapacityOutput { "FleetId" :: NullOrUndefined (FleetId) }
+  = UpdateFleetCapacityOutput { "FleetId" :: Maybe (FleetId) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -6935,7 +6935,7 @@ Constructs UpdateFleetCapacityOutput from required parameters
 #### `newUpdateFleetCapacityOutput'`
 
 ``` purescript
-newUpdateFleetCapacityOutput' :: ({ "FleetId" :: NullOrUndefined (FleetId) } -> { "FleetId" :: NullOrUndefined (FleetId) }) -> UpdateFleetCapacityOutput
+newUpdateFleetCapacityOutput' :: ({ "FleetId" :: Maybe (FleetId) } -> { "FleetId" :: Maybe (FleetId) }) -> UpdateFleetCapacityOutput
 ```
 
 Constructs UpdateFleetCapacityOutput's fields from required parameters
@@ -6944,7 +6944,7 @@ Constructs UpdateFleetCapacityOutput's fields from required parameters
 
 ``` purescript
 newtype UpdateFleetPortSettingsInput
-  = UpdateFleetPortSettingsInput { "FleetId" :: FleetId, "InboundPermissionAuthorizations" :: NullOrUndefined (IpPermissionsList), "InboundPermissionRevocations" :: NullOrUndefined (IpPermissionsList) }
+  = UpdateFleetPortSettingsInput { "FleetId" :: FleetId, "InboundPermissionAuthorizations" :: Maybe (IpPermissionsList), "InboundPermissionRevocations" :: Maybe (IpPermissionsList) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -6969,7 +6969,7 @@ Constructs UpdateFleetPortSettingsInput from required parameters
 #### `newUpdateFleetPortSettingsInput'`
 
 ``` purescript
-newUpdateFleetPortSettingsInput' :: FleetId -> ({ "FleetId" :: FleetId, "InboundPermissionAuthorizations" :: NullOrUndefined (IpPermissionsList), "InboundPermissionRevocations" :: NullOrUndefined (IpPermissionsList) } -> { "FleetId" :: FleetId, "InboundPermissionAuthorizations" :: NullOrUndefined (IpPermissionsList), "InboundPermissionRevocations" :: NullOrUndefined (IpPermissionsList) }) -> UpdateFleetPortSettingsInput
+newUpdateFleetPortSettingsInput' :: FleetId -> ({ "FleetId" :: FleetId, "InboundPermissionAuthorizations" :: Maybe (IpPermissionsList), "InboundPermissionRevocations" :: Maybe (IpPermissionsList) } -> { "FleetId" :: FleetId, "InboundPermissionAuthorizations" :: Maybe (IpPermissionsList), "InboundPermissionRevocations" :: Maybe (IpPermissionsList) }) -> UpdateFleetPortSettingsInput
 ```
 
 Constructs UpdateFleetPortSettingsInput's fields from required parameters
@@ -6978,7 +6978,7 @@ Constructs UpdateFleetPortSettingsInput's fields from required parameters
 
 ``` purescript
 newtype UpdateFleetPortSettingsOutput
-  = UpdateFleetPortSettingsOutput { "FleetId" :: NullOrUndefined (FleetId) }
+  = UpdateFleetPortSettingsOutput { "FleetId" :: Maybe (FleetId) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -7003,7 +7003,7 @@ Constructs UpdateFleetPortSettingsOutput from required parameters
 #### `newUpdateFleetPortSettingsOutput'`
 
 ``` purescript
-newUpdateFleetPortSettingsOutput' :: ({ "FleetId" :: NullOrUndefined (FleetId) } -> { "FleetId" :: NullOrUndefined (FleetId) }) -> UpdateFleetPortSettingsOutput
+newUpdateFleetPortSettingsOutput' :: ({ "FleetId" :: Maybe (FleetId) } -> { "FleetId" :: Maybe (FleetId) }) -> UpdateFleetPortSettingsOutput
 ```
 
 Constructs UpdateFleetPortSettingsOutput's fields from required parameters
@@ -7012,7 +7012,7 @@ Constructs UpdateFleetPortSettingsOutput's fields from required parameters
 
 ``` purescript
 newtype UpdateGameSessionInput
-  = UpdateGameSessionInput { "GameSessionId" :: ArnStringModel, "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber), "Name" :: NullOrUndefined (NonZeroAndMaxString), "PlayerSessionCreationPolicy" :: NullOrUndefined (PlayerSessionCreationPolicy), "ProtectionPolicy" :: NullOrUndefined (ProtectionPolicy) }
+  = UpdateGameSessionInput { "GameSessionId" :: ArnStringModel, "MaximumPlayerSessionCount" :: Maybe (WholeNumber), "Name" :: Maybe (NonZeroAndMaxString), "PlayerSessionCreationPolicy" :: Maybe (PlayerSessionCreationPolicy), "ProtectionPolicy" :: Maybe (ProtectionPolicy) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -7037,7 +7037,7 @@ Constructs UpdateGameSessionInput from required parameters
 #### `newUpdateGameSessionInput'`
 
 ``` purescript
-newUpdateGameSessionInput' :: ArnStringModel -> ({ "GameSessionId" :: ArnStringModel, "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber), "Name" :: NullOrUndefined (NonZeroAndMaxString), "PlayerSessionCreationPolicy" :: NullOrUndefined (PlayerSessionCreationPolicy), "ProtectionPolicy" :: NullOrUndefined (ProtectionPolicy) } -> { "GameSessionId" :: ArnStringModel, "MaximumPlayerSessionCount" :: NullOrUndefined (WholeNumber), "Name" :: NullOrUndefined (NonZeroAndMaxString), "PlayerSessionCreationPolicy" :: NullOrUndefined (PlayerSessionCreationPolicy), "ProtectionPolicy" :: NullOrUndefined (ProtectionPolicy) }) -> UpdateGameSessionInput
+newUpdateGameSessionInput' :: ArnStringModel -> ({ "GameSessionId" :: ArnStringModel, "MaximumPlayerSessionCount" :: Maybe (WholeNumber), "Name" :: Maybe (NonZeroAndMaxString), "PlayerSessionCreationPolicy" :: Maybe (PlayerSessionCreationPolicy), "ProtectionPolicy" :: Maybe (ProtectionPolicy) } -> { "GameSessionId" :: ArnStringModel, "MaximumPlayerSessionCount" :: Maybe (WholeNumber), "Name" :: Maybe (NonZeroAndMaxString), "PlayerSessionCreationPolicy" :: Maybe (PlayerSessionCreationPolicy), "ProtectionPolicy" :: Maybe (ProtectionPolicy) }) -> UpdateGameSessionInput
 ```
 
 Constructs UpdateGameSessionInput's fields from required parameters
@@ -7046,7 +7046,7 @@ Constructs UpdateGameSessionInput's fields from required parameters
 
 ``` purescript
 newtype UpdateGameSessionOutput
-  = UpdateGameSessionOutput { "GameSession" :: NullOrUndefined (GameSession) }
+  = UpdateGameSessionOutput { "GameSession" :: Maybe (GameSession) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -7071,7 +7071,7 @@ Constructs UpdateGameSessionOutput from required parameters
 #### `newUpdateGameSessionOutput'`
 
 ``` purescript
-newUpdateGameSessionOutput' :: ({ "GameSession" :: NullOrUndefined (GameSession) } -> { "GameSession" :: NullOrUndefined (GameSession) }) -> UpdateGameSessionOutput
+newUpdateGameSessionOutput' :: ({ "GameSession" :: Maybe (GameSession) } -> { "GameSession" :: Maybe (GameSession) }) -> UpdateGameSessionOutput
 ```
 
 Constructs UpdateGameSessionOutput's fields from required parameters
@@ -7080,7 +7080,7 @@ Constructs UpdateGameSessionOutput's fields from required parameters
 
 ``` purescript
 newtype UpdateGameSessionQueueInput
-  = UpdateGameSessionQueueInput { "Name" :: GameSessionQueueName, "TimeoutInSeconds" :: NullOrUndefined (WholeNumber), "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList), "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList) }
+  = UpdateGameSessionQueueInput { "Name" :: GameSessionQueueName, "TimeoutInSeconds" :: Maybe (WholeNumber), "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList), "Destinations" :: Maybe (GameSessionQueueDestinationList) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -7105,7 +7105,7 @@ Constructs UpdateGameSessionQueueInput from required parameters
 #### `newUpdateGameSessionQueueInput'`
 
 ``` purescript
-newUpdateGameSessionQueueInput' :: GameSessionQueueName -> ({ "Name" :: GameSessionQueueName, "TimeoutInSeconds" :: NullOrUndefined (WholeNumber), "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList), "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList) } -> { "Name" :: GameSessionQueueName, "TimeoutInSeconds" :: NullOrUndefined (WholeNumber), "PlayerLatencyPolicies" :: NullOrUndefined (PlayerLatencyPolicyList), "Destinations" :: NullOrUndefined (GameSessionQueueDestinationList) }) -> UpdateGameSessionQueueInput
+newUpdateGameSessionQueueInput' :: GameSessionQueueName -> ({ "Name" :: GameSessionQueueName, "TimeoutInSeconds" :: Maybe (WholeNumber), "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList), "Destinations" :: Maybe (GameSessionQueueDestinationList) } -> { "Name" :: GameSessionQueueName, "TimeoutInSeconds" :: Maybe (WholeNumber), "PlayerLatencyPolicies" :: Maybe (PlayerLatencyPolicyList), "Destinations" :: Maybe (GameSessionQueueDestinationList) }) -> UpdateGameSessionQueueInput
 ```
 
 Constructs UpdateGameSessionQueueInput's fields from required parameters
@@ -7114,7 +7114,7 @@ Constructs UpdateGameSessionQueueInput's fields from required parameters
 
 ``` purescript
 newtype UpdateGameSessionQueueOutput
-  = UpdateGameSessionQueueOutput { "GameSessionQueue" :: NullOrUndefined (GameSessionQueue) }
+  = UpdateGameSessionQueueOutput { "GameSessionQueue" :: Maybe (GameSessionQueue) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -7139,7 +7139,7 @@ Constructs UpdateGameSessionQueueOutput from required parameters
 #### `newUpdateGameSessionQueueOutput'`
 
 ``` purescript
-newUpdateGameSessionQueueOutput' :: ({ "GameSessionQueue" :: NullOrUndefined (GameSessionQueue) } -> { "GameSessionQueue" :: NullOrUndefined (GameSessionQueue) }) -> UpdateGameSessionQueueOutput
+newUpdateGameSessionQueueOutput' :: ({ "GameSessionQueue" :: Maybe (GameSessionQueue) } -> { "GameSessionQueue" :: Maybe (GameSessionQueue) }) -> UpdateGameSessionQueueOutput
 ```
 
 Constructs UpdateGameSessionQueueOutput's fields from required parameters
@@ -7148,7 +7148,7 @@ Constructs UpdateGameSessionQueueOutput's fields from required parameters
 
 ``` purescript
 newtype UpdateMatchmakingConfigurationInput
-  = UpdateMatchmakingConfigurationInput { "Name" :: MatchmakingIdStringModel, "Description" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionQueueArns" :: NullOrUndefined (QueueArnsList), "RequestTimeoutSeconds" :: NullOrUndefined (MatchmakingRequestTimeoutInteger), "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: NullOrUndefined (BooleanModel), "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel), "NotificationTarget" :: NullOrUndefined (SnsArnStringModel), "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber), "CustomEventData" :: NullOrUndefined (CustomEventData), "GameProperties" :: NullOrUndefined (GamePropertyList), "GameSessionData" :: NullOrUndefined (GameSessionData) }
+  = UpdateMatchmakingConfigurationInput { "Name" :: MatchmakingIdStringModel, "Description" :: Maybe (NonZeroAndMaxString), "GameSessionQueueArns" :: Maybe (QueueArnsList), "RequestTimeoutSeconds" :: Maybe (MatchmakingRequestTimeoutInteger), "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: Maybe (BooleanModel), "RuleSetName" :: Maybe (MatchmakingIdStringModel), "NotificationTarget" :: Maybe (SnsArnStringModel), "AdditionalPlayerCount" :: Maybe (WholeNumber), "CustomEventData" :: Maybe (CustomEventData), "GameProperties" :: Maybe (GamePropertyList), "GameSessionData" :: Maybe (GameSessionData) }
 ```
 
 <p>Represents the input for a request action.</p>
@@ -7173,7 +7173,7 @@ Constructs UpdateMatchmakingConfigurationInput from required parameters
 #### `newUpdateMatchmakingConfigurationInput'`
 
 ``` purescript
-newUpdateMatchmakingConfigurationInput' :: MatchmakingIdStringModel -> ({ "Name" :: MatchmakingIdStringModel, "Description" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionQueueArns" :: NullOrUndefined (QueueArnsList), "RequestTimeoutSeconds" :: NullOrUndefined (MatchmakingRequestTimeoutInteger), "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: NullOrUndefined (BooleanModel), "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel), "NotificationTarget" :: NullOrUndefined (SnsArnStringModel), "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber), "CustomEventData" :: NullOrUndefined (CustomEventData), "GameProperties" :: NullOrUndefined (GamePropertyList), "GameSessionData" :: NullOrUndefined (GameSessionData) } -> { "Name" :: MatchmakingIdStringModel, "Description" :: NullOrUndefined (NonZeroAndMaxString), "GameSessionQueueArns" :: NullOrUndefined (QueueArnsList), "RequestTimeoutSeconds" :: NullOrUndefined (MatchmakingRequestTimeoutInteger), "AcceptanceTimeoutSeconds" :: NullOrUndefined (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: NullOrUndefined (BooleanModel), "RuleSetName" :: NullOrUndefined (MatchmakingIdStringModel), "NotificationTarget" :: NullOrUndefined (SnsArnStringModel), "AdditionalPlayerCount" :: NullOrUndefined (WholeNumber), "CustomEventData" :: NullOrUndefined (CustomEventData), "GameProperties" :: NullOrUndefined (GamePropertyList), "GameSessionData" :: NullOrUndefined (GameSessionData) }) -> UpdateMatchmakingConfigurationInput
+newUpdateMatchmakingConfigurationInput' :: MatchmakingIdStringModel -> ({ "Name" :: MatchmakingIdStringModel, "Description" :: Maybe (NonZeroAndMaxString), "GameSessionQueueArns" :: Maybe (QueueArnsList), "RequestTimeoutSeconds" :: Maybe (MatchmakingRequestTimeoutInteger), "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: Maybe (BooleanModel), "RuleSetName" :: Maybe (MatchmakingIdStringModel), "NotificationTarget" :: Maybe (SnsArnStringModel), "AdditionalPlayerCount" :: Maybe (WholeNumber), "CustomEventData" :: Maybe (CustomEventData), "GameProperties" :: Maybe (GamePropertyList), "GameSessionData" :: Maybe (GameSessionData) } -> { "Name" :: MatchmakingIdStringModel, "Description" :: Maybe (NonZeroAndMaxString), "GameSessionQueueArns" :: Maybe (QueueArnsList), "RequestTimeoutSeconds" :: Maybe (MatchmakingRequestTimeoutInteger), "AcceptanceTimeoutSeconds" :: Maybe (MatchmakingAcceptanceTimeoutInteger), "AcceptanceRequired" :: Maybe (BooleanModel), "RuleSetName" :: Maybe (MatchmakingIdStringModel), "NotificationTarget" :: Maybe (SnsArnStringModel), "AdditionalPlayerCount" :: Maybe (WholeNumber), "CustomEventData" :: Maybe (CustomEventData), "GameProperties" :: Maybe (GamePropertyList), "GameSessionData" :: Maybe (GameSessionData) }) -> UpdateMatchmakingConfigurationInput
 ```
 
 Constructs UpdateMatchmakingConfigurationInput's fields from required parameters
@@ -7182,7 +7182,7 @@ Constructs UpdateMatchmakingConfigurationInput's fields from required parameters
 
 ``` purescript
 newtype UpdateMatchmakingConfigurationOutput
-  = UpdateMatchmakingConfigurationOutput { "Configuration" :: NullOrUndefined (MatchmakingConfiguration) }
+  = UpdateMatchmakingConfigurationOutput { "Configuration" :: Maybe (MatchmakingConfiguration) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -7207,7 +7207,7 @@ Constructs UpdateMatchmakingConfigurationOutput from required parameters
 #### `newUpdateMatchmakingConfigurationOutput'`
 
 ``` purescript
-newUpdateMatchmakingConfigurationOutput' :: ({ "Configuration" :: NullOrUndefined (MatchmakingConfiguration) } -> { "Configuration" :: NullOrUndefined (MatchmakingConfiguration) }) -> UpdateMatchmakingConfigurationOutput
+newUpdateMatchmakingConfigurationOutput' :: ({ "Configuration" :: Maybe (MatchmakingConfiguration) } -> { "Configuration" :: Maybe (MatchmakingConfiguration) }) -> UpdateMatchmakingConfigurationOutput
 ```
 
 Constructs UpdateMatchmakingConfigurationOutput's fields from required parameters
@@ -7250,7 +7250,7 @@ Constructs UpdateRuntimeConfigurationInput's fields from required parameters
 
 ``` purescript
 newtype UpdateRuntimeConfigurationOutput
-  = UpdateRuntimeConfigurationOutput { "RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration) }
+  = UpdateRuntimeConfigurationOutput { "RuntimeConfiguration" :: Maybe (RuntimeConfiguration) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -7275,7 +7275,7 @@ Constructs UpdateRuntimeConfigurationOutput from required parameters
 #### `newUpdateRuntimeConfigurationOutput'`
 
 ``` purescript
-newUpdateRuntimeConfigurationOutput' :: ({ "RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration) } -> { "RuntimeConfiguration" :: NullOrUndefined (RuntimeConfiguration) }) -> UpdateRuntimeConfigurationOutput
+newUpdateRuntimeConfigurationOutput' :: ({ "RuntimeConfiguration" :: Maybe (RuntimeConfiguration) } -> { "RuntimeConfiguration" :: Maybe (RuntimeConfiguration) }) -> UpdateRuntimeConfigurationOutput
 ```
 
 Constructs UpdateRuntimeConfigurationOutput's fields from required parameters
@@ -7318,7 +7318,7 @@ Constructs ValidateMatchmakingRuleSetInput's fields from required parameters
 
 ``` purescript
 newtype ValidateMatchmakingRuleSetOutput
-  = ValidateMatchmakingRuleSetOutput { "Valid" :: NullOrUndefined (BooleanModel) }
+  = ValidateMatchmakingRuleSetOutput { "Valid" :: Maybe (BooleanModel) }
 ```
 
 <p>Represents the returned data in response to a request action.</p>
@@ -7343,7 +7343,7 @@ Constructs ValidateMatchmakingRuleSetOutput from required parameters
 #### `newValidateMatchmakingRuleSetOutput'`
 
 ``` purescript
-newValidateMatchmakingRuleSetOutput' :: ({ "Valid" :: NullOrUndefined (BooleanModel) } -> { "Valid" :: NullOrUndefined (BooleanModel) }) -> ValidateMatchmakingRuleSetOutput
+newValidateMatchmakingRuleSetOutput' :: ({ "Valid" :: Maybe (BooleanModel) } -> { "Valid" :: Maybe (BooleanModel) }) -> ValidateMatchmakingRuleSetOutput
 ```
 
 Constructs ValidateMatchmakingRuleSetOutput's fields from required parameters
@@ -7352,7 +7352,7 @@ Constructs ValidateMatchmakingRuleSetOutput's fields from required parameters
 
 ``` purescript
 newtype VpcPeeringAuthorization
-  = VpcPeeringAuthorization { "GameLiftAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString), "PeerVpcAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString), "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString), "CreationTime" :: NullOrUndefined (Timestamp), "ExpirationTime" :: NullOrUndefined (Timestamp) }
+  = VpcPeeringAuthorization { "GameLiftAwsAccountId" :: Maybe (NonZeroAndMaxString), "PeerVpcAwsAccountId" :: Maybe (NonZeroAndMaxString), "PeerVpcId" :: Maybe (NonZeroAndMaxString), "CreationTime" :: Maybe (Timestamp), "ExpirationTime" :: Maybe (Timestamp) }
 ```
 
 <p>Represents an authorization for a VPC peering connection between the VPC for an Amazon GameLift fleet and another VPC on an account you have access to. This authorization must exist and be valid for the peering connection to be established. Authorizations are valid for 24 hours after they are issued.</p> <p>VPC peering connection operations include:</p> <ul> <li> <p> <a>CreateVpcPeeringAuthorization</a> </p> </li> <li> <p> <a>DescribeVpcPeeringAuthorizations</a> </p> </li> <li> <p> <a>DeleteVpcPeeringAuthorization</a> </p> </li> <li> <p> <a>CreateVpcPeeringConnection</a> </p> </li> <li> <p> <a>DescribeVpcPeeringConnections</a> </p> </li> <li> <p> <a>DeleteVpcPeeringConnection</a> </p> </li> </ul>
@@ -7377,7 +7377,7 @@ Constructs VpcPeeringAuthorization from required parameters
 #### `newVpcPeeringAuthorization'`
 
 ``` purescript
-newVpcPeeringAuthorization' :: ({ "GameLiftAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString), "PeerVpcAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString), "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString), "CreationTime" :: NullOrUndefined (Timestamp), "ExpirationTime" :: NullOrUndefined (Timestamp) } -> { "GameLiftAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString), "PeerVpcAwsAccountId" :: NullOrUndefined (NonZeroAndMaxString), "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString), "CreationTime" :: NullOrUndefined (Timestamp), "ExpirationTime" :: NullOrUndefined (Timestamp) }) -> VpcPeeringAuthorization
+newVpcPeeringAuthorization' :: ({ "GameLiftAwsAccountId" :: Maybe (NonZeroAndMaxString), "PeerVpcAwsAccountId" :: Maybe (NonZeroAndMaxString), "PeerVpcId" :: Maybe (NonZeroAndMaxString), "CreationTime" :: Maybe (Timestamp), "ExpirationTime" :: Maybe (Timestamp) } -> { "GameLiftAwsAccountId" :: Maybe (NonZeroAndMaxString), "PeerVpcAwsAccountId" :: Maybe (NonZeroAndMaxString), "PeerVpcId" :: Maybe (NonZeroAndMaxString), "CreationTime" :: Maybe (Timestamp), "ExpirationTime" :: Maybe (Timestamp) }) -> VpcPeeringAuthorization
 ```
 
 Constructs VpcPeeringAuthorization's fields from required parameters
@@ -7402,7 +7402,7 @@ Encode VpcPeeringAuthorizationList
 
 ``` purescript
 newtype VpcPeeringConnection
-  = VpcPeeringConnection { "FleetId" :: NullOrUndefined (FleetId), "IpV4CidrBlock" :: NullOrUndefined (NonZeroAndMaxString), "VpcPeeringConnectionId" :: NullOrUndefined (NonZeroAndMaxString), "Status" :: NullOrUndefined (VpcPeeringConnectionStatus), "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString), "GameLiftVpcId" :: NullOrUndefined (NonZeroAndMaxString) }
+  = VpcPeeringConnection { "FleetId" :: Maybe (FleetId), "IpV4CidrBlock" :: Maybe (NonZeroAndMaxString), "VpcPeeringConnectionId" :: Maybe (NonZeroAndMaxString), "Status" :: Maybe (VpcPeeringConnectionStatus), "PeerVpcId" :: Maybe (NonZeroAndMaxString), "GameLiftVpcId" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents a peering connection between a VPC on one of your AWS accounts and the VPC for your Amazon GameLift fleets. This record may be for an active peering connection or a pending connection that has not yet been established.</p> <p>VPC peering connection operations include:</p> <ul> <li> <p> <a>CreateVpcPeeringAuthorization</a> </p> </li> <li> <p> <a>DescribeVpcPeeringAuthorizations</a> </p> </li> <li> <p> <a>DeleteVpcPeeringAuthorization</a> </p> </li> <li> <p> <a>CreateVpcPeeringConnection</a> </p> </li> <li> <p> <a>DescribeVpcPeeringConnections</a> </p> </li> <li> <p> <a>DeleteVpcPeeringConnection</a> </p> </li> </ul>
@@ -7427,7 +7427,7 @@ Constructs VpcPeeringConnection from required parameters
 #### `newVpcPeeringConnection'`
 
 ``` purescript
-newVpcPeeringConnection' :: ({ "FleetId" :: NullOrUndefined (FleetId), "IpV4CidrBlock" :: NullOrUndefined (NonZeroAndMaxString), "VpcPeeringConnectionId" :: NullOrUndefined (NonZeroAndMaxString), "Status" :: NullOrUndefined (VpcPeeringConnectionStatus), "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString), "GameLiftVpcId" :: NullOrUndefined (NonZeroAndMaxString) } -> { "FleetId" :: NullOrUndefined (FleetId), "IpV4CidrBlock" :: NullOrUndefined (NonZeroAndMaxString), "VpcPeeringConnectionId" :: NullOrUndefined (NonZeroAndMaxString), "Status" :: NullOrUndefined (VpcPeeringConnectionStatus), "PeerVpcId" :: NullOrUndefined (NonZeroAndMaxString), "GameLiftVpcId" :: NullOrUndefined (NonZeroAndMaxString) }) -> VpcPeeringConnection
+newVpcPeeringConnection' :: ({ "FleetId" :: Maybe (FleetId), "IpV4CidrBlock" :: Maybe (NonZeroAndMaxString), "VpcPeeringConnectionId" :: Maybe (NonZeroAndMaxString), "Status" :: Maybe (VpcPeeringConnectionStatus), "PeerVpcId" :: Maybe (NonZeroAndMaxString), "GameLiftVpcId" :: Maybe (NonZeroAndMaxString) } -> { "FleetId" :: Maybe (FleetId), "IpV4CidrBlock" :: Maybe (NonZeroAndMaxString), "VpcPeeringConnectionId" :: Maybe (NonZeroAndMaxString), "Status" :: Maybe (VpcPeeringConnectionStatus), "PeerVpcId" :: Maybe (NonZeroAndMaxString), "GameLiftVpcId" :: Maybe (NonZeroAndMaxString) }) -> VpcPeeringConnection
 ```
 
 Constructs VpcPeeringConnection's fields from required parameters
@@ -7452,7 +7452,7 @@ Encode VpcPeeringConnectionList
 
 ``` purescript
 newtype VpcPeeringConnectionStatus
-  = VpcPeeringConnectionStatus { "Code" :: NullOrUndefined (NonZeroAndMaxString), "Message" :: NullOrUndefined (NonZeroAndMaxString) }
+  = VpcPeeringConnectionStatus { "Code" :: Maybe (NonZeroAndMaxString), "Message" :: Maybe (NonZeroAndMaxString) }
 ```
 
 <p>Represents status information for a VPC peering connection. Status is associated with a <a>VpcPeeringConnection</a> object. Status codes and messages are provided from EC2 (see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpcPeeringConnectionStateReason.html">VpcPeeringConnectionStateReason</a>). Connection status information is also communicated as a fleet <a>Event</a>.</p>
@@ -7477,7 +7477,7 @@ Constructs VpcPeeringConnectionStatus from required parameters
 #### `newVpcPeeringConnectionStatus'`
 
 ``` purescript
-newVpcPeeringConnectionStatus' :: ({ "Code" :: NullOrUndefined (NonZeroAndMaxString), "Message" :: NullOrUndefined (NonZeroAndMaxString) } -> { "Code" :: NullOrUndefined (NonZeroAndMaxString), "Message" :: NullOrUndefined (NonZeroAndMaxString) }) -> VpcPeeringConnectionStatus
+newVpcPeeringConnectionStatus' :: ({ "Code" :: Maybe (NonZeroAndMaxString), "Message" :: Maybe (NonZeroAndMaxString) } -> { "Code" :: Maybe (NonZeroAndMaxString), "Message" :: Maybe (NonZeroAndMaxString) }) -> VpcPeeringConnectionStatus
 ```
 
 Constructs VpcPeeringConnectionStatus's fields from required parameters

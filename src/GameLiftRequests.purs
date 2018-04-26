@@ -85,19 +85,19 @@ createVpcPeeringConnection (GameLift.Service serviceImpl) = AWS.request serviceI
 
 
 -- | <p>Deletes an alias. This action removes all record of the alias. Game clients attempting to access a server process using the deleted alias receive an error. To delete an alias, specify the alias ID to be deleted.</p> <p>Alias-related operations include:</p> <ul> <li> <p> <a>CreateAlias</a> </p> </li> <li> <p> <a>ListAliases</a> </p> </li> <li> <p> <a>DescribeAlias</a> </p> </li> <li> <p> <a>UpdateAlias</a> </p> </li> <li> <p> <a>DeleteAlias</a> </p> </li> <li> <p> <a>ResolveAlias</a> </p> </li> </ul>
-deleteAlias :: forall eff. GameLift.Service -> GameLiftTypes.DeleteAliasInput -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteAlias :: forall eff. GameLift.Service -> GameLiftTypes.DeleteAliasInput -> Aff (exception :: EXCEPTION | eff) Unit
 deleteAlias (GameLift.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteAlias"
 
 
 -- | <p>Deletes a build. This action permanently deletes the build record and any uploaded build files.</p> <p>To delete a build, specify its ID. Deleting a build does not affect the status of any active fleets using the build, but you can no longer create new fleets with the deleted build.</p> <p>Build-related operations include:</p> <ul> <li> <p> <a>CreateBuild</a> </p> </li> <li> <p> <a>ListBuilds</a> </p> </li> <li> <p> <a>DescribeBuild</a> </p> </li> <li> <p> <a>UpdateBuild</a> </p> </li> <li> <p> <a>DeleteBuild</a> </p> </li> </ul>
-deleteBuild :: forall eff. GameLift.Service -> GameLiftTypes.DeleteBuildInput -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteBuild :: forall eff. GameLift.Service -> GameLiftTypes.DeleteBuildInput -> Aff (exception :: EXCEPTION | eff) Unit
 deleteBuild (GameLift.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteBuild"
 
 
 -- | <p>Deletes everything related to a fleet. Before deleting a fleet, you must set the fleet's desired capacity to zero. See <a>UpdateFleetCapacity</a>.</p> <p>This action removes the fleet's resources and the fleet record. Once a fleet is deleted, you can no longer use that fleet.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
-deleteFleet :: forall eff. GameLift.Service -> GameLiftTypes.DeleteFleetInput -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteFleet :: forall eff. GameLift.Service -> GameLiftTypes.DeleteFleetInput -> Aff (exception :: EXCEPTION | eff) Unit
 deleteFleet (GameLift.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteFleet"
 
@@ -115,7 +115,7 @@ deleteMatchmakingConfiguration (GameLift.Service serviceImpl) = AWS.request serv
 
 
 -- | <p>Deletes a fleet scaling policy. This action means that the policy is no longer in force and removes all record of it. To delete a scaling policy, specify both the scaling policy name and the fleet ID it is associated with.</p> <p>Fleet-related operations include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p> <a>DescribeFleetUtilization</a> </p> </li> <li> <p> <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a> </p> </li> </ul> </li> <li> <p>Update fleets:</p> <ul> <li> <p> <a>UpdateFleetAttributes</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetPortSettings</a> </p> </li> <li> <p> <a>UpdateRuntimeConfiguration</a> </p> </li> </ul> </li> <li> <p>Manage fleet capacity:</p> <ul> <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p> <a>UpdateFleetCapacity</a> </p> </li> <li> <p> <a>PutScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeScalingPolicies</a> (automatic scaling)</p> </li> <li> <p> <a>DeleteScalingPolicy</a> (automatic scaling)</p> </li> <li> <p> <a>DescribeEC2InstanceLimits</a> </p> </li> </ul> </li> <li> <p> <a>DeleteFleet</a> </p> </li> </ul>
-deleteScalingPolicy :: forall eff. GameLift.Service -> GameLiftTypes.DeleteScalingPolicyInput -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteScalingPolicy :: forall eff. GameLift.Service -> GameLiftTypes.DeleteScalingPolicyInput -> Aff (exception :: EXCEPTION | eff) Unit
 deleteScalingPolicy (GameLift.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteScalingPolicy"
 
